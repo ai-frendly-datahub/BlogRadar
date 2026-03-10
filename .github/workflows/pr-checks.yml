@@ -1,0 +1,27 @@
+name: BlogRadar PR Checks
+on:
+  pull_request:
+    branches: [main]
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: 'pip'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -e . 2>&1 || echo "::warning::pip install -e . failed"
+      - name: Lint
+        run: |
+          ruff check blogradar/ tests/
+          black --check blogradar/ tests/
+      - name: Type check
+        run: mypy blogradar/
+        continue-on-error: true
+      - name: Unit tests
+        run: pytest tests/unit -v --tb=short
