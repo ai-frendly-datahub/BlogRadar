@@ -36,7 +36,7 @@ jobs:
           pip install -r requirements.txt
       - name: Run BlogRadar
         run: |
-          python main.py --category "${{ env.RADAR_CATEGORY }}" --recent-days 7 --keep-days 90 --generate-report
+          python main.py --category "${{ env.RADAR_CATEGORY }}" --recent-days 7 --keep-days 90 --keep-raw-days 180 --keep-report-days 90 --snapshot-db --generate-report
       - name: Generate index.html
         run: |
           python -c "from blogradar.reporter import generate_index_html; from pathlib import Path; generate_index_html(Path('reports'))"
