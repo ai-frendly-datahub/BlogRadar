@@ -78,6 +78,7 @@ def cleanup_dated_reports(report_dir: Path, *, keep_days: int, today: date | Non
 
     return removed
 
+
 def apply_date_storage_policy(
     *,
     database_path: Path,
