@@ -66,7 +66,7 @@ def test_no_false_positives(
     analyzed = _apply_rules(sample_articles, sample_entities)
 
     for article in analyzed:
-        for entity_name, keywords in article.matched_entities.items():
+        for _entity_name, keywords in article.matched_entities.items():
             haystack = f"{article.title}\n{article.summary}".lower()
             for kw in keywords:
                 assert kw in haystack, f"Keyword '{kw}' not found in article: {article.title}"
