@@ -9,7 +9,7 @@ from typing import Protocol, cast
 import pytest
 
 
-StorageError = cast(type[Exception], import_module("blogradar.exceptions").StorageError)
+StorageError = cast(type[Exception], import_module("radar.exceptions").StorageError)
 
 
 class _Article(Protocol):
@@ -54,8 +54,8 @@ class _RadarStorageCtor(Protocol):
     def __call__(self, db_path: Path) -> _RadarStorage: ...
 
 
-Article = cast(_ArticleCtor, import_module("blogradar.models").Article)
-RadarStorage = cast(_RadarStorageCtor, import_module("blogradar.storage").RadarStorage)
+Article = cast(_ArticleCtor, import_module("radar.models").Article)
+RadarStorage = cast(_RadarStorageCtor, import_module("radar.storage").RadarStorage)
 
 
 def _make_article(

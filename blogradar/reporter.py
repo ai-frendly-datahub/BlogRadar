@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 import shutil
 from collections import Counter
 from collections.abc import Iterable
@@ -60,20 +61,23 @@ def generate_report(
         }
         articles_json.append(article_data)
 
-    template = _get_jinja_env().get_template("report.html")
+    now = datetime.now(tz=UTC)
+
+    env = _get_jinja_env()
+    template = env.get_template("report.html")
     rendered = template.render(
         category=category,
         articles=articles_list,
         articles_json=articles_json,
-        generated_at=datetime.now(UTC),
+        generated_at=now,
         stats=stats,
         entity_counts=entity_counts,
         errors=errors or [],
     )
+
     _ = output_path.write_text(rendered, encoding="utf-8")
 
-    now_ts = datetime.now(UTC)
-    date_stamp = now_ts.strftime("%Y%m%d")
+    date_stamp = now.strftime("%Y%m%d")
     dated_name = f"{category.category_name}_{date_stamp}.html"
     dated_path = output_path.parent / dated_name
     _ = dated_path.write_text(rendered, encoding="utf-8")
@@ -95,18 +99,49 @@ def generate_index_html(report_dir: Path) -> Path:
     """Generate an index.html that lists all available report files."""
     report_dir.mkdir(parents=True, exist_ok=True)
 
-    html_files = sorted(
-        [f for f in report_dir.glob("*.html") if f.name != "index.html"],
-        key=lambda p: p.name,
-    )
+    _date_pattern = re.compile(r"^(.+)_(\d{8})$")
 
-    reports = []
-    for html_file in html_files:
-        name = html_file.stem
-        display_name = name.replace("_report", "").replace("_", " ").title()
-        reports.append({"filename": html_file.name, "display_name": display_name})
+    dated_entries: list[tuple[str, str, dict[str, str]]] = []
+    latest_entries: list[dict[str, str]] = []
+    for html_file in report_dir.glob("*.html"):
+        if html_file.name == "index.html":
+            continue
 
-    template = _get_jinja_env().get_template("index.html")
+        stem = html_file.stem
+        m = _date_pattern.match(stem)
+        if m:
+            base = m.group(1)
+            raw_date = m.group(2)
+            display_name = base.replace("_report", "").replace("_", " ").title()
+            date_label = f"{raw_date[:4]}-{raw_date[4:6]}-{raw_date[6:]}"
+            dated_entries.append(
+                (
+                    raw_date,
+                    base,
+                    {
+                        "filename": html_file.name,
+                        "display_name": display_name,
+                        "date": date_label,
+                    },
+                )
+            )
+            continue
+
+        latest_entries.append(
+            {
+                "filename": html_file.name,
+                "display_name": stem.replace("_report", "").replace("_", " ").title(),
+                "date": "",
+            }
+        )
+
+    dated_entries.sort(key=lambda t: (t[0], t[1]), reverse=True)
+    latest_entries.sort(key=lambda r: r["filename"])
+
+    reports = [t[2] for t in dated_entries] + latest_entries
+
+    env = _get_jinja_env()
+    template = env.get_template("index.html")
     rendered = template.render(
         reports=reports,
         generated_at=datetime.now(UTC),
