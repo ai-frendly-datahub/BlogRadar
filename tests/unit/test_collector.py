@@ -1,4 +1,5 @@
 """Unit tests for blogradar collector."""
+
 from __future__ import annotations
 
 from unittest.mock import patch
@@ -34,6 +35,8 @@ def test_extract_datetime_none():
 @pytest.mark.unit
 def test_collect_sources_network_error():
     source = Source(name="bad-source", type="rss", url="https://invalid-url-xyz.example.com/feed")
-    with patch("blogradar.collector._fetch_url_with_retry", side_effect=Exception("Connection failed")):
+    with patch(
+        "blogradar.collector._fetch_url_with_retry", side_effect=Exception("Connection failed")
+    ):
         articles, errors = collect_sources([source], category="techblog")
     assert len(errors) == 1

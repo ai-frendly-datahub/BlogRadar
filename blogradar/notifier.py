@@ -9,7 +9,7 @@ import smtplib
 from dataclasses import dataclass
 from datetime import datetime
 from email.mime.text import MIMEText
-from typing import Optional, Protocol
+from typing import Protocol
 
 import requests
 import structlog
@@ -28,7 +28,7 @@ class NotificationPayload:
     matched_count: int
     errors_count: int
     timestamp: datetime
-    report_url: Optional[str] = None
+    report_url: str | None = None
 
     def to_dict(self) -> dict[str, object]:
         """Convert payload to dictionary for JSON serialization."""
@@ -141,7 +141,7 @@ class WebhookNotifier:
         self,
         url: str,
         method: str = "POST",
-        headers: Optional[dict[str, str]] = None,
+        headers: dict[str, str] | None = None,
     ) -> None:
         """Initialize webhook notifier.
 

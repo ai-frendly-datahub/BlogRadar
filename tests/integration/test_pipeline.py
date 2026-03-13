@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from unittest.mock import patch
 
@@ -14,7 +14,7 @@ _FAKE_ARTICLE = Article(
     title="Arabica market update",
     link="https://example.com/article-1",
     summary="arabica demand is up",
-    published=datetime.now(timezone.utc),
+    published=datetime.now(UTC),
     source="Mock RSS",
     category="test_cat",
 )

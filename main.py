@@ -1,8 +1,9 @@
 from __future__ import annotations
 
 import argparse
+from datetime import UTC
 from pathlib import Path
-from typing import Optional, cast
+from typing import cast
 
 from blogradar.analyzer import apply_entity_rules
 from blogradar.collector import collect_sources
@@ -25,7 +26,7 @@ def _send_notifications(
     report_path: Path,
 ) -> None:
     import os
-    from datetime import datetime, timezone
+    from datetime import datetime
 
     email_to = os.environ.get("NOTIFICATION_EMAIL")
     webhook_url = os.environ.get("NOTIFICATION_WEBHOOK")
@@ -46,7 +47,7 @@ def _send_notifications(
         collected_count=collected_count,
         matched_count=matched_count,
         errors_count=errors_count,
-        timestamp=datetime.now(timezone.utc),
+        timestamp=datetime.now(UTC),
         report_url=str(report_path),
     )
 
@@ -73,8 +74,8 @@ def _send_notifications(
 def run(
     *,
     category: str,
-    config_path: Optional[Path] = None,
-    categories_dir: Optional[Path] = None,
+    config_path: Path | None = None,
+    categories_dir: Path | None = None,
     per_source_limit: int = 30,
     recent_days: int = 7,
     timeout: int = 15,
@@ -216,7 +217,7 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def _to_path(value: object) -> Optional[Path]:
+def _to_path(value: object) -> Path | None:
     if isinstance(value, Path):
         return value
     return None
