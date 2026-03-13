@@ -36,7 +36,7 @@ def generate_report(
     articles: Iterable[Article],
     output_path: Path,
     stats: dict[str, int],
-    errors: list[str] | None = None,
+    errors: Optional[list[str]] = None,
 ) -> Path:
     """Render a simple HTML report for the collected articles."""
     output_path.parent.mkdir(parents=True, exist_ok=True)

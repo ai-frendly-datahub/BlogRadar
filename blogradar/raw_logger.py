@@ -5,6 +5,7 @@ import uuid
 from collections.abc import Iterable
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Optional
 
 from .models import Article
 

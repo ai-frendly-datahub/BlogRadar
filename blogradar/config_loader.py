@@ -81,7 +81,9 @@ def load_settings(config_path: Optional[Path] = None) -> RadarSettings:
     )
 
 
-def load_category_config(category_name: str, categories_dir: Optional[Path] = None) -> CategoryConfig:
+def load_category_config(
+    category_name: str, categories_dir: Optional[Path] = None
+) -> CategoryConfig:
     """Load a category YAML and parse it into a CategoryConfig object."""
     project_root = Path(__file__).resolve().parent.parent
     base_dir = categories_dir or project_root / "config" / "categories"

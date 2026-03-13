@@ -6,7 +6,6 @@
 from __future__ import annotations
 
 import smtplib
-from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from datetime import datetime
 from email.mime.text import MIMEText
@@ -14,6 +13,7 @@ from typing import Optional, Protocol
 
 import requests
 import structlog
+
 
 logger = structlog.get_logger(__name__)
 
@@ -116,20 +116,20 @@ class EmailNotifier:
     def _build_email_body(self, payload: NotificationPayload) -> str:
         """Build email body from payload."""
         lines = [
-            f"Radar Pipeline Completion Report",
-            f"================================",
-            f"",
+            "Radar Pipeline Completion Report",
+            "================================",
+            "",
             f"Category: {payload.category_name}",
             f"Timestamp: {payload.timestamp.isoformat()}",
-            f"",
-            f"Statistics:",
+            "",
+            "Statistics:",
             f"  Sources: {payload.sources_count}",
             f"  Collected: {payload.collected_count}",
             f"  Matched: {payload.matched_count}",
             f"  Errors: {payload.errors_count}",
         ]
         if payload.report_url:
-            lines.append(f"")
+            lines.append("")
             lines.append(f"Report: {payload.report_url}")
         return "\n".join(lines)
 
@@ -141,7 +141,7 @@ class WebhookNotifier:
         self,
         url: str,
         method: str = "POST",
-        headers: dict[str, str] | None = None,
+        headers: Optional[dict[str, str]] = None,
     ) -> None:
         """Initialize webhook notifier.
 
@@ -230,7 +230,7 @@ class CompositeNotifier:
         results = []
         for notifier in self.notifiers:
             try:
-                result = getattr(notifier, "send")(payload)
+                result = notifier.send(payload)
                 results.append(result)
             except Exception:
                 results.append(False)

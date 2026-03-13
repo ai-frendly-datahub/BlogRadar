@@ -1,11 +1,11 @@
 """Unit tests for blogradar config_loader."""
 from __future__ import annotations
 
-import pytest
-import tempfile
 from pathlib import Path
 
-from blogradar.config_loader import load_settings, load_category_config
+import pytest
+
+from blogradar.config_loader import load_category_config, load_settings
 
 
 @pytest.mark.unit
