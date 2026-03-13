@@ -6,7 +6,7 @@ import threading
 import time
 from collections.abc import Mapping
 from concurrent.futures import Future, ThreadPoolExecutor
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 from typing import Any
 from urllib.parse import urlparse
@@ -239,7 +239,7 @@ def _extract_datetime(entry: Mapping[str, Any]) -> datetime | None:
             try:
                 dt = parsedate_to_datetime(str(raw))
                 if dt and dt.tzinfo is None:
-                    dt = dt.replace(tzinfo=UTC)
+                    dt = dt.replace(tzinfo=timezone.utc)
                 return dt
             except Exception:
                 continue

@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 import pytest
@@ -19,7 +19,7 @@ def tmp_storage(tmp_path: Path) -> RadarStorage:
 
 @pytest.fixture
 def sample_articles() -> list[Article]:
-    now = datetime.now(UTC)
+    now = datetime.now(timezone.utc)
     return [
         Article(
             title="Python 3.13의 새로운 기능들",

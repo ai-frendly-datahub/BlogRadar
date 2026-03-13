@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from collections.abc import Iterable
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from importlib import import_module
 from typing import Protocol, cast
 

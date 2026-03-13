@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import json
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import cast
 
@@ -27,7 +27,7 @@ def test_log_creates_yyyy_mm_dd_directory_and_jsonl_file(tmp_path: Path) -> None
 
     output_path = logger.log([article], source_name="MySource")
 
-    assert output_path.parent.name == datetime.now(UTC).date().isoformat()
+    assert output_path.parent.name == datetime.now(timezone.utc).date().isoformat()
     assert output_path.name == "MySource.jsonl"
     assert output_path.exists()
 
