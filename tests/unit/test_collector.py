@@ -1,10 +1,11 @@
 """Unit tests for blogradar collector."""
 from __future__ import annotations
 
-import pytest
-from unittest.mock import MagicMock, patch
+from unittest.mock import patch
 
-from blogradar.collector import collect_sources, _extract_datetime
+import pytest
+
+from blogradar.collector import _extract_datetime, collect_sources
 from blogradar.models import Source
 
 
