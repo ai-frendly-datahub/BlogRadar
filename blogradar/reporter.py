@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import re
 import shutil
 from collections import Counter
 from collections.abc import Iterable
@@ -29,6 +28,7 @@ def _copy_static_assets(report_dir: Path) -> None:
         if dst.exists():
             shutil.rmtree(dst)
         _ = shutil.copytree(str(src), str(dst))
+
 
 def generate_report(
     *,
@@ -115,5 +115,3 @@ def generate_index_html(report_dir: Path) -> Path:
     index_path = report_dir / "index.html"
     _ = index_path.write_text(rendered, encoding="utf-8")
     return index_path
-
-

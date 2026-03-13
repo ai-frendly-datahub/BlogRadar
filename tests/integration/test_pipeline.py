@@ -10,6 +10,7 @@ import yaml
 from blogradar.models import Article
 from main import run
 
+
 _FAKE_ARTICLE = Article(
     title="Arabica market update",
     link="https://example.com/article-1",

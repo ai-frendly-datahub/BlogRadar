@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import json
-import uuid
 from collections.abc import Iterable
 from datetime import UTC, datetime
 from pathlib import Path
@@ -39,7 +38,7 @@ class RawLogger:
                         if line.strip():
                             record = json.loads(line)
                             existing_links.add(record.get("link", ""))
-            except (json.JSONDecodeError, IOError):
+            except (OSError, json.JSONDecodeError):
                 pass
 
         with output_path.open("a", encoding="utf-8") as handle:
