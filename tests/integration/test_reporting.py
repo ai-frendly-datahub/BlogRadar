@@ -21,7 +21,7 @@ def _apply_rules(articles: list[Article], entities: list[EntityDefinition]) -> l
     for article in articles:
         haystack = f"{article.title}\n{article.summary}".lower()
         matches: dict[str, list[str]] = {}
-        for entity, lowered_entity in zip(entities, lowered):
+        for entity, lowered_entity in zip(entities, lowered, strict=False):
             hits = [kw for kw in lowered_entity.keywords if kw and kw in haystack]
             if hits:
                 matches[entity.name] = hits
