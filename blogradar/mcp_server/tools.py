@@ -5,7 +5,7 @@ import re
 from collections import Counter
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Optional, cast
+from typing import cast
 
 import duckdb
 
@@ -27,7 +27,9 @@ def _format_rows(columns: list[str], rows: list[tuple[object, ...]]) -> str:
 
     header = " | ".join(col.ljust(widths[idx]) for idx, col in enumerate(columns))
     divider = "-+-".join("-" * widths[idx] for idx in range(len(columns)))
-    body = [" | ".join(value.ljust(widths[idx]) for idx, value in enumerate(row)) for row in text_rows]
+    body = [
+        " | ".join(value.ljust(widths[idx]) for idx, value in enumerate(row)) for row in text_rows
+    ]
     return "\n".join([header, divider, *body])
 
 
@@ -146,7 +148,7 @@ def handle_top_trends(*, db_path: Path, days: int = 7, limit: int = 10) -> str:
             """,
             [cutoff],
         ).fetchall()
-        entity_rows = cast(list[tuple[Optional[str]]], rows)
+        entity_rows = cast(list[tuple[str | None]], rows)
     finally:
         conn.close()
 

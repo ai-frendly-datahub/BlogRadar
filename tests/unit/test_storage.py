@@ -1,10 +1,10 @@
 from __future__ import annotations
 
 from collections.abc import Iterable
-from datetime import datetime, timezone, timedelta
+from datetime import UTC, datetime, timedelta
 from importlib import import_module
 from pathlib import Path
-from typing import Optional, Protocol, cast
+from typing import Protocol, cast
 
 import pytest
 
@@ -16,11 +16,11 @@ class _Article(Protocol):
     title: str
     link: str
     summary: str
-    published: Optional[datetime]
+    published: datetime | None
     source: str
     category: str
     matched_entities: dict[str, list[str]]
-    collected_at: Optional[datetime]
+    collected_at: datetime | None
 
 
 class _ArticleCtor(Protocol):
@@ -30,11 +30,11 @@ class _ArticleCtor(Protocol):
         title: str,
         link: str,
         summary: str,
-        published: Optional[datetime],
+        published: datetime | None,
         source: str,
         category: str,
         matched_entities: dict[str, list[str]] = ...,
-        collected_at: Optional[datetime] = ...,
+        collected_at: datetime | None = ...,
     ) -> _Article: ...
 
 
@@ -63,10 +63,10 @@ def _make_article(
     title: str,
     link: str,
     summary: str,
-    published: Optional[datetime],
+    published: datetime | None,
     source: str = "Example RSS",
     category: str = "tech",
-    matched_entities: Optional[dict[str, list[str]]] = None,
+    matched_entities: dict[str, list[str]] | None = None,
 ) -> _Article:
     return Article(
         title=title,
@@ -102,13 +102,13 @@ def test_upsert_articles_updates_duplicate_link(tmp_duckdb: Path) -> None:
         title="First title",
         link=link,
         summary="first version",
-        published=datetime.now(timezone.utc),
+        published=datetime.now(UTC),
     )
     second = _make_article(
         title="Updated title",
         link=link,
         summary="second version",
-        published=datetime.now(timezone.utc),
+        published=datetime.now(UTC),
     )
 
     try:
@@ -129,19 +129,19 @@ def test_upsert_atomicity_rollback_preserves_data(tmp_duckdb: Path) -> None:
         title="Existing",
         link="https://example.com/existing",
         summary="stable",
-        published=datetime.now(timezone.utc),
+        published=datetime.now(UTC),
     )
     valid = _make_article(
         title="Valid",
         link="https://example.com/valid",
         summary="should rollback",
-        published=datetime.now(timezone.utc),
+        published=datetime.now(UTC),
     )
     invalid = _make_article(
         title="Invalid",
         link="https://example.com/invalid",
         summary="should fail",
-        published=datetime.now(timezone.utc),
+        published=datetime.now(UTC),
     )
     invalid.link = None
 
@@ -167,7 +167,7 @@ def test_batch_upsert_100_articles(tmp_duckdb: Path) -> None:
             title=f"Article {idx}",
             link=f"https://example.com/batch-{idx}",
             summary=f"summary {idx}",
-            published=datetime.now(timezone.utc),
+            published=datetime.now(UTC),
         )
         for idx in range(100)
     ]
@@ -189,13 +189,13 @@ def test_upsert_on_conflict_updates_existing(tmp_duckdb: Path) -> None:
         title="Original title",
         link=link,
         summary="original",
-        published=datetime.now(timezone.utc),
+        published=datetime.now(UTC),
     )
     updated = _make_article(
         title="Updated by conflict",
         link=link,
         summary="updated",
-        published=datetime.now(timezone.utc),
+        published=datetime.now(UTC),
     )
 
     try:
@@ -225,13 +225,13 @@ def test_recent_articles_filters_by_period(tmp_storage: object) -> None:
         title="Recent",
         link="https://example.com/recent",
         summary="inside window",
-        published=datetime.now(timezone.utc) - timedelta(days=1),
+        published=datetime.now(UTC) - timedelta(days=1),
     )
     old_article = _make_article(
         title="Old",
         link="https://example.com/old",
         summary="outside window",
-        published=datetime.now(timezone.utc) - timedelta(days=20),
+        published=datetime.now(UTC) - timedelta(days=20),
     )
 
     storage.upsert_articles([recent_article, old_article])
@@ -247,14 +247,14 @@ def test_recent_articles_filters_by_category(tmp_storage: object) -> None:
         title="Tech",
         link="https://example.com/tech",
         summary="tech",
-        published=datetime.now(timezone.utc),
+        published=datetime.now(UTC),
         category="tech",
     )
     policy_article = _make_article(
         title="Policy",
         link="https://example.com/policy",
         summary="policy",
-        published=datetime.now(timezone.utc),
+        published=datetime.now(UTC),
         category="policy",
     )
 
@@ -274,7 +274,7 @@ def test_delete_older_than_preserves_recent_articles(tmp_storage: object) -> Non
         title="Recent",
         link="https://example.com/recent-keep",
         summary="should remain",
-        published=datetime.now(timezone.utc) - timedelta(days=2),
+        published=datetime.now(UTC) - timedelta(days=2),
     )
 
     storage.upsert_articles([recent_article])
@@ -292,7 +292,7 @@ def test_delete_older_than_removes_old_articles(tmp_storage: object) -> None:
         title="Old",
         link="https://example.com/old-delete",
         summary="should be deleted",
-        published=datetime.now(timezone.utc) - timedelta(days=40),
+        published=datetime.now(UTC) - timedelta(days=40),
     )
 
     storage.upsert_articles([old_article])
@@ -314,7 +314,7 @@ def test_storage_close_then_reuse_raises_error(tmp_duckdb: Path) -> None:
                     title="After close",
                     link="https://example.com/closed",
                     summary="cannot write",
-                    published=datetime.now(timezone.utc),
+                    published=datetime.now(UTC),
                 )
             ]
         )

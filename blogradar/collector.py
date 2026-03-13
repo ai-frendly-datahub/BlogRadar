@@ -6,9 +6,9 @@ import threading
 import time
 from collections.abc import Mapping
 from concurrent.futures import Future, ThreadPoolExecutor
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from email.utils import parsedate_to_datetime
-from typing import Any, Optional
+from typing import Any
 from urllib.parse import urlparse
 
 import feedparser
@@ -48,7 +48,7 @@ class RateLimiter:
             self._last_request = time.monotonic()
 
 
-def _resolve_max_workers(max_workers: Optional[int] = None) -> int:
+def _resolve_max_workers(max_workers: int | None = None) -> int:
     if max_workers is None:
         raw_value = os.environ.get("RADAR_MAX_WORKERS", "5")
         try:
@@ -82,8 +82,8 @@ def _create_session() -> requests.Session:
 def _fetch_url_with_retry(
     url: str,
     timeout: int,
-    headers: Optional[dict[str, str]] = None,
-    session: Optional[requests.Session] = None,
+    headers: dict[str, str] | None = None,
+    session: requests.Session | None = None,
 ) -> requests.Response:
     """Fetch URL with retry logic on transient errors."""
     merged = {**_DEFAULT_HEADERS, **(headers or {})}
@@ -112,7 +112,7 @@ def collect_sources(
     limit_per_source: int = 30,
     timeout: int = 15,
     min_interval_per_host: float = 0.5,
-    max_workers: Optional[int] = None,
+    max_workers: int | None = None,
 ) -> tuple[list[Article], list[str]]:
     """Fetch items from all configured sources, returning articles and errors."""
     articles: list[Article] = []
@@ -179,7 +179,7 @@ def _collect_single(
     category: str,
     limit: int,
     timeout: int,
-    session: Optional[requests.Session] = None,
+    session: requests.Session | None = None,
 ) -> list[Article]:
     if source.type.lower() != "rss":
         raise SourceError(source.name, f"Unsupported source type '{source.type}'")
@@ -223,15 +223,15 @@ def _collect_single(
         raise ParseError(f"Failed to parse feed from {source.name}: {exc}") from exc
 
 
-def _extract_datetime(entry: Mapping[str, Any]) -> Optional[datetime]:
+def _extract_datetime(entry: Mapping[str, Any]) -> datetime | None:
     """Parse a feed entry date into a timezone-aware datetime."""
     published_parsed = entry.get("published_parsed")
     if isinstance(published_parsed, time.struct_time):
-        return datetime.fromtimestamp(time.mktime(published_parsed), tz=timezone.utc)
+        return datetime.fromtimestamp(time.mktime(published_parsed), tz=UTC)
 
     updated_parsed = entry.get("updated_parsed")
     if isinstance(updated_parsed, time.struct_time):
-        return datetime.fromtimestamp(time.mktime(updated_parsed), tz=timezone.utc)
+        return datetime.fromtimestamp(time.mktime(updated_parsed), tz=UTC)
 
     for key in ("published", "updated", "date"):
         raw = entry.get(key)
@@ -239,7 +239,7 @@ def _extract_datetime(entry: Mapping[str, Any]) -> Optional[datetime]:
             try:
                 dt = parsedate_to_datetime(str(raw))
                 if dt and dt.tzinfo is None:
-                    dt = dt.replace(tzinfo=timezone.utc)
+                    dt = dt.replace(tzinfo=UTC)
                 return dt
             except Exception:
                 continue

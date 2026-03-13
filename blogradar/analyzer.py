@@ -4,18 +4,18 @@ import re
 from collections.abc import Iterable
 from functools import lru_cache
 from importlib import import_module
-from typing import Optional, Protocol, cast
+from typing import Protocol, cast
 
 from .models import Article, EntityDefinition
 
 
 class _KoreanAnalyzerLike(Protocol):
-    _kiwi: Optional[object]
+    _kiwi: object | None
 
     def match_keyword(self, text: str, keyword: str) -> bool: ...
 
 
-def _load_korean_analyzer_constructor() -> Optional[type[_KoreanAnalyzerLike]]:
+def _load_korean_analyzer_constructor() -> type[_KoreanAnalyzerLike] | None:
     try:
         korean_analyzer_module = import_module("radar_core.common.korean_analyzer")
     except ModuleNotFoundError:
@@ -29,7 +29,7 @@ def _load_korean_analyzer_constructor() -> Optional[type[_KoreanAnalyzerLike]]:
 
 
 _KOREAN_ANALYZER_CONSTRUCTOR = _load_korean_analyzer_constructor()
-_korean_analyzer: Optional[_KoreanAnalyzerLike] = None
+_korean_analyzer: _KoreanAnalyzerLike | None = None
 _korean_analyzer_initialized = False
 
 
@@ -42,7 +42,7 @@ def _compile_ascii_keyword_pattern(keyword: str) -> re.Pattern[str]:
     return re.compile(r"\b" + re.escape(keyword) + r"\b", re.IGNORECASE)
 
 
-def _get_korean_analyzer() -> Optional[_KoreanAnalyzerLike]:
+def _get_korean_analyzer() -> _KoreanAnalyzerLike | None:
     global _korean_analyzer
     global _korean_analyzer_initialized
 
@@ -70,10 +70,10 @@ def apply_entity_rules(
     """Attach matched entity keywords to each article via simple keyword search."""
     analyzed: list[Article] = []
     normalized_entities: list[
-        tuple[EntityDefinition, list[tuple[str, Optional[re.Pattern[str]]]]]
+        tuple[EntityDefinition, list[tuple[str, re.Pattern[str] | None]]]
     ] = []
     for entity in entities:
-        normalized_keywords: list[tuple[str, Optional[re.Pattern[str]]]] = []
+        normalized_keywords: list[tuple[str, re.Pattern[str] | None]] = []
         for keyword in entity.keywords:
             normalized_keyword = keyword.lower()
             if not normalized_keyword:

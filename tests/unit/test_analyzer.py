@@ -1,20 +1,20 @@
 from __future__ import annotations
 
 from collections.abc import Iterable
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from importlib import import_module
-from typing import Optional, Protocol, cast
+from typing import Protocol, cast
 
 
 class _Article(Protocol):
     title: str
     link: str
     summary: str
-    published: Optional[datetime]
+    published: datetime | None
     source: str
     category: str
     matched_entities: dict[str, list[str]]
-    collected_at: Optional[datetime]
+    collected_at: datetime | None
 
 
 class _EntityDefinition(Protocol):
@@ -30,11 +30,11 @@ class _ArticleCtor(Protocol):
         title: str,
         link: str,
         summary: str,
-        published: Optional[datetime],
+        published: datetime | None,
         source: str,
         category: str,
         matched_entities: dict[str, list[str]] = ...,
-        collected_at: Optional[datetime] = ...,
+        collected_at: datetime | None = ...,
     ) -> _Article: ...
 
 
@@ -60,7 +60,7 @@ def _make_article(*, title: str, summary: str) -> _Article:
         title=title,
         link=f"https://example.com/{title.lower().replace(' ', '-')}",
         summary=summary,
-        published=datetime(2026, 3, 10, 9, 0, tzinfo=timezone.utc),
+        published=datetime(2026, 3, 10, 9, 0, tzinfo=UTC),
         source="Example RSS",
         category="tech",
     )

@@ -3,7 +3,6 @@ from __future__ import annotations
 import json
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Optional
 
 import duckdb
 
@@ -39,7 +38,7 @@ def _seed_article(
     title: str,
     link: str,
     collected_at: datetime,
-    entities: Optional[dict[str, list[str]]] = None,
+    entities: dict[str, list[str]] | None = None,
 ) -> None:
     conn = duckdb.connect(str(db_path))
     try:

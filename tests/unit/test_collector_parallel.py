@@ -3,7 +3,6 @@ from __future__ import annotations
 import os
 import threading
 import time
-from typing import Optional
 from unittest.mock import Mock, patch
 
 import pytest
@@ -38,7 +37,7 @@ def test_parallel_collection_reduces_runtime() -> None:
         category: str,
         limit: int,
         timeout: int,
-        session: Optional[object] = None,
+        session: object | None = None,
     ) -> list[Article]:
         time.sleep(0.5)
         return [
@@ -76,7 +75,7 @@ def test_parallel_collection_isolates_source_errors() -> None:
         category: str,
         limit: int,
         timeout: int,
-        session: Optional[object] = None,
+        session: object | None = None,
     ) -> list[Article]:
         if source.name == "source_0" or source.name == "source_3":
             return [
@@ -117,7 +116,7 @@ def test_max_workers_one_preserves_sequential_order() -> None:
         category: str,
         limit: int,
         timeout: int,
-        session: Optional[object] = None,
+        session: object | None = None,
     ) -> list[Article]:
         return [
             Article(
