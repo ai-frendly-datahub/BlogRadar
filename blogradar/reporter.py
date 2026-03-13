@@ -5,6 +5,7 @@ from collections import Counter
 from collections.abc import Iterable
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Optional
 
 from jinja2 import Environment, FileSystemLoader
 
@@ -29,13 +30,14 @@ def _copy_static_assets(report_dir: Path) -> None:
             shutil.rmtree(dst)
         _ = shutil.copytree(str(src), str(dst))
 
+
 def generate_report(
     *,
     category: CategoryConfig,
     articles: Iterable[Article],
     output_path: Path,
     stats: dict[str, int],
-    errors: list[str] | None = None,
+    errors: Optional[list[str]] = None,
 ) -> Path:
     """Render a simple HTML report for the collected articles."""
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -114,5 +116,3 @@ def generate_index_html(report_dir: Path) -> Path:
     index_path = report_dir / "index.html"
     _ = index_path.write_text(rendered, encoding="utf-8")
     return index_path
-
-

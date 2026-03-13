@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import threading
+from typing import Optional
 
 import structlog
 from pybreaker import CircuitBreaker, CircuitBreakerListener, CircuitBreakerState
@@ -15,7 +16,7 @@ class SourceCircuitBreakerListener(CircuitBreakerListener):
     def state_change(
         self,
         cb: CircuitBreaker,
-        old_state: CircuitBreakerState | None,
+        old_state: Optional[CircuitBreakerState],
         new_state: CircuitBreakerState,
     ) -> None:
         """Log state transitions."""
@@ -26,8 +27,9 @@ class SourceCircuitBreakerListener(CircuitBreakerListener):
             after=new_state.name,
         )
 
-
-    def before_call(self, cb: CircuitBreaker, func: object, *args: object, **kwargs: object) -> None:
+    def before_call(
+        self, cb: CircuitBreaker, func: object, *args: object, **kwargs: object
+    ) -> None:
         """Called before the circuit breaker executes a function."""
 
     def failure(
@@ -117,7 +119,7 @@ class SourceCircuitBreakerManager:
 
 
 # Global singleton instance
-_manager: SourceCircuitBreakerManager | None = None
+_manager: Optional[SourceCircuitBreakerManager] = None
 _manager_lock = threading.Lock()
 
 

@@ -1,16 +1,17 @@
 from __future__ import annotations
 
 import shutil
-from datetime import UTC, date, datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
+from typing import Optional
 
 
 def snapshot_database(
     db_path: Path,
     *,
-    snapshot_date: date | None = None,
-    snapshot_root: Path | None = None,
-) -> Path | None:
+    snapshot_date: Optional[date] = None,
+    snapshot_root: Optional[Path] = None,
+) -> Optional[Path]:
     if not db_path.exists():
         return None
 
@@ -24,7 +25,9 @@ def snapshot_database(
     return target_path
 
 
-def cleanup_date_directories(base_dir: Path, *, keep_days: int, today: date | None = None) -> int:
+def cleanup_date_directories(
+    base_dir: Path, *, keep_days: int, today: Optional[date] = None
+) -> int:
     if keep_days < 0 or not base_dir.exists():
         return 0
 
@@ -44,7 +47,7 @@ def cleanup_date_directories(base_dir: Path, *, keep_days: int, today: date | No
     return removed
 
 
-def cleanup_dated_reports(report_dir: Path, *, keep_days: int, today: date | None = None) -> int:
+def cleanup_dated_reports(report_dir: Path, *, keep_days: int, today: Optional[date] = None) -> int:
     if keep_days < 0 or not report_dir.exists():
         return 0
 
@@ -54,7 +57,7 @@ def cleanup_dated_reports(report_dir: Path, *, keep_days: int, today: date | Non
         if html_file.name == "index.html":
             continue
 
-        stamp: date | None = None
+        stamp: Optional[date] = None
         stem = html_file.stem
         if len(stem) >= 8 and stem[-8:].isdigit():
             try:

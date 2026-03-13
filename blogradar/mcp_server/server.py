@@ -5,7 +5,7 @@ import os
 from collections.abc import Callable
 from importlib import import_module
 from pathlib import Path
-from typing import Protocol, cast
+from typing import Optional, Protocol, cast
 
 from mcp_server.tools import (
     handle_price_watch,
@@ -166,8 +166,8 @@ class _StdioContext(Protocol):
 
     async def __aexit__(
         self,
-        exc_type: type[BaseException] | None,
-        exc_value: BaseException | None,
+        exc_type: Optional[type[BaseException]],
+        exc_value: Optional[BaseException],
         traceback: object,
     ) -> object: ...
 

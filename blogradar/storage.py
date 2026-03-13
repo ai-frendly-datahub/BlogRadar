@@ -4,7 +4,7 @@ import json
 from collections.abc import Iterable
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
-from typing import cast
+from typing import Optional, cast
 
 import duckdb
 
@@ -12,12 +12,12 @@ from .exceptions import StorageError
 from .models import Article
 
 
-def _utc_naive(dt: datetime | None) -> datetime | None:
+def _utc_naive(dt: Optional[datetime]) -> Optional[datetime]:
     """Convert tz-aware datetime to UTC naive for DuckDB."""
     if dt is None:
         return None
     if dt.tzinfo:
-        return dt.astimezone(UTC).replace(tzinfo=None)
+        return dt.astimezone(timezone.utc).replace(tzinfo=None)
     return dt
 
 
@@ -119,7 +119,16 @@ class RadarStorage:
         )
         rows = cast(
             list[
-                tuple[str, str, str, str, str | None, datetime | None, datetime | None, str | None]
+                tuple[
+                    str,
+                    str,
+                    str,
+                    str,
+                    Optional[str],
+                    Optional[datetime],
+                    Optional[datetime],
+                    Optional[str],
+                ]
             ],
             cur.fetchall(),
         )

@@ -5,7 +5,7 @@
 
 from __future__ import annotations
 
-from typing import cast
+from typing import Optional, cast
 
 import duckdb
 
@@ -17,9 +17,9 @@ def _quote_identifier(identifier: str) -> str:
 def _fetchone_required(
     con: duckdb.DuckDBPyConnection,
     query: str,
-    params: list[object] | None = None,
+    params: Optional[list[object]] = None,
 ) -> tuple[object, ...]:
-    row = cast(tuple[object, ...] | None, con.execute(query, params or []).fetchone())
+    row = cast(Optional[tuple[object, ...]], con.execute(query, params or []).fetchone())
     if row is None:
         raise RuntimeError("DuckDB query returned no rows")
     return row
@@ -35,11 +35,11 @@ def _to_int(value: object) -> int:
     raise TypeError(f"Expected int-compatible value, got {type(value).__name__}")
 
 
-def _to_optional_int(value: object) -> int | None:
+def _to_optional_int(value: object) -> Optional[int]:
     return None if value is None else _to_int(value)
 
 
-def _to_optional_float(value: object) -> float | None:
+def _to_optional_float(value: object) -> Optional[float]:
     if value is None:
         return None
     if isinstance(value, bool):
@@ -102,7 +102,7 @@ def check_duplicate_urls(
             [limit],
         ).fetchall(),
     )
-    rows: list[tuple[str | None, int]] = [
+    rows: list[tuple[Optional[str], int]] = [
         (None if row[0] is None else str(row[0]), _to_int(row[1])) for row in raw_rows
     ]
 
@@ -151,7 +151,7 @@ def check_language_values(
     *,
     table_name: str,
     language_column: str = "language",
-    allowed_languages: set[str] | None = None,
+    allowed_languages: Optional[set[str]] = None,
 ) -> None:
     _print_section("Language Value Check")
 
@@ -166,7 +166,7 @@ def check_language_values(
         """
         ).fetchall(),
     )
-    rows: list[tuple[str | None, int]] = [
+    rows: list[tuple[Optional[str], int]] = [
         (None if row[0] is None else str(row[0]), _to_int(row[1])) for row in raw_rows
     ]
 
@@ -234,9 +234,9 @@ def run_all_checks(
     *,
     table_name: str,
     null_conditions: dict[str, str],
-    text_columns: list[str] | None = None,
+    text_columns: Optional[list[str]] = None,
     language_column: str = "language",
-    allowed_languages: set[str] | None = None,
+    allowed_languages: Optional[set[str]] = None,
     url_column: str = "url",
     date_column: str = "published_at",
 ) -> None:

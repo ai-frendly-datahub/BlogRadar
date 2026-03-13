@@ -36,7 +36,7 @@ def sample_article() -> object:
         title="AI and cloud market update",
         link="https://example.com/article-1",
         summary="Python tooling and AI adoption continue to grow.",
-        published=datetime(2026, 3, 10, 9, 0, tzinfo=UTC),
+        published=datetime(2026, 3, 10, 9, 0, tzinfo=timezone.utc),
         source="Example RSS",
         category="tech",
         matched_entities={"topic": ["ai", "cloud", "python"]},

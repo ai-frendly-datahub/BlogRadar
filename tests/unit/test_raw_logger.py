@@ -14,7 +14,7 @@ def _make_article(*, title: str = "Sample title", summary: str = "요약") -> Ar
         title=title,
         link="https://example.com/article",
         summary=summary,
-        published=datetime(2026, 3, 4, 10, 0, tzinfo=UTC),
+        published=datetime(2026, 3, 4, 10, 0, tzinfo=timezone.utc),
         source="RSS Source",
         category="coffee",
         matched_entities={"brands": ["Blue Bottle"]},

@@ -4,6 +4,7 @@ import json
 from collections.abc import Iterable
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Optional
 
 from .models import Article
 
@@ -17,7 +18,7 @@ class RawLogger:
         articles: Iterable[Article],
         *,
         source_name: str,
-        run_id: str | None = None,
+        run_id: Optional[str] = None,
     ) -> Path:
         now = datetime.now(timezone.utc)
         date_dir = self.raw_dir / now.date().isoformat()

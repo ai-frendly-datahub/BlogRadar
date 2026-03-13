@@ -4,7 +4,7 @@ from collections.abc import Iterable
 from datetime import datetime, timezone, timedelta
 from importlib import import_module
 from pathlib import Path
-from typing import Protocol, cast
+from typing import Optional, Protocol, cast
 
 import pytest
 
@@ -16,11 +16,11 @@ class _Article(Protocol):
     title: str
     link: str
     summary: str
-    published: datetime | None
+    published: Optional[datetime]
     source: str
     category: str
     matched_entities: dict[str, list[str]]
-    collected_at: datetime | None
+    collected_at: Optional[datetime]
 
 
 class _ArticleCtor(Protocol):
@@ -30,11 +30,11 @@ class _ArticleCtor(Protocol):
         title: str,
         link: str,
         summary: str,
-        published: datetime | None,
+        published: Optional[datetime],
         source: str,
         category: str,
         matched_entities: dict[str, list[str]] = ...,
-        collected_at: datetime | None = ...,
+        collected_at: Optional[datetime] = ...,
     ) -> _Article: ...
 
 
@@ -63,10 +63,10 @@ def _make_article(
     title: str,
     link: str,
     summary: str,
-    published: datetime | None,
+    published: Optional[datetime],
     source: str = "Example RSS",
     category: str = "tech",
-    matched_entities: dict[str, list[str]] | None = None,
+    matched_entities: Optional[dict[str, list[str]]] = None,
 ) -> _Article:
     return Article(
         title=title,
