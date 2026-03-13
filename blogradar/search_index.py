@@ -30,7 +30,7 @@ class SearchIndex:
 
     def __exit__(
         self,
-        exc_type: type[BaseException] | None,
+        exc_type: Optional[type[BaseException]],
         exc_value: Optional[BaseException],
         traceback: Optional[TracebackType],
     ) -> None:

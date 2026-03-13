@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from datetime import datetime, timedelta
 from pathlib import Path
+from typing import Optional
 
 import duckdb
 
@@ -38,7 +39,7 @@ def _seed_article(
     title: str,
     link: str,
     collected_at: datetime,
-    entities: dict[str, list[str]] | None = None,
+    entities: Optional[dict[str, list[str]]] = None,
 ) -> None:
     conn = duckdb.connect(str(db_path))
     try:
@@ -64,7 +65,7 @@ def _seed_article(
 
 
 def test_handle_search(tmp_path: Path) -> None:
-    from mcp_server.tools import handle_search
+    from blogradar.mcp_server.tools import handle_search
 
     db_path = tmp_path / "radar.duckdb"
     search_db_path = tmp_path / "search.db"
@@ -105,7 +106,7 @@ def test_handle_search(tmp_path: Path) -> None:
 
 
 def test_handle_recent_updates(tmp_path: Path) -> None:
-    from mcp_server.tools import handle_recent_updates
+    from blogradar.mcp_server.tools import handle_recent_updates
 
     db_path = tmp_path / "radar.duckdb"
     _init_articles_table(db_path)
@@ -133,7 +134,7 @@ def test_handle_recent_updates(tmp_path: Path) -> None:
 
 
 def test_handle_sql_select(tmp_path: Path) -> None:
-    from mcp_server.tools import handle_sql
+    from blogradar.mcp_server.tools import handle_sql
 
     db_path = tmp_path / "radar.duckdb"
     _init_articles_table(db_path)
@@ -145,7 +146,7 @@ def test_handle_sql_select(tmp_path: Path) -> None:
 
 
 def test_handle_sql_blocked(tmp_path: Path) -> None:
-    from mcp_server.tools import handle_sql
+    from blogradar.mcp_server.tools import handle_sql
 
     db_path = tmp_path / "radar.duckdb"
     _init_articles_table(db_path)
@@ -156,7 +157,7 @@ def test_handle_sql_blocked(tmp_path: Path) -> None:
 
 
 def test_handle_top_trends(tmp_path: Path) -> None:
-    from mcp_server.tools import handle_top_trends
+    from blogradar.mcp_server.tools import handle_top_trends
 
     db_path = tmp_path / "radar.duckdb"
     _init_articles_table(db_path)
@@ -188,7 +189,7 @@ def test_handle_top_trends(tmp_path: Path) -> None:
 
 
 def test_handle_price_watch_stub() -> None:
-    from mcp_server.tools import handle_price_watch
+    from blogradar.mcp_server.tools import handle_price_watch
 
     output = handle_price_watch(threshold=10.0)
 

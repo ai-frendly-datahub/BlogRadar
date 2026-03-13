@@ -17,7 +17,7 @@ def _quote_identifier(identifier: str) -> str:
 def _fetchone_required(
     con: duckdb.DuckDBPyConnection,
     query: str,
-    params: list[object] | None = None,
+    params: Optional[list[object]] = None,
 ) -> tuple[object, ...]:
     row = cast(Optional[tuple[object, ...]], con.execute(query, params or []).fetchone())
     if row is None:
@@ -151,7 +151,7 @@ def check_language_values(
     *,
     table_name: str,
     language_column: str = "language",
-    allowed_languages: set[str] | None = None,
+    allowed_languages: Optional[set[str]] = None,
 ) -> None:
     _print_section("Language Value Check")
 
@@ -234,9 +234,9 @@ def run_all_checks(
     *,
     table_name: str,
     null_conditions: dict[str, str],
-    text_columns: list[str] | None = None,
+    text_columns: Optional[list[str]] = None,
     language_column: str = "language",
-    allowed_languages: set[str] | None = None,
+    allowed_languages: Optional[set[str]] = None,
     url_column: str = "url",
     date_column: str = "published_at",
 ) -> None:
