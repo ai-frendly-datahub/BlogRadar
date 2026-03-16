@@ -1,4 +1,6 @@
-# BlogRadar
+# BlogRadar - 기술 블로그 트렌드 레이더
+
+**🌐 Live Report**: https://ai-frendly-datahub.github.io/BlogRadar/
 
 기술 블로그 RSS 수집 및 트렌드 분석 Radar. 국내외 주요 기술 블로그 포스트를 매일 수집하여 도메인·언어·프레임워크별로 분류하고 GitHub Pages에 배포합니다.
 
