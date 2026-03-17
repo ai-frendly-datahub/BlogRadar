@@ -180,6 +180,7 @@ def collect_sources(
     min_interval_per_host: float = 0.5,
     max_workers: int | None = None,
     health_db_path: str | None = None,
+    max_age_days: int | None = None,
 ) -> tuple[list[Article], list[str]]:
     """Fetch items from all configured sources, returning articles and errors."""
     articles: list[Article] = []
@@ -246,6 +247,15 @@ def collect_sources(
         session.close()
         health_store.close()
         _clear_collection_controls()
+
+    # Filter out articles older than max_age_days (freshness gate)
+    if max_age_days is not None:
+        cutoff = datetime.now(UTC) - timedelta(days=max_age_days)
+        before = len(articles)
+        articles = [a for a in articles if a.published is None or a.published >= cutoff]
+        filtered = before - len(articles)
+        if filtered > 0:
+            errors.append(f"Freshness filter: removed {filtered} articles older than {max_age_days} days")
 
     return articles, errors
 
