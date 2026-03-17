@@ -78,6 +78,7 @@ def run(
     categories_dir: Path | None = None,
     per_source_limit: int = 30,
     recent_days: int = 7,
+    max_age_days: int | None = None,
     timeout: int = 15,
     keep_days: int = 90,
     keep_raw_days: int = 180,
@@ -96,6 +97,7 @@ def run(
         category=category_cfg.category_name,
         limit_per_source=per_source_limit,
         timeout=timeout,
+        max_age_days=max_age_days,
     )
 
     raw_logger = RawLogger(settings.raw_data_dir)
@@ -192,6 +194,9 @@ def parse_args() -> argparse.Namespace:
     _ = parser.add_argument(
         "--recent-days", type=int, default=7, help="Window (days) to show in the report"
     )
+    parser.add_argument(
+        "--max-age-days", type=int, default=None, help="Discard articles older than N days (freshness filter)"
+    )
     _ = parser.add_argument(
         "--timeout", type=int, default=15, help="HTTP timeout per request (seconds)"
     )
@@ -246,6 +251,7 @@ if __name__ == "__main__":
         categories_dir=_to_path(args.get("categories_dir")),
         per_source_limit=_to_int(args.get("per_source_limit"), 30),
         recent_days=_to_int(args.get("recent_days"), 7),
+        max_age_days=args.get("max_age_days"),
         timeout=_to_int(args.get("timeout"), 15),
         keep_days=_to_int(args.get("keep_days"), 90),
         keep_raw_days=_to_int(args.get("keep_raw_days"), 180),
