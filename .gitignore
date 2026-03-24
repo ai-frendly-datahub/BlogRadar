@@ -8,6 +8,7 @@ build/
 venv/
 .env
 data/*.duckdb
+!data/snapshots/**/*.duckdb
 data/raw/
 reports/*.html
 !reports/.gitkeep
