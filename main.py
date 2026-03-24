@@ -195,7 +195,10 @@ def parse_args() -> argparse.Namespace:
         "--recent-days", type=int, default=7, help="Window (days) to show in the report"
     )
     parser.add_argument(
-        "--max-age-days", type=int, default=None, help="Discard articles older than N days (freshness filter)"
+        "--max-age-days",
+        type=int,
+        default=None,
+        help="Discard articles older than N days (freshness filter)",
     )
     _ = parser.add_argument(
         "--timeout", type=int, default=15, help="HTTP timeout per request (seconds)"

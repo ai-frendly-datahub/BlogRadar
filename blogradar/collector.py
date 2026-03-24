@@ -255,7 +255,9 @@ def collect_sources(
         articles = [a for a in articles if a.published is None or a.published >= cutoff]
         filtered = before - len(articles)
         if filtered > 0:
-            errors.append(f"Freshness filter: removed {filtered} articles older than {max_age_days} days")
+            errors.append(
+                f"Freshness filter: removed {filtered} articles older than {max_age_days} days"
+            )
 
     return articles, errors
 
