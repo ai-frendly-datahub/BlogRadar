@@ -97,7 +97,6 @@ def run(
         category=category_cfg.category_name,
         limit_per_source=per_source_limit,
         timeout=timeout,
-        max_age_days=max_age_days,
     )
 
     raw_logger = RawLogger(settings.raw_data_dir)
