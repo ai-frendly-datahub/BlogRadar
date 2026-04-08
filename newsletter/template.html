@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: {{ text_color }};
+      background-color: #f0f4f8;
+    }
+
+    /* Email container */
+    .email-container {
+      max-width: 680px;
+      margin: 0 auto;
+      background-color: {{ background_color }};
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, {{ primary_color }} 0%, {{ secondary_color }} 100%);
+      color: white;
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .header .subtitle {
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    .header .date {
+      font-size: 14px;
+      opacity: 0.8;
+      margin-top: 12px;
+    }
+
+    /* Content area */
+    .content {
+      padding: 24px;
+    }
+
+    /* Section styles */
+    .section {
+      margin-bottom: 32px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid {{ primary_color }};
+    }
+
+    .section-icon {
+      font-size: 24px;
+      margin-right: 12px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: {{ primary_color }};
+    }
+
+    .section-description {
+      font-size: 14px;
+      color: #64748b;
+      margin-bottom: 16px;
+    }
+
+    /* Article card */
+    .article-card {
+      background: white;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.2s;
+    }
+
+    .article-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .article-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .article-title a {
+      color: {{ text_color }};
+      text-decoration: none;
+    }
+
+    .article-title a:hover {
+      color: {{ link_color }};
+    }
+
+    .article-meta {
+      font-size: 13px;
+      color: #64748b;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .article-source {
+      font-weight: 500;
+      color: {{ primary_color }};
+    }
+
+    .article-summary {
+      font-size: 14px;
+      color: #475569;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    .article-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e2e8f0;
+      color: #475569;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 12px;
+    }
+
+    .tag.domain {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    .tag.language {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .tag.framework {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    /* Group section */
+    .group-container {
+      margin-bottom: 20px;
+    }
+
+    .group-header {
+      font-size: 16px;
+      font-weight: 600;
+      color: #334155;
+      padding: 8px 12px;
+      background: #f1f5f9;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+
+    /* Stats section */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .stat-card {
+      background: white;
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .stat-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: {{ primary_color }};
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    /* Footer */
+    .footer {
+      background: #1e293b;
+      color: #94a3b8;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .footer p {
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .footer a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    .footer .unsubscribe {
+      font-size: 12px;
+      margin-top: 16px;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .header h1 {
+        font-size: 24px;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .article-meta {
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <!-- Header -->
+    <div class="header">
+      <h1>{{ title }}</h1>
+      <p class="subtitle">{{ description }}</p>
+      <p class="date">{{ date_range }}</p>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">{{ total_articles }}</div>
+          <div class="stat-label">Total Articles</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">{{ total_sources }}</div>
+          <div class="stat-label">Sources</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">{{ top_domain }}</div>
+          <div class="stat-label">Top Domain</div>
+        </div>
+      </div>
+
+      <!-- Top Articles Section -->
+      {% if top_articles %}
+      <div class="section">
+        <div class="section-header">
+          <span class="section-icon">&#x1F31F;</span>
+          <span class="section-title">Top Articles This Week</span>
+        </div>
+        <p class="section-description">Most relevant articles from tech blogs</p>
+
+        {% for article in top_articles %}
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="{{ article.link }}" target="_blank">{{ article.title }}</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">{{ article.source }}</span>
+            <span>{{ article.published_date }}</span>
+          </div>
+          {% if article.summary %}
+          <p class="article-summary">{{ article.summary | truncate(200) }}</p>
+          {% endif %}
+          {% if article.tags %}
+          <div class="article-tags">
+            {% for tag in article.tags %}
+            <span class="tag {{ tag.type }}">{{ tag.name }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <!-- By Domain Section -->
+      {% if domain_groups %}
+      <div class="section">
+        <div class="section-header">
+          <span class="section-icon">&#x1F4CA;</span>
+          <span class="section-title">Trends by Domain</span>
+        </div>
+        <p class="section-description">Articles grouped by tech domain</p>
+
+        {% for group_name, articles in domain_groups.items() %}
+        {% if articles %}
+        <div class="group-container">
+          <div class="group-header">{{ group_name }} ({{ articles | length }})</div>
+          {% for article in articles %}
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="{{ article.link }}" target="_blank">{{ article.title }}</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">{{ article.source }}</span>
+              <span>{{ article.published_date }}</span>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <!-- By Language Section -->
+      {% if language_groups %}
+      <div class="section">
+        <div class="section-header">
+          <span class="section-icon">&#x1F4BB;</span>
+          <span class="section-title">Language & Framework Highlights</span>
+        </div>
+        <p class="section-description">Top articles by programming language/framework</p>
+
+        {% for group_name, articles in language_groups.items() %}
+        {% if articles %}
+        <div class="group-container">
+          <div class="group-header">{{ group_name }} ({{ articles | length }})</div>
+          {% for article in articles %}
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="{{ article.link }}" target="_blank">{{ article.title }}</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">{{ article.source }}</span>
+              <span>{{ article.published_date }}</span>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <!-- Korean Companies Section -->
+      {% if korean_articles %}
+      <div class="section">
+        <div class="section-header">
+          <span class="section-icon">&#x1F1F0;&#x1F1F7;</span>
+          <span class="section-title">Korean Tech Company Updates</span>
+        </div>
+        <p class="section-description">Latest from Korean tech blogs</p>
+
+        {% for article in korean_articles %}
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="{{ article.link }}" target="_blank">{{ article.title }}</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">{{ article.source }}</span>
+            <span>{{ article.published_date }}</span>
+          </div>
+          {% if article.summary %}
+          <p class="article-summary">{{ article.summary | truncate(200) }}</p>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <!-- Global Companies Section -->
+      {% if global_articles %}
+      <div class="section">
+        <div class="section-header">
+          <span class="section-icon">&#x1F30D;</span>
+          <span class="section-title">Global Tech Updates</span>
+        </div>
+        <p class="section-description">Latest from global tech giants</p>
+
+        {% for article in global_articles %}
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="{{ article.link }}" target="_blank">{{ article.title }}</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">{{ article.source }}</span>
+            <span>{{ article.published_date }}</span>
+          </div>
+          {% if article.summary %}
+          <p class="article-summary">{{ article.summary | truncate(200) }}</p>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>Generated by <a href="https://github.com/ai-frendly-datahub/BlogRadar">BlogRadar</a></p>
+      <p>Tracking {{ total_sources }} tech blog sources</p>
+      <p class="unsubscribe">
+        <a href="{{ unsubscribe_url }}">Unsubscribe</a> |
+        <a href="{{ web_version_url }}">View in browser</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,169 @@
+# Newsletter Configuration for BlogRadar
+# Weekly digest of top tech blog articles
+
+newsletter:
+  # Newsletter metadata
+  name: "Tech Blog Radar Weekly"
+  description: "Weekly digest of trending tech blog articles"
+  frequency: "weekly"  # weekly, daily
+
+  # Data selection
+  data:
+    days: 7  # Articles from the past N days
+    min_articles: 10  # Minimum articles to include
+    max_articles: 50  # Maximum articles to include
+
+  # Sections to include in the newsletter
+  sections:
+    - id: "top_articles"
+      title: "Top Articles This Week"
+      description: "Most relevant articles from tech blogs"
+      max_items: 10
+
+    - id: "by_domain"
+      title: "Trends by Domain"
+      description: "Articles grouped by tech domain"
+      max_items_per_group: 5
+      groups:
+        - "AI/ML"
+        - "Backend"
+        - "Frontend"
+        - "DevOps"
+        - "Security"
+
+    - id: "by_language"
+      title: "Language & Framework Highlights"
+      description: "Top articles by programming language/framework"
+      max_items_per_group: 3
+      groups:
+        - "Python"
+        - "Rust"
+        - "Go"
+        - "TypeScript"
+        - "Kubernetes"
+
+    - id: "korean_companies"
+      title: "Korean Tech Company Updates"
+      description: "Latest from Korean tech blogs"
+      max_items: 10
+
+    - id: "global_companies"
+      title: "Global Tech Updates"
+      description: "Latest from global tech giants"
+      max_items: 10
+
+  # Layout settings
+  layout:
+    logo_url: ""  # Optional logo URL
+    primary_color: "#2563eb"
+    secondary_color: "#1e40af"
+    background_color: "#f8fafc"
+    text_color: "#1e293b"
+    link_color: "#3b82f6"
+
+  # Output settings
+  output:
+    formats:
+      - "html"
+      - "markdown"
+    directory: "newsletter_output"
+    filename_pattern: "newsletter_{date}"
+
+# Entity mapping for grouping articles
+entity_groups:
+  "AI/ML":
+    - "machine learning"
+    - "ML"
+    - "deep learning"
+    - "artificial intelligence"
+    - "AI"
+    - "pytorch"
+    - "tensorflow"
+    - "llm"
+    - "gpt"
+    - "transformer"
+  "Backend":
+    - "backend"
+    - "fastapi"
+    - "django"
+    - "flask"
+    - "spring"
+    - "nest.js"
+    - "express"
+    - "postgresql"
+    - "mysql"
+    - "mongodb"
+    - "redis"
+  "Frontend":
+    - "frontend"
+    - "react"
+    - "next.js"
+    - "vue"
+    - "svelte"
+    - "angular"
+    - "typescript"
+    - "javascript"
+  "DevOps":
+    - "devops"
+    - "kubernetes"
+    - "docker"
+    - "terraform"
+    - "CI/CD"
+    - "SRE"
+    - "infrastructure"
+  "Security":
+    - "security"
+    - "cybersecurity"
+    - "vulnerability"
+    - "authentication"
+    - "authorization"
+
+language_groups:
+  "Python":
+    - "python"
+    - "fastapi"
+    - "django"
+    - "flask"
+    - "pytorch"
+    - "tensorflow"
+  "Rust":
+    - "rust"
+    - "cargo"
+  "Go":
+    - "golang"
+    - "go"
+  "TypeScript":
+    - "typescript"
+    - "javascript"
+    - "node.js"
+    - "deno"
+  "Kubernetes":
+    - "kubernetes"
+    - "k8s"
+    - "helm"
+    - "istio"
+
+korean_sources:
+  - "kakao"
+  - "naver"
+  - "toss"
+  - "coupang"
+  - "daangn"
+  - "line"
+  - "yanolja"
+  - "musinsa"
+  - "kurly"
+  - "ridi"
+  - "watcha"
+
+global_sources:
+  - "google"
+  - "meta"
+  - "netflix"
+  - "airbnb"
+  - "uber"
+  - "stripe"
+  - "spotify"
+  - "slack"
+  - "openai"
+  - "github"

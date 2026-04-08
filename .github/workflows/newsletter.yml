@@ -1,0 +1,163 @@
+name: Weekly Newsletter
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Run in dry-run mode (no files generated)'
+        required: false
+        default: 'false'
+        type: boolean
+  schedule:
+    # Every Sunday at 09:00 KST (00:00 UTC)
+    - cron: "0 0 * * 0"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+env:
+  RADAR_CATEGORY: techblog
+  TZ: Asia/Seoul
+  PYTHON_VERSION: "3.11"
+
+concurrency:
+  group: newsletter-generation
+  cancel-in-progress: false
+
+jobs:
+  generate-newsletter:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-newsletter-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-newsletter-
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install "radar-core @ git+https://github.com/ai-frendly-datahub/radar-core.git@main"
+          pip install -r requirements.txt
+          pip install jinja2 pyyaml
+
+      - name: Download latest database artifact
+        uses: dawidd6/action-download-artifact@v3
+        with:
+          workflow: radar-crawler.yml
+          name: radar-db-*
+          name_is_regexp: true
+          path: data/
+          if_no_artifact_found: warn
+        continue-on-error: true
+
+      - name: Check database exists
+        id: check-db
+        run: |
+          if [ -f "data/radar_data.duckdb" ]; then
+            echo "Database found"
+            echo "db_exists=true" >> $GITHUB_OUTPUT
+            du -h data/radar_data.duckdb
+          else
+            echo "Database not found, checking for alternative locations..."
+            # Try to find any .duckdb file
+            find . -name "*.duckdb" -type f 2>/dev/null | head -5
+            echo "db_exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Generate Newsletter (Dry Run)
+        if: ${{ inputs.dry_run == 'true' && steps.check-db.outputs.db_exists == 'true' }}
+        run: |
+          python newsletter/generator.py \
+            --db data/radar_data.duckdb \
+            --config newsletter/config.yaml \
+            --template newsletter/template.html \
+            --category "${{ env.RADAR_CATEGORY }}" \
+            --days 7 \
+            --dry-run
+
+      - name: Generate Newsletter
+        if: ${{ inputs.dry_run != 'true' && steps.check-db.outputs.db_exists == 'true' }}
+        run: |
+          python newsletter/generator.py \
+            --db data/radar_data.duckdb \
+            --config newsletter/config.yaml \
+            --template newsletter/template.html \
+            --output newsletter/output \
+            --category "${{ env.RADAR_CATEGORY }}" \
+            --days 7
+
+      - name: Copy newsletter to reports
+        if: ${{ inputs.dry_run != 'true' && steps.check-db.outputs.db_exists == 'true' }}
+        run: |
+          if [ -d "newsletter/output" ]; then
+            # Copy latest newsletter to reports directory
+            cp newsletter/output/newsletter_*.html reports/ 2>/dev/null || true
+            cp newsletter/output/newsletter_*.md reports/ 2>/dev/null || true
+            echo "Newsletter files copied to reports/"
+            ls -la reports/newsletter_* 2>/dev/null || echo "No newsletter files found"
+          fi
+
+      - name: Auto-commit newsletter
+        if: ${{ inputs.dry_run != 'true' && steps.check-db.outputs.db_exists == 'true' }}
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: generate weekly newsletter [skip ci]"
+          file_pattern: "newsletter/output/* reports/newsletter_*"
+          skip_fetch: false
+          skip_checkout: false
+
+      - name: Archive newsletter
+        if: ${{ inputs.dry_run != 'true' && steps.check-db.outputs.db_exists == 'true' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: newsletter-${{ github.run_number }}
+          path: newsletter/output/
+          retention-days: 90
+          if-no-files-found: warn
+
+      - name: Create workflow summary
+        if: always()
+        run: |
+          echo "## Newsletter Generation Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Category**: ${{ env.RADAR_CATEGORY }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Run**: ${{ github.run_number }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Timestamp**: $(date +'%Y-%m-%d %H:%M:%S %Z')" >> $GITHUB_STEP_SUMMARY
+          echo "- **Dry Run**: ${{ inputs.dry_run || 'false' }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Status**: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if [ -d "newsletter/output" ]; then
+            echo "### Generated Files" >> $GITHUB_STEP_SUMMARY
+            ls -la newsletter/output/ >> $GITHUB_STEP_SUMMARY 2>/dev/null || echo "No output files" >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          curl -s -X POST "${{ secrets.NOTIFICATION_WEBHOOK_URL }}" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "repo": "${{ github.repository }}",
+              "workflow": "Newsletter Generation",
+              "run_id": "${{ github.run_id }}",
+              "run_url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}",
+              "status": "failure",
+              "timestamp": "'$(date -u +"%Y-%m-%dT%H:%M:%SZ")'"
+            }' || true
