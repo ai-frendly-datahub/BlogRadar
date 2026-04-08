@@ -55,6 +55,13 @@ jobs:
         run: |
           python -c "from blogradar.reporter import generate_index_html; from pathlib import Path; generate_index_html(Path('reports'))"
 
+      - name: Generate dashboard data
+        run: |
+          python scripts/generate_dashboard_data.py
+          # Copy dashboard files to reports for GitHub Pages deployment
+          cp docs/dashboard.html reports/dashboard.html
+          cp docs/dashboard_data.json reports/dashboard_data.json
+
       - name: Run Quality Checks
         if: always()
         run: |
@@ -75,7 +82,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: update radar data [skip ci]"
-          file_pattern: "data/ reports/*_summary.json"
+          file_pattern: "data/ reports/*_summary.json docs/dashboard_data.json"
           skip_fetch: false
           skip_checkout: false
 
@@ -124,6 +131,9 @@ jobs:
           if [ -f "data/radar_data.duckdb" ]; then
             SIZE=$(du -h data/radar_data.duckdb | cut -f1)
             echo "✅ Database backed up ($SIZE)" >> $GITHUB_STEP_SUMMARY
+          fi
+          if [ -f "reports/dashboard.html" ]; then
+            echo "✅ Dashboard generated" >> $GITHUB_STEP_SUMMARY
           fi
 
       - name: Notify on failure

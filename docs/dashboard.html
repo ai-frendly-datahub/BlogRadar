@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogRadar - Framework Popularity Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <style>
+        :root {
+            --primary: #667eea;
+            --primary-dark: #5a6fd6;
+            --secondary: #764ba2;
+            --bg: #f0f2f5;
+            --card-bg: #ffffff;
+            --text: #333;
+            --text-light: #666;
+            --border: #e1e4e8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans KR', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .stat-value {
+            font-size: 2.4em;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            margin-top: 4px;
+            font-size: 0.95em;
+        }
+
+        .stat-sub {
+            font-size: 0.85em;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        /* Charts Grid */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        @media (max-width: 1024px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .chart-card {
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .chart-card.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .chart-card h2 {
+            font-size: 1.2em;
+            margin-bottom: 16px;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chart-card h2 .subtitle {
+            font-size: 0.75em;
+            font-weight: 400;
+            color: var(--text-light);
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 320px;
+        }
+
+        .chart-wrapper.tall {
+            height: 400px;
+        }
+
+        /* Ranking Table */
+        .ranking-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .ranking-table th,
+        .ranking-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .ranking-table th {
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 0.9em;
+        }
+
+        .ranking-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .rank {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        .rank-1 { background: #ffd700; color: #333; }
+        .rank-2 { background: #c0c0c0; color: #333; }
+        .rank-3 { background: #cd7f32; color: #fff; }
+        .rank-other { background: #e9ecef; color: #666; }
+
+        .tech-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 16px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        .count-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .count-bar-fill {
+            height: 8px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 4px;
+            transition: width 0.3s;
+        }
+
+        .count-value {
+            font-size: 0.9em;
+            color: var(--text-light);
+            min-width: 40px;
+        }
+
+        /* Company Tech Stacks */
+        .tech-stack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .company-card {
+            padding: 16px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .company-name {
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-transform: capitalize;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .tech-mini-tag {
+            padding: 3px 8px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            font-size: 0.8em;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 32px 20px;
+            color: var(--text-light);
+            font-size: 0.9em;
+        }
+
+        .footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .update-time {
+            margin-bottom: 12px;
+        }
+
+        /* Loading State */
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+            color: var(--text-light);
+        }
+
+        .spinner {
+            width: 32px;
+            height: 32px;
+            border: 3px solid var(--border);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 12px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Error State */
+        .error {
+            text-align: center;
+            padding: 40px;
+            color: #dc3545;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.2s;
+        }
+
+        .tab-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>BlogRadar Dashboard</h1>
+        <p>Tech Blog Framework Popularity / 기술 블로그 프레임워크 인기도</p>
+    </div>
+
+    <div class="container">
+        <!-- Stats -->
+        <div class="stats-grid" id="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value" id="stat-total">-</div>
+                <div class="stat-label">Total Articles / 전체 기사</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="stat-matched">-</div>
+                <div class="stat-label">With Entities / 엔티티 매칭</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="stat-rate">-%</div>
+                <div class="stat-label">Match Rate / 매칭률</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="stat-date">-</div>
+                <div class="stat-label">Data Period / 데이터 기간</div>
+                <div class="stat-sub" id="stat-date-range"></div>
+            </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="charts-grid">
+            <!-- Weekly Trends -->
+            <div class="chart-card full-width">
+                <h2>Weekly Framework Trends <span class="subtitle">/ 주간 프레임워크 트렌드</span></h2>
+                <div class="chart-wrapper tall">
+                    <canvas id="weeklyTrendsChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Top Frameworks -->
+            <div class="chart-card">
+                <h2>Top 10 Frameworks <span class="subtitle">/ 인기 프레임워크</span></h2>
+                <div class="chart-wrapper">
+                    <canvas id="frameworksChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Programming Languages -->
+            <div class="chart-card">
+                <h2>Programming Languages <span class="subtitle">/ 프로그래밍 언어</span></h2>
+                <div class="chart-wrapper">
+                    <canvas id="languagesChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Domains -->
+            <div class="chart-card">
+                <h2>Tech Domains <span class="subtitle">/ 기술 도메인</span></h2>
+                <div class="chart-wrapper">
+                    <canvas id="domainsChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Topics -->
+            <div class="chart-card">
+                <h2>Hot Topics <span class="subtitle">/ 인기 주제</span></h2>
+                <div class="chart-wrapper">
+                    <canvas id="topicsChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Top 10 Ranking Table -->
+            <div class="chart-card">
+                <h2>Framework Ranking <span class="subtitle">/ 프레임워크 순위</span></h2>
+                <table class="ranking-table" id="ranking-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Framework</th>
+                            <th>Mentions</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <!-- Company Mentions -->
+            <div class="chart-card">
+                <h2>Company Mentions <span class="subtitle">/ 기업 언급</span></h2>
+                <div class="chart-wrapper">
+                    <canvas id="companiesChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Company Tech Stacks -->
+            <div class="chart-card full-width">
+                <h2>Company Tech Stacks <span class="subtitle">/ 기업별 기술 스택 (동시 언급 기준)</span></h2>
+                <div class="tech-stack-grid" id="tech-stacks"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="update-time" id="update-time">Last updated: -</div>
+        <a href="https://github.com/ai-frendly-datahub/BlogRadar">GitHub Repository</a>
+        &nbsp;|&nbsp;
+        <a href="index.html">Back to Reports</a>
+    </div>
+
+    <script>
+        // Chart.js defaults
+        Chart.defaults.font.family = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans KR', sans-serif";
+        Chart.defaults.color = '#666';
+
+        const COLORS = {
+            gradient: ['#667eea', '#764ba2'],
+            palette: [
+                '#667eea', '#764ba2', '#f093fb', '#f5576c', '#4facfe',
+                '#00f2fe', '#43e97b', '#38f9d7', '#fa709a', '#fee140'
+            ]
+        };
+
+        let dashboardData = null;
+        let charts = {};
+
+        async function loadData() {
+            try {
+                const response = await fetch('dashboard_data.json');
+                if (!response.ok) throw new Error('Failed to load data');
+                dashboardData = await response.json();
+                renderDashboard();
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.querySelector('.container').innerHTML = `
+                    <div class="error">
+                        <h2>Data Load Error</h2>
+                        <p>Failed to load dashboard_data.json</p>
+                        <p style="color: #666; margin-top: 8px;">Run: python scripts/generate_dashboard_data.py</p>
+                    </div>
+                `;
+            }
+        }
+
+        function renderDashboard() {
+            renderStats();
+            renderWeeklyTrends();
+            renderFrameworksChart();
+            renderLanguagesChart();
+            renderDomainsChart();
+            renderTopicsChart();
+            renderCompaniesChart();
+            renderRankingTable();
+            renderTechStacks();
+
+            // Update time
+            const date = new Date(dashboardData.generated_at);
+            document.getElementById('update-time').textContent =
+                `Last updated: ${date.toLocaleString('ko-KR')}`;
+        }
+
+        function renderStats() {
+            const stats = dashboardData.stats;
+            document.getElementById('stat-total').textContent =
+                stats.total_articles.toLocaleString();
+            document.getElementById('stat-matched').textContent =
+                stats.articles_with_entities.toLocaleString();
+            document.getElementById('stat-rate').textContent =
+                `${stats.entity_match_rate}%`;
+
+            if (stats.date_range.start && stats.date_range.end) {
+                const start = new Date(stats.date_range.start);
+                const end = new Date(stats.date_range.end);
+                const days = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
+                document.getElementById('stat-date').textContent = `${days} days`;
+                document.getElementById('stat-date-range').textContent =
+                    `${start.toLocaleDateString('ko-KR')} ~ ${end.toLocaleDateString('ko-KR')}`;
+            }
+        }
+
+        function renderWeeklyTrends() {
+            const ctx = document.getElementById('weeklyTrendsChart').getContext('2d');
+            const trends = dashboardData.weekly_trends;
+            const weeks = Object.keys(trends);
+
+            // Get all unique frameworks
+            const allFrameworks = new Set();
+            Object.values(trends).forEach(weekData => {
+                Object.keys(weekData).forEach(fw => allFrameworks.add(fw));
+            });
+
+            // Get top 6 frameworks by total mentions
+            const frameworkTotals = {};
+            allFrameworks.forEach(fw => {
+                frameworkTotals[fw] = Object.values(trends).reduce(
+                    (sum, week) => sum + (week[fw] || 0), 0
+                );
+            });
+            const topFrameworks = Object.entries(frameworkTotals)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 6)
+                .map(([fw]) => fw);
+
+            const datasets = topFrameworks.map((fw, i) => ({
+                label: fw.toUpperCase(),
+                data: weeks.map(week => trends[week][fw] || 0),
+                borderColor: COLORS.palette[i],
+                backgroundColor: COLORS.palette[i] + '20',
+                borderWidth: 2,
+                fill: true,
+                tension: 0.4,
+                pointRadius: 4,
+                pointHoverRadius: 6
+            }));
+
+            charts.weeklyTrends = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: weeks.map(w => {
+                        const date = new Date(w);
+                        return `${date.getMonth() + 1}/${date.getDate()}`;
+                    }),
+                    datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: { usePointStyle: true }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: '#e9ecef' }
+                        },
+                        x: {
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+        }
+
+        function renderFrameworksChart() {
+            const ctx = document.getElementById('frameworksChart').getContext('2d');
+            const data = Object.entries(dashboardData.frameworks).slice(0, 10);
+
+            charts.frameworks = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: data.map(([name]) => name.toUpperCase()),
+                    datasets: [{
+                        data: data.map(([, count]) => count),
+                        backgroundColor: COLORS.palette,
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { grid: { color: '#e9ecef' } },
+                        y: { grid: { display: false } }
+                    }
+                }
+            });
+        }
+
+        function renderLanguagesChart() {
+            const ctx = document.getElementById('languagesChart').getContext('2d');
+            const data = Object.entries(dashboardData.languages).slice(0, 10);
+
+            charts.languages = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: data.map(([name]) => name.toUpperCase()),
+                    datasets: [{
+                        data: data.map(([, count]) => count),
+                        backgroundColor: COLORS.palette,
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: { usePointStyle: true }
+                        }
+                    }
+                }
+            });
+        }
+
+        function renderDomainsChart() {
+            const ctx = document.getElementById('domainsChart').getContext('2d');
+            const data = Object.entries(dashboardData.domains).slice(0, 8);
+
+            charts.domains = new Chart(ctx, {
+                type: 'polarArea',
+                data: {
+                    labels: data.map(([name]) => name.toUpperCase()),
+                    datasets: [{
+                        data: data.map(([, count]) => count),
+                        backgroundColor: COLORS.palette.map(c => c + 'AA'),
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: { usePointStyle: true }
+                        }
+                    }
+                }
+            });
+        }
+
+        function renderTopicsChart() {
+            const ctx = document.getElementById('topicsChart').getContext('2d');
+            const data = Object.entries(dashboardData.topics).slice(0, 10);
+
+            charts.topics = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: data.map(([name]) => name),
+                    datasets: [{
+                        data: data.map(([, count]) => count),
+                        backgroundColor: '#667eea',
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { grid: { color: '#e9ecef' } },
+                        y: { grid: { display: false } }
+                    }
+                }
+            });
+        }
+
+        function renderCompaniesChart() {
+            const ctx = document.getElementById('companiesChart').getContext('2d');
+            const data = Object.entries(dashboardData.companies).slice(0, 10);
+
+            charts.companies = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: data.map(([name]) => name.toUpperCase()),
+                    datasets: [{
+                        data: data.map(([, count]) => count),
+                        backgroundColor: COLORS.palette,
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: '#e9ecef' }
+                        },
+                        x: {
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+        }
+
+        function renderRankingTable() {
+            const tbody = document.querySelector('#ranking-table tbody');
+            const data = Object.entries(dashboardData.frameworks).slice(0, 10);
+            const maxCount = data[0]?.[1] || 1;
+
+            tbody.innerHTML = data.map(([name, count], i) => {
+                const rankClass = i < 3 ? `rank-${i + 1}` : 'rank-other';
+                const barWidth = (count / maxCount * 100).toFixed(1);
+                return `
+                    <tr>
+                        <td><span class="rank ${rankClass}">${i + 1}</span></td>
+                        <td><span class="tech-tag">${name.toUpperCase()}</span></td>
+                        <td>
+                            <div class="count-bar">
+                                <div class="count-bar-fill" style="width: ${barWidth}%"></div>
+                                <span class="count-value">${count}</span>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function renderTechStacks() {
+            const container = document.getElementById('tech-stacks');
+            const stacks = dashboardData.company_tech_stacks;
+
+            container.innerHTML = Object.entries(stacks).slice(0, 12).map(([company, frameworks]) => {
+                const tags = Object.entries(frameworks)
+                    .map(([fw, count]) => `<span class="tech-mini-tag">${fw} (${count})</span>`)
+                    .join('');
+                return `
+                    <div class="company-card">
+                        <div class="company-name">${company}</div>
+                        <div class="tech-tags">${tags}</div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Initialize
+        loadData();
+    </script>
+</body>
+</html>
