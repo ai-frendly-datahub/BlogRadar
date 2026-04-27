@@ -54,6 +54,7 @@ class RawLogger:
                     "source": article.source,
                     "category": article.category,
                     "matched_entities": article.matched_entities,
+                    "ontology": article.ontology or None,
                     "logged_at": now.isoformat(),
                 }
                 _ = handle.write(json.dumps(record, ensure_ascii=False))

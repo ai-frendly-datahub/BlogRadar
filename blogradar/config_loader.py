@@ -40,6 +40,51 @@ def _string_value(raw: dict[str, object], key: str, default: str) -> str:
     return default
 
 
+def _bool_value(raw: dict[str, object], key: str, default: bool) -> bool:
+    value = raw.get(key)
+    if isinstance(value, bool):
+        return value
+    if isinstance(value, str):
+        lowered = value.strip().lower()
+        if lowered in {"true", "1", "yes", "y"}:
+            return True
+        if lowered in {"false", "0", "no", "n"}:
+            return False
+    return default
+
+
+def _float_value(raw: dict[str, object], key: str, default: float) -> float:
+    value = raw.get(key)
+    if isinstance(value, int | float):
+        return float(value)
+    if isinstance(value, str):
+        try:
+            return float(value.strip())
+        except ValueError:
+            return default
+    return default
+
+
+def _string_list_value(raw: dict[str, object], key: str) -> list[str]:
+    value = raw.get(key)
+    if isinstance(value, list):
+        values = cast(list[object], value)
+    elif isinstance(value, tuple | set):
+        values = list(cast(tuple[object, ...] | set[object], value))
+    elif isinstance(value, str) and value.strip():
+        values = [value]
+    else:
+        values = []
+    return [str(item).strip() for item in values if str(item).strip()]
+
+
+def _dict_value(raw: dict[str, object], key: str) -> dict[str, object]:
+    value = raw.get(key)
+    if isinstance(value, dict):
+        return {str(k): v for k, v in cast(dict[object, object], value).items()}
+    return {}
+
+
 def _dict_items(value: object) -> list[dict[str, object]]:
     if not isinstance(value, list):
         return []
@@ -108,6 +153,25 @@ def load_category_config(category_name: str, categories_dir: Path | None = None)
     )
 
 
+def load_category_quality_config(
+    category_name: str,
+    categories_dir: Path | None = None,
+) -> dict[str, object]:
+    """Load raw category quality/backlog settings for report generation."""
+    project_root = Path(__file__).resolve().parent.parent
+    base_dir = categories_dir or project_root / "config" / "categories"
+    config_file = Path(base_dir) / f"{category_name}.yaml"
+
+    if not config_file.exists():
+        raise FileNotFoundError(f"Category config not found: {config_file}")
+
+    raw = _read_yaml_dict(config_file)
+    return {
+        "data_quality": _dict_value(raw, "data_quality"),
+        "source_backlog": _dict_value(raw, "source_backlog"),
+    }
+
+
 def _parse_source(entry: dict[str, object]) -> Source:
     if not entry:
         raise ValueError("Empty source entry in category config")
@@ -115,6 +179,19 @@ def _parse_source(entry: dict[str, object]) -> Source:
         name=_string_value(entry, "name", "Unnamed Source"),
         type=_string_value(entry, "type", "rss"),
         url=_string_value(entry, "url", ""),
+        id=_string_value(entry, "id", ""),
+        enabled=_bool_value(entry, "enabled", True),
+        language=_string_value(entry, "language", ""),
+        country=_string_value(entry, "country", ""),
+        region=_string_value(entry, "region", ""),
+        trust_tier=_string_value(entry, "trust_tier", "T3_professional"),
+        weight=_float_value(entry, "weight", 1.0),
+        content_type=_string_value(entry, "content_type", "news"),
+        collection_tier=_string_value(entry, "collection_tier", "C1_rss"),
+        producer_role=_string_value(entry, "producer_role", ""),
+        info_purpose=_string_list_value(entry, "info_purpose"),
+        notes=_string_value(entry, "notes", ""),
+        config=_dict_value(entry, "config"),
     )
 
 

@@ -56,6 +56,23 @@ def test_log_writes_valid_json_per_line(tmp_path: Path) -> None:
     assert logged_at.endswith("+00:00")
 
 
+def test_log_writes_ontology_when_present(tmp_path: Path) -> None:
+    logger = RawLogger(tmp_path)
+    article = _make_article()
+    article.ontology = {
+        "ontology_version": "0.1.0",
+        "event_model_id": "blog_post_event",
+    }
+
+    output_path = logger.log([article], source_name="source")
+    parsed = cast(dict[str, object], json.loads(output_path.read_text(encoding="utf-8").strip()))
+
+    assert parsed["ontology"] == {
+        "ontology_version": "0.1.0",
+        "event_model_id": "blog_post_event",
+    }
+
+
 def test_log_appends_when_called_multiple_times(tmp_path: Path) -> None:
     logger = RawLogger(tmp_path)
 

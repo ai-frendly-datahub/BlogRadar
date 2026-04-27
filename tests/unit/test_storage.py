@@ -21,6 +21,7 @@ class _Article(Protocol):
     category: str
     matched_entities: dict[str, list[str]]
     collected_at: datetime | None
+    ontology: dict[str, object]
 
 
 class _ArticleCtor(Protocol):
@@ -42,6 +43,10 @@ class _RadarStorage(Protocol):
     def upsert_articles(self, articles: Iterable[_Article]) -> None: ...
 
     def recent_articles(
+        self, category: str, *, days: int = 7, limit: int = 200
+    ) -> list[_Article]: ...
+
+    def recent_articles_by_collected_at(
         self, category: str, *, days: int = 7, limit: int = 200
     ) -> list[_Article]: ...
 
@@ -239,6 +244,26 @@ def test_recent_articles_filters_by_period(tmp_storage: object) -> None:
 
     assert len(results) == 1
     assert results[0].link == recent_article.link
+
+
+def test_recent_articles_by_collected_at_round_trips_ontology(tmp_storage: object) -> None:
+    storage = cast(_RadarStorage, tmp_storage)
+    article = _make_article(
+        title="Ontology",
+        link="https://example.com/ontology",
+        summary="ontology",
+        published=datetime.now(UTC) - timedelta(days=40),
+    )
+    article.ontology = {
+        "ontology_version": "0.1.0",
+        "event_model_id": "blog_post_event",
+    }
+
+    storage.upsert_articles([article])
+    results = storage.recent_articles_by_collected_at(category="tech", days=7)
+
+    assert len(results) == 1
+    assert results[0].ontology == article.ontology
 
 
 def test_recent_articles_filters_by_category(tmp_storage: object) -> None:

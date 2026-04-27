@@ -1,514 +1,799 @@
-category_name: "techblog"
-display_name: "Tech Blog Radar"
-
+category_name: techblog
+display_name: Tech Blog Radar
+data_quality:
+  priority: P2
+  primary_motion: intelligence
+  weakest_dimension: authority
+  quality_outputs:
+    freshness_report: reports/techblog_quality.json
+    dated_freshness_report_pattern: reports/techblog_YYYYMMDD_quality.json
+    tracked_event_models:
+    - repository_release
+    - package_download
+    - github_activity
+    - skill_demand
+  event_models:
+    repository_release:
+      date_fields:
+      - released_at
+      - collected_at
+      required_fields:
+      - repository
+      - release_tag
+      - source_url
+    package_download:
+      date_fields:
+      - metric_date
+      - collected_at
+      required_fields:
+      - package_name
+      - registry
+      - download_count
+    github_activity:
+      date_fields:
+      - metric_date
+      - collected_at
+      required_fields:
+      - repository
+      - stars
+      - forks
+    skill_demand:
+      date_fields:
+      - posted_date
+      - collected_at
+      required_fields:
+      - skill
+      - employer
+      - source_url
+  canonical_keys:
+    repository:
+    - host
+    - owner
+    - repo
+    package:
+    - registry
+    - package_name
+    technology:
+    - normalized_technology_name
+    - ecosystem
+  freshness_sla:
+    repository_release_days: 3
+    package_download_days: 7
+    github_activity_days: 7
+    skill_demand_days: 14
+  quality_gates:
+  - 블로그 언급량과 실제 채택 신호를 별도 점수로 유지한다
+  - repository/package 이름 충돌을 canonical key로 정리한다
+  - 릴리스일, 게시일, 수집일을 분리한다
+  - 채용공고 skill demand는 후행 adoption 검증 신호로만 사용한다
+source_backlog:
+  operational_candidates:
+  - id: github_release_star_api
+    name: GitHub release and star API
+    signal_type: repository_release
+    activation_gate: token/quota policy, repository mapping, and release date normalization
+  - id: npm_downloads_api
+    name: npm downloads API
+    signal_type: package_download
+    activation_gate: package canonicalization, weekly window handling, and ecosystem
+      labeling
+  - id: pypi_download_metrics
+    name: PyPI download metrics
+    signal_type: package_download
+    activation_gate: source availability, package canonicalization, and bot/noise
+      caveats
+  - id: public_job_skill_index
+    name: Public job skill demand index
+    signal_type: skill_demand
+    activation_gate: ToS review, employer normalization, and duplicate posting handling
 sources:
-  # === 국내 기업 기술블로그 ===
-  - name: "카카오 기술블로그"
-    type: "rss"
-    url: "https://tech.kakao.com/feed/"
-  - name: "카카오페이 기술블로그"
-    type: "rss"
-    url: "https://tech.kakaopay.com/rss"
-  - name: "네이버 D2"
-    type: "rss"
-    url: "https://d2.naver.com/d2.atom"
-  - name: "토스 기술블로그"
-    type: "rss"
-    url: "https://toss.tech/rss.xml"
-  - name: "당근 기술블로그"
-    type: "rss"
-    url: "https://medium.com/feed/daangn"
-  - name: "라인 엔지니어링"
-    type: "rss"
-    url: "https://engineering.linecorp.com/ko/feed"
-  - name: "뱅크샐러드 기술블로그"
-    type: "rss"
-    url: "https://blog.banksalad.com/rss.xml"
-  - name: "쿠팡 엔지니어링"
-    type: "rss"
-    url: "https://medium.com/feed/coupang-engineering"
-  - name: "NHN 기술블로그"
-    type: "rss"
-    url: "https://meetup.nhncloud.com/rss"
-  - name: "하이퍼커넥트 기술블로그"
-    type: "rss"
-    url: "https://hyperconnect.github.io/feed.xml"
-  - name: "올리브영 기술블로그"
-    type: "rss"
-    url: "https://oliveyoung.tech/rss.xml"
-  - name: "리디 기술블로그"
-    type: "rss"
-    url: "https://ridicorp.com/feed/"
-  - name: "왓챠 기술블로그"
-    type: "rss"
-    url: "https://medium.com/feed/watcha"
-  - name: "여기어때 기술블로그"
-    type: "rss"
-    url: "https://techblog.gccompany.co.kr/feed"
-  - name: "마켓컬리 기술블로그"
-    type: "rss"
-    url: "https://helloworld.kurly.com/feed.xml"
-  - name: "직방 기술블로그"
-    type: "rss"
-    url: "https://medium.com/feed/zigbang"
-  - name: "스포카 기술블로그"
-    type: "rss"
-    url: "https://spoqa.github.io/feed.xml"
-  - name: "야놀자 기술블로그"
-    type: "rss"
-    url: "https://techblog.yanolja.com/feed"
-  - name: "무신사 기술블로그"
-    type: "rss"
-    url: "https://medium.com/feed/musinsa-tech"
-  - name: "데브시스터즈 기술블로그"
-    type: "rss"
-    url: "https://tech.devsisters.com/rss/"
-  - name: "SK텔레콤 Devocean"
-    type: "rss"
-    url: "https://devocean.sk.com/rss"
-  - name: "삼성SDS 기술블로그"
-    type: "rss"
-    url: "https://www.samsungsds.com/kr/insights/feed"
-
-  # === 글로벌 빅테크 엔지니어링 블로그 ===
-  - name: "Google Developers Blog"
-    type: "rss"
-    url: "https://developers.googleblog.com/feeds/posts/default"
-  - name: "Google AI Blog"
-    type: "rss"
-    url: "https://blog.google/technology/ai/rss/"
-  - name: "Meta Engineering"
-    type: "rss"
-    url: "https://engineering.fb.com/feed/"
-  - name: "Netflix TechBlog"
-    type: "rss"
-    url: "https://medium.com/feed/netflix-techblog"
-  - name: "Airbnb Engineering"
-    type: "rss"
-    url: "https://medium.com/feed/airbnb-engineering"
-  - name: "Uber Engineering"
-    type: "rss"
-    url: "https://www.uber.com/en-US/blog/engineering/rss/"
-  - name: "GitHub Blog Engineering"
-    type: "rss"
-    url: "https://github.blog/category/engineering/feed/"
-  - name: "Cloudflare Blog"
-    type: "rss"
-    url: "https://blog.cloudflare.com/rss/"
-  - name: "AWS Architecture Blog"
-    type: "rss"
-    url: "https://aws.amazon.com/blogs/architecture/feed/"
-
-  - name: "Spotify Engineering"
-    type: "rss"
-    url: "https://engineering.atspotify.com/feed/"
-  - name: "LinkedIn Engineering"
-    type: "rss"
-    url: "https://engineering.linkedin.com/blog.rss"
-  - name: "Dropbox Tech"
-    type: "rss"
-    url: "https://dropbox.tech/feed"
-  - name: "Slack Engineering"
-    type: "rss"
-    url: "https://slack.engineering/feed/"
-  - name: "Figma Blog"
-    type: "rss"
-    url: "https://www.figma.com/blog/feed/atom.xml"
-  - name: "Vercel Blog"
-    type: "rss"
-    url: "https://vercel.com/atom"
-  - name: "Grafana Labs Blog"
-    type: "rss"
-    url: "https://grafana.com/blog/index.xml"
-  - name: "HashiCorp Blog"
-    type: "rss"
-    url: "https://www.hashicorp.com/blog/feed.xml"
-  - name: "Elastic Blog"
-    type: "rss"
-    url: "https://www.elastic.co/blog/feed"
-  - name: "MongoDB Engineering"
-    type: "rss"
-    url: "https://www.mongodb.com/blog/rss"
-  - name: "Stripe Engineering"
-    type: "rss"
-    url: "https://stripe.com/blog/feed.rss"
-    trust_tier: T2_institutional
-    collection_tier: C1_rss
-  - name: "Shopify Engineering"
-    type: "rss"
-    url: "https://shopify.engineering/feed.xml"
-    trust_tier: T2_institutional
-    collection_tier: C1_rss
-  - name: "Discord Engineering"
-    type: "rss"
-    url: "https://discord.com/blog/engineering/rss.xml"
-    trust_tier: T2_institutional
-    collection_tier: C1_rss
-
-  # === 오픈소스 프로젝트 블로그 ===
-  - name: "Kubernetes Blog"
-    type: "rss"
-    url: "https://kubernetes.io/feed.xml"
-  - name: "Helm Blog"
-    type: "rss"
-    url: "https://helm.sh/blog/index.xml"
-  - name: "Go Blog"
-    type: "rss"
-    url: "https://go.dev/blog/feed.atom"
-  - name: "Rust Blog"
-    type: "rss"
-    url: "https://blog.rust-lang.org/feed.xml"
-  - name: "PyTorch Blog"
-    type: "rss"
-    url: "https://pytorch.org/blog/feed/"
-  - name: "TensorFlow Blog"
-    type: "rss"
-    url: "https://blog.tensorflow.org/feeds/posts/default?alt=rss"
-
-  # === 뉴스레터 / 큐레이션 / 커뮤니티 ===
-  - name: "Hacker News Best"
-    type: "rss"
-    url: "https://hnrss.org/newest"
-  - name: "Hacker News Ask HN"
-    type: "rss"
-    url: "https://hnrss.org/ask"
-  # - name: "Lobste.rs"
-  #   type: "rss"
-  #   url: "https://lobste.rs/rss"
-  - name: "The New Stack"
-    type: "rss"
-    url: "https://thenewstack.io/feed/"
-  - name: "InfoQ"
-    type: "rss"
-    url: "https://feed.infoq.com/"
-  - name: "Changelog News"
-    type: "rss"
-    url: "https://changelog.com/news/feed"
-  - name: "The Pragmatic Engineer"
-    type: "rss"
-    url: "https://newsletter.pragmaticengineer.com/feed"
-  - name: "ByteByteGo"
-    type: "rss"
-    url: "https://blog.bytebytego.com/feed"
-
-  # === VC / AI 리서치 블로그 ===
-  - name: "Y Combinator Blog"
-    type: "rss"
-    url: "https://www.ycombinator.com/blog/rss/"
-  - name: "Sequoia Capital"
-    type: "rss"
-    url: "https://www.sequoiacap.com/feed/"
-  - name: "OpenAI News"
-    type: "rss"
-    url: "https://openai.com/news/rss.xml"
-
-  # === DevOps / Security ===
-  - name: "CircleCI Blog"
-    type: "rss"
-    url: "https://circleci.com/blog/feed.xml"
-  - name: "Google Project Zero"
-    type: "rss"
-    url: "https://googleprojectzero.blogspot.com/feeds/posts/default"
-  - name: "Krebs on Security"
-    type: "rss"
-    url: "https://krebsonsecurity.com/feed/"
-  - name: "Dev.to - Python"
-    type: "rss"
-    url: "https://dev.to/feed/tag/python"
-  - name: "Dev.to - DevOps"
-    type: "rss"
-    url: "https://dev.to/feed/tag/devops"
-  - name: "Dev.to - Open Source"
-    type: "rss"
-    url: "https://dev.to/feed/tag/opensource"
-
-  # === Reddit 개발/엔지니어링 커뮤니티 ===
-  - name: "r/programming"
-    type: "reddit"
-    url: "https://www.reddit.com/r/programming/"
-
-  - name: "r/coding"
-    type: "reddit"
-    url: "https://www.reddit.com/r/coding/"
-
-  - name: "r/ExperiencedDevs"
-    type: "reddit"
-    url: "https://www.reddit.com/r/ExperiencedDevs/"
-
-  - name: "r/devops"
-    type: "reddit"
-    url: "https://www.reddit.com/r/devops/"
-
-  - name: "r/MachineLearning"
-    type: "reddit"
-    url: "https://www.reddit.com/r/MachineLearning/"
-
-  - name: "r/rust"
-    type: "reddit"
-    url: "https://www.reddit.com/r/rust/"
-
-  - name: "r/golang"
-    type: "reddit"
-    url: "https://www.reddit.com/r/golang/"
-
-  - name: "r/Python"
-    type: "reddit"
-    url: "https://www.reddit.com/r/Python/"
-
-  # === 기술 팟캐스트/YouTube ===
-  - name: "Syntax.fm"
-    type: "rss"
-    url: "https://feed.syntax.fm/"
-
-  - name: "Software Engineering Daily"
-    type: "rss"
-    url: "https://softwareengineeringdaily.com/feed/podcast"
-
-  - name: "Fireship"
-    type: "rss"
-    url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCsBjURrPoezykLs9EqgamOA"
-
-  - name: "Theo - t3.gg"
-    type: "rss"
-    url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCbRP3c757lWg9M-U7TyEkXA"
-
+- name: 카카오 기술블로그
+  type: rss
+  url: https://tech.kakao.com/feed/
+  config:
+    event_model: blog_post
+- name: 카카오페이 기술블로그
+  type: rss
+  url: https://tech.kakaopay.com/rss
+  config:
+    event_model: blog_post
+- name: 네이버 D2
+  type: rss
+  url: https://d2.naver.com/d2.atom
+  config:
+    event_model: blog_post
+- name: 토스 기술블로그
+  type: rss
+  url: https://toss.tech/rss.xml
+  config:
+    event_model: blog_post
+- name: 당근 기술블로그
+  type: rss
+  url: https://medium.com/feed/daangn
+  config:
+    event_model: blog_post
+- name: 라인 엔지니어링
+  type: rss
+  url: https://engineering.linecorp.com/ko/feed
+  config:
+    event_model: blog_post
+- name: 뱅크샐러드 기술블로그
+  type: rss
+  url: https://blog.banksalad.com/rss.xml
+  config:
+    event_model: blog_post
+- name: 쿠팡 엔지니어링
+  type: rss
+  url: https://medium.com/feed/coupang-engineering
+  config:
+    event_model: blog_post
+- name: NHN 기술블로그
+  type: rss
+  url: https://meetup.nhncloud.com/rss
+  config:
+    event_model: blog_post
+- name: 하이퍼커넥트 기술블로그
+  type: rss
+  url: https://hyperconnect.github.io/feed.xml
+  config:
+    event_model: blog_post
+- name: 올리브영 기술블로그
+  type: rss
+  url: https://oliveyoung.tech/rss.xml
+  config:
+    event_model: blog_post
+- name: 리디 기술블로그
+  type: rss
+  url: https://ridicorp.com/feed/
+  config:
+    event_model: blog_post
+- name: 왓챠 기술블로그
+  type: rss
+  url: https://medium.com/feed/watcha
+  config:
+    event_model: blog_post
+- name: 여기어때 기술블로그
+  type: rss
+  url: https://techblog.gccompany.co.kr/feed
+  config:
+    event_model: blog_post
+- name: 마켓컬리 기술블로그
+  type: rss
+  url: https://helloworld.kurly.com/feed.xml
+  config:
+    event_model: blog_post
+- name: 직방 기술블로그
+  type: rss
+  url: https://medium.com/feed/zigbang
+  config:
+    event_model: blog_post
+- name: 스포카 기술블로그
+  type: rss
+  url: https://spoqa.github.io/feed.xml
+  config:
+    event_model: blog_post
+- name: 야놀자 기술블로그
+  type: rss
+  url: https://techblog.yanolja.com/feed
+  config:
+    event_model: blog_post
+- name: 무신사 기술블로그
+  type: rss
+  url: https://medium.com/feed/musinsa-tech
+  config:
+    event_model: blog_post
+- name: 데브시스터즈 기술블로그
+  type: rss
+  url: https://tech.devsisters.com/rss/
+  config:
+    event_model: blog_post
+- name: SK텔레콤 Devocean
+  type: rss
+  url: https://devocean.sk.com/rss
+  config:
+    event_model: blog_post
+- name: 삼성SDS 기술블로그
+  type: rss
+  url: https://www.samsungsds.com/kr/insights/feed
+  config:
+    event_model: blog_post
+- name: Google Developers Blog
+  type: rss
+  url: https://developers.googleblog.com/feeds/posts/default
+  config:
+    event_model: blog_post
+- name: Google AI Blog
+  type: rss
+  url: https://blog.google/technology/ai/rss/
+  config:
+    event_model: blog_post
+- name: Meta Engineering
+  type: rss
+  url: https://engineering.fb.com/feed/
+  config:
+    event_model: blog_post
+- name: Netflix TechBlog
+  type: rss
+  url: https://medium.com/feed/netflix-techblog
+  config:
+    event_model: blog_post
+- name: Airbnb Engineering
+  type: rss
+  url: https://medium.com/feed/airbnb-engineering
+  config:
+    event_model: blog_post
+- name: Uber Engineering
+  type: rss
+  url: https://www.uber.com/en-US/blog/engineering/rss/
+  config:
+    event_model: blog_post
+- name: GitHub Blog Engineering
+  type: rss
+  url: https://github.blog/category/engineering/feed/
+  trust_tier: T1_authoritative
+  collection_tier: C1_rss
+  content_type: changelog
+  producer_role: vendor_platform
+  info_purpose:
+  - changelog
+  - release
+  - developer_adoption
+  - platform_update
+  notes: Official GitHub engineering feed with product changelog, release, and platform
+    rollout context.
+  config:
+    freshness_sla_days: 14
+    event_model: blog_post
+- name: Cloudflare Blog
+  type: rss
+  url: https://blog.cloudflare.com/rss/
+  trust_tier: T2_institutional
+  collection_tier: C1_rss
+  content_type: product_update
+  producer_role: vendor_platform
+  info_purpose:
+  - rollout
+  - migration
+  - deprecation
+  - platform_update
+  notes: Operational Cloudflare engineering updates covering rollout, deprecation,
+    migration, and platform changes. New posts commonly land on a 3-4 day cadence.
+  config:
+    freshness_sla_days: 4
+    event_model: blog_post
+- name: AWS Architecture Blog
+  type: rss
+  url: https://aws.amazon.com/blogs/architecture/feed/
+  config:
+    event_model: blog_post
+- name: Spotify Engineering
+  type: rss
+  url: https://engineering.atspotify.com/feed/
+  config:
+    event_model: blog_post
+- name: LinkedIn Engineering
+  type: rss
+  url: https://engineering.linkedin.com/blog.rss
+  config:
+    event_model: blog_post
+- name: Dropbox Tech
+  type: rss
+  url: https://dropbox.tech/feed
+  config:
+    event_model: blog_post
+- name: Slack Engineering
+  type: rss
+  url: https://slack.engineering/feed/
+  config:
+    event_model: blog_post
+- name: Figma Blog
+  type: rss
+  url: https://www.figma.com/blog/feed/atom.xml
+  config:
+    event_model: blog_post
+- name: Vercel Blog
+  type: rss
+  url: https://vercel.com/atom
+  trust_tier: T2_institutional
+  collection_tier: C1_rss
+  content_type: product_update
+  producer_role: vendor_platform
+  info_purpose:
+  - release
+  - rollout
+  - migration
+  - framework_adoption
+  notes: Official Vercel feed frequently used for release, rollout, and framework
+    migration signals.
+  config:
+    event_model: blog_post
+- name: Grafana Labs Blog
+  type: rss
+  url: https://grafana.com/blog/index.xml
+  config:
+    event_model: blog_post
+- name: HashiCorp Blog
+  type: rss
+  url: https://www.hashicorp.com/blog/feed.xml
+  trust_tier: T2_institutional
+  collection_tier: C1_rss
+  content_type: product_update
+  producer_role: vendor_platform
+  info_purpose:
+  - release
+  - migration
+  - deprecation
+  - enterprise_adoption
+  notes: HashiCorp product release and migration guidance useful for infrastructure
+    adoption tracking.
+  config:
+    event_model: blog_post
+- name: Elastic Blog
+  type: rss
+  url: https://www.elastic.co/blog/feed
+  config:
+    event_model: blog_post
+- name: MongoDB Engineering
+  type: rss
+  url: https://www.mongodb.com/blog/rss
+  config:
+    event_model: blog_post
+- name: Stripe Engineering
+  type: rss
+  url: https://stripe.com/blog/feed.rss
+  trust_tier: T2_institutional
+  collection_tier: C1_rss
+  config:
+    event_model: blog_post
+- name: Shopify Engineering
+  type: rss
+  url: https://shopify.engineering/feed.xml
+  trust_tier: T2_institutional
+  collection_tier: C1_rss
+  config:
+    event_model: blog_post
+- name: Discord Engineering
+  type: rss
+  url: https://discord.com/blog/engineering/rss.xml
+  trust_tier: T2_institutional
+  collection_tier: C1_rss
+  config:
+    event_model: blog_post
+- name: Kubernetes Blog
+  type: rss
+  url: https://kubernetes.io/feed.xml
+  trust_tier: T1_authoritative
+  collection_tier: C1_rss
+  content_type: release_note
+  producer_role: open_source_maintainer
+  info_purpose:
+  - release
+  - changelog
+  - deprecation
+  - migration
+  notes: Official Kubernetes release and deprecation updates tied to production upgrade
+    planning.
+  config:
+    event_model: blog_post
+- name: Helm Blog
+  type: rss
+  url: https://helm.sh/blog/index.xml
+  config:
+    event_model: blog_post
+- name: Go Blog
+  type: rss
+  url: https://go.dev/blog/feed.atom
+  trust_tier: T1_authoritative
+  collection_tier: C1_rss
+  content_type: release_note
+  producer_role: open_source_maintainer
+  info_purpose:
+  - release
+  - version
+  - migration
+  - breaking_change
+  notes: Official Go release and migration guidance with version and breaking change
+    context.
+  config:
+    freshness_sla_days: 45
+    event_model: blog_post
+- name: Rust Blog
+  type: rss
+  url: https://blog.rust-lang.org/feed.xml
+  trust_tier: T1_authoritative
+  collection_tier: C1_rss
+  content_type: release_note
+  producer_role: open_source_maintainer
+  info_purpose:
+  - release
+  - version
+  - migration
+  - breaking_change
+  notes: Official Rust release and migration updates useful for compiler and ecosystem
+    rollout tracking.
+  config:
+    freshness_sla_days: 21
+    event_model: blog_post
+- name: PyTorch Blog
+  type: rss
+  url: https://pytorch.org/blog/feed/
+  config:
+    event_model: blog_post
+- name: TensorFlow Blog
+  type: rss
+  url: https://blog.tensorflow.org/feeds/posts/default?alt=rss
+  config:
+    event_model: blog_post
+- name: Hacker News Best
+  type: rss
+  url: https://hnrss.org/newest
+  config:
+    event_model: blog_post
+- name: Hacker News Ask HN
+  type: rss
+  url: https://hnrss.org/ask
+  config:
+    event_model: blog_post
+- name: The New Stack
+  type: rss
+  url: https://thenewstack.io/feed/
+  config:
+    event_model: blog_post
+- name: InfoQ
+  type: rss
+  url: https://feed.infoq.com/
+  config:
+    event_model: blog_post
+- name: Changelog News
+  type: rss
+  url: https://changelog.com/news/feed
+  config:
+    event_model: blog_post
+- name: The Pragmatic Engineer
+  type: rss
+  url: https://newsletter.pragmaticengineer.com/feed
+  config:
+    event_model: blog_post
+- name: ByteByteGo
+  type: rss
+  url: https://blog.bytebytego.com/feed
+  config:
+    event_model: blog_post
+- name: Y Combinator Blog
+  type: rss
+  url: https://www.ycombinator.com/blog/rss/
+  config:
+    event_model: blog_post
+- name: Sequoia Capital
+  type: rss
+  url: https://www.sequoiacap.com/feed/
+  config:
+    event_model: blog_post
+- name: OpenAI News
+  type: rss
+  url: https://openai.com/news/rss.xml
+  trust_tier: T1_authoritative
+  collection_tier: C1_rss
+  content_type: model_release
+  producer_role: model_platform
+  info_purpose:
+  - release
+  - rollout
+  - api_update
+  - developer_adoption
+  notes: Official OpenAI release and rollout feed for model, API, and platform changes.
+  config:
+    event_model: blog_post
+- name: CircleCI Blog
+  type: rss
+  url: https://circleci.com/blog/feed.xml
+  config:
+    event_model: blog_post
+- name: Google Project Zero
+  type: rss
+  url: https://googleprojectzero.blogspot.com/feeds/posts/default
+  config:
+    event_model: blog_post
+- name: Krebs on Security
+  type: rss
+  url: https://krebsonsecurity.com/feed/
+  config:
+    event_model: blog_post
+- name: Dev.to - Python
+  type: rss
+  url: https://dev.to/feed/tag/python
+  config:
+    event_model: blog_post
+- name: Dev.to - DevOps
+  type: rss
+  url: https://dev.to/feed/tag/devops
+  config:
+    event_model: blog_post
+- name: Dev.to - Open Source
+  type: rss
+  url: https://dev.to/feed/tag/opensource
+  config:
+    event_model: blog_post
+- name: r/programming
+  type: reddit
+  url: https://www.reddit.com/r/programming/
+  config:
+    event_model: blog_post
+- name: r/coding
+  type: reddit
+  url: https://www.reddit.com/r/coding/
+  config:
+    event_model: blog_post
+- name: r/ExperiencedDevs
+  type: reddit
+  url: https://www.reddit.com/r/ExperiencedDevs/
+  config:
+    event_model: blog_post
+- name: r/devops
+  type: reddit
+  url: https://www.reddit.com/r/devops/
+  config:
+    event_model: blog_post
+- name: r/MachineLearning
+  type: reddit
+  url: https://www.reddit.com/r/MachineLearning/
+  config:
+    event_model: blog_post
+- name: r/rust
+  type: reddit
+  url: https://www.reddit.com/r/rust/
+  config:
+    event_model: blog_post
+- name: r/golang
+  type: reddit
+  url: https://www.reddit.com/r/golang/
+  config:
+    event_model: blog_post
+- name: r/Python
+  type: reddit
+  url: https://www.reddit.com/r/Python/
+  config:
+    event_model: blog_post
+- name: Syntax.fm
+  type: rss
+  url: https://feed.syntax.fm/
+  config:
+    event_model: blog_post
+- name: Software Engineering Daily
+  type: rss
+  url: https://softwareengineeringdaily.com/feed/podcast
+  config:
+    event_model: blog_post
+- name: Fireship
+  type: rss
+  url: https://www.youtube.com/feeds/videos.xml?channel_id=UCsBjURrPoezykLs9EqgamOA
+  config:
+    event_model: blog_post
+- name: Theo - t3.gg
+  type: rss
+  url: https://www.youtube.com/feeds/videos.xml?channel_id=UCbRP3c757lWg9M-U7TyEkXA
+  config:
+    event_model: blog_post
 entities:
-  - name: "Domain"
-    display_name: "기술 도메인"
-    keywords:
-      # 영문
-      - "frontend"
-      - "backend"
-      - "fullstack"
-      - "devops"
-      - "SRE"
-      - "infrastructure"
-      - "platform"
-      - "machine learning"
-      - "ML"
-      - "deep learning"
-      - "artificial intelligence"
-      - "AI"
-      - "data engineering"
-      - "data science"
-      - "mobile"
-      - "iOS"
-      - "Android"
-      - "security"
-      - "cybersecurity"
-      - "distributed systems"
-      - "microservices"
-      - "kubernetes"
-      - "cloud native"
-      - "edge computing"
-      - "serverless"
-      # 한글
-      - "프론트엔드"
-      - "백엔드"
-      - "풀스택"
-      - "데브옵스"
-      - "인프라"
-      - "플랫폼"
-      - "머신러닝"
-      - "딥러닝"
-      - "인공지능"
-      - "데이터엔지니어링"
-      - "보안"
-      - "분산시스템"
-      - "마이크로서비스"
-      - "클라우드"
-
-  - name: "Language"
-    display_name: "프로그래밍 언어"
-    keywords:
-      - "python"
-      - "파이썬"
-      - "golang"
-      - "go"
-      - "rust"
-      - "러스트"
-      - "kotlin"
-      - "코틀린"
-      - "swift"
-      - "스위프트"
-      - "typescript"
-      - "타입스크립트"
-      - "javascript"
-      - "자바스크립트"
-      - "java"
-      - "자바"
-      - "scala"
-      - "스칼라"
-      - "ruby"
-      - "c++"
-      - "c#"
-      - "zig"
-
-  - name: "Framework"
-    display_name: "프레임워크/도구"
-    keywords:
-      # 프론트엔드
-      - "react"
-      - "리액트"
-      - "next.js"
-      - "vue"
-      - "nuxt"
-      - "svelte"
-      - "angular"
-      # 백엔드
-      - "fastapi"
-      - "django"
-      - "flask"
-      - "spring"
-      - "스프링"
-      - "springboot"
-      - "nest.js"
-      - "express"
-      # AI/ML
-      - "pytorch"
-      - "파이토치"
-      - "tensorflow"
-      - "텐서플로우"
-      - "huggingface"
-      - "langchain"
-      - "llm"
-      - "rag"
-      - "vector database"
-      - "embedding"
-      - "transformer"
-      - "gpt"
-      - "claude"
-      - "gemini"
-      # 인프라
-      - "docker"
-      - "도커"
-      - "kubernetes"
-      - "쿠버네티스"
-      - "k8s"
-      - "kafka"
-      - "카프카"
-      - "redis"
-      - "레디스"
-      - "postgresql"
-      - "mysql"
-      - "mongodb"
-      - "elasticsearch"
-      - "opensearch"
-      # API
-      - "graphql"
-      - "grpc"
-      - "rest"
-      - "api"
-      # 클라우드
-      - "aws"
-      - "gcp"
-      - "azure"
-      - "terraform"
-      - "pulumi"
-      # 모니터링
-      - "prometheus"
-      - "grafana"
-      - "datadog"
-
-  - name: "Topic"
-    display_name: "주제"
-    keywords:
-      # 영문
-      - "performance"
-      - "scalability"
-      - "reliability"
-      - "observability"
-      - "monitoring"
-      - "logging"
-      - "tracing"
-      - "open source"
-      - "api design"
-      - "system design"
-      - "testing"
-      - "TDD"
-      - "refactoring"
-      - "architecture"
-      - "migration"
-      - "real-time"
-      - "streaming"
-      - "caching"
-      - "optimization"
-      - "debugging"
-      - "incident"
-      - "postmortem"
-      - "CI/CD"
-      - "automation"
-      # 한글
-      - "대용량"
-      - "성능"
-      - "확장성"
-      - "안정성"
-      - "가용성"
-      - "아키텍처"
-      - "설계"
-      - "마이그레이션"
-      - "리팩토링"
-      - "테스트"
-      - "모니터링"
-      - "로깅"
-      - "배포"
-      - "자동화"
-      - "장애"
-      - "장애복구"
-      - "최적화"
-      - "캐싱"
-      - "동시성"
-      - "비동기"
-
-  - name: "Company"
-    display_name: "기업"
-    keywords:
-      # 한국
-      - "kakao"
-      - "카카오"
-      - "naver"
-      - "네이버"
-      - "toss"
-      - "토스"
-      - "baemin"
-      - "배민"
-      - "배달의민족"
-      - "coupang"
-      - "쿠팡"
-      - "daangn"
-      - "당근"
-      - "line"
-      - "라인"
-      - "yanolja"
-      - "야놀자"
-      - "musinsa"
-      - "무신사"
-      - "kurly"
-      - "컬리"
-      - "zigbang"
-      - "직방"
-      - "ridi"
-      - "리디"
-      - "watcha"
-      - "왓챠"
-      # 글로벌
-      - "google"
-      - "구글"
-      - "meta"
-      - "facebook"
-      - "메타"
-      - "netflix"
-      - "넷플릭스"
-      - "airbnb"
-      - "에어비앤비"
-      - "uber"
-      - "우버"
-      - "stripe"
-      - "스트라이프"
-      - "shopify"
-      - "spotify"
-      - "slack"
-      - "twitter"
-      - "linkedin"
-      - "openai"
-      - "anthropic"
+- name: Domain
+  display_name: 기술 도메인
+  keywords:
+  - frontend
+  - backend
+  - fullstack
+  - devops
+  - SRE
+  - infrastructure
+  - platform
+  - machine learning
+  - ML
+  - deep learning
+  - artificial intelligence
+  - AI
+  - data engineering
+  - data science
+  - mobile
+  - iOS
+  - Android
+  - security
+  - cybersecurity
+  - distributed systems
+  - microservices
+  - kubernetes
+  - cloud native
+  - edge computing
+  - serverless
+  - 프론트엔드
+  - 백엔드
+  - 풀스택
+  - 데브옵스
+  - 인프라
+  - 플랫폼
+  - 머신러닝
+  - 딥러닝
+  - 인공지능
+  - 데이터엔지니어링
+  - 보안
+  - 분산시스템
+  - 마이크로서비스
+  - 클라우드
+- name: Language
+  display_name: 프로그래밍 언어
+  keywords:
+  - python
+  - 파이썬
+  - golang
+  - go
+  - rust
+  - 러스트
+  - kotlin
+  - 코틀린
+  - swift
+  - 스위프트
+  - typescript
+  - 타입스크립트
+  - javascript
+  - 자바스크립트
+  - java
+  - 자바
+  - scala
+  - 스칼라
+  - ruby
+  - c++
+  - c#
+  - zig
+- name: Framework
+  display_name: 프레임워크/도구
+  keywords:
+  - react
+  - 리액트
+  - next.js
+  - vue
+  - nuxt
+  - svelte
+  - angular
+  - fastapi
+  - django
+  - flask
+  - spring
+  - 스프링
+  - springboot
+  - nest.js
+  - express
+  - pytorch
+  - 파이토치
+  - tensorflow
+  - 텐서플로우
+  - huggingface
+  - langchain
+  - llm
+  - rag
+  - vector database
+  - embedding
+  - transformer
+  - gpt
+  - claude
+  - gemini
+  - docker
+  - 도커
+  - kubernetes
+  - 쿠버네티스
+  - k8s
+  - kafka
+  - 카프카
+  - redis
+  - 레디스
+  - postgresql
+  - mysql
+  - mongodb
+  - elasticsearch
+  - opensearch
+  - graphql
+  - grpc
+  - rest
+  - api
+  - aws
+  - gcp
+  - azure
+  - terraform
+  - pulumi
+  - prometheus
+  - grafana
+  - datadog
+- name: Topic
+  display_name: 주제
+  keywords:
+  - performance
+  - scalability
+  - reliability
+  - observability
+  - monitoring
+  - logging
+  - tracing
+  - open source
+  - api design
+  - system design
+  - testing
+  - TDD
+  - refactoring
+  - architecture
+  - migration
+  - real-time
+  - streaming
+  - caching
+  - optimization
+  - debugging
+  - incident
+  - postmortem
+  - CI/CD
+  - automation
+  - 대용량
+  - 성능
+  - 확장성
+  - 안정성
+  - 가용성
+  - 아키텍처
+  - 설계
+  - 마이그레이션
+  - 리팩토링
+  - 테스트
+  - 모니터링
+  - 로깅
+  - 배포
+  - 자동화
+  - 장애
+  - 장애복구
+  - 최적화
+  - 캐싱
+  - 동시성
+  - 비동기
+- name: Company
+  display_name: 기업
+  keywords:
+  - kakao
+  - 카카오
+  - naver
+  - 네이버
+  - toss
+  - 토스
+  - baemin
+  - 배민
+  - 배달의민족
+  - coupang
+  - 쿠팡
+  - daangn
+  - 당근
+  - line
+  - 라인
+  - yanolja
+  - 야놀자
+  - musinsa
+  - 무신사
+  - kurly
+  - 컬리
+  - zigbang
+  - 직방
+  - ridi
+  - 리디
+  - watcha
+  - 왓챠
+  - google
+  - 구글
+  - meta
+  - facebook
+  - 메타
+  - netflix
+  - 넷플릭스
+  - airbnb
+  - 에어비앤비
+  - uber
+  - 우버
+  - stripe
+  - 스트라이프
+  - shopify
+  - spotify
+  - slack
+  - twitter
+  - linkedin
+  - openai
+  - anthropic

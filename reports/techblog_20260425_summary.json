@@ -1,0 +1,136 @@
+{
+  "date": "2026-04-25",
+  "category": "techblog",
+  "article_count": 1155,
+  "source_count": 60,
+  "matched_count": 1150,
+  "top_entities": [
+    {
+      "name": "SourceSignal",
+      "count": 1878
+    },
+    {
+      "name": "Domain",
+      "count": 1204
+    },
+    {
+      "name": "Topic",
+      "count": 1045
+    },
+    {
+      "name": "Framework",
+      "count": 942
+    },
+    {
+      "name": "Company",
+      "count": 557
+    },
+    {
+      "name": "Language",
+      "count": 489
+    }
+  ],
+  "sources": {
+    "Google Developers Blog": 20,
+    "r/golang": 45,
+    "r/programming": 57,
+    "r/MachineLearning": 41,
+    "r/rust": 69,
+    "r/ExperiencedDevs": 51,
+    "r/devops": 57,
+    "r/coding": 33,
+    "r/Python": 35,
+    "Hacker News Best": 32,
+    "Dev.to - Open Source": 34,
+    "Dev.to - Python": 36,
+    "Dev.to - DevOps": 35,
+    "Hacker News Ask HN": 34,
+    "The New Stack": 26,
+    "InfoQ": 25,
+    "Google AI Blog": 15,
+    "Kubernetes Blog": 16,
+    "Netflix TechBlog": 11,
+    "Vercel Blog": 31,
+    "Theo - t3.gg": 15,
+    "라인 엔지니어링": 27,
+    "여기어때 기술블로그": 10,
+    "Fireship": 16,
+    "The Pragmatic Engineer": 19,
+    "AWS Architecture Blog": 18,
+    "OpenAI News": 29,
+    "Software Engineering Daily": 26,
+    "무신사 기술블로그": 10,
+    "HashiCorp Blog": 20,
+    "당근 기술블로그": 7,
+    "토스 기술블로그": 8,
+    "Elastic Blog": 11,
+    "Spotify Engineering": 5,
+    "네이버 D2": 10,
+    "카카오 기술블로그": 9,
+    "Cloudflare Blog": 20,
+    "Syntax.fm": 26,
+    "하이퍼커넥트 기술블로그": 2,
+    "Figma Blog": 23,
+    "Airbnb Engineering": 10,
+    "Grafana Labs Blog": 10,
+    "Meta Engineering": 9,
+    "ByteByteGo": 16,
+    "Y Combinator Blog": 1,
+    "MongoDB Engineering": 10,
+    "Stripe Engineering": 10,
+    "Slack Engineering": 3,
+    "Sequoia Capital": 2,
+    "PyTorch Blog": 10,
+    "Google Project Zero": 5,
+    "올리브영 기술블로그": 7,
+    "NHN 기술블로그": 6,
+    "왓챠 기술블로그": 1,
+    "Krebs on Security": 7,
+    "Go Blog": 5,
+    "GitHub Blog Engineering": 6,
+    "Dropbox Tech": 7,
+    "Changelog News": 7,
+    "Rust Blog": 9
+  },
+  "generated_at": "2026-04-25T20:29:17.179756+09:00",
+  "ontology": {
+    "repo": "BlogRadar",
+    "category": "techblog",
+    "ontology_version": "0.1.0",
+    "event_model_ids": [
+      "employment.skill_demand",
+      "tech.package_download",
+      "tech.repository_activity",
+      "tech.repository_release"
+    ],
+    "event_model_mappings": {
+      "repository_release": "tech.repository_release",
+      "package_download": "tech.package_download",
+      "github_activity": "tech.repository_activity",
+      "skill_demand": "employment.skill_demand"
+    },
+    "entity_type_hints": [
+      "technology.repository",
+      "technology.package",
+      "technology.skill"
+    ],
+    "source_role_ids": [
+      "community_signal",
+      "context_only",
+      "operational_evidence"
+    ],
+    "source_role_mappings": {
+      "GitHub release and star API": "operational_evidence",
+      "npm downloads API": "operational_evidence",
+      "PyPI download metrics": "operational_evidence",
+      "Public job skill demand index": "operational_evidence",
+      "OpenAI News": "context_only",
+      "Hacker News Best": "community_signal"
+    },
+    "evidence_policy_ids": [
+      "traceable_url_required",
+      "cross_reference_required",
+      "non_authoritative_context_only"
+    ]
+  }
+}

@@ -187,8 +187,11 @@ def collect_sources(
     errors: list[str] = []
     manager = get_circuit_breaker_manager()
     workers = _resolve_max_workers(max_workers)
+    _reddit_types = {"reddit"}
+    rss_sources = [source for source in sources if source.type.lower() not in _reddit_types]
+    reddit_sources = [source for source in sources if source.type.lower() in _reddit_types]
     source_hosts: dict[str, str] = {
-        source.name: (urlparse(source.url).netloc.lower() or source.name) for source in sources
+        source.name: (urlparse(source.url).netloc.lower() or source.name) for source in rss_sources
     }
     rate_limiters: dict[str, RateLimiter] = {
         host: RateLimiter(min_interval=min_interval_per_host) for host in set(source_hosts.values())
@@ -229,20 +232,40 @@ def collect_sources(
 
     try:
         if workers == 1:
-            for source in sources:
+            for source in rss_sources:
                 source_articles, source_errors = _collect_for_source(source)
                 articles.extend(source_articles)
                 errors.extend(source_errors)
         else:
             with ThreadPoolExecutor(max_workers=workers) as executor:
                 future_map: list[Future[tuple[list[Article], list[str]]]] = [
-                    executor.submit(_collect_for_source, source) for source in sources
+                    executor.submit(_collect_for_source, source) for source in rss_sources
                 ]
 
                 for future in future_map:
                     source_articles, source_errors = future.result()
                     articles.extend(source_articles)
                     errors.extend(source_errors)
+
+        if reddit_sources:
+            try:
+                from radar_core import collect_reddit_sources
+
+                reddit_articles, reddit_errors = collect_reddit_sources(
+                    reddit_sources,
+                    category=category,
+                    limit=limit_per_source,
+                    timeout=timeout,
+                    health_db_path=health_db_path
+                    or os.environ.get("RADAR_CRAWL_HEALTH_DB_PATH", _DEFAULT_HEALTH_DB_PATH),
+                )
+                articles.extend(reddit_articles)
+                errors.extend(reddit_errors)
+            except ImportError:
+                errors.append(
+                    f"Reddit collection unavailable for {len(reddit_sources)} source(s). "
+                    "Ensure radar-core reddit support is installed."
+                )
     finally:
         session.close()
         health_store.close()

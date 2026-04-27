@@ -18,6 +18,8 @@ newsletter/
 ├── config.yaml         # Newsletter configuration
 ├── template.html       # Jinja2 HTML template
 ├── generator.py        # Main generation script
+├── drafts/             # Manual content drafts for newsletter/social posts
+│   └── *.md            # Editorial notes, LinkedIn drafts, CTA variants
 └── output/             # Generated newsletter files
     ├── newsletter_YYYYMMDD.html
     ├── newsletter_YYYYMMDD.md
@@ -187,6 +189,19 @@ Raw newsletter data for:
 - API consumption
 - Custom rendering
 - Analytics
+
+## Draft Assets
+
+Besides generated outputs, `newsletter/drafts/` can hold manual editorial assets that are later adapted into:
+
+- LinkedIn posts
+- newsletter opening notes
+- CTA variants
+- short-form social copy
+
+Current draft example:
+
+- `newsletter/drafts/ai-content-collection-linkedin.md`
 
 ## Customization
 
