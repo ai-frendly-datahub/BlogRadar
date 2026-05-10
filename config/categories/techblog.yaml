@@ -159,8 +159,9 @@ sources:
     event_model: blog_post
 - name: 마켓컬리 기술블로그
   type: rss
-  url: https://helloworld.kurly.com/feed.xml
+  url: https://helloworld.kurly.com/rss.xml
   config:
+    bypass_crawl_health: true
     event_model: blog_post
 - name: 직방 기술블로그
   type: rss
@@ -169,8 +170,9 @@ sources:
     event_model: blog_post
 - name: 스포카 기술블로그
   type: rss
-  url: https://spoqa.github.io/feed.xml
+  url: https://spoqa.github.io/atom.xml
   config:
+    bypass_crawl_health: true
     event_model: blog_post
 - name: 야놀자 기술블로그
   type: rss
@@ -184,12 +186,16 @@ sources:
     event_model: blog_post
 - name: 데브시스터즈 기술블로그
   type: rss
-  url: https://tech.devsisters.com/rss/
+  url: https://tech.devsisters.com/rss.xml
   config:
+    bypass_crawl_health: true
     event_model: blog_post
 - name: SK텔레콤 Devocean
   type: rss
   url: https://devocean.sk.com/rss
+  enabled: false
+  notes: RSS endpoint returned 404 during 2026-04-30 verification; keep cataloged
+    until a replacement feed is found.
   config:
     event_model: blog_post
 - name: 삼성SDS 기술블로그
@@ -225,6 +231,9 @@ sources:
 - name: Uber Engineering
   type: rss
   url: https://www.uber.com/en-US/blog/engineering/rss/
+  enabled: false
+  notes: Engineering RSS endpoint returned 404 during 2026-04-30 verification;
+    keep cataloged until a replacement feed is found.
   config:
     event_model: blog_post
 - name: GitHub Blog Engineering
@@ -348,8 +357,11 @@ sources:
 - name: Shopify Engineering
   type: rss
   url: https://shopify.engineering/feed.xml
+  enabled: false
   trust_tier: T2_institutional
   collection_tier: C1_rss
+  notes: RSS endpoint returned 404 during 2026-04-30 verification; keep cataloged
+    until a replacement feed is found.
   config:
     event_model: blog_post
 - name: Discord Engineering

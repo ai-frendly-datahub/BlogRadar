@@ -171,6 +171,15 @@ def _parse_retry_after(value: str | None) -> int | str | None:
     return stripped
 
 
+def _source_bool(source: Source, key: str) -> bool:
+    value = source.config.get(key)
+    if isinstance(value, bool):
+        return value
+    if isinstance(value, str):
+        return value.strip().lower() in {"1", "true", "yes", "y", "on"}
+    return False
+
+
 def collect_sources(
     sources: list[Source],
     *,
@@ -187,9 +196,15 @@ def collect_sources(
     errors: list[str] = []
     manager = get_circuit_breaker_manager()
     workers = _resolve_max_workers(max_workers)
+    enabled_sources = [source for source in sources if source.enabled]
     _reddit_types = {"reddit"}
-    rss_sources = [source for source in sources if source.type.lower() not in _reddit_types]
-    reddit_sources = [source for source in sources if source.type.lower() in _reddit_types]
+    rss_sources = [source for source in enabled_sources if source.type.lower() == "rss"]
+    reddit_sources = [source for source in enabled_sources if source.type.lower() in _reddit_types]
+    unsupported_sources = [
+        source
+        for source in enabled_sources
+        if source.type.lower() not in {"rss", *_reddit_types}
+    ]
     source_hosts: dict[str, str] = {
         source.name: (urlparse(source.url).netloc.lower() or source.name) for source in rss_sources
     }
@@ -204,7 +219,7 @@ def collect_sources(
     session = _create_session()
 
     def _collect_for_source(source: Source) -> tuple[list[Article], list[str]]:
-        if health_store.is_disabled(source.name):
+        if not _source_bool(source, "bypass_crawl_health") and health_store.is_disabled(source.name):
             return [], [f"{source.name}: Source disabled (crawl health threshold reached)"]
 
         host = source_hosts[source.name]
@@ -266,6 +281,12 @@ def collect_sources(
                     f"Reddit collection unavailable for {len(reddit_sources)} source(s). "
                     "Ensure radar-core reddit support is installed."
                 )
+
+        for source in unsupported_sources:
+            errors.append(
+                f"{source.name}: Source type '{source.type}' is cataloged but not collected by "
+                "the standard pipeline"
+            )
     finally:
         session.close()
         health_store.close()
@@ -329,12 +350,13 @@ def _collect_single(
             # Data validation: skip entries without title or link
             if not title or title == "(no title)" or not link:
                 continue
+            summary = summary.strip() or title
 
             items.append(
                 Article(
                     title=title,
                     link=link,
-                    summary=html.unescape(summary.strip()),
+                    summary=html.unescape(summary),
                     published=published,
                     source=source.name,
                     category=category,
