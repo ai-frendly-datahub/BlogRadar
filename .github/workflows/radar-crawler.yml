@@ -83,7 +83,8 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: update radar data [skip ci]"
-          file_pattern: "data/ reports/*_summary.json docs/dashboard_data.json"
+          file_pattern: "data/ reports/"
+          add_options: "-f"
           skip_fetch: false
           skip_checkout: false
 

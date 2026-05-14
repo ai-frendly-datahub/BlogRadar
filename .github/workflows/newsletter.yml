@@ -120,6 +120,7 @@ jobs:
         with:
           commit_message: "chore: generate weekly newsletter [skip ci]"
           file_pattern: "newsletter/output/* reports/newsletter_*"
+          add_options: "-f"
           skip_fetch: false
           skip_checkout: false
 
