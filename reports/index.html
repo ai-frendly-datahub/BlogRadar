@@ -1,0 +1,1082 @@
+<!doctype html>
+<html lang="en" data-visual-system="radar-unified-v2" data-visual-surface="report" data-visual-page="index">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <title>Blog Radar - Reports Index</title>
+
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap">
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/themes/dark.css">
+
+  <style>
+
+    :root {
+      --vs-bg-0: #0b0b0f;
+      --vs-bg-1: #121116;
+      --vs-surface-0: rgba(28, 26, 34, 0.85);
+      --vs-surface-1: rgba(36, 33, 43, 0.95);
+      --vs-surface-alt: rgba(24, 22, 29, 0.72);
+      --vs-text: #e4e6eb;
+      --vs-text-muted: #b0b3b8;
+      --vs-text-faint: rgba(233, 238, 251, 0.52);
+      --vs-line: rgba(244, 244, 247, 0.14);
+      --vs-line-strong: rgba(244, 244, 247, 0.22);
+      --vs-brand: #33d6c5;
+      --vs-brand-strong: #f6c84c;
+      --vs-danger: #ff5b6e;
+      --vs-shadow: 0 4px 24px rgba(0, 0, 0, 0.28);
+      --vs-shadow-glow: 0 0 40px rgba(51, 214, 197, 0.12);
+      --vs-font-sans: "Pretendard Variable", "Pretendard", ui-sans-serif, system-ui, -apple-system, sans-serif;
+      --vs-font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      --vs-radius: 10px;
+      --vs-max: 1280px;
+
+
+      --bg-primary: var(--vs-bg-0);
+      --bg-secondary: var(--vs-bg-1);
+      --bg-card: var(--vs-surface-0);
+      --bg-card-hover: var(--vs-surface-1);
+      --bg-glass: var(--vs-surface-alt);
+
+
+      --text-primary: var(--vs-text);
+      --text-secondary: var(--vs-text-muted);
+      --text-muted: #6b7280;
+      --text-faint: var(--vs-text-faint);
+
+
+      --accent-primary: var(--vs-brand);
+      --accent-secondary: var(--vs-brand-strong);
+      --accent-highlight: var(--vs-brand-strong);
+      --accent-danger: var(--vs-danger);
+
+
+      --border-color: var(--vs-line);
+      --border-highlight: var(--vs-line-strong);
+      --shadow-soft: var(--vs-shadow);
+      --shadow-glow: var(--vs-shadow-glow);
+
+
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+
+
+      --radius-sm: 6px;
+      --radius-md: var(--vs-radius);
+      --radius-lg: 8px;
+      --radius-xl: 8px;
+
+
+      --font-sans: var(--vs-font-sans);
+      --font-mono: var(--vs-font-mono);
+
+
+      --transition-fast: 0.15s ease-out;
+      --transition-normal: 0.25s ease-out;
+
+
+      --max-width: var(--vs-max);
+    }
+
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background: var(--bg-primary);
+      background-image: linear-gradient(180deg, var(--bg-primary), var(--bg-secondary) 58%, #08080b);
+      min-height: 100vh;
+    }
+
+    a {
+      color: var(--accent-primary);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+
+    a:hover {
+      color: var(--accent-secondary);
+    }
+
+
+    .page-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: var(--space-6);
+    }
+
+
+    .header {
+      background: var(--bg-glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      margin-bottom: var(--space-6);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .header__title {
+      font-size: 2.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-2);
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header__subtitle {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      margin-bottom: var(--space-4);
+    }
+
+    .header__stats {
+      display: flex;
+      gap: var(--space-6);
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+    }
+
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--accent-secondary);
+      font-family: var(--font-mono);
+    }
+
+    .stat-label {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+
+    .widgets-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+      margin-bottom: var(--space-6);
+    }
+
+    @media (max-width: 768px) {
+      .widgets-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    .widget {
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      box-shadow: var(--shadow-soft);
+      transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+    }
+
+    .widget:hover {
+      border-color: var(--border-highlight);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .widget__title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: var(--space-4);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .widget__title::before {
+      content: '';
+      width: 4px;
+      height: 16px;
+      background: var(--accent-primary);
+      border-radius: 2px;
+    }
+
+    #calendar-container {
+      min-height: 280px;
+    }
+
+
+    .flatpickr-calendar {
+      background: transparent !important;
+      box-shadow: none !important;
+      border: none !important;
+      width: 100% !important;
+    }
+
+    .flatpickr-months {
+      margin-bottom: var(--space-2);
+    }
+
+    .flatpickr-current-month {
+      color: var(--text-primary) !important;
+    }
+
+    .flatpickr-day {
+      color: var(--text-secondary) !important;
+      border-radius: var(--radius-sm) !important;
+    }
+
+    .flatpickr-day:hover {
+      background: var(--bg-card-hover) !important;
+      color: var(--text-primary) !important;
+    }
+
+    .flatpickr-day.selected {
+      background: var(--accent-primary) !important;
+      border-color: var(--accent-primary) !important;
+      color: var(--bg-primary) !important;
+    }
+
+
+    #trend-chart {
+      width: 100%;
+      height: 260px;
+    }
+
+
+    .search-container {
+      margin-bottom: var(--space-6);
+    }
+
+    .search-input-wrapper {
+      position: relative;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: var(--space-4);
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: var(--space-4) var(--space-4) var(--space-4) var(--space-10);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      color: var(--text-primary);
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .search-input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .search-input:focus {
+      border-color: var(--accent-primary);
+      box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.15);
+    }
+
+    .search-clear {
+      position: absolute;
+      right: var(--space-4);
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: var(--space-1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color var(--transition-fast);
+    }
+
+    .search-clear:hover {
+      color: var(--text-primary);
+    }
+
+    .search-results {
+      margin-top: var(--space-2);
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    .search-results strong {
+      color: var(--accent-primary);
+      font-weight: 600;
+    }
+
+
+    .reports-section {
+      margin-bottom: var(--space-6);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-4);
+    }
+
+    .section-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .reports-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+    }
+
+    @media (max-width: 1024px) {
+      .reports-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .reports-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    .report-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: var(--space-5);
+      transition: all var(--transition-normal);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .report-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--accent-primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .report-card__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: var(--space-3);
+    }
+
+    .report-card__date {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      font-family: var(--font-mono);
+    }
+
+    .report-card__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      padding: var(--space-1) var(--space-2);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-radius: var(--radius-sm);
+      background: rgba(74, 158, 255, 0.15);
+      color: var(--accent-primary);
+    }
+
+    .report-card__meta {
+      display: flex;
+      gap: var(--space-4);
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    .report-card__meta-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+    }
+
+    .report-card__entities {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-top: auto;
+    }
+
+    .entity-tag {
+      padding: var(--space-1) var(--space-2);
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      background: rgba(51, 214, 197, 0.1);
+      border: 1px solid rgba(51, 214, 197, 0.2);
+      border-radius: var(--radius-sm);
+      transition: all var(--transition-fast);
+    }
+
+    .entity-tag:hover {
+      background: rgba(51, 214, 197, 0.2);
+      color: var(--accent-secondary);
+    }
+
+
+    .empty-state {
+      text-align: center;
+      padding: var(--space-12);
+      color: var(--text-muted);
+    }
+
+    .empty-state__icon {
+      font-size: 3rem;
+      margin-bottom: var(--space-4);
+      opacity: 0.5;
+    }
+
+    .empty-state__text {
+      font-size: 1rem;
+    }
+
+
+    .footer {
+      text-align: center;
+      padding: var(--space-6);
+      color: var(--text-muted);
+      font-size: 0.8125rem;
+      border-top: 1px solid var(--border-color);
+      margin-top: var(--space-8);
+    }
+
+    .footer__timestamp {
+      font-family: var(--font-mono);
+      color: var(--text-faint);
+    }
+
+
+    .hidden {
+      display: none !important;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-container">
+
+    <header class="header">
+      <h1 class="header__title">Blog Radar</h1>
+      <p class="header__subtitle">Track trends and insights from collected data</p>
+
+      <div class="header__stats">
+        <div class="stat-item">
+          <span class="stat-value">2</span>
+          <span class="stat-label">Total Reports</span>
+        </div>
+
+        <div class="stat-item">
+          <span class="stat-value">2026-05-14</span>
+          <span class="stat-label">Latest Report</span>
+        </div>
+
+
+      </div>
+    </header>
+
+
+    <div class="widgets-grid">
+
+      <div class="widget">
+        <h2 class="widget__title">Select Date</h2>
+        <div id="calendar-container"></div>
+      </div>
+
+
+      <div class="widget">
+        <h2 class="widget__title">Activity Trend</h2>
+        <canvas id="trend-chart" aria-label="Report activity trend chart" role="img"></canvas>
+      </div>
+    </div>
+
+
+    <div class="search-container">
+      <div class="search-input-wrapper">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input
+          type="text"
+          id="search-input"
+          class="search-input"
+          placeholder="Search reports by date, name, or entities..."
+          aria-label="Search reports"
+        >
+        <button id="search-clear" class="search-clear" aria-label="Clear search" style="display: none;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div id="search-results" class="search-results" style="display: none;">
+        <span id="results-count"></span>
+      </div>
+    </div>
+
+
+    <section class="reports-section">
+      <div class="section-header">
+        <h2 class="section-title">All Reports</h2>
+      </div>
+
+      <div id="reports-grid" class="reports-grid">
+
+
+          <a href="techblog_20260514.html" class="report-card" data-date="2026-05-14" data-name="techblog - 2026-05-14" data-title="techblog - 2026-05-14" data-entities="">
+            <div class="report-card__header">
+              <span class="report-card__date">2026-05-14</span>
+
+              <span class="report-card__badge">Daily</span>
+
+            </div>
+            <div class="report-card__meta">
+              <span class="report-card__meta-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+                View Report
+              </span>
+            </div>
+
+            <div class="report-card__entities" data-summary-date="2026-05-14">
+
+            </div>
+          </a>
+
+          <a href="techblog_report.html" class="report-card" data-date="" data-name="Techblog Report" data-title="Techblog Report" data-entities="">
+            <div class="report-card__header">
+              <span class="report-card__date">Techblog Report</span>
+
+              <span class="report-card__badge" style="background: rgba(246, 200, 76, 0.15); color: var(--accent-highlight);">Latest</span>
+
+            </div>
+            <div class="report-card__meta">
+              <span class="report-card__meta-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+                View Report
+              </span>
+            </div>
+
+            <div class="report-card__entities" data-summary-date="">
+
+            </div>
+          </a>
+
+
+      </div>
+    </section>
+
+
+    <footer class="footer">
+      <p>
+        Generated by <strong>Blog Radar</strong> &middot;
+        <span class="footer__timestamp">
+
+
+              2026-05-14T02:29:09.915267+00:00
+
+
+        </span>
+      </p>
+    </footer>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+
+  <script>
+
+    const RADAR_DATA = {
+      name: "Blog Radar",
+      reports: [{"date": "2026-05-14", "date_label": "2026-05-14", "display_name": "techblog - 2026-05-14", "filename": "techblog_20260514.html"}, {"date": "", "date_label": "", "display_name": "Techblog Report", "filename": "techblog_report.html"}],
+      summaries: [{"date": "2026-05-14", "category": "techblog", "article_count": 304, "source_count": 42, "matched_count": 304, "top_entities": [{"name": "SourceSignal", "count": 851}, {"name": "Domain", "count": 316}, {"name": "Framework", "count": 244}, {"name": "Topic", "count": 233}, {"name": "Company", "count": 157}, {"name": "Language", "count": 67}]}, {"date": "2026-05-13", "category": "techblog", "article_count": 299, "source_count": 41, "matched_count": 299, "top_entities": [{"name": "SourceSignal", "count": 857}, {"name": "Domain", "count": 348}, {"name": "Topic", "count": 249}, {"name": "Framework", "count": 244}, {"name": "Company", "count": 152}, {"name": "Language", "count": 69}]}, {"date": "2026-05-07", "category": "techblog", "article_count": 71, "source_count": 63, "matched_count": 71, "top_entities": [{"name": "SourceSignal", "count": 141}, {"name": "Domain", "count": 96}, {"name": "Topic", "count": 90}, {"name": "Framework", "count": 75}, {"name": "Company", "count": 44}, {"name": "Language", "count": 31}]}, {"date": "2026-04-30", "category": "techblog", "article_count": 67, "source_count": 62, "matched_count": 67, "top_entities": [{"name": "SourceSignal", "count": 130}, {"name": "Topic", "count": 87}, {"name": "Domain", "count": 76}, {"name": "Framework", "count": 51}, {"name": "Company", "count": 47}, {"name": "Language", "count": 31}]}, {"date": "2026-04-28", "category": "techblog", "article_count": 60, "source_count": 60, "matched_count": 60, "top_entities": [{"name": "SourceSignal", "count": 123}, {"name": "Topic", "count": 80}, {"name": "Domain", "count": 57}, {"name": "Company", "count": 48}, {"name": "Framework", "count": 38}, {"name": "Language", "count": 16}]}, {"date": "2026-04-25", "category": "techblog", "article_count": 1155, "source_count": 60, "matched_count": 1150, "top_entities": [{"name": "SourceSignal", "count": 1878}, {"name": "Domain", "count": 1204}, {"name": "Topic", "count": 1045}, {"name": "Framework", "count": 942}, {"name": "Company", "count": 557}, {"name": "Language", "count": 489}]}, {"date": "2026-04-24", "category": "techblog", "article_count": 1097, "source_count": 60, "matched_count": 1092, "top_entities": [{"name": "SourceSignal", "count": 1807}, {"name": "Domain", "count": 1152}, {"name": "Topic", "count": 989}, {"name": "Framework", "count": 875}, {"name": "Company", "count": 542}, {"name": "Language", "count": 454}]}, {"date": "2026-04-23", "category": "techblog", "article_count": 853, "source_count": 60, "matched_count": 847, "top_entities": [{"name": "SourceSignal", "count": 1584}, {"name": "Domain", "count": 893}, {"name": "Topic", "count": 797}, {"name": "Framework", "count": 646}, {"name": "Company", "count": 452}, {"name": "Language", "count": 313}]}, {"date": "2026-04-14", "category": "techblog", "article_count": 81, "source_count": 56, "matched_count": 81, "top_entities": [{"name": "SourceSignal", "count": 120}, {"name": "Topic", "count": 101}, {"name": "Domain", "count": 91}, {"name": "Framework", "count": 79}, {"name": "Company", "count": 49}, {"name": "Language", "count": 34}]}, {"date": "2026-04-13", "category": "techblog", "article_count": 75, "source_count": 56, "matched_count": 75, "top_entities": [{"name": "SourceSignal", "count": 132}, {"name": "Domain", "count": 87}, {"name": "Topic", "count": 87}, {"name": "Framework", "count": 68}, {"name": "Company", "count": 53}, {"name": "Language", "count": 29}]}, {"date": "2026-04-10", "category": "techblog", "article_count": 200, "source_count": 36, "matched_count": 164, "top_entities": [{"name": "Domain", "count": 230}, {"name": "Framework", "count": 200}, {"name": "Topic", "count": 199}, {"name": "Company", "count": 100}, {"name": "Language", "count": 57}]}, {"date": "2026-04-09", "category": "techblog", "article_count": 200, "source_count": 37, "matched_count": 170, "top_entities": [{"name": "Domain", "count": 241}, {"name": "Topic", "count": 218}, {"name": "Framework", "count": 202}, {"name": "Company", "count": 118}, {"name": "Language", "count": 55}]}, {"date": "2026-04-08", "category": "techblog", "article_count": 200, "source_count": 39, "matched_count": 169, "top_entities": [{"name": "Domain", "count": 242}, {"name": "Topic", "count": 235}, {"name": "Framework", "count": 210}, {"name": "Company", "count": 128}, {"name": "Language", "count": 70}]}, {"date": "2026-04-07", "category": "techblog", "article_count": 200, "source_count": 36, "matched_count": 169, "top_entities": [{"name": "Domain", "count": 244}, {"name": "Framework", "count": 218}, {"name": "Topic", "count": 218}, {"name": "Company", "count": 112}, {"name": "Language", "count": 65}]}, {"date": "2026-04-06", "category": "techblog", "article_count": 200, "source_count": 21, "matched_count": 157, "top_entities": [{"name": "Domain", "count": 193}, {"name": "Framework", "count": 192}, {"name": "Topic", "count": 178}, {"name": "Language", "count": 122}, {"name": "Company", "count": 79}]}, {"date": "2026-04-05", "category": "techblog", "article_count": 200, "source_count": 21, "matched_count": 157, "top_entities": [{"name": "Domain", "count": 201}, {"name": "Framework", "count": 178}, {"name": "Topic", "count": 161}, {"name": "Language", "count": 113}, {"name": "Company", "count": 85}]}, {"date": "2026-04-04", "category": "techblog", "article_count": 200, "source_count": 23, "matched_count": 160, "top_entities": [{"name": "Topic", "count": 206}, {"name": "Domain", "count": 199}, {"name": "Framework", "count": 190}, {"name": "Language", "count": 101}, {"name": "Company", "count": 83}]}, {"date": "2026-04-03", "category": "techblog", "article_count": 200, "source_count": 28, "matched_count": 162, "top_entities": [{"name": "Domain", "count": 201}, {"name": "Framework", "count": 186}, {"name": "Topic", "count": 183}, {"name": "Language", "count": 107}, {"name": "Company", "count": 82}]}, {"date": "2026-04-02", "category": "techblog", "article_count": 200, "source_count": 28, "matched_count": 166, "top_entities": [{"name": "Domain", "count": 217}, {"name": "Framework", "count": 198}, {"name": "Topic", "count": 188}, {"name": "Language", "count": 110}, {"name": "Company", "count": 76}]}, {"date": "2026-04-01", "category": "techblog", "article_count": 200, "source_count": 31, "matched_count": 172, "top_entities": [{"name": "Domain", "count": 195}, {"name": "Framework", "count": 167}, {"name": "Topic", "count": 156}, {"name": "Language", "count": 94}, {"name": "Company", "count": 87}]}, {"date": "2026-03-31", "category": "techblog", "article_count": 197, "source_count": 31, "matched_count": 113, "top_entities": [{"name": "Topic", "count": 120}, {"name": "Domain", "count": 77}, {"name": "Framework", "count": 56}, {"name": "Language", "count": 47}, {"name": "Company", "count": 40}]}, {"date": "2026-03-30", "category": "techblog", "article_count": 194, "source_count": 30, "matched_count": 121, "top_entities": [{"name": "Topic", "count": 98}, {"name": "Domain", "count": 84}, {"name": "Framework", "count": 63}, {"name": "Language", "count": 48}, {"name": "Company", "count": 45}]}, {"date": "2026-03-29", "category": "techblog", "article_count": 198, "source_count": 30, "matched_count": 113, "top_entities": [{"name": "Topic", "count": 99}, {"name": "Domain", "count": 82}, {"name": "Framework", "count": 52}, {"name": "Company", "count": 38}, {"name": "Language", "count": 31}]}, {"date": "2026-03-28", "category": "techblog", "article_count": 196, "source_count": 30, "matched_count": 110, "top_entities": [{"name": "Topic", "count": 108}, {"name": "Domain", "count": 80}, {"name": "Framework", "count": 51}, {"name": "Company", "count": 43}, {"name": "Language", "count": 40}]}, {"date": "2026-03-27", "category": "techblog", "article_count": 200, "source_count": 30, "matched_count": 117, "top_entities": [{"name": "Topic", "count": 108}, {"name": "Domain", "count": 90}, {"name": "Framework", "count": 54}, {"name": "Language", "count": 52}, {"name": "Company", "count": 45}]}, {"date": "2026-03-26", "category": "techblog", "article_count": 197, "source_count": 31, "matched_count": 117, "top_entities": [{"name": "Topic", "count": 124}, {"name": "Domain", "count": 106}, {"name": "Framework", "count": 75}, {"name": "Company", "count": 41}, {"name": "Language", "count": 36}]}, {"date": "2026-03-25", "category": "techblog", "article_count": 198, "source_count": 30, "matched_count": 120, "top_entities": [{"name": "Domain", "count": 109}, {"name": "Topic", "count": 106}, {"name": "Framework", "count": 66}, {"name": "Language", "count": 50}, {"name": "Company", "count": 39}]}, {"date": "2026-03-24", "category": "techblog", "article_count": 198, "source_count": 32, "matched_count": 131, "top_entities": [{"name": "Topic", "count": 144}, {"name": "Domain", "count": 121}, {"name": "Framework", "count": 78}, {"name": "Language", "count": 52}, {"name": "Company", "count": 35}]}],
+      generatedAt: "2026-05-14T02:29:09.915267+00:00"
+    };
+
+
+    const availableDates = RADAR_DATA.reports
+      .filter(r => r.date)
+      .map(r => r.date);
+
+
+    // TODO: Task 7
+    (function initCalendar() {
+      const calendarContainer = document.getElementById('calendar-container');
+      if (!calendarContainer || typeof flatpickr === 'undefined') {
+        console.warn('Flatpickr not available or container missing');
+        return;
+      }
+
+      // Build enabled dates array from available reports
+      const enabledDates = availableDates.length > 0 ? availableDates : [];
+
+      // Build a map of date -> summary for entity lookup
+      const summaryByDate = new Map();
+      if (RADAR_DATA.summaries && Array.isArray(RADAR_DATA.summaries)) {
+        RADAR_DATA.summaries.forEach(s => {
+          if (s.date) {
+            summaryByDate.set(s.date, s);
+          }
+        });
+      }
+
+      // Initialize Flatpickr with dark theme
+      flatpickr("#calendar-container", {
+        inline: true,
+        mode: "single",
+        dateFormat: "Y-m-d",
+        enable: enabledDates,
+        theme: "dark",
+        disableMobile: true,
+        onChange: function(selectedDates, dateStr, instance) {
+          if (!dateStr) return;
+
+          // Find the report card for the selected date
+          const targetCard = document.querySelector(`.report-card[data-date="${dateStr}"]`);
+
+          if (targetCard) {
+            // Scroll to the card with smooth behavior
+            targetCard.scrollIntoView({
+              behavior: 'smooth',
+              block: 'center'
+            });
+
+            // Highlight the card briefly
+            targetCard.style.boxShadow = '0 0 20px rgba(74, 158, 255, 0.5)';
+            setTimeout(() => {
+              targetCard.style.boxShadow = '';
+            }, 1500);
+          } else {
+            // If no card found, check if we should navigate to report
+            const matchingReport = RADAR_DATA.reports.find(r => r.date === dateStr);
+            if (matchingReport && matchingReport.filename) {
+              window.location.href = matchingReport.filename;
+            }
+          }
+        },
+        onReady: function(selectedDates, dateStr, instance) {
+          // Apply dark theme overrides for Flatpickr
+          const calendar = instance.calendarContainer;
+          if (calendar) {
+            calendar.style.background = 'transparent';
+          }
+        }
+      });
+    })();
+
+
+    // TODO: Task 8
+    (function initSearch() {
+      const searchInput = document.getElementById('search-input');
+      const searchClear = document.getElementById('search-clear');
+      const searchResults = document.getElementById('search-results');
+      const resultsCount = document.getElementById('results-count');
+      const reportsGrid = document.getElementById('reports-grid');
+
+      if (!searchInput || !reportsGrid) return;
+
+      // Build entity lookup map from summaries
+      const entityByDate = new Map();
+      if (RADAR_DATA.summaries && Array.isArray(RADAR_DATA.summaries)) {
+        RADAR_DATA.summaries.forEach(s => {
+          if (s.date && s.top_entities) {
+            const entityNames = s.top_entities.map(e => e.name).join(' ');
+            entityByDate.set(s.date, entityNames.toLowerCase());
+          }
+        });
+      }
+
+      // Populate data-entities on report cards
+      document.querySelectorAll('.report-card').forEach(card => {
+        const date = card.dataset.date;
+        if (date && entityByDate.has(date)) {
+          card.dataset.entities = entityByDate.get(date);
+        }
+      });
+
+      // Total report count for results display
+      const totalReports = document.querySelectorAll('.report-card').length;
+
+      // Filter reports based on search query
+      function filterReports(query) {
+        const normalizedQuery = query.toLowerCase().trim();
+        const cards = document.querySelectorAll('.report-card');
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+          const title = (card.dataset.title || card.dataset.name || '').toLowerCase();
+          const date = (card.dataset.date || '').toLowerCase();
+          const entities = (card.dataset.entities || '').toLowerCase();
+
+          // Match against title, date, and entities
+          const matches = !normalizedQuery ||
+            title.includes(normalizedQuery) ||
+            date.includes(normalizedQuery) ||
+            entities.includes(normalizedQuery);
+
+          card.style.display = matches ? '' : 'none';
+          if (matches) visibleCount++;
+        });
+
+        updateResultsCounter(visibleCount, normalizedQuery);
+      }
+
+      // Update results counter display
+      function updateResultsCounter(visibleCount, query) {
+        if (query && searchResults && resultsCount) {
+          searchResults.style.display = 'block';
+          if (visibleCount === 0) {
+            resultsCount.innerHTML = `No reports found for "<strong>${escapeHtml(query)}</strong>"`;
+          } else if (visibleCount === totalReports) {
+            resultsCount.innerHTML = `Showing all <strong>${visibleCount}</strong> reports`;
+          } else {
+            resultsCount.innerHTML = `Showing <strong>${visibleCount}</strong> of <strong>${totalReports}</strong> reports`;
+          }
+        } else if (searchResults) {
+          searchResults.style.display = 'none';
+        }
+      }
+
+      // Escape HTML for safe display
+      function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+      }
+
+      // Debounced search handler (300ms)
+      const debouncedSearch = debounce(function(e) {
+        const query = e.target.value;
+        filterReports(query);
+
+        // Toggle clear button visibility
+        if (searchClear) {
+          searchClear.style.display = query ? 'flex' : 'none';
+        }
+      }, 300);
+
+      // Input event listener
+      searchInput.addEventListener('input', debouncedSearch);
+
+      // Clear button handler
+      if (searchClear) {
+        searchClear.addEventListener('click', function() {
+          searchInput.value = '';
+          filterReports('');
+          searchClear.style.display = 'none';
+          searchInput.focus();
+        });
+      }
+
+      // Keyboard shortcut: Escape to clear
+      searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          searchInput.value = '';
+          filterReports('');
+          if (searchClear) searchClear.style.display = 'none';
+          searchInput.blur();
+        }
+      });
+    })();
+
+
+    // Build summary lookup map for tooltip entity display
+    const chartSummaryByDate = new Map();
+    if (RADAR_DATA.summaries && Array.isArray(RADAR_DATA.summaries)) {
+      RADAR_DATA.summaries.forEach(s => {
+        if (s.date) {
+          chartSummaryByDate.set(s.date, s);
+        }
+      });
+    }
+
+    // Initialize trend chart with data from summaries
+    const trendCanvas = document.getElementById('trend-chart');
+
+    // Handle edge case: <3 data points - show message instead of empty chart
+    if (!trendCanvas) {
+      console.warn('Trend chart canvas not found');
+    } else if (!RADAR_DATA.summaries || RADAR_DATA.summaries.length < 3) {
+      // Not enough data for meaningful trend chart
+      const parentWidget = trendCanvas.closest('.widget');
+      if (parentWidget) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'chart-message';
+        messageDiv.style.cssText = `
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          min-height: 200px;
+          color: var(--text-muted);
+          text-align: center;
+          padding: var(--space-6);
+        `;
+        messageDiv.innerHTML = `
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity: 0.5; margin-bottom: var(--space-3);">
+            <path d="M3 3v18h18"></path>
+            <path d="M7 16l4-4 4 4 5-6"></path>
+          </svg>
+          <p style="margin: 0; font-size: 0.9375rem;">
+            ${RADAR_DATA.summaries && RADAR_DATA.summaries.length > 0
+              ? `${RADAR_DATA.summaries.length} report${RADAR_DATA.summaries.length === 1 ? '' : 's'} available.<br>Need at least 3 for trend visualization.`
+              : 'No reports available yet.<br>Trend chart will appear with more data.'}
+          </p>
+        `;
+        trendCanvas.replaceWith(messageDiv);
+      }
+    } else {
+      // Enough data - render the chart
+      const sorted = [...RADAR_DATA.summaries].sort((a, b) =>
+        new Date(a.date) - new Date(b.date)
+      );
+
+      const chartLabels = sorted.map(s => s.date);
+      const chartData = sorted.map(s => s.article_count || 0);
+
+      const trendChart = new Chart(trendCanvas, {
+        type: 'line',
+        data: {
+          labels: chartLabels,
+          datasets: [{
+            label: 'Articles',
+            data: chartData,
+            borderColor: 'rgba(74, 158, 255, 0.9)',
+            backgroundColor: 'rgba(74, 158, 255, 0.12)',
+            borderWidth: 2.5,
+            fill: true,
+            tension: 0.35,
+            pointRadius: 4,
+            pointHoverRadius: 7,
+            pointBackgroundColor: 'rgba(74, 158, 255, 1)',
+            pointBorderColor: 'rgba(10, 14, 23, 1)',
+            pointBorderWidth: 2,
+            pointHoverBackgroundColor: 'rgba(51, 214, 197, 1)',
+            pointHoverBorderColor: 'rgba(10, 14, 23, 1)'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false
+            },
+            tooltip: {
+              backgroundColor: 'rgba(20, 28, 44, 0.96)',
+              titleColor: '#e4e6eb',
+              bodyColor: '#b0b3b8',
+              borderColor: 'rgba(74, 158, 255, 0.3)',
+              borderWidth: 1,
+              cornerRadius: 10,
+              padding: 14,
+              titleFont: {
+                family: 'JetBrains Mono, monospace',
+                size: 12,
+                weight: '600'
+              },
+              bodyFont: {
+                family: 'Pretendard Variable, Pretendard, sans-serif',
+                size: 13
+              },
+              displayColors: false,
+              callbacks: {
+                title: function(context) {
+                  // Format date nicely
+                  const dateStr = context[0].label;
+                  const date = new Date(dateStr + 'T00:00:00');
+                  return date.toLocaleDateString('en-US', {
+                    weekday: 'short',
+                    month: 'short',
+                    day: 'numeric',
+                    year: 'numeric'
+                  });
+                },
+                label: function(context) {
+                  const count = context.parsed.y;
+                  return `Articles: ${count.toLocaleString()}`;
+                },
+                afterLabel: function(context) {
+                  // Show top entity name
+                  const dateStr = context.label;
+                  const summary = chartSummaryByDate.get(dateStr);
+                  if (summary && summary.top_entities && summary.top_entities.length > 0) {
+                    const topEntity = summary.top_entities[0];
+                    return `Top: ${topEntity.name} (${topEntity.count})`;
+                  }
+                  return '';
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: {
+                color: 'rgba(150, 190, 255, 0.08)',
+                drawBorder: false
+              },
+              ticks: {
+                color: 'rgba(176, 179, 184, 0.7)',
+                font: {
+                  family: 'JetBrains Mono, monospace',
+                  size: 10
+                },
+                maxRotation: 45,
+                minRotation: 0,
+                autoSkip: true,
+                maxTicksLimit: 8
+              }
+            },
+            y: {
+              beginAtZero: true,
+              grid: {
+                color: 'rgba(150, 190, 255, 0.08)',
+                drawBorder: false
+              },
+              ticks: {
+                color: 'rgba(176, 179, 184, 0.7)',
+                font: {
+                  family: 'JetBrains Mono, monospace',
+                  size: 10
+                },
+                precision: 0
+              }
+            }
+          },
+          interaction: {
+            intersect: false,
+            mode: 'index'
+          },
+          animation: {
+            duration: 800,
+            easing: 'easeOutQuart'
+          }
+        }
+      });
+    }
+
+
+    function debounce(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    }
+
+
+    // Populate entity tags for each report card from summaries data
+    function populateEntityTags() {
+      if (!RADAR_DATA.summaries || RADAR_DATA.summaries.length === 0) return;
+
+      const summaryMap = new Map(
+        RADAR_DATA.summaries.map(s => [s.date, s])
+      );
+
+      document.querySelectorAll('.report-card__entities').forEach(container => {
+        const date = container.dataset.summaryDate;
+        if (!date) return;
+
+        const summary = summaryMap.get(date);
+        if (!summary || !summary.top_entities) return;
+
+        const topEntities = summary.top_entities.slice(0, 3);
+        container.innerHTML = topEntities
+          .map(e => `<span class="entity-tag">${escapeHtml(e.name)} (${e.count})</span>`)
+          .join('');
+      });
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // Run on load
+    populateEntityTags();
+  </script>
+</body>
+</html>
