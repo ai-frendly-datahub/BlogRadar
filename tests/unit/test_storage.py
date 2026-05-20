@@ -4,10 +4,9 @@ from collections.abc import Iterable
 from datetime import UTC, datetime, timedelta
 from importlib import import_module
 from pathlib import Path
-from typing import Protocol, cast
+from typing import Any, Protocol, cast
 
 import pytest
-
 
 StorageError = cast(type[Exception], import_module("radar.exceptions").StorageError)
 
@@ -148,7 +147,7 @@ def test_upsert_atomicity_rollback_preserves_data(tmp_duckdb: Path) -> None:
         summary="should fail",
         published=datetime.now(UTC),
     )
-    invalid.link = None
+    cast(Any, invalid).link = None
 
     try:
         storage.upsert_articles([existing])

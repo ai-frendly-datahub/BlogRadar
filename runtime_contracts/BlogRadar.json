@@ -1,0 +1,97 @@
+{
+  "category": "techblog",
+  "ontology_version": "0.1.0",
+  "event_model_mappings": {
+    "blog_post": "tech.blog_post",
+    "repository_release": "tech.repository_release",
+    "package_download": "tech.package_download",
+    "github_activity": "tech.github_activity",
+    "skill_demand": "tech.skill_demand"
+  },
+  "source_role_mappings": {
+    "Cloudflare Blog": "source.vendor_platform",
+    "GitHub Blog Engineering": "source.vendor_platform",
+    "Go Blog": "source.open_source_maintainer",
+    "HashiCorp Blog": "source.vendor_platform",
+    "Kubernetes Blog": "source.open_source_maintainer",
+    "OpenAI News": "source.model_platform",
+    "Rust Blog": "source.open_source_maintainer",
+    "Vercel Blog": "source.vendor_platform"
+  },
+  "entity_type_hints": [
+    "Company",
+    "Domain",
+    "Framework",
+    "Language",
+    "Topic"
+  ],
+  "evidence_policy_ids": [
+    "source_metadata",
+    "article_text"
+  ],
+  "event_model_field_specs": {
+    "blog_post": {
+      "required_fields": [
+        "headline",
+        "source_name",
+        "source_url"
+      ],
+      "optional_fields": [
+        "published_at",
+        "summary",
+        "tags"
+      ]
+    },
+    "repository_release": {
+      "required_fields": [
+        "source_url"
+      ],
+      "optional_fields": [
+        "headline",
+        "published_at",
+        "repository",
+        "release_tag",
+        "summary",
+        "tags"
+      ]
+    },
+    "package_download": {
+      "required_fields": [
+        "source_url"
+      ],
+      "optional_fields": [
+        "download_count",
+        "package_name",
+        "published_at",
+        "registry",
+        "summary",
+        "tags"
+      ]
+    },
+    "github_activity": {
+      "required_fields": [
+        "source_url"
+      ],
+      "optional_fields": [
+        "forks",
+        "published_at",
+        "repository",
+        "stars",
+        "summary",
+        "tags"
+      ]
+    },
+    "skill_demand": {
+      "required_fields": [
+        "source_url"
+      ],
+      "optional_fields": [
+        "employer",
+        "published_at",
+        "skill",
+        "summary",
+        "tags"
+      ]
+    }
+  }
+}

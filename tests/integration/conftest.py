@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from collections.abc import Generator
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -10,7 +11,7 @@ from blogradar.storage import RadarStorage
 
 
 @pytest.fixture
-def tmp_storage(tmp_path: Path) -> RadarStorage:
+def tmp_storage(tmp_path: Path) -> Generator[RadarStorage]:
     db_path = tmp_path / "test.duckdb"
     storage = RadarStorage(db_path)
     yield storage

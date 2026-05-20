@@ -25,6 +25,14 @@ def _resolve_path(path_value: str, *, project_root: Path) -> Path:
     return (project_root / path).resolve()
 
 
+def _settings_project_root(config_file: Path, *, default_project_root: Path) -> Path:
+    if config_file.parent.name == "config":
+        return config_file.parent.parent
+    if config_file.is_relative_to(default_project_root):
+        return default_project_root
+    return config_file.parent
+
+
 def _read_yaml_dict(path: Path) -> dict[str, object]:
     raw = cast(object, yaml.safe_load(path.read_text(encoding="utf-8")))
     if isinstance(raw, dict):
@@ -99,12 +107,16 @@ def _dict_items(value: object) -> list[dict[str, object]]:
 
 def load_settings(config_path: Path | None = None) -> RadarSettings:
     """Load global radar settings such as database and report directories."""
-    project_root = Path(__file__).resolve().parent.parent
-    config_file = config_path or project_root / "config" / "config.yaml"
+    default_project_root = Path(__file__).resolve().parent.parent
+    config_file = (config_path or default_project_root / "config" / "config.yaml").resolve()
 
     if not config_file.exists():
         raise FileNotFoundError(f"Config file not found: {config_file}")
 
+    project_root = _settings_project_root(
+        config_file,
+        default_project_root=default_project_root,
+    )
     raw = _read_yaml_dict(config_file)
     db_path = _resolve_path(
         _string_value(raw, "database_path", "data/radar_data.duckdb"), project_root=project_root

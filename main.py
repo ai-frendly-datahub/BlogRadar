@@ -5,6 +5,10 @@ from datetime import UTC
 from pathlib import Path
 from typing import cast
 
+from radar_core.config_loader import filter_sources
+from radar_core.ontology import annotate_articles_with_ontology
+from radar_core.url_utils import canonical_url
+
 from blogradar.analyzer import apply_entity_rules
 from blogradar.collector import collect_sources
 from blogradar.common.validators import validate_article
@@ -14,15 +18,13 @@ from blogradar.config_loader import (
     load_settings,
 )
 from blogradar.date_storage import apply_date_storage_policy
+from blogradar.models import Article, Source
 from blogradar.quality_report import build_quality_report, write_quality_report
 from blogradar.raw_logger import RawLogger
 from blogradar.relevance import apply_source_context_entities, filter_relevant_articles
 from blogradar.reporter import generate_index_html, generate_report
 from blogradar.search_index import SearchIndex
 from blogradar.storage import RadarStorage
-from blogradar.models import Article, Source
-from radar_core.ontology import annotate_articles_with_ontology
-from radar_core.config_loader import filter_sources
 
 
 def _send_notifications(
@@ -47,6 +49,7 @@ def _send_notifications(
         CompositeNotifier,
         EmailNotifier,
         NotificationPayload,
+        Notifier,
         WebhookNotifier,
     )
 
@@ -60,7 +63,7 @@ def _send_notifications(
         report_url=str(report_path),
     )
 
-    notifiers: list[object] = []
+    notifiers: list[Notifier] = []
     if email_to:
         notifiers.append(
             EmailNotifier(
@@ -152,10 +155,18 @@ def run(
     storage = RadarStorage(settings.database_path)
     storage.upsert_articles(validated_articles)
     _ = storage.delete_older_than(keep_days)
+    retained_links = [
+        canonical_url(link) or link for link in storage.article_links(category_cfg.category_name)
+    ]
 
     with SearchIndex(settings.search_db_path) as search_idx:
+        search_idx.delete_missing(retained_links)
         for article in validated_articles:
-            search_idx.upsert(article.link, article.title, article.summary)
+            search_idx.upsert(
+                canonical_url(article.link) or article.link,
+                article.title,
+                article.summary,
+            )
 
     recent_articles = _select_report_articles(
         storage,
@@ -225,7 +236,7 @@ def run(
         report_path=output_path,
     )
 
-    return output_path
+    return cast(Path, output_path)
 
 
 def _select_report_articles(
@@ -331,8 +342,6 @@ def _to_int(value: object, default: int) -> int:
     return default
 
 
-
-
 def _to_optional_int(value: object) -> int | None:
     if value is None:
         return None
@@ -352,6 +361,8 @@ def _to_str_list(value: object) -> list[str]:
     if isinstance(value, list):
         return [str(item) for item in cast(list[object], value) if isinstance(item, str)]
     return []
+
+
 if __name__ == "__main__":
     args = cast(dict[str, object], vars(parse_args()))
     _ = run(
@@ -360,7 +371,7 @@ if __name__ == "__main__":
         categories_dir=_to_path(args.get("categories_dir")),
         per_source_limit=_to_int(args.get("per_source_limit"), 30),
         recent_days=_to_int(args.get("recent_days"), 7),
-        max_age_days=args.get("max_age_days"),
+        max_age_days=_to_optional_int(args.get("max_age_days")),
         timeout=_to_int(args.get("timeout"), 15),
         keep_days=_to_int(args.get("keep_days"), 90),
         keep_raw_days=_to_int(args.get("keep_raw_days"), 180),

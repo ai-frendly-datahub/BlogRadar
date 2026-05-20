@@ -27,6 +27,17 @@ def _pass_through_manager() -> Mock:
     return manager
 
 
+class _FastHealthStore:
+    def __init__(self, *_args: object, **_kwargs: object) -> None:
+        pass
+
+    def is_disabled(self, _source_name: str) -> bool:
+        return False
+
+    def close(self) -> None:
+        pass
+
+
 def test_parallel_collection_reduces_runtime() -> None:
     sources = _build_sources(5)
     manager = _pass_through_manager()
@@ -54,6 +65,7 @@ def test_parallel_collection_reduces_runtime() -> None:
     with (
         patch("radar.collector._collect_single", side_effect=delayed_collect),
         patch("radar.collector.get_circuit_breaker_manager", return_value=manager),
+        patch("radar.collector.CrawlHealthStore", _FastHealthStore),
         patch.dict(os.environ, {"RADAR_MAX_WORKERS": "5"}, clear=False),
     ):
         start = time.monotonic()

@@ -12,8 +12,7 @@ from blogradar.search_index import SearchIndex
 def _init_articles_table(db_path: Path) -> None:
     conn = duckdb.connect(str(db_path))
     try:
-        _ = conn.execute(
-            """
+        _ = conn.execute("""
             CREATE TABLE articles (
                 id BIGINT PRIMARY KEY,
                 category TEXT NOT NULL,
@@ -25,8 +24,7 @@ def _init_articles_table(db_path: Path) -> None:
                 collected_at TIMESTAMP NOT NULL,
                 entities_json TEXT
             )
-            """
-        )
+            """)
     finally:
         conn.close()
 

@@ -12,8 +12,7 @@ def _init_articles_db(db_path: Path) -> None:
     db_path.parent.mkdir(parents=True, exist_ok=True)
     conn = duckdb.connect(str(db_path))
     try:
-        conn.execute(
-            """
+        conn.execute("""
             CREATE TABLE articles (
                 id BIGINT PRIMARY KEY,
                 category TEXT NOT NULL,
@@ -25,8 +24,7 @@ def _init_articles_db(db_path: Path) -> None:
                 collected_at TIMESTAMP NOT NULL,
                 entities_json TEXT
             )
-            """
-        )
+            """)
         conn.execute(
             """
             INSERT INTO articles (id, category, source, title, link, summary, published, collected_at, entities_json)

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import calendar
 import html
 import os
 import threading
@@ -21,7 +22,6 @@ from urllib3.util.retry import Retry
 from .exceptions import NetworkError, ParseError, SourceError
 from .models import Article, Source
 from .resilience import get_circuit_breaker_manager
-
 
 _DEFAULT_HEADERS: dict[str, str] = {
     "User-Agent": "Mozilla/5.0 (compatible; RadarTemplateBot/1.0; +https://github.com/zzragida/ai-frendly-datahub)",
@@ -201,9 +201,7 @@ def collect_sources(
     rss_sources = [source for source in enabled_sources if source.type.lower() == "rss"]
     reddit_sources = [source for source in enabled_sources if source.type.lower() in _reddit_types]
     unsupported_sources = [
-        source
-        for source in enabled_sources
-        if source.type.lower() not in {"rss", *_reddit_types}
+        source for source in enabled_sources if source.type.lower() not in {"rss", *_reddit_types}
     ]
     source_hosts: dict[str, str] = {
         source.name: (urlparse(source.url).netloc.lower() or source.name) for source in rss_sources
@@ -216,15 +214,17 @@ def collect_sources(
         health_db_path or os.environ.get("RADAR_CRAWL_HEALTH_DB_PATH", _DEFAULT_HEALTH_DB_PATH)
     )
     _set_collection_controls(throttler, health_store)
-    session = _create_session()
 
     def _collect_for_source(source: Source) -> tuple[list[Article], list[str]]:
-        if not _source_bool(source, "bypass_crawl_health") and health_store.is_disabled(source.name):
+        if not _source_bool(source, "bypass_crawl_health") and health_store.is_disabled(
+            source.name
+        ):
             return [], [f"{source.name}: Source disabled (crawl health threshold reached)"]
 
         host = source_hosts[source.name]
         rate_limiters[host].acquire()
 
+        session = _create_session()
         try:
             breaker = manager.get_breaker(source.name)
             result = breaker.call(
@@ -244,6 +244,8 @@ def collect_sources(
             return [], [f"{source.name}: {exc}"]
         except Exception as exc:
             return [], [f"{source.name}: Unexpected error - {type(exc).__name__}: {exc}"]
+        finally:
+            session.close()
 
     try:
         if workers == 1:
@@ -288,7 +290,6 @@ def collect_sources(
                 "the standard pipeline"
             )
     finally:
-        session.close()
         health_store.close()
         _clear_collection_controls()
 
@@ -372,11 +373,11 @@ def _extract_datetime(entry: Mapping[str, Any]) -> datetime | None:
     """Parse a feed entry date into a timezone-aware datetime."""
     published_parsed = entry.get("published_parsed")
     if isinstance(published_parsed, time.struct_time):
-        return datetime.fromtimestamp(time.mktime(published_parsed), tz=UTC)
+        return datetime.fromtimestamp(calendar.timegm(published_parsed), tz=UTC)
 
     updated_parsed = entry.get("updated_parsed")
     if isinstance(updated_parsed, time.struct_time):
-        return datetime.fromtimestamp(time.mktime(updated_parsed), tz=UTC)
+        return datetime.fromtimestamp(calendar.timegm(updated_parsed), tz=UTC)
 
     for key in ("published", "updated", "date"):
         raw = entry.get(key)

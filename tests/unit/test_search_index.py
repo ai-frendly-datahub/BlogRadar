@@ -20,6 +20,8 @@ class _SearchResult(Protocol):
 class _SearchIndex(Protocol):
     def upsert(self, link: str, title: str, body: str) -> None: ...
 
+    def delete_missing(self, links: list[str]) -> int: ...
+
     def search(self, query: str, *, limit: int = 20) -> list[_SearchResult]: ...
 
     def close(self) -> None: ...
@@ -120,6 +122,29 @@ def test_upsert_same_link_twice_updates_document(tmp_path: Path) -> None:
     assert len(new_results) == 1
     assert new_results[0].title == "New title"
     assert old_results == []
+
+
+def test_delete_missing_prunes_stale_documents(tmp_path: Path) -> None:
+    index = SearchIndex(tmp_path / "search_index.db")
+    index.upsert(
+        link="https://example.com/keep",
+        title="Keep document",
+        body="fresh python article",
+    )
+    index.upsert(
+        link="https://example.com/drop",
+        title="Drop document",
+        body="stale rust article",
+    )
+
+    deleted = index.delete_missing(["https://example.com/keep"])
+    kept_results = index.search("python")
+    dropped_results = index.search("rust")
+    index.close()
+
+    assert deleted == 1
+    assert len(kept_results) == 1
+    assert dropped_results == []
 
 
 def test_search_respects_limit_parameter(tmp_path: Path) -> None:

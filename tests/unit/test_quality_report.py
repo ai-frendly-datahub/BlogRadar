@@ -7,7 +7,6 @@ import pytest
 from blogradar.models import Article, CategoryConfig, Source
 from blogradar.quality_report import build_quality_report
 
-
 pytestmark = pytest.mark.unit
 
 
@@ -61,6 +60,48 @@ def test_build_quality_report_tracks_repository_release_sources() -> None:
     assert report["events"][0]["framework"] == ["kubernetes"]
 
 
+def test_operational_metadata_overrides_generic_blog_post_event_model() -> None:
+    source = Source(
+        name="Kubernetes Blog",
+        type="rss",
+        url="https://kubernetes.io/feed.xml",
+        content_type="release_note",
+        producer_role="open_source_maintainer",
+        info_purpose=["release", "version"],
+        config={"event_model": "blog_post"},
+    )
+    category = CategoryConfig(
+        category_name="techblog",
+        display_name="Tech Blog",
+        sources=[source],
+        entities=[],
+    )
+    article = Article(
+        title="Kubernetes v1.36.0 released",
+        link="https://kubernetes.io/blog/v1-36",
+        summary="Release tag: v1.36.0.",
+        published=datetime(2026, 4, 12, tzinfo=UTC),
+        source="Kubernetes Blog",
+        category="techblog",
+        matched_entities={"Framework": ["kubernetes"]},
+    )
+
+    report = build_quality_report(
+        category=category,
+        articles=[article],
+        quality_config={
+            "data_quality": {
+                "quality_outputs": {"tracked_event_models": ["repository_release"]},
+            }
+        },
+        generated_at=datetime(2026, 4, 13, tzinfo=UTC),
+    )
+
+    assert report["summary"]["tracked_sources"] == 1
+    assert report["summary"]["repository_release_events"] == 1
+    assert report["sources"][0]["event_model"] == "repository_release"
+
+
 def test_build_quality_report_marks_missing_tracked_source() -> None:
     source = Source(
         name="Go Blog",
@@ -80,9 +121,7 @@ def test_build_quality_report_marks_missing_tracked_source() -> None:
         category=category,
         articles=[],
         quality_config={
-            "data_quality": {
-                "quality_outputs": {"tracked_event_models": ["repository_release"]}
-            }
+            "data_quality": {"quality_outputs": {"tracked_event_models": ["repository_release"]}}
         },
         generated_at=datetime(2026, 4, 13, tzinfo=UTC),
     )
@@ -232,7 +271,4 @@ def test_build_quality_report_extracts_package_github_and_skill_signals() -> Non
     assert events["github_activity"]["canonical_key"] == "repository:github.com:vercel:next.js"
     assert events["github_activity"]["stars"] == 130000
     assert events["skill_demand"]["canonical_key"] == "skill:python:fastapi:example-analytics"
-    assert any(
-        item["reason"] == "source_backlog_pending"
-        for item in report["daily_review_items"]
-    )
+    assert any(item["reason"] == "source_backlog_pending" for item in report["daily_review_items"])

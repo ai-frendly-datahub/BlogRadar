@@ -3,14 +3,17 @@ from __future__ import annotations
 import importlib.util
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
+from types import ModuleType
+from typing import Any, cast
 
+import pytest
 import yaml
 
 from blogradar.models import Article
 from blogradar.storage import RadarStorage
 
 
-def _load_script_module():
+def _load_script_module() -> ModuleType:
     script_path = Path(__file__).resolve().parents[2] / "scripts" / "check_quality.py"
     spec = importlib.util.spec_from_file_location("blogradar_check_quality_script", script_path)
     assert spec is not None and spec.loader is not None
@@ -21,7 +24,7 @@ def _load_script_module():
 
 def test_generate_quality_artifacts_uses_latest_stored_checkpoint(
     tmp_path: Path,
-    capsys,
+    capsys: pytest.CaptureFixture[str],
 ) -> None:
     project_root = tmp_path
     (project_root / "config" / "categories").mkdir(parents=True)
@@ -88,7 +91,7 @@ def test_generate_quality_artifacts_uses_latest_stored_checkpoint(
             [article_time.replace(tzinfo=None), "https://kubernetes.io/blog/v1-36"],
         )
 
-    module = _load_script_module()
+    module = cast(Any, _load_script_module())
     paths, report = module.generate_quality_artifacts(project_root)
 
     assert Path(paths["latest"]).exists()

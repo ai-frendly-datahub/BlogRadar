@@ -252,7 +252,7 @@ sources:
     rollout context.
   config:
     freshness_sla_days: 14
-    event_model: blog_post
+    event_model: repository_release
 - name: Cloudflare Blog
   type: rss
   url: https://blog.cloudflare.com/rss/
@@ -269,7 +269,7 @@ sources:
     migration, and platform changes. New posts commonly land on a 3-4 day cadence.
   config:
     freshness_sla_days: 4
-    event_model: blog_post
+    event_model: repository_release
 - name: AWS Architecture Blog
   type: rss
   url: https://aws.amazon.com/blogs/architecture/feed/
@@ -315,7 +315,7 @@ sources:
   notes: Official Vercel feed frequently used for release, rollout, and framework
     migration signals.
   config:
-    event_model: blog_post
+    event_model: repository_release
 - name: Grafana Labs Blog
   type: rss
   url: https://grafana.com/blog/index.xml
@@ -336,7 +336,7 @@ sources:
   notes: HashiCorp product release and migration guidance useful for infrastructure
     adoption tracking.
   config:
-    event_model: blog_post
+    event_model: repository_release
 - name: Elastic Blog
   type: rss
   url: https://www.elastic.co/blog/feed
@@ -386,7 +386,7 @@ sources:
   notes: Official Kubernetes release and deprecation updates tied to production upgrade
     planning.
   config:
-    event_model: blog_post
+    event_model: repository_release
 - name: Helm Blog
   type: rss
   url: https://helm.sh/blog/index.xml
@@ -408,7 +408,7 @@ sources:
     context.
   config:
     freshness_sla_days: 45
-    event_model: blog_post
+    event_model: repository_release
 - name: Rust Blog
   type: rss
   url: https://blog.rust-lang.org/feed.xml
@@ -425,7 +425,7 @@ sources:
     rollout tracking.
   config:
     freshness_sla_days: 21
-    event_model: blog_post
+    event_model: repository_release
 - name: PyTorch Blog
   type: rss
   url: https://pytorch.org/blog/feed/
@@ -495,7 +495,7 @@ sources:
   - developer_adoption
   notes: Official OpenAI release and rollout feed for model, API, and platform changes.
   config:
-    event_model: blog_post
+    event_model: repository_release
 - name: CircleCI Blog
   type: rss
   url: https://circleci.com/blog/feed.xml

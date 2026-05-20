@@ -7,6 +7,8 @@ from importlib import import_module
 from pathlib import Path
 from typing import Protocol, cast
 
+from ..config_loader import load_settings
+from ..date_storage import resolve_read_database_path
 from .tools import (
     handle_price_watch,
     handle_recent_updates,
@@ -14,8 +16,6 @@ from .tools import (
     handle_sql,
     handle_top_trends,
 )
-from ..config_loader import load_settings
-from ..date_storage import resolve_read_database_path
 
 
 def _db_path() -> Path:

@@ -4,7 +4,7 @@ import re
 from collections.abc import Iterable, Mapping
 from html import escape
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 from radar_core.ontology import build_summary_ontology_metadata
 from radar_core.report_utils import (
@@ -24,7 +24,7 @@ def generate_report(
     output_path: Path,
     stats: dict[str, int],
     errors: list[str] | None = None,
-    store=None,
+    store: Any | None = None,
     quality_report: Mapping[str, Any] | None = None,
 ) -> Path:
     """Generate HTML report (delegates to radar-core)."""
@@ -49,17 +49,20 @@ def generate_report(
     except Exception:
         pass
 
-    report_path = _core_generate_report(
-        category=category,
-        articles=articles_list,
-        output_path=output_path,
-        stats=stats,
-        errors=errors,
-        plugin_charts=plugin_charts if plugin_charts else None,
-        ontology_metadata=build_summary_ontology_metadata(
-            "BlogRadar",
-            category_name=category.category_name,
-            search_from=Path(__file__).resolve(),
+    report_path = cast(
+        Path,
+        _core_generate_report(
+            category=category,
+            articles=articles_list,
+            output_path=output_path,
+            stats=stats,
+            errors=errors,
+            plugin_charts=plugin_charts if plugin_charts else None,
+            ontology_metadata=build_summary_ontology_metadata(
+                "BlogRadar",
+                category_name=category.category_name,
+                search_from=Path(__file__).resolve(),
+            ),
         ),
     )
     if quality_report:
@@ -157,9 +160,7 @@ def _render_quality_events(events: list[Mapping[str, Any]]) -> str:
     return (
         '<div class="table-wrap"><table><thead><tr>'
         "<th>Model</th><th>Source</th><th>Canonical key</th><th>Basis</th>"
-        "</tr></thead><tbody>"
-        + "".join(rows)
-        + "</tbody></table></div>"
+        "</tr></thead><tbody>" + "".join(rows) + "</tbody></table></div>"
     )
 
 
@@ -190,9 +191,7 @@ def _render_quality_review(items: list[Mapping[str, Any]]) -> str:
     return (
         '<div class="table-wrap"><table><thead><tr>'
         "<th>Reason</th><th>Model</th><th>Source</th><th>Detail</th>"
-        "</tr></thead><tbody>"
-        + "".join(rows)
-        + "</tbody></table></div>"
+        "</tr></thead><tbody>" + "".join(rows) + "</tbody></table></div>"
     )
 
 
@@ -212,4 +211,4 @@ def generate_index_html(
 ) -> Path:
     """Generate index.html (delegates to radar-core)."""
     radar_name = "Blog Radar"
-    return _core_generate_index_html(report_dir, radar_name)
+    return cast(Path, _core_generate_index_html(report_dir, radar_name))

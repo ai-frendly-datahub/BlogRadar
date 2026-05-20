@@ -10,8 +10,7 @@ def _init_articles_db(db_path: Path, *, rows: int) -> None:
     db_path.parent.mkdir(parents=True, exist_ok=True)
     conn = duckdb.connect(str(db_path))
     try:
-        conn.execute(
-            """
+        conn.execute("""
             CREATE TABLE articles (
                 id BIGINT PRIMARY KEY,
                 category TEXT NOT NULL,
@@ -23,8 +22,7 @@ def _init_articles_db(db_path: Path, *, rows: int) -> None:
                 collected_at TIMESTAMP NOT NULL,
                 entities_json TEXT
             )
-            """
-        )
+            """)
         for idx in range(rows):
             conn.execute(
                 """

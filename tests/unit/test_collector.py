@@ -11,14 +11,14 @@ from blogradar.models import Source
 
 
 @pytest.mark.unit
-def test_collect_sources_empty():
+def test_collect_sources_empty() -> None:
     articles, errors = collect_sources([], category="techblog")
     assert articles == []
     assert errors == []
 
 
 @pytest.mark.unit
-def test_collect_sources_unsupported_type():
+def test_collect_sources_unsupported_type() -> None:
     source = Source(name="test", type="html", url="https://example.com")
     articles, errors = collect_sources([source], category="techblog")
     assert len(errors) == 1
@@ -26,7 +26,7 @@ def test_collect_sources_unsupported_type():
 
 
 @pytest.mark.unit
-def test_collect_sources_skips_disabled_sources():
+def test_collect_sources_skips_disabled_sources() -> None:
     source = Source(name="disabled", type="html", url="https://example.com", enabled=False)
     articles, errors = collect_sources([source], category="techblog")
     assert articles == []
@@ -34,14 +34,14 @@ def test_collect_sources_skips_disabled_sources():
 
 
 @pytest.mark.unit
-def test_extract_datetime_none():
-    entry = {}
+def test_extract_datetime_none() -> None:
+    entry: dict[str, object] = {}
     result = _extract_datetime(entry)
     assert result is None
 
 
 @pytest.mark.unit
-def test_collect_sources_network_error():
+def test_collect_sources_network_error() -> None:
     source = Source(name="bad-source", type="rss", url="https://invalid-url-xyz.example.com/feed")
     with patch(
         "blogradar.collector._fetch_url_with_retry", side_effect=Exception("Connection failed")
@@ -51,7 +51,7 @@ def test_collect_sources_network_error():
 
 
 @pytest.mark.unit
-def test_collect_single_uses_title_as_missing_summary_fallback():
+def test_collect_single_uses_title_as_missing_summary_fallback() -> None:
     response = Mock()
     response.content = b"""<?xml version="1.0" encoding="UTF-8"?>
     <rss version="2.0">

@@ -6,6 +6,7 @@
 from __future__ import annotations
 
 import smtplib
+from collections.abc import Sequence
 from dataclasses import dataclass
 from datetime import datetime
 from email.mime.text import MIMEText
@@ -13,7 +14,6 @@ from typing import Protocol
 
 import requests
 import structlog
-
 
 logger = structlog.get_logger(__name__)
 
@@ -207,13 +207,13 @@ class WebhookNotifier:
 class CompositeNotifier:
     """Send notifications to multiple notifiers."""
 
-    def __init__(self, notifiers: list[object]) -> None:
+    def __init__(self, notifiers: Sequence[Notifier]) -> None:
         """Initialize composite notifier.
 
         Args:
             notifiers: List of notifiers to send to
         """
-        self.notifiers = notifiers
+        self.notifiers = list(notifiers)
 
     def send(self, payload: NotificationPayload) -> bool:
         """Send notification to all notifiers.

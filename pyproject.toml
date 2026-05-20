@@ -115,29 +115,8 @@ ignore = [
 "__init__.py" = ["F401"]
 
 [tool.ruff.lint.isort]
-known-first-party = ["radar"]
+known-first-party = ["blogradar", "radar"]
 force-single-line = false
-lines-after-imports = 2
-
-# Pytest configuration
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-python_files = ["test_*.py"]
-python_classes = ["Test*"]
-python_functions = ["test_*"]
-addopts = [
-    "--strict-markers",
-    "--verbose",
-    "--color=yes",
-    "--cov=.",
-    "--cov-report=term-missing",
-    "--cov-report=html",
-]
-markers = [
-    "unit: Unit tests",
-    "integration: Integration tests",
-    "e2e: End-to-end tests",
-]
 
 # Coverage configuration
 [tool.coverage.run]
@@ -178,8 +157,6 @@ show_error_context = true
 
 [[tool.mypy.overrides]]
 module = [
-    "feedparser.*",
-    "bs4.*",
     "duckdb.*",
 ]
 ignore_missing_imports = true

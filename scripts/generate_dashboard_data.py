@@ -9,12 +9,11 @@ from __future__ import annotations
 import json
 import sys
 from collections import Counter, defaultdict
-from datetime import datetime, timedelta
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 import duckdb
-
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = PROJECT_ROOT / "data"
@@ -39,7 +38,7 @@ def load_articles(db_path: Path) -> list[dict[str, Any]]:
     conn.close()
 
     columns = ["title", "source", "category", "published", "collected_at", "entities_json"]
-    return [dict(zip(columns, row)) for row in result]
+    return [dict(zip(columns, row, strict=True)) for row in result]
 
 
 def parse_entities(entities_json: str | None) -> dict[str, list[str]]:
@@ -47,12 +46,12 @@ def parse_entities(entities_json: str | None) -> dict[str, list[str]]:
     if not entities_json:
         return {}
     try:
-        return json.loads(entities_json)
+        return cast(dict[str, list[str]], json.loads(entities_json))
     except (json.JSONDecodeError, TypeError):
         return {}
 
 
-def aggregate_framework_counts(articles: list[dict]) -> dict[str, int]:
+def aggregate_framework_counts(articles: list[dict[str, Any]]) -> dict[str, int]:
     """Aggregate framework mention counts."""
     counts: Counter[str] = Counter()
     for article in articles:
@@ -62,7 +61,7 @@ def aggregate_framework_counts(articles: list[dict]) -> dict[str, int]:
     return dict(counts.most_common(50))
 
 
-def aggregate_language_counts(articles: list[dict]) -> dict[str, int]:
+def aggregate_language_counts(articles: list[dict[str, Any]]) -> dict[str, int]:
     """Aggregate programming language mention counts."""
     counts: Counter[str] = Counter()
     for article in articles:
@@ -72,7 +71,7 @@ def aggregate_language_counts(articles: list[dict]) -> dict[str, int]:
     return dict(counts.most_common(20))
 
 
-def aggregate_company_counts(articles: list[dict]) -> dict[str, int]:
+def aggregate_company_counts(articles: list[dict[str, Any]]) -> dict[str, int]:
     """Aggregate company mention counts."""
     counts: Counter[str] = Counter()
     for article in articles:
@@ -82,7 +81,7 @@ def aggregate_company_counts(articles: list[dict]) -> dict[str, int]:
     return dict(counts.most_common(20))
 
 
-def aggregate_domain_counts(articles: list[dict]) -> dict[str, int]:
+def aggregate_domain_counts(articles: list[dict[str, Any]]) -> dict[str, int]:
     """Aggregate domain mention counts."""
     counts: Counter[str] = Counter()
     for article in articles:
@@ -92,7 +91,7 @@ def aggregate_domain_counts(articles: list[dict]) -> dict[str, int]:
     return dict(counts.most_common(20))
 
 
-def aggregate_topic_counts(articles: list[dict]) -> dict[str, int]:
+def aggregate_topic_counts(articles: list[dict[str, Any]]) -> dict[str, int]:
     """Aggregate topic mention counts."""
     counts: Counter[str] = Counter()
     for article in articles:
@@ -102,7 +101,9 @@ def aggregate_topic_counts(articles: list[dict]) -> dict[str, int]:
     return dict(counts.most_common(20))
 
 
-def aggregate_weekly_trends(articles: list[dict], weeks: int = 8) -> dict[str, dict[str, int]]:
+def aggregate_weekly_trends(
+    articles: list[dict[str, Any]], weeks: int = 8
+) -> dict[str, dict[str, int]]:
     """Aggregate framework mentions by week."""
     weekly: dict[str, Counter[str]] = defaultdict(Counter)
 
@@ -125,20 +126,19 @@ def aggregate_weekly_trends(articles: list[dict], weeks: int = 8) -> dict[str, d
             weekly[week_key][fw.lower()] += 1
 
     sorted_weeks = sorted(weekly.keys(), reverse=True)[:weeks]
-    return {
-        week: dict(weekly[week].most_common(10))
-        for week in sorted(sorted_weeks)
-    }
+    return {week: dict(weekly[week].most_common(10)) for week in sorted(sorted_weeks)}
 
 
-def aggregate_source_stats(articles: list[dict]) -> dict[str, dict[str, Any]]:
+def aggregate_source_stats(articles: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
     """Aggregate statistics by source."""
-    source_data: dict[str, dict[str, Any]] = defaultdict(lambda: {
-        "article_count": 0,
-        "entity_count": 0,
-        "frameworks": Counter(),
-        "companies": Counter(),
-    })
+    source_data: dict[str, dict[str, Any]] = defaultdict(
+        lambda: {
+            "article_count": 0,
+            "entity_count": 0,
+            "frameworks": Counter(),
+            "companies": Counter(),
+        }
+    )
 
     for article in articles:
         source = article.get("source", "Unknown")
@@ -158,7 +158,11 @@ def aggregate_source_stats(articles: list[dict]) -> dict[str, dict[str, Any]]:
         result[source] = {
             "article_count": data["article_count"],
             "entity_count": data["entity_count"],
-            "match_rate": round(data["entity_count"] / data["article_count"] * 100, 1) if data["article_count"] > 0 else 0,
+            "match_rate": (
+                round(data["entity_count"] / data["article_count"] * 100, 1)
+                if data["article_count"] > 0
+                else 0
+            ),
             "top_frameworks": dict(data["frameworks"].most_common(5)),
             "top_companies": dict(data["companies"].most_common(3)),
         }
@@ -166,7 +170,7 @@ def aggregate_source_stats(articles: list[dict]) -> dict[str, dict[str, Any]]:
     return dict(sorted(result.items(), key=lambda x: x[1]["article_count"], reverse=True)[:20])
 
 
-def get_company_tech_stacks(articles: list[dict]) -> dict[str, dict[str, int]]:
+def get_company_tech_stacks(articles: list[dict[str, Any]]) -> dict[str, dict[str, int]]:
     """Analyze tech stacks by company based on co-occurrence."""
     company_frameworks: dict[str, Counter[str]] = defaultdict(Counter)
 
@@ -182,9 +186,7 @@ def get_company_tech_stacks(articles: list[dict]) -> dict[str, dict[str, int]]:
     return {
         company: dict(fws.most_common(5))
         for company, fws in sorted(
-            company_frameworks.items(),
-            key=lambda x: sum(x[1].values()),
-            reverse=True
+            company_frameworks.items(), key=lambda x: sum(x[1].values()), reverse=True
         )[:15]
     }
 
@@ -195,10 +197,7 @@ def generate_dashboard_data(db_path: Path) -> dict[str, Any]:
 
     # Calculate basic stats
     total_articles = len(articles)
-    articles_with_entities = sum(
-        1 for a in articles
-        if parse_entities(a.get("entities_json"))
-    )
+    articles_with_entities = sum(1 for a in articles if parse_entities(a.get("entities_json")))
 
     # Get date range
     dates = [a["published"] for a in articles if a.get("published")]
@@ -208,10 +207,12 @@ def generate_dashboard_data(db_path: Path) -> dict[str, Any]:
     }
 
     # Calculate entity match rate
-    match_rate = round(articles_with_entities / total_articles * 100, 1) if total_articles > 0 else 0
+    match_rate = (
+        round(articles_with_entities / total_articles * 100, 1) if total_articles > 0 else 0
+    )
 
     return {
-        "generated_at": datetime.now().isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "stats": {
             "total_articles": total_articles,
             "articles_with_entities": articles_with_entities,

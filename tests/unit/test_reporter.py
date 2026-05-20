@@ -8,7 +8,6 @@ import pytest
 from blogradar.models import Article, CategoryConfig, Source
 from blogradar.reporter import generate_report
 
-
 pytestmark = pytest.mark.unit
 
 
@@ -71,9 +70,7 @@ def test_generate_report_includes_blog_quality_panel(tmp_path: Path) -> None:
     assert "repository:github.com:kubernetes:kubernetes" in html
     assert "missing_required_fields" in html
 
-    dated_html = next(
-        tmp_path.glob("techblog_[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9].html")
-    )
+    dated_html = next(tmp_path.glob("techblog_[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9].html"))
     dated_text = dated_html.read_text(encoding="utf-8")
     assert "Blog Quality" in dated_text
     assert "missing_required_fields" in dated_text

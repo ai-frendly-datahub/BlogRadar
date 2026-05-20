@@ -5,7 +5,6 @@ import pytest
 from blogradar.models import Article, Source
 from blogradar.relevance import apply_source_context_entities, filter_relevant_articles
 
-
 pytestmark = pytest.mark.unit
 
 
@@ -45,7 +44,9 @@ def test_apply_source_context_entities_adds_release_signal() -> None:
 
 
 def test_filter_relevant_articles_drops_dev_to_spam() -> None:
-    source = Source(name="Dev.to - Open Source", type="rss", url="https://dev.to/feed/tag/opensource")
+    source = Source(
+        name="Dev.to - Open Source", type="rss", url="https://dev.to/feed/tag/opensource"
+    )
     article = _article(
         title="Top 4 Sites To Buy Verified Okx Accounts In 2026",
         source="Dev.to - Open Source",

@@ -5,7 +5,6 @@ from collections.abc import Iterable
 
 from .models import Article, Source
 
-
 SOURCE_CONTEXT_PURPOSES = {
     "api_update",
     "breaking_change",
@@ -19,6 +18,30 @@ SOURCE_CONTEXT_PURPOSES = {
     "release",
     "rollout",
     "version",
+}
+TRACKED_SOURCE_EVENT_MODELS = {
+    "github_activity",
+    "package_download",
+    "repository_release",
+    "skill_demand",
+}
+NON_OPERATIONAL_EVENT_MODELS = {"article", "blog_post", "news", "post"}
+REPOSITORY_RELEASE_PURPOSES = {
+    "api_update",
+    "breaking_change",
+    "changelog",
+    "deprecation",
+    "migration",
+    "platform_update",
+    "release",
+    "rollout",
+    "version",
+}
+REPOSITORY_RELEASE_CONTENT_TYPES = {
+    "changelog",
+    "model_release",
+    "product_update",
+    "release_note",
 }
 AUTHORITATIVE_SOURCE_NAMES = {
     "Cloudflare Blog",
@@ -210,25 +233,20 @@ def _source_context_tags(source: Source) -> list[str]:
 
 def _source_event_model(source: Source) -> str:
     raw = source.config.get("event_model")
-    if raw is not None and str(raw).strip():
-        return str(raw).strip()
+    configured = str(raw or "").strip()
+    if configured in TRACKED_SOURCE_EVENT_MODELS:
+        return configured
+
     purposes = set(source.info_purpose)
-    if source.content_type in {"changelog", "model_release", "product_update", "release_note"}:
+    if source.content_type in REPOSITORY_RELEASE_CONTENT_TYPES:
         return "repository_release"
-    if purposes & {
-        "api_update",
-        "breaking_change",
-        "changelog",
-        "deprecation",
-        "migration",
-        "platform_update",
-        "release",
-        "rollout",
-        "version",
-    }:
+    if purposes & REPOSITORY_RELEASE_PURPOSES:
         return "repository_release"
     if "skill_demand" in purposes:
         return "skill_demand"
+
+    if configured and configured not in NON_OPERATIONAL_EVENT_MODELS:
+        return configured
     return ""
 
 

@@ -12,7 +12,6 @@ from urllib.parse import urlparse
 
 from .models import Article, CategoryConfig, Source
 
-
 TRACKED_EVENT_MODEL_ORDER = [
     "repository_release",
     "package_download",
@@ -20,6 +19,24 @@ TRACKED_EVENT_MODEL_ORDER = [
     "skill_demand",
 ]
 TRACKED_EVENT_MODELS = set(TRACKED_EVENT_MODEL_ORDER)
+NON_OPERATIONAL_EVENT_MODELS = {"article", "blog_post", "news", "post"}
+REPOSITORY_RELEASE_PURPOSES = {
+    "api_update",
+    "breaking_change",
+    "changelog",
+    "deprecation",
+    "migration",
+    "platform_update",
+    "release",
+    "rollout",
+    "version",
+}
+REPOSITORY_RELEASE_CONTENT_TYPES = {
+    "changelog",
+    "model_release",
+    "product_update",
+    "release_note",
+}
 REQUIRED_FIELDS = {
     "repository_release": ["repository", "release_tag", "source_url"],
     "package_download": ["package_name", "registry", "download_count"],
@@ -269,7 +286,9 @@ def _build_source_row(
         if row["source"] == source.name and row["event_model"] == event_model
     ]
     latest_event = _latest_event(source_event_rows)
-    latest_event_at = _parse_datetime(str(latest_event.get("event_at") or "")) if latest_event else None
+    latest_event_at = (
+        _parse_datetime(str(latest_event.get("event_at") or "")) if latest_event else None
+    )
     sla_days = _source_sla_days(source, event_model, freshness_sla)
     age_days = _age_days(generated_at, latest_event_at) if latest_event_at else None
     status = _source_status(
@@ -308,7 +327,9 @@ def _build_source_row(
         "latest_topic": latest_event.get("topic", []) if latest_event else [],
         "latest_source_signal": latest_event.get("source_signal", []) if latest_event else [],
         "latest_canonical_key": str(latest_event.get("canonical_key", "")) if latest_event else "",
-        "latest_required_field_gaps": latest_event.get("required_field_gaps", []) if latest_event else [],
+        "latest_required_field_gaps": (
+            latest_event.get("required_field_gaps", []) if latest_event else []
+        ),
         "errors": source_errors,
     }
 
@@ -343,8 +364,7 @@ def _event_quality_summary(
         "community_event_count": sum(
             1
             for row in events
-            if row.get("source_type") == "reddit"
-            or str(row.get("trust_tier", "")).startswith("T4")
+            if row.get("source_type") == "reddit" or str(row.get("trust_tier", "")).startswith("T4")
         ),
         "repository_canonical_key_present_count": sum(
             1
@@ -503,25 +523,20 @@ def _tracked_event_models(quality: Mapping[str, object]) -> set[str]:
 
 def _source_event_model(source: Source) -> str:
     raw = source.config.get("event_model")
-    if raw is not None and str(raw).strip():
-        return str(raw).strip()
+    configured = str(raw or "").strip()
+    if configured in TRACKED_EVENT_MODELS:
+        return configured
+
     purposes = set(source.info_purpose)
-    if source.content_type in {"changelog", "model_release", "product_update", "release_note"}:
+    if source.content_type in REPOSITORY_RELEASE_CONTENT_TYPES:
         return "repository_release"
-    if purposes & {
-        "api_update",
-        "breaking_change",
-        "changelog",
-        "deprecation",
-        "migration",
-        "platform_update",
-        "release",
-        "rollout",
-        "version",
-    }:
+    if purposes & REPOSITORY_RELEASE_PURPOSES:
         return "repository_release"
     if "skill_demand" in purposes:
         return "skill_demand"
+
+    if configured and configured not in NON_OPERATIONAL_EVENT_MODELS:
+        return configured
     return ""
 
 
@@ -559,9 +574,7 @@ def _latest_event(event_rows: list[dict[str, Any]]) -> dict[str, Any] | None:
 
 def _event_datetime(article: Article, source: Source) -> datetime | None:
     field = str(
-        source.config.get("observed_date_field")
-        or source.config.get("event_date_field")
-        or ""
+        source.config.get("observed_date_field") or source.config.get("event_date_field") or ""
     )
     if field == "collected_at":
         return _as_utc(article.collected_at) if article.collected_at else None
@@ -599,7 +612,9 @@ def _repository_parts(repository: str) -> tuple[str, str, str]:
         return "", "", ""
     value = repository.strip()
     if "/" in value and not value.startswith(("http://", "https://")):
-        value = f"https://{value}" if "." in value.split("/", 1)[0] else f"https://github.com/{value}"
+        value = (
+            f"https://{value}" if "." in value.split("/", 1)[0] else f"https://github.com/{value}"
+        )
     parsed = urlparse(value)
     host = parsed.netloc.lower()
     parts = [part for part in parsed.path.strip("/").split("/") if part]
@@ -621,7 +636,9 @@ def _package_name(article: Article) -> str:
 
 
 def _registry(article: Article, source: Source, package_name: str) -> str:
-    configured = _first_non_empty(source.config.get("registry"), source.config.get("package_registry"))
+    configured = _first_non_empty(
+        source.config.get("registry"), source.config.get("package_registry")
+    )
     if configured:
         return configured.lower()
     labeled = _summary_value(article, "Registry")
@@ -671,7 +688,9 @@ def _ecosystem(
     technology: str,
     registry: str,
 ) -> str:
-    configured = _first_non_empty(source.config.get("ecosystem"), source.config.get("tech_ecosystem"))
+    configured = _first_non_empty(
+        source.config.get("ecosystem"), source.config.get("tech_ecosystem")
+    )
     if configured:
         return configured.lower()
     labeled = _summary_value(article, "Ecosystem")
@@ -707,7 +726,7 @@ def _employer(article: Article, source: Source) -> str:
     if labeled:
         return labeled
     if _source_event_model(source) == "skill_demand":
-        return source.name
+        return str(source.name)
     return ""
 
 
@@ -746,7 +765,12 @@ def _canonical_key(row: Mapping[str, Any]) -> tuple[str, str]:
     skill = str(row.get("skill") or "")
     employer = str(row.get("employer") or "")
 
-    if event_model in {"repository_release", "github_activity"} and repository and owner and repo_name:
+    if (
+        event_model in {"repository_release", "github_activity"}
+        and repository
+        and owner
+        and repo_name
+    ):
         return f"repository:{_slug(host)}:{_slug(owner)}:{_slug(repo_name)}", "complete"
     if event_model == "package_download" and package_name and registry:
         return f"package:{_slug(registry)}:{_slug(package_name)}", "complete"

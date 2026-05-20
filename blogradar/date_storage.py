@@ -64,9 +64,7 @@ def latest_snapshot_path(db_path: Path, *, snapshot_root: Path | None = None) ->
     return max(snapshots, key=lambda item: item[0])[1]
 
 
-def resolve_read_database_path(
-    db_path: Path, *, snapshot_root: Path | None = None
-) -> Path:
+def resolve_read_database_path(db_path: Path, *, snapshot_root: Path | None = None) -> Path:
     if _has_article_rows(db_path):
         return db_path
 

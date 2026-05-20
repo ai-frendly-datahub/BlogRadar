@@ -1,13 +1,11 @@
 from __future__ import annotations
 
 import json
-from datetime import date
-from datetime import UTC, datetime, timedelta
+from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
-from typing import cast
+from typing import Any, cast
 
 import duckdb
-
 from radar_core.exceptions import StorageError
 from radar_core.storage import RadarStorage as CoreRadarStorage
 
@@ -23,8 +21,20 @@ def _utc_naive(dt: datetime | None) -> datetime | None:
     return dt
 
 
-class RadarStorage(CoreRadarStorage):
+class RadarStorage(CoreRadarStorage):  # type: ignore[misc]
     """BlogRadar storage wrapper with dated snapshot helpers."""
+
+    def article_links(self, category: str | None = None) -> list[str]:
+        conn: Any = self.__dict__["conn"]
+        if category:
+            cur = conn.execute(
+                "SELECT link FROM articles WHERE category = ? ORDER BY link",
+                [category],
+            )
+        else:
+            cur = conn.execute("SELECT link FROM articles ORDER BY link")
+        rows = cast(list[tuple[str]], cur.fetchall())
+        return [str(row[0]) for row in rows]
 
     def recent_articles_by_collected_at(
         self,
@@ -34,7 +44,8 @@ class RadarStorage(CoreRadarStorage):
         limit: int = 200,
     ) -> list[Article]:
         since = _utc_naive(datetime.now(UTC) - timedelta(days=days))
-        cur = self.conn.execute(
+        conn: Any = self.__dict__["conn"]
+        cur = conn.execute(
             """
             SELECT
                 category,
@@ -78,8 +89,9 @@ class RadarStorage(CoreRadarStorage):
         snapshot_date: date | None = None,
     ) -> Path | None:
         snapshot_root = Path(snapshot_dir) if snapshot_dir is not None else None
-        _ = self.conn.execute("CHECKPOINT")
-        self.conn.close()
+        conn: Any = self.__dict__["conn"]
+        _ = conn.execute("CHECKPOINT")
+        conn.close()
         try:
             return snapshot_database(
                 self.db_path,
@@ -87,7 +99,7 @@ class RadarStorage(CoreRadarStorage):
                 snapshot_root=snapshot_root,
             )
         finally:
-            self.conn = duckdb.connect(str(self.db_path))
+            self.conn = cast(Any, duckdb.connect(str(self.db_path)))
             self._ensure_tables()
 
     def cleanup_old_snapshots(
@@ -98,9 +110,7 @@ class RadarStorage(CoreRadarStorage):
         today: date | None = None,
     ) -> int:
         snapshot_root = (
-            Path(snapshot_dir)
-            if snapshot_dir is not None
-            else self.db_path.parent / "daily"
+            Path(snapshot_dir) if snapshot_dir is not None else self.db_path.parent / "daily"
         )
         return cleanup_date_directories(
             snapshot_root,

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import sqlite3
+from collections.abc import Iterable
 from dataclasses import dataclass
 from pathlib import Path
 from types import TracebackType
@@ -43,8 +44,7 @@ class SearchIndex:
 
     def _create_schema(self) -> None:
         conn = self._connection()
-        _ = conn.executescript(
-            """
+        _ = conn.executescript("""
             CREATE TABLE IF NOT EXISTS documents (
                 link TEXT PRIMARY KEY,
                 title TEXT NOT NULL,
@@ -71,8 +71,7 @@ class SearchIndex:
                 INSERT INTO documents_fts(rowid, title, body)
                 VALUES (new.rowid, new.title, new.body);
             END;
-            """
-        )
+            """)
         conn.commit()
 
     def upsert(self, link: str, title: str, body: str) -> None:
@@ -83,6 +82,27 @@ class SearchIndex:
             (link, title, body),
         )
         conn.commit()
+
+    def delete_missing(self, links: Iterable[str]) -> int:
+        """Delete indexed documents whose links are not present in ``links``."""
+        valid_links = {link for link in links if link}
+        conn = self._connection()
+
+        if not valid_links:
+            cursor = conn.execute("DELETE FROM documents")
+            conn.commit()
+            return int(cursor.rowcount if cursor.rowcount is not None else 0)
+
+        rows = cast(list[tuple[str]], conn.execute("SELECT link FROM documents").fetchall())
+        stale_links = [link for (link,) in rows if link not in valid_links]
+        if not stale_links:
+            return 0
+
+        _ = conn.executemany(
+            "DELETE FROM documents WHERE link = ?", [(link,) for link in stale_links]
+        )
+        conn.commit()
+        return len(stale_links)
 
     def search(self, query: str, *, limit: int = 20) -> list[SearchResult]:
         if limit <= 0:
