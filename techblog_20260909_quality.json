@@ -1,31 +1,31 @@
 {
   "category": "techblog",
-  "generated_at": "2026-09-08T05:39:15.153678+00:00",
+  "generated_at": "2026-09-09T05:45:00.049421+00:00",
   "scope_note": "Blog and community mention volume is separated from operational adoption signals. Current repository/package/github/skill rows are article-level proxies until API-backed sources are activated.",
   "summary": {
     "total_sources": 78,
     "tracked_sources": 8,
-    "fresh_sources": 4,
-    "stale_sources": 4,
+    "fresh_sources": 7,
+    "stale_sources": 1,
     "missing_sources": 0,
     "missing_event_sources": 0,
     "unknown_event_date_sources": 0,
     "not_tracked_sources": 67,
     "skipped_disabled_sources": 3,
     "collection_error_count": 0,
-    "repository_release_events": 81,
+    "repository_release_events": 83,
     "package_download_events": 0,
     "github_activity_events": 0,
     "skill_demand_events": 0,
-    "operational_adoption_event_count": 81,
-    "authoritative_event_count": 81,
+    "operational_adoption_event_count": 83,
+    "authoritative_event_count": 83,
     "community_event_count": 0,
-    "repository_canonical_key_present_count": 15,
+    "repository_canonical_key_present_count": 14,
     "package_canonical_key_present_count": 0,
-    "technology_proxy_key_count": 66,
+    "technology_proxy_key_count": 69,
     "missing_canonical_key_count": 0,
-    "event_required_field_gap_count": 116,
-    "tracked_source_gap_count": 4,
+    "event_required_field_gap_count": 122,
+    "tracked_source_gap_count": 1,
     "source_backlog_candidate_count": 4,
     "missing_event_model_count": 3,
     "daily_review_item_count": 50
@@ -44,7 +44,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 5,
+      "article_count": 6,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -128,7 +128,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 5,
+      "article_count": 4,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -548,7 +548,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 3,
+      "article_count": 2,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -772,7 +772,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 1,
+      "article_count": 0,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -836,7 +836,7 @@
       "article_count": 1,
       "event_count": 1,
       "latest_event_at": "2026-09-02T18:00:00+00:00",
-      "age_days": 5.49,
+      "age_days": 6.49,
       "latest_title": "How we make AI coding more cost efficient without sacrificing task quality",
       "latest_url": "https://github.blog/ai-and-ml/github-copilot/how-we-make-ai-coding-more-cost-efficient-without-sacrificing-task-quality",
       "latest_domain": [
@@ -879,16 +879,14 @@
       "tracked": true,
       "event_model": "repository_release",
       "freshness_sla_days": 4,
-      "status": "stale",
-      "article_count": 5,
-      "event_count": 5,
-      "latest_event_at": "2026-09-03T21:03:02+00:00",
-      "age_days": 4.36,
-      "latest_title": "Introducing context-aware vulnerability discovery and remediation with Cloudflare Managed Defense and OpenAI Daybreak models",
-      "latest_url": "https://blog.cloudflare.com/vulnerability-discovery-remediation",
-      "latest_domain": [
-        "security"
-      ],
+      "status": "fresh",
+      "article_count": 6,
+      "event_count": 6,
+      "latest_event_at": "2026-09-08T13:10:00+00:00",
+      "age_days": 0.69,
+      "latest_title": "Automatic Key Exchange: faster, post-quantum secure origin handshakes for 45 billion daily connections (and counting)",
+      "latest_url": "https://blog.cloudflare.com/automatic-key-exchange-for-origins",
+      "latest_domain": [],
       "latest_language": [],
       "latest_framework": [],
       "latest_topic": [],
@@ -904,8 +902,7 @@
       ],
       "latest_canonical_key": "technology:cloud:cloudflare",
       "latest_required_field_gaps": [
-        "repository",
-        "release_tag"
+        "repository"
       ],
       "errors": []
     },
@@ -950,7 +947,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 1,
+      "article_count": 2,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1094,20 +1091,16 @@
       "tracked": true,
       "event_model": "repository_release",
       "freshness_sla_days": 3,
-      "status": "stale",
-      "article_count": 30,
-      "event_count": 30,
-      "latest_event_at": "2026-09-04T00:00:00+00:00",
-      "age_days": 4.24,
-      "latest_title": "GPT 6 Astra now available on Vercel AI Gateway",
-      "latest_url": "https://vercel.com/changelog/gpt-6-astra-now-available-on-vercel-ai-gateway",
-      "latest_domain": [
-        "ai"
-      ],
+      "status": "fresh",
+      "article_count": 29,
+      "event_count": 29,
+      "latest_event_at": "2026-09-08T20:00:00+00:00",
+      "age_days": 0.41,
+      "latest_title": "Vercel Sandbox routing is now 18x faster globally",
+      "latest_url": "https://vercel.com/changelog/vercel-sandbox-routing-is-now-18x-faster-globally",
+      "latest_domain": [],
       "latest_language": [],
-      "latest_framework": [
-        "gpt"
-      ],
+      "latest_framework": [],
       "latest_topic": [],
       "latest_source_signal": [
         "framework_adoption",
@@ -1138,7 +1131,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 2,
+      "article_count": 1,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1174,7 +1167,7 @@
       "article_count": 6,
       "event_count": 6,
       "latest_event_at": "2026-09-03T16:00:00+00:00",
-      "age_days": 4.57,
+      "age_days": 5.57,
       "latest_title": "The common security controls behind India's regulatory wave",
       "latest_url": "https://www.hashicorp.com/blog/the-common-security-controls-behind-indias-regulatory-wave",
       "latest_domain": [
@@ -1213,7 +1206,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 10,
+      "article_count": 8,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1357,30 +1350,32 @@
       "tracked": true,
       "event_model": "repository_release",
       "freshness_sla_days": 3,
-      "status": "stale",
-      "article_count": 7,
-      "event_count": 7,
-      "latest_event_at": "2026-09-04T18:30:00+00:00",
-      "age_days": 3.46,
-      "latest_title": "Kubernetes v1.37: KubeletInUserNamespace (aka Rootless mode) Graduates to Beta",
-      "latest_url": "https://kubernetes.io/blog/2026/09/04/kubernetes-v1-37-rootless-beta",
+      "status": "fresh",
+      "article_count": 8,
+      "event_count": 8,
+      "latest_event_at": "2026-09-08T18:30:00+00:00",
+      "age_days": 0.47,
+      "latest_title": "Kubernetes v1.37: Advancing Workload-Aware Scheduling",
+      "latest_url": "https://kubernetes.io/blog/2026/09/08/kubernetes-v1-37-advancing-workload-aware-scheduling",
       "latest_domain": [
+        "infrastructure",
+        "ml",
         "ai",
-        "security",
         "kubernetes"
       ],
       "latest_language": [
         "go"
       ],
       "latest_framework": [
-        "docker",
+        "express",
         "kubernetes",
         "k8s",
         "api"
       ],
       "latest_topic": [
+        "performance",
         "testing",
-        "ci/cd"
+        "architecture"
       ],
       "latest_source_signal": [
         "authoritative_tech_source",
@@ -1392,7 +1387,7 @@
         "release_note",
         "repository_release"
       ],
-      "latest_canonical_key": "repository:github.com:kubernetes:kubernetes",
+      "latest_canonical_key": "repository:github.com:kubernetes-sigs:jobset",
       "latest_required_field_gaps": [],
       "errors": []
     },
@@ -1442,10 +1437,10 @@
       "event_model": "repository_release",
       "freshness_sla_days": 45,
       "status": "fresh",
-      "article_count": 2,
-      "event_count": 2,
+      "article_count": 1,
+      "event_count": 1,
       "latest_event_at": "2026-09-02T00:00:00+00:00",
-      "age_days": 6.24,
+      "age_days": 7.24,
       "latest_title": "Goroutine Leak Profiles",
       "latest_url": "https://go.dev/blog/goroutine-leak-profiles",
       "latest_domain": [],
@@ -1486,10 +1481,10 @@
       "event_model": "repository_release",
       "freshness_sla_days": 21,
       "status": "fresh",
-      "article_count": 4,
-      "event_count": 4,
+      "article_count": 3,
+      "event_count": 3,
       "latest_event_at": "2026-09-07T00:00:00+00:00",
-      "age_days": 1.24,
+      "age_days": 2.24,
       "latest_title": "Rust debugging survey 2026 results",
       "latest_url": "https://blog.rust-lang.org/2026/09/07/rust-debugging-survey-2026-results",
       "latest_domain": [],
@@ -1585,7 +1580,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 12,
+      "article_count": 8,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1613,7 +1608,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 14,
+      "article_count": 15,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1842,17 +1837,17 @@
       "event_model": "repository_release",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 26,
-      "event_count": 26,
-      "latest_event_at": "2026-09-07T00:00:00+00:00",
-      "age_days": 1.24,
-      "latest_title": "Supporting independent journalism in Ukraine",
-      "latest_url": "https://openai.com/index/supporting-independent-journalism-in-ukraine",
-      "latest_domain": [
-        "ai"
-      ],
+      "article_count": 29,
+      "event_count": 29,
+      "latest_event_at": "2026-09-08T17:00:00+00:00",
+      "age_days": 0.53,
+      "latest_title": "How GPT-5.6 Sol helps run quantum computing experiments",
+      "latest_url": "https://openai.com/index/codex-quantum-computing-experiments",
+      "latest_domain": [],
       "latest_language": [],
-      "latest_framework": [],
+      "latest_framework": [
+        "gpt"
+      ],
       "latest_topic": [],
       "latest_source_signal": [
         "api_update",
@@ -1866,8 +1861,7 @@
       ],
       "latest_canonical_key": "technology:ai:openai",
       "latest_required_field_gaps": [
-        "repository",
-        "release_tag"
+        "repository"
       ],
       "errors": []
     },
@@ -1912,7 +1906,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 0,
+      "article_count": 1,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1940,7 +1934,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 1,
+      "article_count": 2,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1996,7 +1990,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 12,
+      "article_count": 9,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -2024,7 +2018,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 10,
+      "article_count": 11,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -2378,6 +2372,653 @@
   ],
   "events": [
     {
+      "source": "Vercel Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
+      "title": "Vercel Sandbox routing is now 18x faster globally",
+      "url": "https://vercel.com/changelog/vercel-sandbox-routing-is-now-18x-faster-globally",
+      "source_url": "https://vercel.com/changelog/vercel-sandbox-routing-is-now-18x-faster-globally",
+      "event_at": "2026-09-08T20:00:00+00:00",
+      "event_key": "repository_release:vercel-blog:bf2b206e91e6:2026-09-08",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "vercel",
+      "ecosystem": "javascript",
+      "domain": [],
+      "language": [],
+      "framework": [],
+      "topic": [],
+      "source_signal": [
+        "framework_adoption",
+        "migration",
+        "product_update",
+        "release",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:javascript:vercel",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "Kubernetes Blog",
+      "source_type": "rss",
+      "trust_tier": "T1_authoritative",
+      "producer_role": "open_source_maintainer",
+      "event_model": "repository_release",
+      "title": "Kubernetes v1.37: Advancing Workload-Aware Scheduling",
+      "url": "https://kubernetes.io/blog/2026/09/08/kubernetes-v1-37-advancing-workload-aware-scheduling",
+      "source_url": "https://kubernetes.io/blog/2026/09/08/kubernetes-v1-37-advancing-workload-aware-scheduling",
+      "event_at": "2026-09-08T18:30:00+00:00",
+      "event_key": "repository_release:kubernetes-blog:bc3ee482692a:2026-09-08",
+      "repository": "github.com/kubernetes-sigs/jobset",
+      "repository_host": "github.com",
+      "repository_owner": "kubernetes-sigs",
+      "repository_name": "jobset",
+      "release_tag": "v1.37",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "kubernetes",
+      "ecosystem": "cloud-native",
+      "domain": [
+        "infrastructure",
+        "ml",
+        "ai",
+        "kubernetes"
+      ],
+      "language": [
+        "go"
+      ],
+      "framework": [
+        "express",
+        "kubernetes",
+        "k8s",
+        "api"
+      ],
+      "topic": [
+        "performance",
+        "testing",
+        "architecture"
+      ],
+      "source_signal": [
+        "authoritative_tech_source",
+        "changelog",
+        "deprecation",
+        "migration",
+        "open_source_maintainer",
+        "release",
+        "release_note",
+        "repository_release"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "repository:github.com:kubernetes-sigs:jobset",
+      "canonical_key_status": "complete",
+      "required_field_gaps": []
+    },
+    {
+      "source": "OpenAI News",
+      "source_type": "rss",
+      "trust_tier": "T1_authoritative",
+      "producer_role": "model_platform",
+      "event_model": "repository_release",
+      "title": "How GPT-5.6 Sol helps run quantum computing experiments",
+      "url": "https://openai.com/index/codex-quantum-computing-experiments",
+      "source_url": "https://openai.com/index/codex-quantum-computing-experiments",
+      "event_at": "2026-09-08T17:00:00+00:00",
+      "event_key": "repository_release:openai-news:167bce5d47e7:2026-09-08",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "5.6",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "openai",
+      "ecosystem": "ai",
+      "domain": [],
+      "language": [],
+      "framework": [
+        "gpt"
+      ],
+      "topic": [],
+      "source_signal": [
+        "api_update",
+        "authoritative_tech_source",
+        "developer_adoption",
+        "model_platform",
+        "model_release",
+        "release",
+        "repository_release",
+        "rollout"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:ai:openai",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository"
+      ]
+    },
+    {
+      "source": "Cloudflare Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
+      "title": "Automatic Key Exchange: faster, post-quantum secure origin handshakes for 45 billion daily connections (and counting)",
+      "url": "https://blog.cloudflare.com/automatic-key-exchange-for-origins",
+      "source_url": "https://blog.cloudflare.com/automatic-key-exchange-for-origins",
+      "event_at": "2026-09-08T13:10:00+00:00",
+      "event_key": "repository_release:cloudflare-blog:1dd44cb259b6:2026-09-08",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "1.3-capable",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "cloudflare",
+      "ecosystem": "cloud",
+      "domain": [],
+      "language": [],
+      "framework": [],
+      "topic": [],
+      "source_signal": [
+        "authoritative_tech_source",
+        "deprecation",
+        "migration",
+        "platform_update",
+        "product_update",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:cloud:cloudflare",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository"
+      ]
+    },
+    {
+      "source": "OpenAI News",
+      "source_type": "rss",
+      "trust_tier": "T1_authoritative",
+      "producer_role": "model_platform",
+      "event_model": "repository_release",
+      "title": "The Work Now Within Reach",
+      "url": "https://openai.com/index/the-work-now-within-reach",
+      "source_url": "https://openai.com/index/the-work-now-within-reach",
+      "event_at": "2026-09-08T13:00:00+00:00",
+      "event_key": "repository_release:openai-news:aaada63e998e:2026-09-08",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "openai",
+      "ecosystem": "ai",
+      "domain": [
+        "ai"
+      ],
+      "language": [],
+      "framework": [],
+      "topic": [],
+      "source_signal": [
+        "api_update",
+        "authoritative_tech_source",
+        "developer_adoption",
+        "model_platform",
+        "model_release",
+        "release",
+        "repository_release",
+        "rollout"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:ai:openai",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "OpenAI News",
+      "source_type": "rss",
+      "trust_tier": "T1_authoritative",
+      "producer_role": "model_platform",
+      "event_model": "repository_release",
+      "title": "Introducing ChatGPT Images 2.5",
+      "url": "https://openai.com/index/introducing-chatgpt-images-2-5",
+      "source_url": "https://openai.com/index/introducing-chatgpt-images-2-5",
+      "event_at": "2026-09-08T11:30:00+00:00",
+      "event_key": "repository_release:openai-news:305f03a4aa6a:2026-09-08",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "2.5",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "openai",
+      "ecosystem": "ai",
+      "domain": [],
+      "language": [],
+      "framework": [],
+      "topic": [],
+      "source_signal": [
+        "api_update",
+        "authoritative_tech_source",
+        "developer_adoption",
+        "model_platform",
+        "model_release",
+        "release",
+        "repository_release",
+        "rollout"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:ai:openai",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository"
+      ]
+    },
+    {
+      "source": "OpenAI News",
+      "source_type": "rss",
+      "trust_tier": "T1_authoritative",
+      "producer_role": "model_platform",
+      "event_model": "repository_release",
+      "title": "On the Navier–Stokes Millennium Prize Problem",
+      "url": "https://openai.com/index/navier-stokes-solution",
+      "source_url": "https://openai.com/index/navier-stokes-solution",
+      "event_at": "2026-09-08T10:00:00+00:00",
+      "event_key": "repository_release:openai-news:fbb79928f7d9:2026-09-08",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "openai",
+      "ecosystem": "ai",
+      "domain": [
+        "ai"
+      ],
+      "language": [],
+      "framework": [],
+      "topic": [],
+      "source_signal": [
+        "api_update",
+        "authoritative_tech_source",
+        "developer_adoption",
+        "model_platform",
+        "model_release",
+        "release",
+        "repository_release",
+        "rollout"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:ai:openai",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "OpenAI News",
+      "source_type": "rss",
+      "trust_tier": "T1_authoritative",
+      "producer_role": "model_platform",
+      "event_model": "repository_release",
+      "title": "Funding grants for new research into AI and teen development",
+      "url": "https://openai.com/index/teen-development-research-grants",
+      "source_url": "https://openai.com/index/teen-development-research-grants",
+      "event_at": "2026-09-08T09:00:00+00:00",
+      "event_key": "repository_release:openai-news:99c22bc85dd5:2026-09-08",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "openai",
+      "ecosystem": "ai",
+      "domain": [
+        "ai"
+      ],
+      "language": [],
+      "framework": [],
+      "topic": [],
+      "source_signal": [
+        "api_update",
+        "authoritative_tech_source",
+        "developer_adoption",
+        "model_platform",
+        "model_release",
+        "release",
+        "repository_release",
+        "rollout"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:ai:openai",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "Vercel Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
+      "title": "Introducing Flat Rate CDN",
+      "url": "https://vercel.com/blog/introducing-flat-rate-cdn",
+      "source_url": "https://vercel.com/blog/introducing-flat-rate-cdn",
+      "event_at": "2026-09-08T04:00:00+00:00",
+      "event_key": "repository_release:vercel-blog:f09b31af28ad:2026-09-08",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "vercel",
+      "ecosystem": "javascript",
+      "domain": [
+        "infrastructure",
+        "ai"
+      ],
+      "language": [],
+      "framework": [
+        "next.js"
+      ],
+      "topic": [
+        "performance",
+        "observability",
+        "architecture",
+        "caching"
+      ],
+      "source_signal": [
+        "framework_adoption",
+        "migration",
+        "product_update",
+        "release",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:javascript:vercel",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "Vercel Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
+      "title": "Flat Rate CDN is now GA for Pro teams",
+      "url": "https://vercel.com/changelog/flat-rate-cdn-is-now-ga-for-pro-teams",
+      "source_url": "https://vercel.com/changelog/flat-rate-cdn-is-now-ga-for-pro-teams",
+      "event_at": "2026-09-08T00:00:00+00:00",
+      "event_key": "repository_release:vercel-blog:4f69fa25d98a:2026-09-08",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "vercel",
+      "ecosystem": "javascript",
+      "domain": [],
+      "language": [],
+      "framework": [],
+      "topic": [
+        "performance",
+        "observability"
+      ],
+      "source_signal": [
+        "framework_adoption",
+        "migration",
+        "product_update",
+        "release",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:javascript:vercel",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "OpenAI News",
+      "source_type": "rss",
+      "trust_tier": "T1_authoritative",
+      "producer_role": "model_platform",
+      "event_model": "repository_release",
+      "title": "1Password increases engineering productivity 21% with Codex",
+      "url": "https://openai.com/index/1password",
+      "source_url": "https://openai.com/index/1password",
+      "event_at": "2026-09-08T00:00:00+00:00",
+      "event_key": "repository_release:openai-news:9816f5beea82:2026-09-08",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "openai",
+      "ecosystem": "ai",
+      "domain": [
+        "security"
+      ],
+      "language": [],
+      "framework": [],
+      "topic": [],
+      "source_signal": [
+        "api_update",
+        "authoritative_tech_source",
+        "developer_adoption",
+        "model_platform",
+        "model_release",
+        "release",
+        "repository_release",
+        "rollout"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:ai:openai",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "Vercel Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
+      "title": "GPT Image 2.5 Flare and Sunburst now available on AI Gateway",
+      "url": "https://vercel.com/changelog/gpt-image-2-5-flare-and-sunburst-now-available-on-ai-gateway",
+      "source_url": "https://vercel.com/changelog/gpt-image-2-5-flare-and-sunburst-now-available-on-ai-gateway",
+      "event_at": "2026-09-08T00:00:00+00:00",
+      "event_key": "repository_release:vercel-blog:2477a6114db4:2026-09-08",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "2.5",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "vercel",
+      "ecosystem": "javascript",
+      "domain": [
+        "platform",
+        "ai"
+      ],
+      "language": [],
+      "framework": [
+        "gpt",
+        "api"
+      ],
+      "topic": [
+        "performance"
+      ],
+      "source_signal": [
+        "framework_adoption",
+        "migration",
+        "product_update",
+        "release",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:javascript:vercel",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository"
+      ]
+    },
+    {
+      "source": "OpenAI News",
+      "source_type": "rss",
+      "trust_tier": "T1_authoritative",
+      "producer_role": "model_platform",
+      "event_model": "repository_release",
+      "title": "OpenAI expands initiatives to support journalism from classrooms to newsrooms",
+      "url": "https://openai.com/index/supporting-journalism-from-classrooms-to-newsrooms",
+      "source_url": "https://openai.com/index/supporting-journalism-from-classrooms-to-newsrooms",
+      "event_at": "2026-09-08T00:00:00+00:00",
+      "event_key": "repository_release:openai-news:671a9fed35e2:2026-09-08",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "openai",
+      "ecosystem": "ai",
+      "domain": [],
+      "language": [],
+      "framework": [],
+      "topic": [],
+      "source_signal": [
+        "api_update",
+        "authoritative_tech_source",
+        "developer_adoption",
+        "model_platform",
+        "model_release",
+        "release",
+        "repository_release",
+        "rollout"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:ai:openai",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
       "source": "OpenAI News",
       "source_type": "rss",
       "trust_tier": "T1_authoritative",
@@ -2638,56 +3279,6 @@
       "trust_tier": "T2_institutional",
       "producer_role": "vendor_platform",
       "event_model": "repository_release",
-      "title": "GPT 6 Astra now available on Vercel AI Gateway",
-      "url": "https://vercel.com/changelog/gpt-6-astra-now-available-on-vercel-ai-gateway",
-      "source_url": "https://vercel.com/changelog/gpt-6-astra-now-available-on-vercel-ai-gateway",
-      "event_at": "2026-09-04T00:00:00+00:00",
-      "event_key": "repository_release:vercel-blog:7dccfbf0b62e:2026-09-04",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "vercel",
-      "ecosystem": "javascript",
-      "domain": [
-        "ai"
-      ],
-      "language": [],
-      "framework": [
-        "gpt"
-      ],
-      "topic": [],
-      "source_signal": [
-        "framework_adoption",
-        "migration",
-        "product_update",
-        "release",
-        "repository_release",
-        "rollout",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:javascript:vercel",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "Vercel Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
       "title": "Ling 3.0 Flash Sante is now available on AI Gateway for free",
       "url": "https://vercel.com/changelog/ling-3-0-flash-sante-is-now-available-on-ai-gateway-for-free",
       "source_url": "https://vercel.com/changelog/ling-3-0-flash-sante-is-now-available-on-ai-gateway-for-free",
@@ -2733,6 +3324,56 @@
       "canonical_key_status": "technology_proxy",
       "required_field_gaps": [
         "repository"
+      ]
+    },
+    {
+      "source": "Vercel Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
+      "title": "GPT 6 Astra now available on Vercel AI Gateway",
+      "url": "https://vercel.com/changelog/gpt-6-astra-now-available-on-vercel-ai-gateway",
+      "source_url": "https://vercel.com/changelog/gpt-6-astra-now-available-on-vercel-ai-gateway",
+      "event_at": "2026-09-04T00:00:00+00:00",
+      "event_key": "repository_release:vercel-blog:7dccfbf0b62e:2026-09-04",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "vercel",
+      "ecosystem": "javascript",
+      "domain": [
+        "ai"
+      ],
+      "language": [],
+      "framework": [
+        "gpt"
+      ],
+      "topic": [],
+      "source_signal": [
+        "framework_adoption",
+        "migration",
+        "product_update",
+        "release",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:javascript:vercel",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
       ]
     },
     {
@@ -3183,6 +3824,54 @@
       ]
     },
     {
+      "source": "Rust Blog",
+      "source_type": "rss",
+      "trust_tier": "T1_authoritative",
+      "producer_role": "open_source_maintainer",
+      "event_model": "repository_release",
+      "title": "Announcing Rust 1.98.1",
+      "url": "https://blog.rust-lang.org/2026/09/03/Rust-1.98.1",
+      "source_url": "https://blog.rust-lang.org/2026/09/03/Rust-1.98.1",
+      "event_at": "2026-09-03T00:00:00+00:00",
+      "event_key": "repository_release:rust-blog:eb9a687bc76e:2026-09-03",
+      "repository": "github.com/rust-lang/rust",
+      "repository_host": "github.com",
+      "repository_owner": "rust-lang",
+      "repository_name": "rust",
+      "release_tag": "1.98.1",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "rust",
+      "ecosystem": "rust",
+      "domain": [],
+      "language": [
+        "rust"
+      ],
+      "framework": [],
+      "topic": [
+        "testing"
+      ],
+      "source_signal": [
+        "authoritative_tech_source",
+        "breaking_change",
+        "migration",
+        "open_source_maintainer",
+        "release",
+        "release_note",
+        "repository_release",
+        "version"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "repository:github.com:rust-lang:rust",
+      "canonical_key_status": "complete",
+      "required_field_gaps": []
+    },
+    {
       "source": "OpenAI News",
       "source_type": "rss",
       "trust_tier": "T1_authoritative",
@@ -3232,54 +3921,6 @@
         "repository",
         "release_tag"
       ]
-    },
-    {
-      "source": "Rust Blog",
-      "source_type": "rss",
-      "trust_tier": "T1_authoritative",
-      "producer_role": "open_source_maintainer",
-      "event_model": "repository_release",
-      "title": "Announcing Rust 1.98.1",
-      "url": "https://blog.rust-lang.org/2026/09/03/Rust-1.98.1",
-      "source_url": "https://blog.rust-lang.org/2026/09/03/Rust-1.98.1",
-      "event_at": "2026-09-03T00:00:00+00:00",
-      "event_key": "repository_release:rust-blog:eb9a687bc76e:2026-09-03",
-      "repository": "github.com/rust-lang/rust",
-      "repository_host": "github.com",
-      "repository_owner": "rust-lang",
-      "repository_name": "rust",
-      "release_tag": "1.98.1",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "rust",
-      "ecosystem": "rust",
-      "domain": [],
-      "language": [
-        "rust"
-      ],
-      "framework": [],
-      "topic": [
-        "testing"
-      ],
-      "source_signal": [
-        "authoritative_tech_source",
-        "breaking_change",
-        "migration",
-        "open_source_maintainer",
-        "release",
-        "release_note",
-        "repository_release",
-        "version"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "repository:github.com:rust-lang:rust",
-      "canonical_key_status": "complete",
-      "required_field_gaps": []
     },
     {
       "source": "Kubernetes Blog",
@@ -3477,263 +4118,16 @@
       ]
     },
     {
-      "source": "Vercel Blog",
+      "source": "HashiCorp Blog",
       "source_type": "rss",
       "trust_tier": "T2_institutional",
       "producer_role": "vendor_platform",
       "event_model": "repository_release",
-      "title": "Muse Spark 1.3 now available on AI Gateway",
-      "url": "https://vercel.com/changelog/muse-spark-1-3-now-available-on-ai-gateway",
-      "source_url": "https://vercel.com/changelog/muse-spark-1-3-now-available-on-ai-gateway",
-      "event_at": "2026-09-02T00:00:00+00:00",
-      "event_key": "repository_release:vercel-blog:ee594e6bcb76:2026-09-02",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "1.3",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "vercel",
-      "ecosystem": "javascript",
-      "domain": [
-        "ai"
-      ],
-      "language": [],
-      "framework": [
-        "claude"
-      ],
-      "topic": [],
-      "source_signal": [
-        "framework_adoption",
-        "migration",
-        "product_update",
-        "release",
-        "repository_release",
-        "rollout",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:javascript:vercel",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository"
-      ]
-    },
-    {
-      "source": "Vercel Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
-      "title": "GLM-5.3 is 50% off through DigitalOcean on AI Gateway",
-      "url": "https://vercel.com/changelog/glm-5-3-is-50-off-through-digitalocean-on-ai-gateway",
-      "source_url": "https://vercel.com/changelog/glm-5-3-is-50-off-through-digitalocean-on-ai-gateway",
-      "event_at": "2026-09-02T00:00:00+00:00",
-      "event_key": "repository_release:vercel-blog:3cf2c1482fec:2026-09-02",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "5.3",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "vercel",
-      "ecosystem": "javascript",
-      "domain": [
-        "ai"
-      ],
-      "language": [],
-      "framework": [
-        "claude"
-      ],
-      "topic": [],
-      "source_signal": [
-        "framework_adoption",
-        "migration",
-        "product_update",
-        "release",
-        "repository_release",
-        "rollout",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:javascript:vercel",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository"
-      ]
-    },
-    {
-      "source": "Go Blog",
-      "source_type": "rss",
-      "trust_tier": "T1_authoritative",
-      "producer_role": "open_source_maintainer",
-      "event_model": "repository_release",
-      "title": "Goroutine Leak Profiles",
-      "url": "https://go.dev/blog/goroutine-leak-profiles",
-      "source_url": "https://go.dev/blog/goroutine-leak-profiles",
-      "event_at": "2026-09-02T00:00:00+00:00",
-      "event_key": "repository_release:go-blog:e38846850a14:2026-09-02",
-      "repository": "github.com/golang/go",
-      "repository_host": "github.com",
-      "repository_owner": "golang",
-      "repository_name": "go",
-      "release_tag": "1.27",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "go",
-      "ecosystem": "go",
-      "domain": [],
-      "language": [
-        "go"
-      ],
-      "framework": [],
-      "topic": [],
-      "source_signal": [
-        "authoritative_tech_source",
-        "breaking_change",
-        "migration",
-        "open_source_maintainer",
-        "release",
-        "release_note",
-        "repository_release",
-        "version"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "repository:github.com:golang:go",
-      "canonical_key_status": "complete",
-      "required_field_gaps": []
-    },
-    {
-      "source": "Vercel Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
-      "title": "Gemini 3.8 Flash now available on AI Gateway",
-      "url": "https://vercel.com/changelog/gemini-3-8-flash-now-available-on-ai-gateway",
-      "source_url": "https://vercel.com/changelog/gemini-3-8-flash-now-available-on-ai-gateway",
-      "event_at": "2026-09-02T00:00:00+00:00",
-      "event_key": "repository_release:vercel-blog:b709b73f4498:2026-09-02",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "3.8",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "vercel",
-      "ecosystem": "javascript",
-      "domain": [
-        "platform",
-        "ai"
-      ],
-      "language": [],
-      "framework": [
-        "claude",
-        "gemini"
-      ],
-      "topic": [],
-      "source_signal": [
-        "framework_adoption",
-        "migration",
-        "product_update",
-        "release",
-        "repository_release",
-        "rollout",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:javascript:vercel",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository"
-      ]
-    },
-    {
-      "source": "Kubernetes Blog",
-      "source_type": "rss",
-      "trust_tier": "T1_authoritative",
-      "producer_role": "open_source_maintainer",
-      "event_model": "repository_release",
-      "title": "Kubernetes v1.37: etcd RangeStream Cuts Memory Use on Large List Reads",
-      "url": "https://kubernetes.io/blog/2026/09/01/kubernetes-v1-37-etcd-range-stream",
-      "source_url": "https://kubernetes.io/blog/2026/09/01/kubernetes-v1-37-etcd-range-stream",
-      "event_at": "2026-09-01T18:30:00+00:00",
-      "event_key": "repository_release:kubernetes-blog:f329be929edb:2026-09-01",
-      "repository": "github.com/kubernetes/enhancements",
-      "repository_host": "github.com",
-      "repository_owner": "kubernetes",
-      "repository_name": "enhancements",
-      "release_tag": "v1.37",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "kubernetes",
-      "ecosystem": "cloud-native",
-      "domain": [
-        "kubernetes"
-      ],
-      "language": [],
-      "framework": [
-        "kubernetes",
-        "k8s",
-        "api"
-      ],
-      "topic": [
-        "streaming"
-      ],
-      "source_signal": [
-        "authoritative_tech_source",
-        "changelog",
-        "deprecation",
-        "migration",
-        "open_source_maintainer",
-        "release",
-        "release_note",
-        "repository_release"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "repository:github.com:kubernetes:enhancements",
-      "canonical_key_status": "complete",
-      "required_field_gaps": []
-    },
-    {
-      "source": "OpenAI News",
-      "source_type": "rss",
-      "trust_tier": "T1_authoritative",
-      "producer_role": "model_platform",
-      "event_model": "repository_release",
-      "title": "How AI-native companies turn workflows into operating capability",
-      "url": "https://openai.com/index/ai-native-company-workflows",
-      "source_url": "https://openai.com/index/ai-native-company-workflows",
-      "event_at": "2026-09-01T17:00:00+00:00",
-      "event_key": "repository_release:openai-news:3b5f2688fec1:2026-09-01",
+      "title": "Streamline identity lifecycle management on HCP with SCIM provisioning",
+      "url": "https://www.hashicorp.com/blog/streamline-identity-lifecycle-management-on-hcp-with-scim-provisioning",
+      "source_url": "https://www.hashicorp.com/blog/streamline-identity-lifecycle-management-on-hcp-with-scim-provisioning",
+      "event_at": "2026-08-26T15:00:00+00:00",
+      "event_key": "repository_release:hashicorp-blog:deeceeb9aefb:2026-08-26",
       "repository": "",
       "repository_host": "",
       "repository_owner": "",
@@ -3746,26 +4140,23 @@
       "forks": null,
       "skill": "",
       "employer": "",
-      "technology": "openai",
-      "ecosystem": "ai",
-      "domain": [
-        "ai"
-      ],
+      "technology": "terraform",
+      "ecosystem": "infrastructure",
+      "domain": [],
       "language": [],
       "framework": [],
       "topic": [],
       "source_signal": [
-        "api_update",
-        "authoritative_tech_source",
-        "developer_adoption",
-        "model_platform",
-        "model_release",
+        "deprecation",
+        "enterprise_adoption",
+        "migration",
+        "product_update",
         "release",
         "repository_release",
-        "rollout"
+        "vendor_platform"
       ],
       "signal_basis": "source_context_signal",
-      "canonical_key": "technology:ai:openai",
+      "canonical_key": "technology:infrastructure:terraform",
       "canonical_key_status": "technology_proxy",
       "required_field_gaps": [
         "repository",
@@ -3783,297 +4174,6 @@
       "source_url": "https://www.hashicorp.com/blog/secure-mainframe-access-with-hashicorp-boundary",
       "event_at": "2026-09-01T16:00:00+00:00",
       "event_key": "repository_release:hashicorp-blog:380e829425a8:2026-09-01",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "terraform",
-      "ecosystem": "infrastructure",
-      "domain": [],
-      "language": [],
-      "framework": [],
-      "topic": [],
-      "source_signal": [
-        "deprecation",
-        "enterprise_adoption",
-        "migration",
-        "product_update",
-        "release",
-        "repository_release",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:infrastructure:terraform",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "HashiCorp Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
-      "title": "HashiCorp Vault agentic IAM is now generally available",
-      "url": "https://www.hashicorp.com/blog/hashicorp-vault-agentic-iam-is-now-generally-available",
-      "source_url": "https://www.hashicorp.com/blog/hashicorp-vault-agentic-iam-is-now-generally-available",
-      "event_at": "2026-09-01T16:00:00+00:00",
-      "event_key": "repository_release:hashicorp-blog:ae8486cecd19:2026-09-01",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "terraform",
-      "ecosystem": "infrastructure",
-      "domain": [
-        "ai",
-        "security"
-      ],
-      "language": [],
-      "framework": [],
-      "topic": [],
-      "source_signal": [
-        "deprecation",
-        "enterprise_adoption",
-        "migration",
-        "product_update",
-        "release",
-        "repository_release",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:infrastructure:terraform",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "OpenAI News",
-      "source_type": "rss",
-      "trust_tier": "T1_authoritative",
-      "producer_role": "model_platform",
-      "event_model": "repository_release",
-      "title": "Path to Astra: critical capabilities and frontier safeguards",
-      "url": "https://openai.com/index/path-to-astra",
-      "source_url": "https://openai.com/index/path-to-astra",
-      "event_at": "2026-09-01T13:00:00+00:00",
-      "event_key": "repository_release:openai-news:309be27bdcfe:2026-09-01",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "openai",
-      "ecosystem": "ai",
-      "domain": [
-        "cybersecurity"
-      ],
-      "language": [],
-      "framework": [],
-      "topic": [],
-      "source_signal": [
-        "api_update",
-        "authoritative_tech_source",
-        "developer_adoption",
-        "model_platform",
-        "model_release",
-        "release",
-        "repository_release",
-        "rollout"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:ai:openai",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "Cloudflare Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
-      "title": "How we could save petabytes of cache storage with Zstandard and Pingora",
-      "url": "https://blog.cloudflare.com/cache-transcoding",
-      "source_url": "https://blog.cloudflare.com/cache-transcoding",
-      "event_at": "2026-09-01T12:59:00+00:00",
-      "event_key": "repository_release:cloudflare-blog:001302cbb262:2026-09-01",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "cloudflare",
-      "ecosystem": "cloud",
-      "domain": [],
-      "language": [],
-      "framework": [],
-      "topic": [],
-      "source_signal": [
-        "authoritative_tech_source",
-        "deprecation",
-        "migration",
-        "platform_update",
-        "product_update",
-        "repository_release",
-        "rollout",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:cloud:cloudflare",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "OpenAI News",
-      "source_type": "rss",
-      "trust_tier": "T1_authoritative",
-      "producer_role": "model_platform",
-      "event_model": "repository_release",
-      "title": "Healthcare organizations can now connect EHR and additional industry data to ChatGPT",
-      "url": "https://openai.com/index/chatgpt-connects-health-records-and-healthcare-sources",
-      "source_url": "https://openai.com/index/chatgpt-connects-health-records-and-healthcare-sources",
-      "event_at": "2026-09-01T12:00:00+00:00",
-      "event_key": "repository_release:openai-news:50e05f9b472e:2026-09-01",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "openai",
-      "ecosystem": "ai",
-      "domain": [],
-      "language": [],
-      "framework": [],
-      "topic": [],
-      "source_signal": [
-        "api_update",
-        "authoritative_tech_source",
-        "developer_adoption",
-        "model_platform",
-        "model_release",
-        "release",
-        "repository_release",
-        "rollout"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:ai:openai",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "Vercel Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
-      "title": "Compute that takes any shape",
-      "url": "https://vercel.com/blog/fluid-compute-takes-any-shape",
-      "source_url": "https://vercel.com/blog/fluid-compute-takes-any-shape",
-      "event_at": "2026-09-01T07:00:00+00:00",
-      "event_key": "repository_release:vercel-blog:04abefa53c90:2026-09-01",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "vercel",
-      "ecosystem": "javascript",
-      "domain": [
-        "infrastructure"
-      ],
-      "language": [],
-      "framework": [
-        "rest",
-        "api"
-      ],
-      "topic": [
-        "caching"
-      ],
-      "source_signal": [
-        "framework_adoption",
-        "migration",
-        "product_update",
-        "release",
-        "repository_release",
-        "rollout",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:javascript:vercel",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "HashiCorp Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
-      "title": "Streamline identity lifecycle management on HCP with SCIM provisioning",
-      "url": "https://www.hashicorp.com/blog/streamline-identity-lifecycle-management-on-hcp-with-scim-provisioning",
-      "source_url": "https://www.hashicorp.com/blog/streamline-identity-lifecycle-management-on-hcp-with-scim-provisioning",
-      "event_at": "2026-08-26T15:00:00+00:00",
-      "event_key": "repository_release:hashicorp-blog:deeceeb9aefb:2026-08-26",
       "repository": "",
       "repository_host": "",
       "repository_owner": "",
@@ -4205,16 +4305,16 @@
       ]
     },
     {
-      "source": "Vercel Blog",
+      "source": "HashiCorp Blog",
       "source_type": "rss",
       "trust_tier": "T2_institutional",
       "producer_role": "vendor_platform",
       "event_model": "repository_release",
-      "title": "Vercel Security Dashboard is now generally available",
-      "url": "https://vercel.com/changelog/vercel-security-dashboard-is-now-generally-available",
-      "source_url": "https://vercel.com/changelog/vercel-security-dashboard-is-now-generally-available",
-      "event_at": "2026-08-26T00:00:00+00:00",
-      "event_key": "repository_release:vercel-blog:8d676f90257d:2026-08-26",
+      "title": "HashiCorp Vault agentic IAM is now generally available",
+      "url": "https://www.hashicorp.com/blog/hashicorp-vault-agentic-iam-is-now-generally-available",
+      "source_url": "https://www.hashicorp.com/blog/hashicorp-vault-agentic-iam-is-now-generally-available",
+      "event_at": "2026-09-01T16:00:00+00:00",
+      "event_key": "repository_release:hashicorp-blog:ae8486cecd19:2026-09-01",
       "repository": "",
       "repository_host": "",
       "repository_owner": "",
@@ -4227,25 +4327,26 @@
       "forks": null,
       "skill": "",
       "employer": "",
-      "technology": "vercel",
-      "ecosystem": "javascript",
+      "technology": "terraform",
+      "ecosystem": "infrastructure",
       "domain": [
+        "ai",
         "security"
       ],
       "language": [],
       "framework": [],
       "topic": [],
       "source_signal": [
-        "framework_adoption",
+        "deprecation",
+        "enterprise_adoption",
         "migration",
         "product_update",
         "release",
         "repository_release",
-        "rollout",
         "vendor_platform"
       ],
       "signal_basis": "source_context_signal",
-      "canonical_key": "technology:javascript:vercel",
+      "canonical_key": "technology:infrastructure:terraform",
       "canonical_key_status": "technology_proxy",
       "required_field_gaps": [
         "repository",
@@ -4452,16 +4553,16 @@
       "trust_tier": "T2_institutional",
       "producer_role": "vendor_platform",
       "event_model": "repository_release",
-      "title": "Qwen 3.8 Flash now available on AI Gateway",
-      "url": "https://vercel.com/changelog/qwen-3-8-flash-now-available-on-ai-gateway",
-      "source_url": "https://vercel.com/changelog/qwen-3-8-flash-now-available-on-ai-gateway",
-      "event_at": "2026-08-26T00:00:00+00:00",
-      "event_key": "repository_release:vercel-blog:25442f853302:2026-08-26",
+      "title": "Muse Spark 1.3 now available on AI Gateway",
+      "url": "https://vercel.com/changelog/muse-spark-1-3-now-available-on-ai-gateway",
+      "source_url": "https://vercel.com/changelog/muse-spark-1-3-now-available-on-ai-gateway",
+      "event_at": "2026-09-02T00:00:00+00:00",
+      "event_key": "repository_release:vercel-blog:ee594e6bcb76:2026-09-02",
       "repository": "",
       "repository_host": "",
       "repository_owner": "",
       "repository_name": "",
-      "release_tag": "3.8",
+      "release_tag": "1.3",
       "package_name": "",
       "registry": "",
       "download_count": null,
@@ -4472,70 +4573,13 @@
       "technology": "vercel",
       "ecosystem": "javascript",
       "domain": [
-        "platform",
         "ai"
       ],
       "language": [],
       "framework": [
-        "claude",
-        "api"
+        "claude"
       ],
-      "topic": [
-        "performance"
-      ],
-      "source_signal": [
-        "framework_adoption",
-        "migration",
-        "product_update",
-        "release",
-        "repository_release",
-        "rollout",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:javascript:vercel",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository"
-      ]
-    },
-    {
-      "source": "Vercel Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
-      "title": "Muse Image now available on AI Gateway",
-      "url": "https://vercel.com/changelog/muse-image-now-available-on-ai-gateway",
-      "source_url": "https://vercel.com/changelog/muse-image-now-available-on-ai-gateway",
-      "event_at": "2026-08-26T00:00:00+00:00",
-      "event_key": "repository_release:vercel-blog:a34540de3088:2026-08-26",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "1.0",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "vercel",
-      "ecosystem": "javascript",
-      "domain": [
-        "platform",
-        "ai"
-      ],
-      "language": [],
-      "framework": [
-        "rest",
-        "api"
-      ],
-      "topic": [
-        "performance"
-      ],
+      "topic": [],
       "source_signal": [
         "framework_adoption",
         "migration",
@@ -4709,11 +4753,11 @@
       "trust_tier": "T2_institutional",
       "producer_role": "vendor_platform",
       "event_model": "repository_release",
-      "title": "GLM 5.3 Flash now available on AI Gateway",
-      "url": "https://vercel.com/changelog/glm-5-3-flash-now-available-on-ai-gateway",
-      "source_url": "https://vercel.com/changelog/glm-5-3-flash-now-available-on-ai-gateway",
-      "event_at": "2026-08-26T00:00:00+00:00",
-      "event_key": "repository_release:vercel-blog:b3c7a885ec4b:2026-08-26",
+      "title": "GLM-5.3 is 50% off through DigitalOcean on AI Gateway",
+      "url": "https://vercel.com/changelog/glm-5-3-is-50-off-through-digitalocean-on-ai-gateway",
+      "source_url": "https://vercel.com/changelog/glm-5-3-is-50-off-through-digitalocean-on-ai-gateway",
+      "event_at": "2026-09-02T00:00:00+00:00",
+      "event_key": "repository_release:vercel-blog:3cf2c1482fec:2026-09-02",
       "repository": "",
       "repository_host": "",
       "repository_owner": "",
@@ -4732,10 +4776,10 @@
         "ai"
       ],
       "language": [],
-      "framework": [],
-      "topic": [
-        "streaming"
+      "framework": [
+        "claude"
       ],
+      "topic": [],
       "source_signal": [
         "framework_adoption",
         "migration",
@@ -4758,16 +4802,16 @@
       "trust_tier": "T2_institutional",
       "producer_role": "vendor_platform",
       "event_model": "repository_release",
-      "title": "Gemini 3.5 Transcribe now available on AI Gateway",
-      "url": "https://vercel.com/changelog/gemini-3-5-transcribe-now-available-on-ai-gateway",
-      "source_url": "https://vercel.com/changelog/gemini-3-5-transcribe-now-available-on-ai-gateway",
-      "event_at": "2026-08-26T00:00:00+00:00",
-      "event_key": "repository_release:vercel-blog:13c043a8ee74:2026-08-26",
+      "title": "Gemini 3.8 Flash now available on AI Gateway",
+      "url": "https://vercel.com/changelog/gemini-3-8-flash-now-available-on-ai-gateway",
+      "source_url": "https://vercel.com/changelog/gemini-3-8-flash-now-available-on-ai-gateway",
+      "event_at": "2026-09-02T00:00:00+00:00",
+      "event_key": "repository_release:vercel-blog:b709b73f4498:2026-09-02",
       "repository": "",
       "repository_host": "",
       "repository_owner": "",
       "repository_name": "",
-      "release_tag": "3.5",
+      "release_tag": "3.8",
       "package_name": "",
       "registry": "",
       "download_count": null,
@@ -4778,15 +4822,15 @@
       "technology": "vercel",
       "ecosystem": "javascript",
       "domain": [
+        "platform",
         "ai"
       ],
       "language": [],
       "framework": [
+        "claude",
         "gemini"
       ],
-      "topic": [
-        "streaming"
-      ],
+      "topic": [],
       "source_signal": [
         "framework_adoption",
         "migration",
@@ -5278,6 +5322,59 @@
       "required_field_gaps": []
     },
     {
+      "source": "Vercel Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
+      "title": "Compute that takes any shape",
+      "url": "https://vercel.com/blog/fluid-compute-takes-any-shape",
+      "source_url": "https://vercel.com/blog/fluid-compute-takes-any-shape",
+      "event_at": "2026-09-01T07:00:00+00:00",
+      "event_key": "repository_release:vercel-blog:04abefa53c90:2026-09-01",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "vercel",
+      "ecosystem": "javascript",
+      "domain": [
+        "infrastructure"
+      ],
+      "language": [],
+      "framework": [
+        "rest",
+        "api"
+      ],
+      "topic": [
+        "caching"
+      ],
+      "source_signal": [
+        "framework_adoption",
+        "migration",
+        "product_update",
+        "release",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:javascript:vercel",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
       "source": "OpenAI News",
       "source_type": "rss",
       "trust_tier": "T1_authoritative",
@@ -5308,53 +5405,6 @@
       "topic": [
         "performance"
       ],
-      "source_signal": [
-        "api_update",
-        "authoritative_tech_source",
-        "developer_adoption",
-        "model_platform",
-        "model_release",
-        "release",
-        "repository_release",
-        "rollout"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:ai:openai",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "OpenAI News",
-      "source_type": "rss",
-      "trust_tier": "T1_authoritative",
-      "producer_role": "model_platform",
-      "event_model": "repository_release",
-      "title": "The full stack behind abundant intelligence",
-      "url": "https://openai.com/index/the-full-stack-behind-abundant-intelligence",
-      "source_url": "https://openai.com/index/the-full-stack-behind-abundant-intelligence",
-      "event_at": "2026-08-25T07:05:00+00:00",
-      "event_key": "repository_release:openai-news:829e237a888d:2026-08-25",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "openai",
-      "ecosystem": "ai",
-      "domain": [],
-      "language": [],
-      "framework": [],
-      "topic": [],
       "source_signal": [
         "api_update",
         "authoritative_tech_source",
@@ -5529,11 +5579,11 @@
       "trust_tier": "T1_authoritative",
       "producer_role": "model_platform",
       "event_model": "repository_release",
-      "title": "Our decision on Cursor following its acquisition by SpaceX",
-      "url": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex",
-      "source_url": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex",
-      "event_at": "2026-08-28T06:00:00+00:00",
-      "event_key": "repository_release:openai-news:092c8de02e8b:2026-08-28",
+      "title": "Path to Astra: critical capabilities and frontier safeguards",
+      "url": "https://openai.com/index/path-to-astra",
+      "source_url": "https://openai.com/index/path-to-astra",
+      "event_at": "2026-09-01T13:00:00+00:00",
+      "event_key": "repository_release:openai-news:309be27bdcfe:2026-09-01",
       "repository": "",
       "repository_host": "",
       "repository_owner": "",
@@ -5548,7 +5598,9 @@
       "employer": "",
       "technology": "openai",
       "ecosystem": "ai",
-      "domain": [],
+      "domain": [
+        "cybersecurity"
+      ],
       "language": [],
       "framework": [],
       "topic": [],
@@ -5576,11 +5628,11 @@
       "trust_tier": "T1_authoritative",
       "producer_role": "model_platform",
       "event_model": "repository_release",
-      "title": "How loveholidays is making everyone a builder with Codex",
-      "url": "https://openai.com/index/loveholidays",
-      "source_url": "https://openai.com/index/loveholidays",
-      "event_at": "2026-08-26T00:00:00+00:00",
-      "event_key": "repository_release:openai-news:d34e82eae2f2:2026-08-26",
+      "title": "Our decision on Cursor following its acquisition by SpaceX",
+      "url": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex",
+      "source_url": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex",
+      "event_at": "2026-08-28T06:00:00+00:00",
+      "event_key": "repository_release:openai-news:092c8de02e8b:2026-08-28",
       "repository": "",
       "repository_host": "",
       "repository_owner": "",
@@ -5648,108 +5700,6 @@
       "language": [],
       "framework": [],
       "topic": [],
-      "source_signal": [
-        "api_update",
-        "authoritative_tech_source",
-        "developer_adoption",
-        "model_platform",
-        "model_release",
-        "release",
-        "repository_release",
-        "rollout"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:ai:openai",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "OpenAI News",
-      "source_type": "rss",
-      "trust_tier": "T1_authoritative",
-      "producer_role": "model_platform",
-      "event_model": "repository_release",
-      "title": "Jalapeño’s first results show industry-leading speed and efficiency in AI inference",
-      "url": "https://openai.com/index/jalapeno-first-results",
-      "source_url": "https://openai.com/index/jalapeno-first-results",
-      "event_at": "2026-08-25T07:00:00+00:00",
-      "event_key": "repository_release:openai-news:9ad99bb5f40a:2026-08-25",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "openai",
-      "ecosystem": "ai",
-      "domain": [
-        "ai"
-      ],
-      "language": [],
-      "framework": [],
-      "topic": [],
-      "source_signal": [
-        "api_update",
-        "authoritative_tech_source",
-        "developer_adoption",
-        "model_platform",
-        "model_release",
-        "release",
-        "repository_release",
-        "rollout"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:ai:openai",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "OpenAI News",
-      "source_type": "rss",
-      "trust_tier": "T1_authoritative",
-      "producer_role": "model_platform",
-      "event_model": "repository_release",
-      "title": "The Hugging Face incident and the road ahead",
-      "url": "https://openai.com/index/hugging-face-incident-and-the-road-ahead",
-      "source_url": "https://openai.com/index/hugging-face-incident-and-the-road-ahead",
-      "event_at": "2026-08-26T00:00:00+00:00",
-      "event_key": "repository_release:openai-news:504dd1ec9508:2026-08-26",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "openai",
-      "ecosystem": "ai",
-      "domain": [
-        "ai",
-        "security"
-      ],
-      "language": [],
-      "framework": [],
-      "topic": [
-        "monitoring",
-        "incident"
-      ],
       "source_signal": [
         "api_update",
         "authoritative_tech_source",
@@ -5921,6 +5871,53 @@
       "trust_tier": "T1_authoritative",
       "producer_role": "model_platform",
       "event_model": "repository_release",
+      "title": "Healthcare organizations can now connect EHR and additional industry data to ChatGPT",
+      "url": "https://openai.com/index/chatgpt-connects-health-records-and-healthcare-sources",
+      "source_url": "https://openai.com/index/chatgpt-connects-health-records-and-healthcare-sources",
+      "event_at": "2026-09-01T12:00:00+00:00",
+      "event_key": "repository_release:openai-news:50e05f9b472e:2026-09-01",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "openai",
+      "ecosystem": "ai",
+      "domain": [],
+      "language": [],
+      "framework": [],
+      "topic": [],
+      "source_signal": [
+        "api_update",
+        "authoritative_tech_source",
+        "developer_adoption",
+        "model_platform",
+        "model_release",
+        "release",
+        "repository_release",
+        "rollout"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:ai:openai",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "OpenAI News",
+      "source_type": "rss",
+      "trust_tier": "T1_authoritative",
+      "producer_role": "model_platform",
+      "event_model": "repository_release",
       "title": "Bringing ChatGPT for Teachers to more U.S. school districts",
       "url": "https://openai.com/index/bringing-chatgpt-for-teachers-to-more-us-school-districts",
       "source_url": "https://openai.com/index/bringing-chatgpt-for-teachers-to-more-us-school-districts",
@@ -5963,6 +5960,107 @@
         "repository",
         "release_tag"
       ]
+    },
+    {
+      "source": "OpenAI News",
+      "source_type": "rss",
+      "trust_tier": "T1_authoritative",
+      "producer_role": "model_platform",
+      "event_model": "repository_release",
+      "title": "How AI-native companies turn workflows into operating capability",
+      "url": "https://openai.com/index/ai-native-company-workflows",
+      "source_url": "https://openai.com/index/ai-native-company-workflows",
+      "event_at": "2026-09-01T17:00:00+00:00",
+      "event_key": "repository_release:openai-news:3b5f2688fec1:2026-09-01",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "openai",
+      "ecosystem": "ai",
+      "domain": [
+        "ai"
+      ],
+      "language": [],
+      "framework": [],
+      "topic": [],
+      "source_signal": [
+        "api_update",
+        "authoritative_tech_source",
+        "developer_adoption",
+        "model_platform",
+        "model_release",
+        "release",
+        "repository_release",
+        "rollout"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:ai:openai",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "Kubernetes Blog",
+      "source_type": "rss",
+      "trust_tier": "T1_authoritative",
+      "producer_role": "open_source_maintainer",
+      "event_model": "repository_release",
+      "title": "Kubernetes v1.37: etcd RangeStream Cuts Memory Use on Large List Reads",
+      "url": "https://kubernetes.io/blog/2026/09/01/kubernetes-v1-37-etcd-range-stream",
+      "source_url": "https://kubernetes.io/blog/2026/09/01/kubernetes-v1-37-etcd-range-stream",
+      "event_at": "2026-09-01T18:30:00+00:00",
+      "event_key": "repository_release:kubernetes-blog:f329be929edb:2026-09-01",
+      "repository": "github.com/kubernetes/enhancements",
+      "repository_host": "github.com",
+      "repository_owner": "kubernetes",
+      "repository_name": "enhancements",
+      "release_tag": "v1.37",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "kubernetes",
+      "ecosystem": "cloud-native",
+      "domain": [
+        "kubernetes"
+      ],
+      "language": [],
+      "framework": [
+        "kubernetes",
+        "k8s",
+        "api"
+      ],
+      "topic": [
+        "streaming"
+      ],
+      "source_signal": [
+        "authoritative_tech_source",
+        "changelog",
+        "deprecation",
+        "migration",
+        "open_source_maintainer",
+        "release",
+        "release_note",
+        "repository_release"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "repository:github.com:kubernetes:enhancements",
+      "canonical_key_status": "complete",
+      "required_field_gaps": []
     },
     {
       "source": "Kubernetes Blog",
@@ -6131,11 +6229,11 @@
       "trust_tier": "T1_authoritative",
       "producer_role": "open_source_maintainer",
       "event_model": "repository_release",
-      "title": "Generic Methods",
-      "url": "https://go.dev/blog/generic-methods",
-      "source_url": "https://go.dev/blog/generic-methods",
-      "event_at": "2026-08-26T00:00:00+00:00",
-      "event_key": "repository_release:go-blog:daf7f81fe442:2026-08-26",
+      "title": "Goroutine Leak Profiles",
+      "url": "https://go.dev/blog/goroutine-leak-profiles",
+      "source_url": "https://go.dev/blog/goroutine-leak-profiles",
+      "event_at": "2026-09-02T00:00:00+00:00",
+      "event_key": "repository_release:go-blog:e38846850a14:2026-09-02",
       "repository": "github.com/golang/go",
       "repository_host": "github.com",
       "repository_owner": "golang",
@@ -6216,59 +6314,6 @@
       ],
       "signal_basis": "source_context_signal",
       "canonical_key": "repository:github.com:rust-lang:rustup",
-      "canonical_key_status": "complete",
-      "required_field_gaps": []
-    },
-    {
-      "source": "Rust Blog",
-      "source_type": "rss",
-      "trust_tier": "T1_authoritative",
-      "producer_role": "open_source_maintainer",
-      "event_model": "repository_release",
-      "title": "Announcing our first Maintainers in Residence",
-      "url": "https://blog.rust-lang.org/2026/08/26/announcing-our-first-maintainers-in-residence",
-      "source_url": "https://blog.rust-lang.org/2026/08/26/announcing-our-first-maintainers-in-residence",
-      "event_at": "2026-08-26T00:00:00+00:00",
-      "event_key": "repository_release:rust-blog:7bdb061d2c15:2026-08-26",
-      "repository": "github.com/sponsors/rustfoundation",
-      "repository_host": "github.com",
-      "repository_owner": "sponsors",
-      "repository_name": "rustfoundation",
-      "release_tag": "2.5",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "rust",
-      "ecosystem": "rust",
-      "domain": [
-        "platform"
-      ],
-      "language": [
-        "rust"
-      ],
-      "framework": [
-        "aws"
-      ],
-      "topic": [
-        "performance",
-        "refactoring"
-      ],
-      "source_signal": [
-        "authoritative_tech_source",
-        "breaking_change",
-        "migration",
-        "open_source_maintainer",
-        "release",
-        "release_note",
-        "repository_release",
-        "version"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "repository:github.com:sponsors:rustfoundation",
       "canonical_key_status": "complete",
       "required_field_gaps": []
     },
@@ -6373,6 +6418,53 @@
       "trust_tier": "T2_institutional",
       "producer_role": "vendor_platform",
       "event_model": "repository_release",
+      "title": "How we could save petabytes of cache storage with Zstandard and Pingora",
+      "url": "https://blog.cloudflare.com/cache-transcoding",
+      "source_url": "https://blog.cloudflare.com/cache-transcoding",
+      "event_at": "2026-09-01T12:59:00+00:00",
+      "event_key": "repository_release:cloudflare-blog:001302cbb262:2026-09-01",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "cloudflare",
+      "ecosystem": "cloud",
+      "domain": [],
+      "language": [],
+      "framework": [],
+      "topic": [],
+      "source_signal": [
+        "authoritative_tech_source",
+        "deprecation",
+        "migration",
+        "platform_update",
+        "product_update",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:cloud:cloudflare",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "Cloudflare Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
       "title": "BotBase for Operators: A clearer path to joining Cloudflare's directory of bots and agents",
       "url": "https://blog.cloudflare.com/botbase-for-operators",
       "source_url": "https://blog.cloudflare.com/botbase-for-operators",
@@ -6419,66 +6511,9 @@
     {
       "reason": "missing_required_fields",
       "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "Supporting independent journalism in Ukraine",
-      "event_key": "repository_release:openai-news:e02ae19def6b:2026-09-07",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "Supporting independent journalism in Ukraine",
-      "event_key": "repository_release:openai-news:e02ae19def6b:2026-09-07",
-      "canonical_key": "technology:ai:openai"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "An Alien Mind",
-      "event_key": "repository_release:openai-news:a8e8f9dc895a:2026-09-06",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "An Alien Mind",
-      "event_key": "repository_release:openai-news:a8e8f9dc895a:2026-09-06",
-      "canonical_key": "technology:ai:openai"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "Research acceleration: The view inside OpenAI",
-      "event_key": "repository_release:openai-news:19672c4832d4:2026-09-06",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "Research acceleration: The view inside OpenAI",
-      "event_key": "repository_release:openai-news:19672c4832d4:2026-09-06",
-      "canonical_key": "technology:ai:openai"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
       "source": "Vercel Blog",
-      "title": "GPT 6 Astra now available on Vercel AI Gateway",
-      "event_key": "repository_release:vercel-blog:7dccfbf0b62e:2026-09-04",
+      "title": "Vercel Sandbox routing is now 18x faster globally",
+      "event_key": "repository_release:vercel-blog:bf2b206e91e6:2026-09-08",
       "required_field_gaps": [
         "repository",
         "release_tag"
@@ -6488,9 +6523,271 @@
       "reason": "technology_proxy_canonical_key",
       "event_model": "repository_release",
       "source": "Vercel Blog",
-      "title": "GPT 6 Astra now available on Vercel AI Gateway",
-      "event_key": "repository_release:vercel-blog:7dccfbf0b62e:2026-09-04",
+      "title": "Vercel Sandbox routing is now 18x faster globally",
+      "event_key": "repository_release:vercel-blog:bf2b206e91e6:2026-09-08",
       "canonical_key": "technology:javascript:vercel"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "How GPT-5.6 Sol helps run quantum computing experiments",
+      "event_key": "repository_release:openai-news:167bce5d47e7:2026-09-08",
+      "required_field_gaps": [
+        "repository"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "How GPT-5.6 Sol helps run quantum computing experiments",
+      "event_key": "repository_release:openai-news:167bce5d47e7:2026-09-08",
+      "canonical_key": "technology:ai:openai"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "Cloudflare Blog",
+      "title": "Automatic Key Exchange: faster, post-quantum secure origin handshakes for 45 billion daily connections (and counting)",
+      "event_key": "repository_release:cloudflare-blog:1dd44cb259b6:2026-09-08",
+      "required_field_gaps": [
+        "repository"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "Cloudflare Blog",
+      "title": "Automatic Key Exchange: faster, post-quantum secure origin handshakes for 45 billion daily connections (and counting)",
+      "event_key": "repository_release:cloudflare-blog:1dd44cb259b6:2026-09-08",
+      "canonical_key": "technology:cloud:cloudflare"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "The Work Now Within Reach",
+      "event_key": "repository_release:openai-news:aaada63e998e:2026-09-08",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "The Work Now Within Reach",
+      "event_key": "repository_release:openai-news:aaada63e998e:2026-09-08",
+      "canonical_key": "technology:ai:openai"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "Introducing ChatGPT Images 2.5",
+      "event_key": "repository_release:openai-news:305f03a4aa6a:2026-09-08",
+      "required_field_gaps": [
+        "repository"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "Introducing ChatGPT Images 2.5",
+      "event_key": "repository_release:openai-news:305f03a4aa6a:2026-09-08",
+      "canonical_key": "technology:ai:openai"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "On the Navier–Stokes Millennium Prize Problem",
+      "event_key": "repository_release:openai-news:fbb79928f7d9:2026-09-08",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "On the Navier–Stokes Millennium Prize Problem",
+      "event_key": "repository_release:openai-news:fbb79928f7d9:2026-09-08",
+      "canonical_key": "technology:ai:openai"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "Funding grants for new research into AI and teen development",
+      "event_key": "repository_release:openai-news:99c22bc85dd5:2026-09-08",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "Funding grants for new research into AI and teen development",
+      "event_key": "repository_release:openai-news:99c22bc85dd5:2026-09-08",
+      "canonical_key": "technology:ai:openai"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "Vercel Blog",
+      "title": "Introducing Flat Rate CDN",
+      "event_key": "repository_release:vercel-blog:f09b31af28ad:2026-09-08",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "Vercel Blog",
+      "title": "Introducing Flat Rate CDN",
+      "event_key": "repository_release:vercel-blog:f09b31af28ad:2026-09-08",
+      "canonical_key": "technology:javascript:vercel"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "Vercel Blog",
+      "title": "Flat Rate CDN is now GA for Pro teams",
+      "event_key": "repository_release:vercel-blog:4f69fa25d98a:2026-09-08",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "Vercel Blog",
+      "title": "Flat Rate CDN is now GA for Pro teams",
+      "event_key": "repository_release:vercel-blog:4f69fa25d98a:2026-09-08",
+      "canonical_key": "technology:javascript:vercel"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "1Password increases engineering productivity 21% with Codex",
+      "event_key": "repository_release:openai-news:9816f5beea82:2026-09-08",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "1Password increases engineering productivity 21% with Codex",
+      "event_key": "repository_release:openai-news:9816f5beea82:2026-09-08",
+      "canonical_key": "technology:ai:openai"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "Vercel Blog",
+      "title": "GPT Image 2.5 Flare and Sunburst now available on AI Gateway",
+      "event_key": "repository_release:vercel-blog:2477a6114db4:2026-09-08",
+      "required_field_gaps": [
+        "repository"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "Vercel Blog",
+      "title": "GPT Image 2.5 Flare and Sunburst now available on AI Gateway",
+      "event_key": "repository_release:vercel-blog:2477a6114db4:2026-09-08",
+      "canonical_key": "technology:javascript:vercel"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "OpenAI expands initiatives to support journalism from classrooms to newsrooms",
+      "event_key": "repository_release:openai-news:671a9fed35e2:2026-09-08",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "OpenAI expands initiatives to support journalism from classrooms to newsrooms",
+      "event_key": "repository_release:openai-news:671a9fed35e2:2026-09-08",
+      "canonical_key": "technology:ai:openai"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "Supporting independent journalism in Ukraine",
+      "event_key": "repository_release:openai-news:e02ae19def6b:2026-09-07",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "Supporting independent journalism in Ukraine",
+      "event_key": "repository_release:openai-news:e02ae19def6b:2026-09-07",
+      "canonical_key": "technology:ai:openai"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "An Alien Mind",
+      "event_key": "repository_release:openai-news:a8e8f9dc895a:2026-09-06",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "An Alien Mind",
+      "event_key": "repository_release:openai-news:a8e8f9dc895a:2026-09-06",
+      "canonical_key": "technology:ai:openai"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "Research acceleration: The view inside OpenAI",
+      "event_key": "repository_release:openai-news:19672c4832d4:2026-09-06",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "Research acceleration: The view inside OpenAI",
+      "event_key": "repository_release:openai-news:19672c4832d4:2026-09-06",
+      "canonical_key": "technology:ai:openai"
     },
     {
       "reason": "missing_required_fields",
@@ -6508,6 +6805,25 @@
       "source": "Vercel Blog",
       "title": "Ling 3.0 Flash Sante is now available on AI Gateway for free",
       "event_key": "repository_release:vercel-blog:d5c9a183b768:2026-09-04",
+      "canonical_key": "technology:javascript:vercel"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "Vercel Blog",
+      "title": "GPT 6 Astra now available on Vercel AI Gateway",
+      "event_key": "repository_release:vercel-blog:7dccfbf0b62e:2026-09-04",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "Vercel Blog",
+      "title": "GPT 6 Astra now available on Vercel AI Gateway",
+      "event_key": "repository_release:vercel-blog:7dccfbf0b62e:2026-09-04",
       "canonical_key": "technology:javascript:vercel"
     },
     {
@@ -6660,231 +6976,6 @@
       "title": "Basic build machines are now available on Pro and Enterprise",
       "event_key": "repository_release:vercel-blog:bd657e007ef2:2026-09-03",
       "canonical_key": "technology:javascript:vercel"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "Safety overview: GPT-6 Astra",
-      "event_key": "repository_release:openai-news:2e155b11d809:2026-09-03",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "Safety overview: GPT-6 Astra",
-      "event_key": "repository_release:openai-news:2e155b11d809:2026-09-03",
-      "canonical_key": "technology:ai:openai"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "GitHub Blog Engineering",
-      "title": "How we make AI coding more cost efficient without sacrificing task quality",
-      "event_key": "repository_release:github-blog-engineering:ef02e4b156ea:2026-09-02",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "GitHub Blog Engineering",
-      "title": "How we make AI coding more cost efficient without sacrificing task quality",
-      "event_key": "repository_release:github-blog-engineering:ef02e4b156ea:2026-09-02",
-      "canonical_key": "technology:vendor-platform:github"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "ATV Big Air Tour turned 3 days of work into 3 hours with ChatGPT",
-      "event_key": "repository_release:openai-news:b07b0b2b4d66:2026-09-02",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "ATV Big Air Tour turned 3 days of work into 3 hours with ChatGPT",
-      "event_key": "repository_release:openai-news:b07b0b2b4d66:2026-09-02",
-      "canonical_key": "technology:ai:openai"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "Vercel Blog",
-      "title": "Free domain with Pro offer now includes .app and .dev",
-      "event_key": "repository_release:vercel-blog:17dede79a08e:2026-09-02",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "Vercel Blog",
-      "title": "Free domain with Pro offer now includes .app and .dev",
-      "event_key": "repository_release:vercel-blog:17dede79a08e:2026-09-02",
-      "canonical_key": "technology:javascript:vercel"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "Vercel Blog",
-      "title": "Muse Spark 1.3 now available on AI Gateway",
-      "event_key": "repository_release:vercel-blog:ee594e6bcb76:2026-09-02",
-      "required_field_gaps": [
-        "repository"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "Vercel Blog",
-      "title": "Muse Spark 1.3 now available on AI Gateway",
-      "event_key": "repository_release:vercel-blog:ee594e6bcb76:2026-09-02",
-      "canonical_key": "technology:javascript:vercel"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "Vercel Blog",
-      "title": "GLM-5.3 is 50% off through DigitalOcean on AI Gateway",
-      "event_key": "repository_release:vercel-blog:3cf2c1482fec:2026-09-02",
-      "required_field_gaps": [
-        "repository"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "Vercel Blog",
-      "title": "GLM-5.3 is 50% off through DigitalOcean on AI Gateway",
-      "event_key": "repository_release:vercel-blog:3cf2c1482fec:2026-09-02",
-      "canonical_key": "technology:javascript:vercel"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "Vercel Blog",
-      "title": "Gemini 3.8 Flash now available on AI Gateway",
-      "event_key": "repository_release:vercel-blog:b709b73f4498:2026-09-02",
-      "required_field_gaps": [
-        "repository"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "Vercel Blog",
-      "title": "Gemini 3.8 Flash now available on AI Gateway",
-      "event_key": "repository_release:vercel-blog:b709b73f4498:2026-09-02",
-      "canonical_key": "technology:javascript:vercel"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "How AI-native companies turn workflows into operating capability",
-      "event_key": "repository_release:openai-news:3b5f2688fec1:2026-09-01",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "How AI-native companies turn workflows into operating capability",
-      "event_key": "repository_release:openai-news:3b5f2688fec1:2026-09-01",
-      "canonical_key": "technology:ai:openai"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "HashiCorp Blog",
-      "title": "Secure mainframe access with HashiCorp Boundary",
-      "event_key": "repository_release:hashicorp-blog:380e829425a8:2026-09-01",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "HashiCorp Blog",
-      "title": "Secure mainframe access with HashiCorp Boundary",
-      "event_key": "repository_release:hashicorp-blog:380e829425a8:2026-09-01",
-      "canonical_key": "technology:infrastructure:terraform"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "HashiCorp Blog",
-      "title": "HashiCorp Vault agentic IAM is now generally available",
-      "event_key": "repository_release:hashicorp-blog:ae8486cecd19:2026-09-01",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "HashiCorp Blog",
-      "title": "HashiCorp Vault agentic IAM is now generally available",
-      "event_key": "repository_release:hashicorp-blog:ae8486cecd19:2026-09-01",
-      "canonical_key": "technology:infrastructure:terraform"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "Path to Astra: critical capabilities and frontier safeguards",
-      "event_key": "repository_release:openai-news:309be27bdcfe:2026-09-01",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "Path to Astra: critical capabilities and frontier safeguards",
-      "event_key": "repository_release:openai-news:309be27bdcfe:2026-09-01",
-      "canonical_key": "technology:ai:openai"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "Cloudflare Blog",
-      "title": "How we could save petabytes of cache storage with Zstandard and Pingora",
-      "event_key": "repository_release:cloudflare-blog:001302cbb262:2026-09-01",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "Cloudflare Blog",
-      "title": "How we could save petabytes of cache storage with Zstandard and Pingora",
-      "event_key": "repository_release:cloudflare-blog:001302cbb262:2026-09-01",
-      "canonical_key": "technology:cloud:cloudflare"
     }
   ],
   "source_backlog": {
