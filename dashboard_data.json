@@ -1,168 +1,163 @@
 {
-  "generated_at": "2026-09-09T05:44:59.414525+00:00",
+  "generated_at": "2026-09-10T05:39:16.422542+00:00",
   "stats": {
-    "total_articles": 509,
-    "articles_with_entities": 504,
-    "entity_match_rate": 99.0,
+    "total_articles": 431,
+    "articles_with_entities": 428,
+    "entity_match_rate": 99.3,
     "date_range": {
-      "start": "2026-06-11 09:00:19",
-      "end": "2026-09-09 05:41:43"
+      "start": "2026-06-12 05:39:26",
+      "end": "2026-09-10 05:34:34"
     }
   },
   "frameworks": {
-    "api": 85,
-    "claude": 53,
-    "llm": 40,
-    "kubernetes": 30,
-    "rest": 27,
-    "gpt": 26,
-    "aws": 25,
-    "docker": 21,
-    "azure": 15,
-    "rag": 12,
-    "gemini": 12,
-    "redis": 11,
-    "pytorch": 11,
-    "embedding": 11,
-    "react": 10,
+    "api": 75,
+    "claude": 39,
+    "llm": 32,
+    "kubernetes": 27,
+    "rest": 26,
+    "aws": 26,
+    "gpt": 22,
+    "docker": 18,
+    "gemini": 14,
+    "rag": 13,
+    "pytorch": 12,
+    "azure": 11,
+    "k8s": 10,
+    "embedding": 10,
+    "redis": 9,
     "terraform": 9,
-    "express": 9,
-    "k8s": 9,
-    "next.js": 7,
-    "fastapi": 7,
-    "huggingface": 6,
-    "gcp": 5,
-    "vector database": 5,
-    "mongodb": 4,
-    "langchain": 4,
+    "express": 8,
+    "react": 7,
+    "next.js": 5,
+    "datadog": 4,
     "prometheus": 4,
-    "kafka": 4,
     "postgresql": 4,
-    "flask": 3,
+    "grafana": 4,
+    "langchain": 3,
+    "gcp": 3,
     "mysql": 3,
-    "datadog": 3,
-    "tensorflow": 2,
-    "grafana": 2,
+    "huggingface": 3,
+    "mongodb": 3,
+    "vector database": 3,
+    "kafka": 3,
+    "fastapi": 3,
+    "vue": 2,
+    "grpc": 2,
+    "flask": 2,
     "angular": 2,
-    "graphql": 1,
-    "pulumi": 1,
-    "transformer": 1,
-    "도커": 1,
+    "opensearch": 1,
     "elasticsearch": 1,
     "django": 1,
-    "grpc": 1,
-    "vue": 1,
-    "svelte": 1,
-    "spring": 1
+    "tensorflow": 1,
+    "svelte": 1
   },
   "languages": {
-    "python": 61,
-    "go": 48,
-    "rust": 15,
-    "javascript": 15,
-    "typescript": 9,
-    "java": 4,
+    "python": 53,
+    "go": 38,
+    "rust": 12,
+    "javascript": 11,
+    "typescript": 7,
+    "java": 3,
     "kotlin": 3,
-    "swift": 2,
-    "자바": 1,
     "golang": 1,
-    "파이썬": 1
+    "파이썬": 1,
+    "swift": 1
   },
   "companies": {
-    "google": 61,
-    "line": 48,
-    "openai": 40,
-    "slack": 23,
-    "anthropic": 21,
+    "line": 49,
+    "google": 47,
+    "openai": 36,
+    "slack": 20,
     "linkedin": 19,
-    "meta": 17,
-    "stripe": 7,
-    "라인": 6,
-    "카카오": 5,
+    "anthropic": 17,
+    "meta": 16,
+    "라인": 7,
     "kakao": 4,
-    "twitter": 3,
+    "카카오": 4,
+    "stripe": 3,
     "spotify": 2,
     "netflix": 2,
     "musinsa": 2,
     "무신사": 2,
-    "naver": 2,
-    "네이버": 2,
-    "shopify": 2,
-    "uber": 1
+    "facebook": 1,
+    "toss": 1,
+    "naver": 1,
+    "네이버": 1,
+    "twitter": 1
   },
   "domains": {
-    "ai": 259,
-    "platform": 65,
-    "security": 59,
-    "infrastructure": 49,
-    "kubernetes": 30,
-    "backend": 22,
-    "devops": 17,
-    "ml": 13,
-    "mobile": 10,
-    "frontend": 9,
+    "ai": 216,
+    "security": 56,
+    "platform": 53,
+    "infrastructure": 42,
+    "kubernetes": 27,
+    "backend": 15,
+    "devops": 11,
+    "ml": 8,
+    "android": 8,
     "cybersecurity": 7,
-    "플랫폼": 7,
-    "serverless": 7,
-    "android": 7,
-    "machine learning": 6,
-    "인프라": 5,
-    "artificial intelligence": 4,
+    "frontend": 6,
+    "mobile": 6,
+    "플랫폼": 5,
+    "serverless": 5,
+    "machine learning": 5,
     "ios": 4,
-    "microservices": 4,
-    "백엔드": 3
+    "artificial intelligence": 4,
+    "인프라": 4,
+    "백엔드": 3,
+    "sre": 3
   },
   "topics": {
-    "performance": 48,
-    "architecture": 44,
-    "testing": 39,
-    "open source": 39,
-    "real-time": 21,
-    "monitoring": 17,
+    "performance": 44,
+    "architecture": 35,
+    "open source": 35,
+    "testing": 33,
+    "monitoring": 18,
     "observability": 17,
-    "ci/cd": 16,
-    "debugging": 15,
-    "automation": 15,
-    "streaming": 14,
-    "caching": 14,
-    "reliability": 14,
-    "optimization": 13,
-    "migration": 12,
-    "incident": 11,
-    "logging": 8,
-    "설계": 8,
-    "배포": 7,
-    "scalability": 6
+    "real-time": 17,
+    "incident": 14,
+    "caching": 13,
+    "automation": 13,
+    "ci/cd": 13,
+    "migration": 11,
+    "설계": 11,
+    "reliability": 10,
+    "optimization": 10,
+    "logging": 10,
+    "streaming": 9,
+    "배포": 9,
+    "tracing": 8,
+    "debugging": 8
   },
   "weekly_trends": {
     "2026-06-08": {
-      "api": 41,
-      "claude": 31,
-      "llm": 23,
-      "docker": 17,
-      "aws": 17,
-      "kubernetes": 16,
-      "rest": 16,
-      "azure": 11,
-      "gpt": 9,
-      "redis": 8
+      "api": 27,
+      "llm": 18,
+      "claude": 15,
+      "docker": 14,
+      "aws": 13,
+      "kubernetes": 11,
+      "rest": 10,
+      "redis": 8,
+      "azure": 7,
+      "gpt": 6
     },
     "2026-08-24": {
-      "api": 7,
-      "kubernetes": 4,
-      "pytorch": 3,
-      "claude": 3,
+      "api": 5,
+      "kubernetes": 3,
       "llm": 2,
-      "aws": 2,
-      "rest": 2,
+      "pytorch": 2,
       "k8s": 2,
+      "aws": 1,
       "embedding": 1,
-      "next.js": 1
+      "rest": 1,
+      "next.js": 1,
+      "claude": 1
     },
     "2026-08-31": {
       "api": 13,
       "claude": 12,
-      "gpt": 10,
+      "gpt": 9,
       "kubernetes": 6,
       "rag": 5,
       "k8s": 4,
@@ -172,180 +167,176 @@
       "react": 2
     },
     "2026-09-07": {
-      "api": 21,
-      "llm": 9,
-      "rest": 6,
+      "api": 27,
+      "rest": 12,
+      "aws": 9,
+      "claude": 9,
+      "llm": 7,
       "gpt": 6,
-      "claude": 5,
-      "huggingface": 4,
+      "kubernetes": 6,
+      "pytorch": 5,
       "azure": 3,
-      "aws": 3,
-      "kubernetes": 3,
-      "pytorch": 3
+      "express": 3
     }
   },
   "source_stats": {
-    "Hacker News Ask HN": {
-      "article_count": 55,
-      "entity_count": 55,
-      "match_rate": 100.0,
-      "top_frameworks": {
-        "llm": 7,
-        "claude": 7,
-        "gpt": 4,
-        "api": 2,
-        "mysql": 1
-      },
-      "top_companies": {
-        "anthropic": 6,
-        "google": 4,
-        "openai": 3
-      }
-    },
-    "Dev.to - Python": {
-      "article_count": 45,
-      "entity_count": 45,
-      "match_rate": 100.0,
-      "top_frameworks": {
-        "api": 25,
-        "rest": 9,
-        "llm": 9,
-        "claude": 6,
-        "react": 5
-      },
-      "top_companies": {
-        "line": 9,
-        "google": 5,
-        "openai": 5
-      }
-    },
-    "Dev.to - DevOps": {
-      "article_count": 42,
-      "entity_count": 42,
-      "match_rate": 100.0,
-      "top_frameworks": {
-        "api": 15,
-        "kubernetes": 12,
-        "docker": 11,
-        "azure": 9,
-        "aws": 9
-      },
-      "top_companies": {
-        "google": 9,
-        "line": 7,
-        "slack": 6
-      }
-    },
-    "Dev.to - Open Source": {
-      "article_count": 40,
-      "entity_count": 40,
-      "match_rate": 100.0,
-      "top_frameworks": {
-        "api": 10,
-        "claude": 9,
-        "llm": 5,
-        "redis": 5,
-        "docker": 4
-      },
-      "top_companies": {
-        "line": 13,
-        "slack": 2,
-        "stripe": 2
-      }
-    },
     "Google Developers Blog": {
       "article_count": 40,
       "entity_count": 40,
       "match_rate": 100.0,
       "top_frameworks": {
         "gemini": 8,
-        "llm": 6,
+        "llm": 5,
         "api": 3,
         "express": 2,
         "claude": 2
       },
       "top_companies": {
-        "google": 27,
+        "google": 26,
         "line": 1,
         "openai": 1
       }
     },
-    "The New Stack": {
-      "article_count": 39,
-      "entity_count": 39,
+    "Hacker News Ask HN": {
+      "article_count": 38,
+      "entity_count": 38,
       "match_rate": 100.0,
       "top_frameworks": {
-        "gpt": 5,
-        "claude": 3,
-        "rag": 2,
-        "huggingface": 1,
-        "spring": 1
+        "llm": 6,
+        "claude": 4,
+        "rest": 1,
+        "api": 1,
+        "gpt": 1
       },
       "top_companies": {
-        "openai": 5,
-        "anthropic": 2
+        "anthropic": 5,
+        "openai": 2,
+        "line": 1
       }
     },
-    "Vercel Blog": {
+    "Dev.to - Python": {
       "article_count": 35,
       "entity_count": 35,
       "match_rate": 100.0,
       "top_frameworks": {
-        "claude": 14,
-        "api": 12,
-        "next.js": 3,
+        "api": 20,
+        "rest": 5,
+        "claude": 5,
+        "aws": 4,
+        "docker": 4
+      },
+      "top_companies": {
+        "line": 8,
+        "google": 6,
+        "meta": 4
+      }
+    },
+    "Vercel Blog": {
+      "article_count": 33,
+      "entity_count": 33,
+      "match_rate": 100.0,
+      "top_frameworks": {
+        "claude": 10,
+        "api": 9,
+        "rest": 3,
         "gpt": 3,
+        "mongodb": 2
+      },
+      "top_companies": {
+        "openai": 3,
+        "anthropic": 3,
+        "line": 2
+      }
+    },
+    "Dev.to - Open Source": {
+      "article_count": 32,
+      "entity_count": 32,
+      "match_rate": 100.0,
+      "top_frameworks": {
+        "api": 11,
+        "claude": 7,
+        "llm": 5,
+        "redis": 4,
         "rest": 3
       },
       "top_companies": {
-        "line": 3,
-        "openai": 3,
-        "google": 3
+        "line": 16,
+        "slack": 3,
+        "openai": 2
       }
     },
-    "Hacker News Best": {
-      "article_count": 31,
-      "entity_count": 31,
+    "Dev.to - DevOps": {
+      "article_count": 32,
+      "entity_count": 32,
       "match_rate": 100.0,
       "top_frameworks": {
-        "llm": 3,
-        "claude": 2,
-        "huggingface": 1,
-        "rest": 1,
-        "api": 1
+        "api": 12,
+        "kubernetes": 11,
+        "aws": 9,
+        "docker": 9,
+        "rest": 8
       },
       "top_companies": {
-        "google": 2,
-        "linkedin": 1,
-        "openai": 1
+        "line": 6,
+        "google": 4,
+        "linkedin": 4
       }
     },
     "OpenAI News": {
-      "article_count": 31,
-      "entity_count": 31,
-      "match_rate": 100.0,
-      "top_frameworks": {
-        "gpt": 6
-      },
-      "top_companies": {
-        "openai": 15
-      }
-    },
-    "InfoQ": {
       "article_count": 30,
       "entity_count": 30,
       "match_rate": 100.0,
       "top_frameworks": {
-        "aws": 4,
-        "azure": 3,
-        "api": 1,
-        "redis": 1,
-        "terraform": 1
+        "gpt": 7
       },
       "top_companies": {
-        "google": 4,
+        "openai": 14
+      }
+    },
+    "The New Stack": {
+      "article_count": 29,
+      "entity_count": 29,
+      "match_rate": 100.0,
+      "top_frameworks": {
+        "claude": 4,
+        "gpt": 4,
+        "rag": 2
+      },
+      "top_companies": {
+        "openai": 5,
+        "anthropic": 3
+      }
+    },
+    "InfoQ": {
+      "article_count": 27,
+      "entity_count": 27,
+      "match_rate": 100.0,
+      "top_frameworks": {
+        "azure": 3,
+        "aws": 3,
+        "kubernetes": 2,
+        "api": 1,
+        "redis": 1
+      },
+      "top_companies": {
+        "google": 3,
         "line": 2,
-        "netflix": 1
+        "meta": 1
+      }
+    },
+    "Hacker News Best": {
+      "article_count": 20,
+      "entity_count": 20,
+      "match_rate": 100.0,
+      "top_frameworks": {
+        "llm": 2,
+        "claude": 2,
+        "rest": 1,
+        "api": 1,
+        "react": 1
+      },
+      "top_companies": {
+        "linkedin": 1
       }
     },
     "PyTorch Blog": {
@@ -357,16 +348,37 @@
       },
       "top_companies": {}
     },
-    "Elastic Blog": {
+    "여기어때 기술블로그": {
       "article_count": 9,
-      "entity_count": 8,
-      "match_rate": 88.9,
+      "entity_count": 9,
+      "match_rate": 100.0,
       "top_frameworks": {
-        "claude": 1,
-        "api": 1
+        "api": 3,
+        "react": 2,
+        "vue": 1,
+        "next.js": 1,
+        "llm": 1
       },
       "top_companies": {
-        "anthropic": 1
+        "linkedin": 3,
+        "라인": 2,
+        "google": 1
+      }
+    },
+    "Kubernetes Blog": {
+      "article_count": 9,
+      "entity_count": 9,
+      "match_rate": 100.0,
+      "top_frameworks": {
+        "kubernetes": 9,
+        "api": 8,
+        "k8s": 7,
+        "rest": 2,
+        "express": 1
+      },
+      "top_companies": {
+        "slack": 7,
+        "line": 6
       }
     },
     "ByteByteGo": {
@@ -374,64 +386,32 @@
       "entity_count": 8,
       "match_rate": 100.0,
       "top_frameworks": {
+        "llm": 2,
         "rag": 2,
         "express": 1,
-        "llm": 1,
         "embedding": 1
       },
       "top_companies": {}
     },
-    "Kubernetes Blog": {
+    "Cloudflare Blog": {
       "article_count": 8,
       "entity_count": 8,
-      "match_rate": 100.0,
-      "top_frameworks": {
-        "kubernetes": 8,
-        "api": 7,
-        "k8s": 6,
-        "rest": 2,
-        "express": 1
-      },
-      "top_companies": {
-        "slack": 7,
-        "line": 5
-      }
-    },
-    "Cloudflare Blog": {
-      "article_count": 7,
-      "entity_count": 7,
       "match_rate": 100.0,
       "top_frameworks": {
         "kafka": 1,
         "api": 1
       },
       "top_companies": {
-        "openai": 1,
-        "meta": 1
+        "meta": 2,
+        "openai": 1
       }
     },
-    "HashiCorp Blog": {
+    "Elastic Blog": {
       "article_count": 7,
-      "entity_count": 7,
-      "match_rate": 100.0,
-      "top_frameworks": {
-        "terraform": 2,
-        "azure": 1
-      },
-      "top_companies": {}
-    },
-    "카카오 기술블로그": {
-      "article_count": 6,
       "entity_count": 6,
-      "match_rate": 100.0,
-      "top_frameworks": {
-        "llm": 1
-      },
-      "top_companies": {
-        "kakao": 4,
-        "카카오": 4,
-        "라인": 1
-      }
+      "match_rate": 85.7,
+      "top_frameworks": {},
+      "top_companies": {}
     },
     "The Pragmatic Engineer": {
       "article_count": 5,
@@ -439,68 +419,79 @@
       "match_rate": 100.0,
       "top_frameworks": {},
       "top_companies": {
+        "openai": 1,
         "meta": 1
       }
     },
-    "Software Engineering Daily": {
+    "카카오 기술블로그": {
       "article_count": 5,
       "entity_count": 5,
       "match_rate": 100.0,
       "top_frameworks": {
-        "huggingface": 1,
-        "rag": 1,
-        "vector database": 1,
-        "api": 1
+        "llm": 1
       },
       "top_companies": {
-        "meta": 1,
-        "linkedin": 1,
-        "line": 1
+        "kakao": 4,
+        "카카오": 3,
+        "라인": 1
       }
     },
-    "Figma Blog": {
+    "HashiCorp Blog": {
       "article_count": 5,
-      "entity_count": 2,
-      "match_rate": 40.0,
-      "top_frameworks": {},
+      "entity_count": 5,
+      "match_rate": 100.0,
+      "top_frameworks": {
+        "azure": 1,
+        "terraform": 1
+      },
+      "top_companies": {}
+    },
+    "AWS Architecture Blog": {
+      "article_count": 4,
+      "entity_count": 4,
+      "match_rate": 100.0,
+      "top_frameworks": {
+        "aws": 4,
+        "terraform": 1
+      },
       "top_companies": {}
     }
   },
   "company_tech_stacks": {
     "line": {
-      "api": 20,
-      "kubernetes": 12,
-      "rest": 8,
-      "docker": 8,
-      "llm": 7
+      "api": 23,
+      "kubernetes": 11,
+      "docker": 9,
+      "claude": 6,
+      "rest": 6
     },
     "slack": {
-      "api": 16,
-      "kubernetes": 9,
-      "claude": 6,
+      "api": 14,
+      "kubernetes": 7,
       "k8s": 6,
-      "rest": 5
-    },
-    "google": {
-      "api": 11,
-      "claude": 9,
-      "gemini": 7,
-      "llm": 6,
-      "kubernetes": 4
+      "rest": 5,
+      "llm": 4
     },
     "openai": {
-      "gpt": 13,
-      "api": 11,
+      "gpt": 11,
+      "api": 10,
       "claude": 6,
-      "gemini": 3,
+      "rest": 3,
+      "rag": 3
+    },
+    "google": {
+      "api": 9,
+      "gemini": 8,
+      "claude": 4,
+      "aws": 3,
       "llm": 3
     },
     "anthropic": {
-      "claude": 14,
-      "api": 8,
-      "gpt": 4,
-      "express": 3,
-      "llm": 3
+      "claude": 9,
+      "api": 4,
+      "gpt": 3,
+      "gemini": 2,
+      "llm": 2
     },
     "linkedin": {
       "api": 5,
@@ -509,52 +500,26 @@
       "rest": 2,
       "docker": 2
     },
-    "stripe": {
-      "api": 6,
-      "llm": 3,
-      "claude": 2,
-      "express": 2,
-      "next.js": 1
-    },
     "meta": {
       "api": 4,
-      "react": 3,
-      "claude": 2,
+      "react": 2,
       "embedding": 2,
-      "gpt": 1
-    },
-    "twitter": {
-      "llm": 2,
-      "api": 2,
-      "flask": 1,
-      "aws": 1,
-      "react": 1
-    },
-    "shopify": {
-      "react": 1,
-      "express": 1,
       "huggingface": 1,
-      "llm": 1,
-      "rag": 1
+      "next.js": 1
     },
     "라인": {
+      "api": 3,
+      "postgresql": 1,
+      "mysql": 1,
+      "grpc": 1,
+      "grafana": 1
+    },
+    "stripe": {
       "api": 2,
       "claude": 1,
-      "react": 1,
-      "next.js": 1,
-      "embedding": 1
-    },
-    "naver": {
-      "react": 1,
-      "next.js": 1,
+      "express": 1,
       "llm": 1,
-      "kubernetes": 1
-    },
-    "네이버": {
-      "react": 1,
-      "next.js": 1,
-      "llm": 1,
-      "kubernetes": 1
+      "elasticsearch": 1
     },
     "netflix": {
       "aws": 1,
@@ -565,6 +530,22 @@
       "claude": 1,
       "api": 1,
       "embedding": 1
+    },
+    "무신사": {
+      "claude": 1,
+      "api": 1,
+      "embedding": 1
+    },
+    "naver": {
+      "react": 1,
+      "next.js": 1
+    },
+    "네이버": {
+      "react": 1,
+      "next.js": 1
+    },
+    "spotify": {
+      "claude": 1
     }
   }
 }
