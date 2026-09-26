@@ -1,12 +1,12 @@
 {
   "category": "techblog",
-  "generated_at": "2026-09-25T05:53:07.947064+00:00",
+  "generated_at": "2026-09-26T05:53:46.777003+00:00",
   "scope_note": "Blog and community mention volume is separated from operational adoption signals. Current repository/package/github/skill rows are article-level proxies until API-backed sources are activated.",
   "summary": {
     "total_sources": 78,
     "tracked_sources": 8,
-    "fresh_sources": 8,
-    "stale_sources": 0,
+    "fresh_sources": 7,
+    "stale_sources": 1,
     "missing_sources": 0,
     "missing_event_sources": 0,
     "unknown_event_date_sources": 0,
@@ -20,12 +20,12 @@
     "operational_adoption_event_count": 87,
     "authoritative_event_count": 87,
     "community_event_count": 0,
-    "repository_canonical_key_present_count": 14,
+    "repository_canonical_key_present_count": 13,
     "package_canonical_key_present_count": 0,
-    "technology_proxy_key_count": 73,
+    "technology_proxy_key_count": 74,
     "missing_canonical_key_count": 0,
-    "event_required_field_gap_count": 126,
-    "tracked_source_gap_count": 0,
+    "event_required_field_gap_count": 129,
+    "tracked_source_gap_count": 1,
     "source_backlog_candidate_count": 4,
     "missing_event_model_count": 3,
     "daily_review_item_count": 50
@@ -744,7 +744,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 1,
+      "article_count": 2,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -833,16 +833,20 @@
       "event_model": "repository_release",
       "freshness_sla_days": 14,
       "status": "fresh",
-      "article_count": 1,
-      "event_count": 1,
-      "latest_event_at": "2026-09-23T18:29:49+00:00",
-      "age_days": 1.47,
-      "latest_title": "Rendering huge pull requests in the GitHub Copilot app",
-      "latest_url": "https://github.blog/engineering/user-experience/rendering-huge-pull-requests-in-the-github-copilot-app",
+      "article_count": 2,
+      "event_count": 2,
+      "latest_event_at": "2026-09-25T15:00:00+00:00",
+      "age_days": 0.62,
+      "latest_title": "Improving site performance by shipping more CSS",
+      "latest_url": "https://github.blog/engineering/architecture-optimization/improving-site-performance-by-shipping-more-css",
       "latest_domain": [],
       "latest_language": [],
       "latest_framework": [],
-      "latest_topic": [],
+      "latest_topic": [
+        "performance",
+        "architecture",
+        "optimization"
+      ],
       "latest_source_signal": [
         "changelog",
         "developer_adoption",
@@ -879,11 +883,13 @@
       "status": "fresh",
       "article_count": 9,
       "event_count": 9,
-      "latest_event_at": "2026-09-24T15:00:00+00:00",
-      "age_days": 0.62,
-      "latest_title": "How Cloudflare addressed a cross-tenant data exposure vulnerability in Containers",
-      "latest_url": "https://blog.cloudflare.com/containers-cross-tenant-vulnerability",
+      "latest_event_at": "2026-09-25T13:00:00+00:00",
+      "age_days": 0.7,
+      "latest_title": "Agents can now set up your website’s security with Turnstile Spin",
+      "latest_url": "https://blog.cloudflare.com/turnstile-spin",
       "latest_domain": [
+        "backend",
+        "ai",
         "security"
       ],
       "latest_language": [],
@@ -919,7 +925,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 6,
+      "article_count": 5,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1059,7 +1065,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 2,
+      "article_count": 1,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1094,17 +1100,15 @@
       "status": "fresh",
       "article_count": 30,
       "event_count": 30,
-      "latest_event_at": "2026-09-24T07:00:00+00:00",
-      "age_days": 0.95,
-      "latest_title": "The Vercel Bug Bounty Program is now publicly available",
-      "latest_url": "https://vercel.com/blog/the-vercel-bug-bounty-program-is-now-publicly-available",
-      "latest_domain": [
-        "platform",
-        "ai",
-        "security"
-      ],
+      "latest_event_at": "2026-09-25T09:15:00+00:00",
+      "age_days": 0.86,
+      "latest_title": "Push images to Vercel Container Registry from GitHub Actions",
+      "latest_url": "https://vercel.com/changelog/vcr-login-github-action",
+      "latest_domain": [],
       "latest_language": [],
-      "latest_framework": [],
+      "latest_framework": [
+        "docker"
+      ],
       "latest_topic": [],
       "latest_source_signal": [
         "framework_adoption",
@@ -1353,11 +1357,11 @@
       "tracked": true,
       "event_model": "repository_release",
       "freshness_sla_days": 3,
-      "status": "fresh",
-      "article_count": 7,
-      "event_count": 7,
+      "status": "stale",
+      "article_count": 6,
+      "event_count": 6,
       "latest_event_at": "2026-09-22T18:00:00+00:00",
-      "age_days": 2.5,
+      "age_days": 3.5,
       "latest_title": "Spotlight on SIG Apps",
       "latest_url": "https://kubernetes.io/blog/2026/09/22/sig-apps-spotlight",
       "latest_domain": [
@@ -1448,7 +1452,7 @@
       "article_count": 2,
       "event_count": 2,
       "latest_event_at": "2026-09-24T00:00:00+00:00",
-      "age_days": 1.25,
+      "age_days": 2.25,
       "latest_title": "Platform-independent SIMD in Go",
       "latest_url": "https://go.dev/blog/simd-experiment",
       "latest_domain": [
@@ -1496,7 +1500,7 @@
       "article_count": 3,
       "event_count": 3,
       "latest_event_at": "2026-09-22T00:00:00+00:00",
-      "age_days": 3.25,
+      "age_days": 4.25,
       "latest_title": "Announcing a Maintainer in Residence: Scott Schafer for the Cargo team",
       "latest_url": "https://blog.rust-lang.org/2026/09/22/announcing-a-maintainer-in-residence-scott-schafer-for-the-cargo-team",
       "latest_domain": [],
@@ -1536,7 +1540,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 9,
+      "article_count": 8,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1592,7 +1596,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 10,
+      "article_count": 9,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1620,7 +1624,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 11,
+      "article_count": 14,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1676,7 +1680,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 14,
+      "article_count": 15,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1851,15 +1855,15 @@
       "status": "fresh",
       "article_count": 30,
       "event_count": 30,
-      "latest_event_at": "2026-09-23T16:00:00+00:00",
-      "age_days": 1.58,
-      "latest_title": "Two years of OpenAI Academy",
-      "latest_url": "https://openai.com/index/two-years-of-openai-academy",
-      "latest_domain": [
-        "ai"
-      ],
+      "latest_event_at": "2026-09-25T19:00:00+00:00",
+      "age_days": 0.45,
+      "latest_title": "Proaction boosts sales 60% and saves 75+ hours with Codex",
+      "latest_url": "https://openai.com/index/proaction",
+      "latest_domain": [],
       "latest_language": [],
-      "latest_framework": [],
+      "latest_framework": [
+        "gpt"
+      ],
       "latest_topic": [],
       "latest_source_signal": [
         "api_update",
@@ -1947,7 +1951,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 0,
+      "article_count": 1,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1975,7 +1979,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 11,
+      "article_count": 7,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -2003,7 +2007,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 11,
+      "article_count": 8,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -2031,7 +2035,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 1,
+      "article_count": 3,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -2430,6 +2434,363 @@
       "required_field_gaps": [
         "repository",
         "release_tag"
+      ]
+    },
+    {
+      "source": "OpenAI News",
+      "source_type": "rss",
+      "trust_tier": "T1_authoritative",
+      "producer_role": "model_platform",
+      "event_model": "repository_release",
+      "title": "Proaction boosts sales 60% and saves 75+ hours with Codex",
+      "url": "https://openai.com/index/proaction",
+      "source_url": "https://openai.com/index/proaction",
+      "event_at": "2026-09-25T19:00:00+00:00",
+      "event_key": "repository_release:openai-news:d2d497e5eee4:2026-09-25",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "openai",
+      "ecosystem": "ai",
+      "domain": [],
+      "language": [],
+      "framework": [
+        "gpt"
+      ],
+      "topic": [],
+      "source_signal": [
+        "api_update",
+        "authoritative_tech_source",
+        "developer_adoption",
+        "model_platform",
+        "model_release",
+        "release",
+        "repository_release",
+        "rollout"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:ai:openai",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "GitHub Blog Engineering",
+      "source_type": "rss",
+      "trust_tier": "T1_authoritative",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
+      "title": "Improving site performance by shipping more CSS",
+      "url": "https://github.blog/engineering/architecture-optimization/improving-site-performance-by-shipping-more-css",
+      "source_url": "https://github.blog/engineering/architecture-optimization/improving-site-performance-by-shipping-more-css",
+      "event_at": "2026-09-25T15:00:00+00:00",
+      "event_key": "repository_release:github-blog-engineering:651aa80e0d5f:2026-09-25",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "github",
+      "ecosystem": "vendor-platform",
+      "domain": [],
+      "language": [],
+      "framework": [],
+      "topic": [
+        "performance",
+        "architecture",
+        "optimization"
+      ],
+      "source_signal": [
+        "changelog",
+        "developer_adoption",
+        "engineering_blog",
+        "platform_update",
+        "release",
+        "repository_release",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:vendor-platform:github",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "Cloudflare Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
+      "title": "Agents can now set up your website’s security with Turnstile Spin",
+      "url": "https://blog.cloudflare.com/turnstile-spin",
+      "source_url": "https://blog.cloudflare.com/turnstile-spin",
+      "event_at": "2026-09-25T13:00:00+00:00",
+      "event_key": "repository_release:cloudflare-blog:b3c4883870e4:2026-09-25",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "cloudflare",
+      "ecosystem": "cloud",
+      "domain": [
+        "backend",
+        "ai",
+        "security"
+      ],
+      "language": [],
+      "framework": [],
+      "topic": [],
+      "source_signal": [
+        "authoritative_tech_source",
+        "deprecation",
+        "migration",
+        "platform_update",
+        "product_update",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:cloud:cloudflare",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "Vercel Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
+      "title": "Push images to Vercel Container Registry from GitHub Actions",
+      "url": "https://vercel.com/changelog/vcr-login-github-action",
+      "source_url": "https://vercel.com/changelog/vcr-login-github-action",
+      "event_at": "2026-09-25T09:15:00+00:00",
+      "event_key": "repository_release:vercel-blog:475c6f6c38fe:2026-09-25",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "vercel",
+      "ecosystem": "javascript",
+      "domain": [],
+      "language": [],
+      "framework": [
+        "docker"
+      ],
+      "topic": [],
+      "source_signal": [
+        "framework_adoption",
+        "migration",
+        "product_update",
+        "release",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:javascript:vercel",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "Vercel Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
+      "title": "State of agent skills",
+      "url": "https://vercel.com/blog/state-of-agent-skills",
+      "source_url": "https://vercel.com/blog/state-of-agent-skills",
+      "event_at": "2026-09-25T06:00:00+00:00",
+      "event_key": "repository_release:vercel-blog:9891eeb90b48:2026-09-25",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "14.8",
+      "package_name": "took",
+      "registry": "npm",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "took",
+      "ecosystem": "npm",
+      "domain": [
+        "infrastructure",
+        "ai",
+        "security"
+      ],
+      "language": [
+        "go"
+      ],
+      "framework": [],
+      "topic": [
+        "automation"
+      ],
+      "source_signal": [
+        "framework_adoption",
+        "migration",
+        "product_update",
+        "release",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:npm:took",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository"
+      ]
+    },
+    {
+      "source": "Vercel Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
+      "title": "Vercel Sandbox now supports memory observability",
+      "url": "https://vercel.com/changelog/vercel-sandbox-now-supports-memory-observability",
+      "source_url": "https://vercel.com/changelog/vercel-sandbox-now-supports-memory-observability",
+      "event_at": "2026-09-25T00:00:00+00:00",
+      "event_key": "repository_release:vercel-blog:4b18a154dd49:2026-09-25",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "vercel",
+      "ecosystem": "javascript",
+      "domain": [],
+      "language": [],
+      "framework": [],
+      "topic": [
+        "observability"
+      ],
+      "source_signal": [
+        "framework_adoption",
+        "migration",
+        "product_update",
+        "release",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:javascript:vercel",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "Vercel Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
+      "title": "Pixel Canary is now available in stealth for free on AI Gateway",
+      "url": "https://vercel.com/changelog/pixel-canary-is-now-available-in-stealth-for-free-on-ai-gateway",
+      "source_url": "https://vercel.com/changelog/pixel-canary-is-now-available-in-stealth-for-free-on-ai-gateway",
+      "event_at": "2026-09-25T00:00:00+00:00",
+      "event_key": "repository_release:vercel-blog:759cd6098a6c:2026-09-25",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "90.3",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "vercel",
+      "ecosystem": "javascript",
+      "domain": [
+        "frontend",
+        "ai",
+        "mobile"
+      ],
+      "language": [],
+      "framework": [
+        "next.js",
+        "gpt",
+        "api"
+      ],
+      "topic": [
+        "observability",
+        "refactoring",
+        "caching",
+        "optimization"
+      ],
+      "source_signal": [
+        "framework_adoption",
+        "migration",
+        "product_update",
+        "release",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:javascript:vercel",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository"
       ]
     },
     {
@@ -2888,6 +3249,55 @@
       "trust_tier": "T1_authoritative",
       "producer_role": "model_platform",
       "event_model": "repository_release",
+      "title": "Harvey turns legal context into stronger drafts with GPT-6 Astra",
+      "url": "https://openai.com/index/harvey-from-context-to-confidence-with-astra",
+      "source_url": "https://openai.com/index/harvey-from-context-to-confidence-with-astra",
+      "event_at": "2026-09-23T12:00:00+00:00",
+      "event_key": "repository_release:openai-news:f7558dc5c9de:2026-09-23",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "openai",
+      "ecosystem": "ai",
+      "domain": [],
+      "language": [],
+      "framework": [
+        "gpt"
+      ],
+      "topic": [],
+      "source_signal": [
+        "api_update",
+        "authoritative_tech_source",
+        "developer_adoption",
+        "model_platform",
+        "model_release",
+        "release",
+        "repository_release",
+        "rollout"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:ai:openai",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "OpenAI News",
+      "source_type": "rss",
+      "trust_tier": "T1_authoritative",
+      "producer_role": "model_platform",
+      "event_model": "repository_release",
       "title": "How invideo improves color grading 3x with GPT‑6 Astra",
       "url": "https://openai.com/index/invideo-builds-with-gpt-6-astra",
       "source_url": "https://openai.com/index/invideo-builds-with-gpt-6-astra",
@@ -2912,6 +3322,56 @@
       "framework": [
         "gpt"
       ],
+      "topic": [],
+      "source_signal": [
+        "api_update",
+        "authoritative_tech_source",
+        "developer_adoption",
+        "model_platform",
+        "model_release",
+        "release",
+        "repository_release",
+        "rollout"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:ai:openai",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "OpenAI News",
+      "source_type": "rss",
+      "trust_tier": "T1_authoritative",
+      "producer_role": "model_platform",
+      "event_model": "repository_release",
+      "title": "Sam Altman’s remarks at the United Nations Security Council",
+      "url": "https://openai.com/index/sam-altman-un-security-council-remarks",
+      "source_url": "https://openai.com/index/sam-altman-un-security-council-remarks",
+      "event_at": "2026-09-23T12:00:00+00:00",
+      "event_key": "repository_release:openai-news:01d4e543c941:2026-09-23",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "openai",
+      "ecosystem": "ai",
+      "domain": [
+        "ai",
+        "security"
+      ],
+      "language": [],
+      "framework": [],
       "topic": [],
       "source_signal": [
         "api_update",
@@ -2979,105 +3439,6 @@
       "canonical_key_status": "technology_proxy",
       "required_field_gaps": [
         "repository"
-      ]
-    },
-    {
-      "source": "OpenAI News",
-      "source_type": "rss",
-      "trust_tier": "T1_authoritative",
-      "producer_role": "model_platform",
-      "event_model": "repository_release",
-      "title": "Sam Altman’s remarks at the United Nations Security Council",
-      "url": "https://openai.com/index/sam-altman-un-security-council-remarks",
-      "source_url": "https://openai.com/index/sam-altman-un-security-council-remarks",
-      "event_at": "2026-09-23T12:00:00+00:00",
-      "event_key": "repository_release:openai-news:01d4e543c941:2026-09-23",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "openai",
-      "ecosystem": "ai",
-      "domain": [
-        "ai",
-        "security"
-      ],
-      "language": [],
-      "framework": [],
-      "topic": [],
-      "source_signal": [
-        "api_update",
-        "authoritative_tech_source",
-        "developer_adoption",
-        "model_platform",
-        "model_release",
-        "release",
-        "repository_release",
-        "rollout"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:ai:openai",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "OpenAI News",
-      "source_type": "rss",
-      "trust_tier": "T1_authoritative",
-      "producer_role": "model_platform",
-      "event_model": "repository_release",
-      "title": "Harvey turns legal context into stronger drafts with GPT-6 Astra",
-      "url": "https://openai.com/index/harvey-from-context-to-confidence-with-astra",
-      "source_url": "https://openai.com/index/harvey-from-context-to-confidence-with-astra",
-      "event_at": "2026-09-23T12:00:00+00:00",
-      "event_key": "repository_release:openai-news:f7558dc5c9de:2026-09-23",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "openai",
-      "ecosystem": "ai",
-      "domain": [],
-      "language": [],
-      "framework": [
-        "gpt"
-      ],
-      "topic": [],
-      "source_signal": [
-        "api_update",
-        "authoritative_tech_source",
-        "developer_adoption",
-        "model_platform",
-        "model_release",
-        "release",
-        "repository_release",
-        "rollout"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:ai:openai",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
       ]
     },
     {
@@ -3472,6 +3833,55 @@
       ]
     },
     {
+      "source": "OpenAI News",
+      "source_type": "rss",
+      "trust_tier": "T1_authoritative",
+      "producer_role": "model_platform",
+      "event_model": "repository_release",
+      "title": "Introducing GPT-6 Sol and Luna",
+      "url": "https://openai.com/index/introducing-gpt-6-sol-and-luna",
+      "source_url": "https://openai.com/index/introducing-gpt-6-sol-and-luna",
+      "event_at": "2026-09-22T18:00:00+00:00",
+      "event_key": "repository_release:openai-news:3d48e529ad7a:2026-09-22",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "openai",
+      "ecosystem": "ai",
+      "domain": [],
+      "language": [],
+      "framework": [
+        "gpt"
+      ],
+      "topic": [],
+      "source_signal": [
+        "api_update",
+        "authoritative_tech_source",
+        "developer_adoption",
+        "model_platform",
+        "model_release",
+        "release",
+        "repository_release",
+        "rollout"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:ai:openai",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
       "source": "Kubernetes Blog",
       "source_type": "rss",
       "trust_tier": "T1_authoritative",
@@ -3535,55 +3945,6 @@
       "canonical_key": "repository:github.com:kubernetes-sigs:agent-sandbox",
       "canonical_key_status": "complete",
       "required_field_gaps": []
-    },
-    {
-      "source": "OpenAI News",
-      "source_type": "rss",
-      "trust_tier": "T1_authoritative",
-      "producer_role": "model_platform",
-      "event_model": "repository_release",
-      "title": "Introducing GPT-6 Sol and Luna",
-      "url": "https://openai.com/index/introducing-gpt-6-sol-and-luna",
-      "source_url": "https://openai.com/index/introducing-gpt-6-sol-and-luna",
-      "event_at": "2026-09-22T18:00:00+00:00",
-      "event_key": "repository_release:openai-news:3d48e529ad7a:2026-09-22",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "openai",
-      "ecosystem": "ai",
-      "domain": [],
-      "language": [],
-      "framework": [
-        "gpt"
-      ],
-      "topic": [],
-      "source_signal": [
-        "api_update",
-        "authoritative_tech_source",
-        "developer_adoption",
-        "model_platform",
-        "model_release",
-        "release",
-        "repository_release",
-        "rollout"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:ai:openai",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
     },
     {
       "source": "Cloudflare Blog",
@@ -3731,55 +4092,6 @@
       ]
     },
     {
-      "source": "OpenAI News",
-      "source_type": "rss",
-      "trust_tier": "T1_authoritative",
-      "producer_role": "model_platform",
-      "event_model": "repository_release",
-      "title": "Priorities and principles for effective third party assessments",
-      "url": "https://openai.com/index/priorities-principles-third-party-assessments",
-      "source_url": "https://openai.com/index/priorities-principles-third-party-assessments",
-      "event_at": "2026-09-22T00:00:00+00:00",
-      "event_key": "repository_release:openai-news:b4fb82cc1313:2026-09-22",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "openai",
-      "ecosystem": "ai",
-      "domain": [
-        "ai"
-      ],
-      "language": [],
-      "framework": [],
-      "topic": [],
-      "source_signal": [
-        "api_update",
-        "authoritative_tech_source",
-        "developer_adoption",
-        "model_platform",
-        "model_release",
-        "release",
-        "repository_release",
-        "rollout"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:ai:openai",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
       "source": "Rust Blog",
       "source_type": "rss",
       "trust_tier": "T1_authoritative",
@@ -3828,6 +4140,55 @@
       "canonical_key": "repository:github.com:sponsors:rustfoundation",
       "canonical_key_status": "complete",
       "required_field_gaps": []
+    },
+    {
+      "source": "OpenAI News",
+      "source_type": "rss",
+      "trust_tier": "T1_authoritative",
+      "producer_role": "model_platform",
+      "event_model": "repository_release",
+      "title": "Priorities and principles for effective third party assessments",
+      "url": "https://openai.com/index/priorities-principles-third-party-assessments",
+      "source_url": "https://openai.com/index/priorities-principles-third-party-assessments",
+      "event_at": "2026-09-22T00:00:00+00:00",
+      "event_key": "repository_release:openai-news:b4fb82cc1313:2026-09-22",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "openai",
+      "ecosystem": "ai",
+      "domain": [
+        "ai"
+      ],
+      "language": [],
+      "framework": [],
+      "topic": [],
+      "source_signal": [
+        "api_update",
+        "authoritative_tech_source",
+        "developer_adoption",
+        "model_platform",
+        "model_release",
+        "release",
+        "repository_release",
+        "rollout"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:ai:openai",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
     },
     {
       "source": "Vercel Blog",
@@ -4142,56 +4503,6 @@
       "trust_tier": "T1_authoritative",
       "producer_role": "model_platform",
       "event_model": "repository_release",
-      "title": "Advisory Group on Mathematics and Artificial Intelligence",
-      "url": "https://openai.com/index/advisory-group-on-mathematics-and-ai",
-      "source_url": "https://openai.com/index/advisory-group-on-mathematics-and-ai",
-      "event_at": "2026-09-21T12:00:00+00:00",
-      "event_key": "repository_release:openai-news:a7ca59844a94:2026-09-21",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "openai",
-      "ecosystem": "ai",
-      "domain": [
-        "artificial intelligence",
-        "ai"
-      ],
-      "language": [],
-      "framework": [],
-      "topic": [],
-      "source_signal": [
-        "api_update",
-        "authoritative_tech_source",
-        "developer_adoption",
-        "model_platform",
-        "model_release",
-        "release",
-        "repository_release",
-        "rollout"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:ai:openai",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "OpenAI News",
-      "source_type": "rss",
-      "trust_tier": "T1_authoritative",
-      "producer_role": "model_platform",
-      "event_model": "repository_release",
       "title": "Higgsfield AI ships new video features in a day with GPT-6 Astra",
       "url": "https://openai.com/index/higgsfield-from-prompt-to-production-with-astra",
       "source_url": "https://openai.com/index/higgsfield-from-prompt-to-production-with-astra",
@@ -4218,6 +4529,56 @@
       "framework": [
         "gpt"
       ],
+      "topic": [],
+      "source_signal": [
+        "api_update",
+        "authoritative_tech_source",
+        "developer_adoption",
+        "model_platform",
+        "model_release",
+        "release",
+        "repository_release",
+        "rollout"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:ai:openai",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "OpenAI News",
+      "source_type": "rss",
+      "trust_tier": "T1_authoritative",
+      "producer_role": "model_platform",
+      "event_model": "repository_release",
+      "title": "Advisory Group on Mathematics and Artificial Intelligence",
+      "url": "https://openai.com/index/advisory-group-on-mathematics-and-ai",
+      "source_url": "https://openai.com/index/advisory-group-on-mathematics-and-ai",
+      "event_at": "2026-09-21T12:00:00+00:00",
+      "event_key": "repository_release:openai-news:a7ca59844a94:2026-09-21",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "openai",
+      "ecosystem": "ai",
+      "domain": [
+        "artificial intelligence",
+        "ai"
+      ],
+      "language": [],
+      "framework": [],
       "topic": [],
       "source_signal": [
         "api_update",
@@ -4388,6 +4749,54 @@
       ]
     },
     {
+      "source": "OpenAI News",
+      "source_type": "rss",
+      "trust_tier": "T1_authoritative",
+      "producer_role": "model_platform",
+      "event_model": "repository_release",
+      "title": "V7 cuts costs 78% while boosting accuracy with GPT-5.6 Luna",
+      "url": "https://openai.com/index/v7",
+      "source_url": "https://openai.com/index/v7",
+      "event_at": "2026-09-21T00:00:00+00:00",
+      "event_key": "repository_release:openai-news:d1749ba76a98:2026-09-21",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "5.6",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "openai",
+      "ecosystem": "ai",
+      "domain": [],
+      "language": [],
+      "framework": [
+        "gpt"
+      ],
+      "topic": [],
+      "source_signal": [
+        "api_update",
+        "authoritative_tech_source",
+        "developer_adoption",
+        "model_platform",
+        "model_release",
+        "release",
+        "repository_release",
+        "rollout"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:ai:openai",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository"
+      ]
+    },
+    {
       "source": "Vercel Blog",
       "source_type": "rss",
       "trust_tier": "T2_institutional",
@@ -4436,108 +4845,6 @@
       ],
       "signal_basis": "source_context_signal",
       "canonical_key": "technology:javascript:vercel",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository"
-      ]
-    },
-    {
-      "source": "Vercel Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
-      "title": "MiMo V2.6 models now available on AI Gateway",
-      "url": "https://vercel.com/changelog/mimo-v2-6-models-now-available-on-ai-gateway",
-      "source_url": "https://vercel.com/changelog/mimo-v2-6-models-now-available-on-ai-gateway",
-      "event_at": "2026-09-21T00:00:00+00:00",
-      "event_key": "repository_release:vercel-blog:314b8607094a:2026-09-21",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "v2.6-pro",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "vercel",
-      "ecosystem": "javascript",
-      "domain": [
-        "ai"
-      ],
-      "language": [],
-      "framework": [
-        "api"
-      ],
-      "topic": [
-        "performance",
-        "automation"
-      ],
-      "source_signal": [
-        "framework_adoption",
-        "migration",
-        "product_update",
-        "release",
-        "repository_release",
-        "rollout",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:javascript:vercel",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository"
-      ]
-    },
-    {
-      "source": "OpenAI News",
-      "source_type": "rss",
-      "trust_tier": "T1_authoritative",
-      "producer_role": "model_platform",
-      "event_model": "repository_release",
-      "title": "How V7 gives AI agents institutional memory",
-      "url": "https://openai.com/index/v7",
-      "source_url": "https://openai.com/index/v7",
-      "event_at": "2026-09-21T00:00:00+00:00",
-      "event_key": "repository_release:openai-news:d1749ba76a98:2026-09-21",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "5.6",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "openai",
-      "ecosystem": "ai",
-      "domain": [
-        "ai"
-      ],
-      "language": [],
-      "framework": [
-        "gpt"
-      ],
-      "topic": [],
-      "source_signal": [
-        "api_update",
-        "authoritative_tech_source",
-        "developer_adoption",
-        "model_platform",
-        "model_release",
-        "release",
-        "repository_release",
-        "rollout"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:ai:openai",
       "canonical_key_status": "technology_proxy",
       "required_field_gaps": [
         "repository"
@@ -4603,253 +4910,16 @@
       "trust_tier": "T2_institutional",
       "producer_role": "vendor_platform",
       "event_model": "repository_release",
-      "title": "Spend Management expands to Enterprise Flexible Commitment plans",
-      "url": "https://vercel.com/changelog/spend-management-enterprise-flex",
-      "source_url": "https://vercel.com/changelog/spend-management-enterprise-flex",
-      "event_at": "2026-09-18T20:00:00+00:00",
-      "event_key": "repository_release:vercel-blog:2c23f7d128f5:2026-09-18",
+      "title": "MiMo V2.6 models now available on AI Gateway",
+      "url": "https://vercel.com/changelog/mimo-v2-6-models-now-available-on-ai-gateway",
+      "source_url": "https://vercel.com/changelog/mimo-v2-6-models-now-available-on-ai-gateway",
+      "event_at": "2026-09-21T00:00:00+00:00",
+      "event_key": "repository_release:vercel-blog:314b8607094a:2026-09-21",
       "repository": "",
       "repository_host": "",
       "repository_owner": "",
       "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "vercel",
-      "ecosystem": "javascript",
-      "domain": [
-        "ai"
-      ],
-      "language": [
-        "go"
-      ],
-      "framework": [],
-      "topic": [],
-      "source_signal": [
-        "framework_adoption",
-        "migration",
-        "product_update",
-        "release",
-        "repository_release",
-        "rollout",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:javascript:vercel",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "Vercel Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
-      "title": "WebMCP support now available in mcp-handler",
-      "url": "https://vercel.com/changelog/webmcp-mcp-handler",
-      "source_url": "https://vercel.com/changelog/webmcp-mcp-handler",
-      "event_at": "2026-09-18T18:00:00+00:00",
-      "event_key": "repository_release:vercel-blog:32ae7a203db6:2026-09-18",
-      "repository": "github.com/webmachinelearning/webmcp",
-      "repository_host": "github.com",
-      "repository_owner": "webmachinelearning",
-      "repository_name": "webmcp",
-      "release_tag": "2.2.0",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "vercel",
-      "ecosystem": "javascript",
-      "domain": [],
-      "language": [],
-      "framework": [],
-      "topic": [],
-      "source_signal": [
-        "framework_adoption",
-        "migration",
-        "product_update",
-        "release",
-        "repository_release",
-        "rollout",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "repository:github.com:webmachinelearning:webmcp",
-      "canonical_key_status": "complete",
-      "required_field_gaps": []
-    },
-    {
-      "source": "Cloudflare Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
-      "title": "Saving another 100TB of RAM with math (and Rust)",
-      "url": "https://blog.cloudflare.com/saving-100-tb-of-ram-with-math",
-      "source_url": "https://blog.cloudflare.com/saving-100-tb-of-ram-with-math",
-      "event_at": "2026-09-18T17:23:58+00:00",
-      "event_key": "repository_release:cloudflare-blog:8b3759fdb1e4:2026-09-18",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "cloudflare",
-      "ecosystem": "cloud",
-      "domain": [],
-      "language": [
-        "rust"
-      ],
-      "framework": [],
-      "topic": [],
-      "source_signal": [
-        "authoritative_tech_source",
-        "deprecation",
-        "migration",
-        "platform_update",
-        "product_update",
-        "repository_release",
-        "rollout",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:cloud:cloudflare",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "Vercel Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
-      "title": "v0 now reads npm credentials from shared environment variables",
-      "url": "https://vercel.com/changelog/v0-now-reads-npm-credentials-from-shared-environment-variables",
-      "source_url": "https://vercel.com/changelog/v0-now-reads-npm-credentials-from-shared-environment-variables",
-      "event_at": "2026-09-18T17:00:00+00:00",
-      "event_key": "repository_release:vercel-blog:dde4a4801d14:2026-09-18",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "credentials",
-      "registry": "npm",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "credentials",
-      "ecosystem": "npm",
-      "domain": [],
-      "language": [],
-      "framework": [],
-      "topic": [],
-      "source_signal": [
-        "framework_adoption",
-        "migration",
-        "product_update",
-        "release",
-        "repository_release",
-        "rollout",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:npm:credentials",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "OpenAI News",
-      "source_type": "rss",
-      "trust_tier": "T1_authoritative",
-      "producer_role": "model_platform",
-      "event_model": "repository_release",
-      "title": "Introducing the Australian Youth Safety Blueprint",
-      "url": "https://openai.com/index/australian-youth-safety-blueprint",
-      "source_url": "https://openai.com/index/australian-youth-safety-blueprint",
-      "event_at": "2026-09-18T12:00:00+00:00",
-      "event_key": "repository_release:openai-news:559b0cf11197:2026-09-18",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "openai",
-      "ecosystem": "ai",
-      "domain": [
-        "ai"
-      ],
-      "language": [],
-      "framework": [],
-      "topic": [],
-      "source_signal": [
-        "api_update",
-        "authoritative_tech_source",
-        "developer_adoption",
-        "model_platform",
-        "model_release",
-        "release",
-        "repository_release",
-        "rollout"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:ai:openai",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "Vercel Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
-      "title": "Jev is the fastest-adopted model in AI Gateway history",
-      "url": "https://vercel.com/blog/ai-gateway-jev-model-launch",
-      "source_url": "https://vercel.com/blog/ai-gateway-jev-model-launch",
-      "event_at": "2026-09-18T07:00:00+00:00",
-      "event_key": "repository_release:vercel-blog:a6bb14f964f7:2026-09-18",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "5.6",
+      "release_tag": "v2.6-pro",
       "package_name": "",
       "registry": "",
       "download_count": null,
@@ -4864,10 +4934,12 @@
       ],
       "language": [],
       "framework": [
-        "gpt",
-        "rest"
+        "api"
       ],
-      "topic": [],
+      "topic": [
+        "performance",
+        "automation"
+      ],
       "source_signal": [
         "framework_adoption",
         "migration",
@@ -5036,16 +5108,16 @@
       "trust_tier": "T2_institutional",
       "producer_role": "vendor_platform",
       "event_model": "repository_release",
-      "title": "TypeSafe AI's Jev now available on AI Gateway",
-      "url": "https://vercel.com/changelog/typesafe-ai-jev-now-available-on-ai-gateway",
-      "source_url": "https://vercel.com/changelog/typesafe-ai-jev-now-available-on-ai-gateway",
-      "event_at": "2026-09-16T00:00:00+00:00",
-      "event_key": "repository_release:vercel-blog:19c86f9f82f7:2026-09-16",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "7.0.105",
+      "title": "WebMCP support now available in mcp-handler",
+      "url": "https://vercel.com/changelog/webmcp-mcp-handler",
+      "source_url": "https://vercel.com/changelog/webmcp-mcp-handler",
+      "event_at": "2026-09-18T18:00:00+00:00",
+      "event_key": "repository_release:vercel-blog:32ae7a203db6:2026-09-18",
+      "repository": "github.com/webmachinelearning/webmcp",
+      "repository_host": "github.com",
+      "repository_owner": "webmachinelearning",
+      "repository_name": "webmcp",
+      "release_tag": "2.2.0",
       "package_name": "",
       "registry": "",
       "download_count": null,
@@ -5055,17 +5127,10 @@
       "employer": "",
       "technology": "vercel",
       "ecosystem": "javascript",
-      "domain": [
-        "ai",
-        "security"
-      ],
+      "domain": [],
       "language": [],
-      "framework": [
-        "api"
-      ],
-      "topic": [
-        "observability"
-      ],
+      "framework": [],
+      "topic": [],
       "source_signal": [
         "framework_adoption",
         "migration",
@@ -5076,10 +5141,54 @@
         "vendor_platform"
       ],
       "signal_basis": "source_context_signal",
-      "canonical_key": "technology:javascript:vercel",
+      "canonical_key": "repository:github.com:webmachinelearning:webmcp",
+      "canonical_key_status": "complete",
+      "required_field_gaps": []
+    },
+    {
+      "source": "Vercel Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
+      "title": "v0 now reads npm credentials from shared environment variables",
+      "url": "https://vercel.com/changelog/v0-now-reads-npm-credentials-from-shared-environment-variables",
+      "source_url": "https://vercel.com/changelog/v0-now-reads-npm-credentials-from-shared-environment-variables",
+      "event_at": "2026-09-18T17:00:00+00:00",
+      "event_key": "repository_release:vercel-blog:dde4a4801d14:2026-09-18",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "credentials",
+      "registry": "npm",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "credentials",
+      "ecosystem": "npm",
+      "domain": [],
+      "language": [],
+      "framework": [],
+      "topic": [],
+      "source_signal": [
+        "framework_adoption",
+        "migration",
+        "product_update",
+        "release",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:npm:credentials",
       "canonical_key_status": "technology_proxy",
       "required_field_gaps": [
-        "repository"
+        "repository",
+        "release_tag"
       ]
     },
     {
@@ -5181,6 +5290,56 @@
       "trust_tier": "T2_institutional",
       "producer_role": "vendor_platform",
       "event_model": "repository_release",
+      "title": "Spend Management expands to Enterprise Flexible Commitment plans",
+      "url": "https://vercel.com/changelog/spend-management-enterprise-flex",
+      "source_url": "https://vercel.com/changelog/spend-management-enterprise-flex",
+      "event_at": "2026-09-18T20:00:00+00:00",
+      "event_key": "repository_release:vercel-blog:2c23f7d128f5:2026-09-18",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "vercel",
+      "ecosystem": "javascript",
+      "domain": [
+        "ai"
+      ],
+      "language": [
+        "go"
+      ],
+      "framework": [],
+      "topic": [],
+      "source_signal": [
+        "framework_adoption",
+        "migration",
+        "product_update",
+        "release",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:javascript:vercel",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "Vercel Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
       "title": "The skills CLI now supports Notion hosted skills",
       "url": "https://vercel.com/changelog/skills-cli-notion-skills",
       "source_url": "https://vercel.com/changelog/skills-cli-notion-skills",
@@ -5205,53 +5364,6 @@
       "framework": [
         "api"
       ],
-      "topic": [],
-      "source_signal": [
-        "framework_adoption",
-        "migration",
-        "product_update",
-        "release",
-        "repository_release",
-        "rollout",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:javascript:vercel",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository"
-      ]
-    },
-    {
-      "source": "Vercel Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
-      "title": "Secure Compute and Static IP builds start 64% faster",
-      "url": "https://vercel.com/changelog/secure-compute-and-static-ip-builds-start-64-faster",
-      "source_url": "https://vercel.com/changelog/secure-compute-and-static-ip-builds-start-64-faster",
-      "event_at": "2026-09-16T17:00:00+00:00",
-      "event_key": "repository_release:vercel-blog:ce7dce4b4859:2026-09-16",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "6.7",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "vercel",
-      "ecosystem": "javascript",
-      "domain": [
-        "security"
-      ],
-      "language": [],
-      "framework": [],
       "topic": [],
       "source_signal": [
         "framework_adoption",
@@ -5301,101 +5413,6 @@
       "framework": [
         "gpt"
       ],
-      "topic": [],
-      "source_signal": [
-        "framework_adoption",
-        "migration",
-        "product_update",
-        "release",
-        "repository_release",
-        "rollout",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:javascript:vercel",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository"
-      ]
-    },
-    {
-      "source": "Vercel Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
-      "title": "Mem0 joins the Vercel Marketplace",
-      "url": "https://vercel.com/changelog/mem0-joins-the-vercel-marketplace",
-      "source_url": "https://vercel.com/changelog/mem0-joins-the-vercel-marketplace",
-      "event_at": "2026-09-16T17:00:00+00:00",
-      "event_key": "repository_release:vercel-blog:2f9440b32dcd:2026-09-16",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "vercel",
-      "ecosystem": "javascript",
-      "domain": [
-        "ai"
-      ],
-      "language": [],
-      "framework": [
-        "api"
-      ],
-      "topic": [],
-      "source_signal": [
-        "framework_adoption",
-        "migration",
-        "product_update",
-        "release",
-        "repository_release",
-        "rollout",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:javascript:vercel",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "Vercel Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
-      "title": "Hobby projects now retain fewer deployments to free up storage",
-      "url": "https://vercel.com/changelog/hobby-projects-now-retain-fewer-deployments-to-free-up-storage",
-      "source_url": "https://vercel.com/changelog/hobby-projects-now-retain-fewer-deployments-to-free-up-storage",
-      "event_at": "2026-09-16T18:00:00+00:00",
-      "event_key": "repository_release:vercel-blog:b795b01650fe:2026-09-16",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "0.10",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "vercel",
-      "ecosystem": "javascript",
-      "domain": [],
-      "language": [],
-      "framework": [],
       "topic": [],
       "source_signal": [
         "framework_adoption",
@@ -5673,6 +5690,56 @@
       ]
     },
     {
+      "source": "Vercel Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
+      "title": "Jev is the fastest-adopted model in AI Gateway history",
+      "url": "https://vercel.com/blog/ai-gateway-jev-model-launch",
+      "source_url": "https://vercel.com/blog/ai-gateway-jev-model-launch",
+      "event_at": "2026-09-18T07:00:00+00:00",
+      "event_key": "repository_release:vercel-blog:a6bb14f964f7:2026-09-18",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "5.6",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "vercel",
+      "ecosystem": "javascript",
+      "domain": [
+        "ai"
+      ],
+      "language": [],
+      "framework": [
+        "gpt",
+        "rest"
+      ],
+      "topic": [],
+      "source_signal": [
+        "framework_adoption",
+        "migration",
+        "product_update",
+        "release",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:javascript:vercel",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository"
+      ]
+    },
+    {
       "source": "OpenAI News",
       "source_type": "rss",
       "trust_tier": "T1_authoritative",
@@ -5751,55 +5818,6 @@
       ],
       "language": [],
       "framework": [],
-      "topic": [],
-      "source_signal": [
-        "api_update",
-        "authoritative_tech_source",
-        "developer_adoption",
-        "model_platform",
-        "model_release",
-        "release",
-        "repository_release",
-        "rollout"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:ai:openai",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "OpenAI News",
-      "source_type": "rss",
-      "trust_tier": "T1_authoritative",
-      "producer_role": "model_platform",
-      "event_model": "repository_release",
-      "title": "Perplexity trusts GPT-6 Astra with end-to-end systems",
-      "url": "https://openai.com/index/perplexity-improving-accuracy-with-astra",
-      "source_url": "https://openai.com/index/perplexity-improving-accuracy-with-astra",
-      "event_at": "2026-09-14T00:00:00+00:00",
-      "event_key": "repository_release:openai-news:12e9dd685180:2026-09-14",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "openai",
-      "ecosystem": "ai",
-      "domain": [],
-      "language": [],
-      "framework": [
-        "gpt"
-      ],
       "topic": [],
       "source_signal": [
         "api_update",
@@ -6117,6 +6135,55 @@
       "trust_tier": "T1_authoritative",
       "producer_role": "model_platform",
       "event_model": "repository_release",
+      "title": "Introducing the Australian Youth Safety Blueprint",
+      "url": "https://openai.com/index/australian-youth-safety-blueprint",
+      "source_url": "https://openai.com/index/australian-youth-safety-blueprint",
+      "event_at": "2026-09-18T12:00:00+00:00",
+      "event_key": "repository_release:openai-news:559b0cf11197:2026-09-18",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "openai",
+      "ecosystem": "ai",
+      "domain": [
+        "ai"
+      ],
+      "language": [],
+      "framework": [],
+      "topic": [],
+      "source_signal": [
+        "api_update",
+        "authoritative_tech_source",
+        "developer_adoption",
+        "model_platform",
+        "model_release",
+        "release",
+        "repository_release",
+        "rollout"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:ai:openai",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "OpenAI News",
+      "source_type": "rss",
+      "trust_tier": "T1_authoritative",
+      "producer_role": "model_platform",
+      "event_model": "repository_release",
       "title": "Introducing Astra for Law",
       "url": "https://openai.com/index/astra-for-law",
       "source_url": "https://openai.com/index/astra-for-law",
@@ -6372,65 +6439,6 @@
       "required_field_gaps": []
     },
     {
-      "source": "Kubernetes Blog",
-      "source_type": "rss",
-      "trust_tier": "T1_authoritative",
-      "producer_role": "open_source_maintainer",
-      "event_model": "repository_release",
-      "title": "Kubernetes v1.37: Native Histograms Graduates to Beta",
-      "url": "https://kubernetes.io/blog/2026/09/11/kubernetes-v1-37-native-histograms-beta",
-      "source_url": "https://kubernetes.io/blog/2026/09/11/kubernetes-v1-37-native-histograms-beta",
-      "event_at": "2026-09-11T18:30:00+00:00",
-      "event_key": "repository_release:kubernetes-blog:8a46e970d1d1:2026-09-11",
-      "repository": "github.com/kubernetes/community",
-      "repository_host": "github.com",
-      "repository_owner": "kubernetes",
-      "repository_name": "community",
-      "release_tag": "</p> <h3 id=\"1-prometheus-scrape-configuration-by-version\">1. Prometheus scrape configuration by version<a class=\"td-heading-self-link\" href=\"#1-prometheus-scrape-configuration-by-version\"></a></h3><ul> <li> <p><strong>Prometheus 3.0+ (Recommended)</strong>: Use explicit per-job configuration in your <code>scrape_configs</code> rather than global flags (the global <code>--enable-feature=native-histograms</code> flag is deprecated in Prometheus 3.9+):</p> <div class=\"highlight\"><pre class=\"chroma\" tabindex=\"0\"><code class=\"language-yaml\"><span class=\"line\"><span class=\"cl\"><span class=\"nt\">scrape_configs</span><span class=\"p\">:</span><span class=\"w\"> </span></span></span><span class=\"line\"><span class=\"cl\"><span class=\"w\"> </span>- <span class=\"nt\">job_name</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"s1\">'kubernetes-apiservers'</span><span class=\"w\"> </span></span></span><span class=\"line\"><span class=\"cl\"><span class=\"w\"> </span><span class=\"nt\">scrape_native_histograms</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"kc\">true</span><span class=\"w\"> </span></span></span><span class=\"line\"><span class=\"cl\"><span class=\"w\"> </span><span class=\"nt\">always_scrape_classic_histograms</span><span class=\"p\">:</span><span class=\"w\"> </span><span class=\"kc\">true</span><span class=\"w\"> </span><span class=\"c\"># Recommended during transition</span><span class=\"w\"> </span></span></span></code></pre></div><p>You must read the caution in <a href=\"https://kubernetes.io/docs/reference/instrumentation/native-histograms/#migrating-dashboards-and-alerts\">Migrating dashboards and alerts</a> in the Native Histograms documentation. In summary: always set <code>always_scrape_classic_histograms: true</code> during your transition period. Without this setting, Prometheus will only ingest the native format and stop ingesting classic <code>_bucket</code>, <code>_count</code>, and <code>_sum</code> series. Setting <code>always_scrape_classic_histograms: true</code> ensures existing dashboards (<code>histogram_quantile(..._bucket...)</code>) and alerts continue to work while you migrate them to native histograms.</p> </li> <li> <p><strong>Prometheus 2.40 – 2.x</strong>: Enable Native Histograms globally by starting Prometheus with the feature flag:</p> <div class=\"highlight\"><pre class=\"chroma\" tabindex=\"0\"><code class=\"language-bash\"><span class=\"line\"><span class=\"cl\">prometheus --enable-feature<span class=\"o\">=</span>native-histograms </span></span></code></pre></div><p>Note that in Prometheus 2.x, this is an all-or-nothing setting for all scrape targets.</p> </li> </ul> <h3 id=\"2-verify-protobuf-dual-exposition\">2. Verify Protobuf dual exposition<a class=\"td-heading-self-link\" href=\"#2-verify-protobuf-dual-exposition\"></a></h3><p>Standard Prometheus text scraping (<code>application/openmetrics-text</code> or plain text format) only transfers classic buckets. When <code>scrape_native_histograms</code> is enabled, Prometheus automatically negotiates <strong>Protobuf format</strong> with Kubernetes endpoints.</p> <p>You can verify that a Kubernetes component is exporting native histograms using <code>curl</code> with an <code>Accept</code> header specifying Protobuf. For example:</p> <div class=\"highlight\"><pre class=\"chroma\" tabindex=\"0\"><code class=\"language-bash\"><span class=\"line\"><span class=\"cl\"><span class=\"c1\">## THIS IS NOT SECURE. ONLY DO THIS IN A TEST CONTEXT.</span> </span></span><span class=\"line\"><span class=\"cl\">curl --insecure <span class=\"se\">\\ </span></span></span><span class=\"line\"><span class=\"cl\"><span class=\"se\"></span> -H <span class=\"s2\">\"Accept: application/vnd.google.protobuf;proto=io.prometheus.client.MetricFamily;encoding=delimited\"</span> <span class=\"se\">\\ </span></span></span><span class=\"line\"><span class=\"cl\"><span class=\"se\"></span> --header <span class=\"s2\">\"Authorization: Bearer </span><span class=\"k\">$(</span>cat /var/run/secrets/kubernetes.io/serviceaccount/token<span class=\"k\">)</span><span class=\"s2\">\"</span> <span class=\"se\">\\ </span></span></span><span class=\"line\"><span class=\"cl\"><span class=\"se\"></span> https://localhost:6443/metrics </span></span></code></pre></div><p>When decoded, the returned <code>MetricFamily</code> for histogram metrics (like <code>apiserver_request_duration_seconds</code>) will contain both traditional <code>bucket</code> entries and populated <code>schema</code> / <code>positive_span</code> fields.</p> <h2 id=\"querying-native-histograms-in-promql\">Querying native histograms in PromQL<a class=\"td-heading-self-link\" href=\"#querying-native-histograms-in-promql\"></a></h2><p>Once native histograms are ingested into Prometheus, you can query them using standard PromQL histogram functions without needing static <code>le</code> bucket labels or <code>_bucket</code> suffixes:</p> <div class=\"highlight\"><pre class=\"chroma\" tabindex=\"0\"><code class=\"language-promql\"><span class=\"line\"><span class=\"cl\"><span class=\"c1\"># 1. Calculating P99 latency for a single target:</span><span class=\"w\"> </span></span></span><span class=\"line\"><span class=\"cl\"><span class=\"w\"></span><span class=\"c1\"># Classic histogram (requires _bucket suffix):</span><span class=\"w\"> </span></span></span><span class=\"line\"><span class=\"cl\"><span class=\"w\"></span><span class=\"kr\">histogram_quantile</span><span class=\"o\">(</span><span class=\"mf\">0.99</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"kr\">rate</span><span class=\"o\">(</span><span class=\"nv\">apiserver_request_duration_seconds_bucket</span><span class=\"p\">[</span><span class=\"s\">5m</span><span class=\"p\">]</span><span class=\"o\">))</span><span class=\"w\"> </span></span></span><span class=\"line\"><span class=\"cl\"><span class=\"w\"> </span></span></span><span class=\"line\"><span class=\"cl\"><span class=\"w\"></span><span class=\"c1\"># Native histogram (operates directly on the metric name):</span><span class=\"w\"> </span></span></span><span class=\"line\"><span class=\"cl\"><span class=\"w\"></span><span class=\"kr\">histogram_quantile</span><span class=\"o\">(</span><span class=\"mf\">0.99</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"kr\">rate</span><span class=\"o\">(</span><span class=\"nv\">apiserver_request_duration_seconds</span><span class=\"p\">[</span><span class=\"s\">5m</span><span class=\"p\">]</span><span class=\"o\">))</span><span class=\"w\"> </span></span></span><span class=\"line\"><span class=\"cl\"><span class=\"w\"> </span></span></span><span class=\"line\"><span class=\"cl\"><span class=\"w\"></span><span class=\"c1\"># 2. Aggregating across multiple instances (e.g., all API servers):</span><span class=\"w\"> </span></span></span><span class=\"line\"><span class=\"cl\"><span class=\"w\"></span><span class=\"c1\"># Classic histogram (requires sum by (le) to preserve bucket boundaries):</span><span class=\"w\"> </span></span></span><span class=\"line\"><span class=\"cl\"><span class=\"w\"></span><span class=\"kr\">histogram_quantile</span><span class=\"o\">(</span><span class=\"mf\">0.99</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"k\">sum</span><span class=\"w\"> </span><span class=\"k\">by</span><span class=\"w\"> </span><span class=\"o\">(</span><span class=\"nv\">le</span><span class=\"o\">)</span><span class=\"w\"> </span><span class=\"o\">(</span><span class=\"kr\">rate</span><span class=\"o\">(</span><span class=\"nv\">apiserver_request_duration_seconds_bucket</span><span class=\"p\">[</span><span class=\"s\">5m</span><span class=\"p\">]</span><span class=\"o\">)))</span><span class=\"w\"> </span></span></span><span class=\"line\"><span class=\"cl\"><span class=\"w\"> </span></span></span><span class=\"line\"><span class=\"cl\"><span class=\"w\"></span><span class=\"c1\"># Native histogram (no grouping by le required!):</span><span class=\"w\"> </span></span></span><span class=\"line\"><span class=\"cl\"><span class=\"w\"></span><span class=\"kr\">histogram_quantile</span><span class=\"o\">(</span><span class=\"mf\">0.99</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"k\">sum</span><span class=\"o\">(</span><span class=\"kr\">rate</span><span class=\"o\">(</span><span class=\"nv\">apiserver_request_duration_seconds</span><span class=\"p\">[</span><span class=\"s\">5m</span><span class=\"p\">]</span><span class=\"o\">)))</span><span class=\"w\"> </span></span></span></code></pre></div><p>With native histograms, functions like <code>histogram_quantile()</code> operate directly on the dynamic exponential spans inside the time series, producing highly accurate quantiles without static bucket interpolation error.</p> <p>For official documentation on querying Native Histograms in PromQL, see:</p> <ul> <li><a href=\"https://prometheus.io/docs/prometheus/latest/querying/functions/#histogram_quantile\">PromQL <code>histogram_quantile</code> documentation</a></li> <li><a href=\"https://prometheus.io/docs/prometheus/latest/querying/functions/#histogram_fraction\">PromQL <code>histogram_fraction</code> documentation</a></li> <li><a href=\"https://prometheus.io/docs/prometheus/latest/querying/functions/#histogram_count-and-histogram_sum\">PromQL <code>histogram_sum</code> documentation</a></li> <li><a href=\"https://prometheus.io/docs/prometheus/latest/querying/functions/#histogram_count-and-histogram_sum\">PromQL <code>histogram_count</code> documentation</a></li> <li><a href=\"https://prometheus.io/docs/prometheus/latest/querying/functions/#histogram_count\">PromQL <code>histogram_count</code> documentation</a></li> <li><a href=\"https://prometheus.io/docs/prometheus/latest/querying/functions/#histogram_stddev-and-histogram_stdvar\">PromQL <code>histogram_stddev</code> and <code>histogram_stdvar</code> documentation</a></li> </ul> <h2 id=\"dashboard-migration-rollback-strategy\">Dashboard migration & rollback strategy<a class=\"td-heading-self-link\" href=\"#dashboard-migration-rollback-strategy\"></a></h2><h3 id=\"recommended-migration-workflow\">Recommended migration workflow<a class=\"td-heading-self-link\" href=\"#recommended-migration-workflow\"></a></h3><p>To safely transition your monitoring infrastructure to Native Histograms without breaking existing alerts or dashboards, I recommend a four-step migration workflow:</p> <ol> <li><strong>Enable Both Formats</strong>: In your Prometheus 3.x scrape config, set <code>scrape_native_histograms: true</code> AND <code>always_scrape_classic_histograms: true</code> so both formats are collected safely during transition</li> <li><strong>Migrate Queries</strong>: Update your Grafana dashboards and Prometheus alerting rules from classic quantile queries (<code>histogram_quantile(..._bucket...)</code>) to native histogram queries (<code>histogram_quantile(...)</code>), and replace references to classic <code>_count</code> and <code>_sum</code> series with <code>histogram_count(...)</code> and <code>histogram_sum(...)</code></li> <li><strong>Verify in Staging/Production</strong>: Validate that all dashboards and SLO alerts fire and graph correctly using the new native histogram queries</li> <li><strong>Unlock ~10x Storage Savings</strong>: Once migration is complete, set <code>always_scrape_classic_histograms: false</code>. Prometheus will stop ingesting the static <code>_bucket</code>, <code>_count</code>, and <code>_sum</code> time series, reducing your histogram time series count by up to 90%!</li> </ol> <h3 id=\"opt-out-and-rollback-flexibility\">Opt-out and rollback flexibility<a class=\"td-heading-self-link\" href=\"#opt-out-and-rollback-flexibility\"></a></h3><p>Because native histograms are dual-exposed, using them is entirely opt-in from a collector perspective:</p> <ul> <li><strong>Instant Collector Rollback</strong>: If you need to stop ingesting native histograms, simply set <code>scrape_native_histograms: false</code> in your Prometheus job configuration. No Kubernetes restart is required, and Prometheus will immediately resume scraping only the classic format without data loss</li> <li><strong>Component Feature Gate Rollback</strong>: Administrators can also disable the feature gate on Kubernetes components using <code>--feature-gates=NativeHistograms=false</code> (requires component restart)</li> </ul> <h2 id=\"what-s-next-how-to-get-involved\">What's next & how to get involved<a class=\"td-heading-self-link\" href=\"#what-s-next-how-to-get-involved\"></a></h2><p>As native histograms progress toward General Availability (GA) in future Kubernetes releases, SIG Instrumentation will continue evaluating ecosystem readiness, performance characteristics, and long-term plans for eventually deprecating static classic buckets once native histogram adoption becomes ubiquitous across the monitoring community.</p> <ul> <li>Read the <a href=\"https://www.kubernetes.dev/resources/keps/5808/\">KEP-5808 page</a> or the <a href=\"https://kep.k8s.io/5808\">KEP GitHub issue</a> to learn more.</li> <li>Read the <a href=\"https://prometheus.io/docs/specs/native_histograms/\">Prometheus Native Histograms specification</a> and <a href=\"https://prometheus.io/docs/prometheus/latest/querying/functions/#histogram_quantile\">PromQL querying functions documentation</a></li> <li>Get involved with <a href=\"https://github.com/kubernetes/community/tree/main/sig-instrumentation\">SIG Instrumentation</a> on Slack in <strong>#sig-instrumentation</strong> or join the weekly SIG meetings</li> </ul> <h2 id=\"acknowledgements\">Acknowledgements<a class=\"td-heading-self-link\" href=\"#acknowledgements\"></a></h2><p>A huge thank you to contributors across <strong>SIG Instrumentation</strong> and component owners who collaborated on the design, implementation, testing, and review of native histograms in Kubernetes!</p>",
-      "package_name": "automatically",
-      "registry": "unknown",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "automatically",
-      "ecosystem": "cloud-native",
-      "domain": [
-        "infrastructure",
-        "kubernetes"
-      ],
-      "language": [],
-      "framework": [
-        "kubernetes",
-        "k8s",
-        "api",
-        "prometheus",
-        "grafana"
-      ],
-      "topic": [
-        "performance",
-        "observability",
-        "monitoring",
-        "testing",
-        "migration"
-      ],
-      "source_signal": [
-        "authoritative_tech_source",
-        "changelog",
-        "deprecation",
-        "migration",
-        "open_source_maintainer",
-        "release",
-        "release_note",
-        "repository_release"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "repository:github.com:kubernetes:community",
-      "canonical_key_status": "complete",
-      "required_field_gaps": []
-    },
-    {
       "source": "Go Blog",
       "source_type": "rss",
       "trust_tier": "T1_authoritative",
@@ -6584,6 +6592,55 @@
       "trust_tier": "T2_institutional",
       "producer_role": "vendor_platform",
       "event_model": "repository_release",
+      "title": "Saving another 100TB of RAM with math (and Rust)",
+      "url": "https://blog.cloudflare.com/saving-100-tb-of-ram-with-math",
+      "source_url": "https://blog.cloudflare.com/saving-100-tb-of-ram-with-math",
+      "event_at": "2026-09-18T17:23:58+00:00",
+      "event_key": "repository_release:cloudflare-blog:8b3759fdb1e4:2026-09-18",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "cloudflare",
+      "ecosystem": "cloud",
+      "domain": [],
+      "language": [
+        "rust"
+      ],
+      "framework": [],
+      "topic": [],
+      "source_signal": [
+        "authoritative_tech_source",
+        "deprecation",
+        "migration",
+        "platform_update",
+        "product_update",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:cloud:cloudflare",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "Cloudflare Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
       "title": "When scanners miss the attack: how Cloudflare Client-Side Security protects storefronts",
       "url": "https://blog.cloudflare.com/client-side-security-finds-4-malicious-campaigns",
       "source_url": "https://blog.cloudflare.com/client-side-security-finds-4-malicious-campaigns",
@@ -6612,58 +6669,6 @@
       ],
       "framework": [],
       "topic": [],
-      "source_signal": [
-        "authoritative_tech_source",
-        "deprecation",
-        "migration",
-        "platform_update",
-        "product_update",
-        "repository_release",
-        "rollout",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:cloud:cloudflare",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "Cloudflare Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
-      "title": "Introducing automatic remediation policies with Cloudflare CASB",
-      "url": "https://blog.cloudflare.com/casb-policies",
-      "source_url": "https://blog.cloudflare.com/casb-policies",
-      "event_at": "2026-09-11T13:00:00+00:00",
-      "event_key": "repository_release:cloudflare-blog:c2396277023d:2026-09-11",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "cloudflare",
-      "ecosystem": "cloud",
-      "domain": [
-        "platform",
-        "security"
-      ],
-      "language": [],
-      "framework": [],
-      "topic": [
-        "automation"
-      ],
       "source_signal": [
         "authoritative_tech_source",
         "deprecation",
@@ -6751,6 +6756,137 @@
       "title": "Secure AI agents with HashiCorp Boundary",
       "event_key": "repository_release:hashicorp-blog:30d6b7668c5a:2026-09-29",
       "canonical_key": "technology:infrastructure:terraform"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "Proaction boosts sales 60% and saves 75+ hours with Codex",
+      "event_key": "repository_release:openai-news:d2d497e5eee4:2026-09-25",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "Proaction boosts sales 60% and saves 75+ hours with Codex",
+      "event_key": "repository_release:openai-news:d2d497e5eee4:2026-09-25",
+      "canonical_key": "technology:ai:openai"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "GitHub Blog Engineering",
+      "title": "Improving site performance by shipping more CSS",
+      "event_key": "repository_release:github-blog-engineering:651aa80e0d5f:2026-09-25",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "GitHub Blog Engineering",
+      "title": "Improving site performance by shipping more CSS",
+      "event_key": "repository_release:github-blog-engineering:651aa80e0d5f:2026-09-25",
+      "canonical_key": "technology:vendor-platform:github"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "Cloudflare Blog",
+      "title": "Agents can now set up your website’s security with Turnstile Spin",
+      "event_key": "repository_release:cloudflare-blog:b3c4883870e4:2026-09-25",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "Cloudflare Blog",
+      "title": "Agents can now set up your website’s security with Turnstile Spin",
+      "event_key": "repository_release:cloudflare-blog:b3c4883870e4:2026-09-25",
+      "canonical_key": "technology:cloud:cloudflare"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "Vercel Blog",
+      "title": "Push images to Vercel Container Registry from GitHub Actions",
+      "event_key": "repository_release:vercel-blog:475c6f6c38fe:2026-09-25",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "Vercel Blog",
+      "title": "Push images to Vercel Container Registry from GitHub Actions",
+      "event_key": "repository_release:vercel-blog:475c6f6c38fe:2026-09-25",
+      "canonical_key": "technology:javascript:vercel"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "Vercel Blog",
+      "title": "State of agent skills",
+      "event_key": "repository_release:vercel-blog:9891eeb90b48:2026-09-25",
+      "required_field_gaps": [
+        "repository"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "Vercel Blog",
+      "title": "State of agent skills",
+      "event_key": "repository_release:vercel-blog:9891eeb90b48:2026-09-25",
+      "canonical_key": "technology:npm:took"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "Vercel Blog",
+      "title": "Vercel Sandbox now supports memory observability",
+      "event_key": "repository_release:vercel-blog:4b18a154dd49:2026-09-25",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "Vercel Blog",
+      "title": "Vercel Sandbox now supports memory observability",
+      "event_key": "repository_release:vercel-blog:4b18a154dd49:2026-09-25",
+      "canonical_key": "technology:javascript:vercel"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "Vercel Blog",
+      "title": "Pixel Canary is now available in stealth for free on AI Gateway",
+      "event_key": "repository_release:vercel-blog:759cd6098a6c:2026-09-25",
+      "required_field_gaps": [
+        "repository"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "Vercel Blog",
+      "title": "Pixel Canary is now available in stealth for free on AI Gateway",
+      "event_key": "repository_release:vercel-blog:759cd6098a6c:2026-09-25",
+      "canonical_key": "technology:javascript:vercel"
     },
     {
       "reason": "missing_required_fields",
@@ -6907,6 +7043,25 @@
       "reason": "missing_required_fields",
       "event_model": "repository_release",
       "source": "OpenAI News",
+      "title": "Harvey turns legal context into stronger drafts with GPT-6 Astra",
+      "event_key": "repository_release:openai-news:f7558dc5c9de:2026-09-23",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "Harvey turns legal context into stronger drafts with GPT-6 Astra",
+      "event_key": "repository_release:openai-news:f7558dc5c9de:2026-09-23",
+      "canonical_key": "technology:ai:openai"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
       "title": "How invideo improves color grading 3x with GPT‑6 Astra",
       "event_key": "repository_release:openai-news:7357353a1f1d:2026-09-23",
       "required_field_gaps": [
@@ -6920,6 +7075,25 @@
       "source": "OpenAI News",
       "title": "How invideo improves color grading 3x with GPT‑6 Astra",
       "event_key": "repository_release:openai-news:7357353a1f1d:2026-09-23",
+      "canonical_key": "technology:ai:openai"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "Sam Altman’s remarks at the United Nations Security Council",
+      "event_key": "repository_release:openai-news:01d4e543c941:2026-09-23",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "Sam Altman’s remarks at the United Nations Security Council",
+      "event_key": "repository_release:openai-news:01d4e543c941:2026-09-23",
       "canonical_key": "technology:ai:openai"
     },
     {
@@ -6938,44 +7112,6 @@
       "source": "OpenAI News",
       "title": "Ringg’s AI agents resolve up to 65% of customer calls with OpenAI",
       "event_key": "repository_release:openai-news:7cff1964bf19:2026-09-23",
-      "canonical_key": "technology:ai:openai"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "Sam Altman’s remarks at the United Nations Security Council",
-      "event_key": "repository_release:openai-news:01d4e543c941:2026-09-23",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "Sam Altman’s remarks at the United Nations Security Council",
-      "event_key": "repository_release:openai-news:01d4e543c941:2026-09-23",
-      "canonical_key": "technology:ai:openai"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "Harvey turns legal context into stronger drafts with GPT-6 Astra",
-      "event_key": "repository_release:openai-news:f7558dc5c9de:2026-09-23",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "Harvey turns legal context into stronger drafts with GPT-6 Astra",
-      "event_key": "repository_release:openai-news:f7558dc5c9de:2026-09-23",
       "canonical_key": "technology:ai:openai"
     },
     {
@@ -7070,138 +7206,6 @@
       "title": "Gemini 3.8 text-to-speech models now available on AI Gateway",
       "event_key": "repository_release:vercel-blog:8326b405447e:2026-09-23",
       "canonical_key": "technology:javascript:vercel"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "Grab and OpenAI bring practical AI skills to Southeast Asia",
-      "event_key": "repository_release:openai-news:09a0c6dbf1c6:2026-09-23",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "Grab and OpenAI bring practical AI skills to Southeast Asia",
-      "event_key": "repository_release:openai-news:09a0c6dbf1c6:2026-09-23",
-      "canonical_key": "technology:ai:openai"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "Vercel Blog",
-      "title": "Drives for Vercel Sandbox are now in public beta",
-      "event_key": "repository_release:vercel-blog:88dfdf44a7d1:2026-09-23",
-      "required_field_gaps": [
-        "repository"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "Vercel Blog",
-      "title": "Drives for Vercel Sandbox are now in public beta",
-      "event_key": "repository_release:vercel-blog:88dfdf44a7d1:2026-09-23",
-      "canonical_key": "technology:javascript:vercel"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "Better prompt caching for GPT-6",
-      "event_key": "repository_release:openai-news:b6b1e4118cdb:2026-09-22",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "Better prompt caching for GPT-6",
-      "event_key": "repository_release:openai-news:b6b1e4118cdb:2026-09-22",
-      "canonical_key": "technology:ai:openai"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "Introducing GPT-6 Sol and Luna",
-      "event_key": "repository_release:openai-news:3d48e529ad7a:2026-09-22",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "Introducing GPT-6 Sol and Luna",
-      "event_key": "repository_release:openai-news:3d48e529ad7a:2026-09-22",
-      "canonical_key": "technology:ai:openai"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "Cloudflare Blog",
-      "title": "We just shipped support for the ugliest part of HTTP: Vary",
-      "event_key": "repository_release:cloudflare-blog:0c9c25568aa0:2026-09-22",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "Cloudflare Blog",
-      "title": "We just shipped support for the ugliest part of HTTP: Vary",
-      "event_key": "repository_release:cloudflare-blog:0c9c25568aa0:2026-09-22",
-      "canonical_key": "technology:cloud:cloudflare"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "Cloudflare Blog",
-      "title": "Introducing Worker Previews: Isolated preview environments for every change your agent makes",
-      "event_key": "repository_release:cloudflare-blog:66e8a8962096:2026-09-22",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "Cloudflare Blog",
-      "title": "Introducing Worker Previews: Isolated preview environments for every change your agent makes",
-      "event_key": "repository_release:cloudflare-blog:66e8a8962096:2026-09-22",
-      "canonical_key": "technology:cloud:cloudflare"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "Parallel cut research time and cost in half with GPT‑6 Astra",
-      "event_key": "repository_release:openai-news:ce45d8dc0f6c:2026-09-22",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "Parallel cut research time and cost in half with GPT‑6 Astra",
-      "event_key": "repository_release:openai-news:ce45d8dc0f6c:2026-09-22",
-      "canonical_key": "technology:ai:openai"
     }
   ],
   "source_backlog": {
