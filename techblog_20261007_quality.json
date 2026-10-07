@@ -1,31 +1,31 @@
 {
   "category": "techblog",
-  "generated_at": "2026-10-06T07:14:13.407413+00:00",
+  "generated_at": "2026-10-07T06:53:05.776250+00:00",
   "scope_note": "Blog and community mention volume is separated from operational adoption signals. Current repository/package/github/skill rows are article-level proxies until API-backed sources are activated.",
   "summary": {
     "total_sources": 78,
     "tracked_sources": 8,
-    "fresh_sources": 6,
-    "stale_sources": 2,
+    "fresh_sources": 7,
+    "stale_sources": 1,
     "missing_sources": 0,
     "missing_event_sources": 0,
     "unknown_event_date_sources": 0,
     "not_tracked_sources": 67,
     "skipped_disabled_sources": 3,
     "collection_error_count": 0,
-    "repository_release_events": 89,
+    "repository_release_events": 90,
     "package_download_events": 0,
     "github_activity_events": 0,
     "skill_demand_events": 0,
-    "operational_adoption_event_count": 89,
-    "authoritative_event_count": 89,
+    "operational_adoption_event_count": 90,
+    "authoritative_event_count": 90,
     "community_event_count": 0,
-    "repository_canonical_key_present_count": 7,
+    "repository_canonical_key_present_count": 8,
     "package_canonical_key_present_count": 0,
     "technology_proxy_key_count": 82,
     "missing_canonical_key_count": 0,
-    "event_required_field_gap_count": 147,
-    "tracked_source_gap_count": 2,
+    "event_required_field_gap_count": 149,
+    "tracked_source_gap_count": 1,
     "source_backlog_candidate_count": 4,
     "missing_event_model_count": 3,
     "daily_review_item_count": 50
@@ -44,7 +44,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 2,
+      "article_count": 1,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -128,7 +128,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 2,
+      "article_count": 1,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -156,7 +156,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 2,
+      "article_count": 3,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -716,7 +716,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 1,
+      "article_count": 2,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -772,7 +772,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 1,
+      "article_count": 2,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -833,17 +833,18 @@
       "event_model": "repository_release",
       "freshness_sla_days": 14,
       "status": "fresh",
-      "article_count": 2,
-      "event_count": 2,
-      "latest_event_at": "2026-09-25T15:00:00+00:00",
-      "age_days": 10.68,
-      "latest_title": "Improving site performance by shipping more CSS",
-      "latest_url": "https://github.blog/engineering/architecture-optimization/improving-site-performance-by-shipping-more-css",
-      "latest_domain": [],
+      "article_count": 3,
+      "event_count": 3,
+      "latest_event_at": "2026-10-06T20:57:56+00:00",
+      "age_days": 0.41,
+      "latest_title": "Building Git infrastructure for agent-scale development",
+      "latest_url": "https://github.blog/engineering/architecture-optimization/building-git-infrastructure-for-agent-scale-development",
+      "latest_domain": [
+        "infrastructure"
+      ],
       "latest_language": [],
       "latest_framework": [],
       "latest_topic": [
-        "performance",
         "architecture",
         "optimization"
       ],
@@ -883,14 +884,11 @@
       "status": "fresh",
       "article_count": 20,
       "event_count": 20,
-      "latest_event_at": "2026-10-05T13:00:00+00:00",
-      "age_days": 0.76,
-      "latest_title": "One year later: the power of 1.1.1.1 interns",
-      "latest_url": "https://blog.cloudflare.com/one-year-later-1111-interns",
-      "latest_domain": [
-        "ai",
-        "security"
-      ],
+      "latest_event_at": "2026-10-06T17:50:11+00:00",
+      "age_days": 0.54,
+      "latest_title": "The keys to the Internet change on October 11. Are you ready?",
+      "latest_url": "https://blog.cloudflare.com/root-ksk-2024-rollover",
+      "latest_domain": [],
       "latest_language": [],
       "latest_framework": [],
       "latest_topic": [],
@@ -906,7 +904,8 @@
       ],
       "latest_canonical_key": "technology:cloud:cloudflare",
       "latest_required_field_gaps": [
-        "repository"
+        "repository",
+        "release_tag"
       ],
       "errors": []
     },
@@ -1063,7 +1062,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 1,
+      "article_count": 4,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1095,26 +1094,18 @@
       "tracked": true,
       "event_model": "repository_release",
       "freshness_sla_days": 3,
-      "status": "stale",
-      "article_count": 29,
-      "event_count": 29,
-      "latest_event_at": "2026-10-02T07:00:00+00:00",
-      "age_days": 4.01,
-      "latest_title": "Jev for Python engineers",
-      "latest_url": "https://vercel.com/blog/jev-for-python-engineers",
+      "status": "fresh",
+      "article_count": 30,
+      "event_count": 30,
+      "latest_event_at": "2026-10-06T17:19:00+00:00",
+      "age_days": 0.57,
+      "latest_title": "AI Gateway adds confidence-based decision fallbacks",
+      "latest_url": "https://vercel.com/changelog/confidence-based-decision-fallbacks",
       "latest_domain": [
-        "machine learning",
         "ai"
       ],
-      "latest_language": [
-        "python",
-        "go"
-      ],
-      "latest_framework": [
-        "llm",
-        "gpt",
-        "api"
-      ],
+      "latest_language": [],
+      "latest_framework": [],
       "latest_topic": [],
       "latest_source_signal": [
         "framework_adoption",
@@ -1125,8 +1116,10 @@
         "rollout",
         "vendor_platform"
       ],
-      "latest_canonical_key": "repository:github.com:vercel-labs:ai-python",
-      "latest_required_field_gaps": [],
+      "latest_canonical_key": "technology:javascript:vercel",
+      "latest_required_field_gaps": [
+        "repository"
+      ],
       "errors": []
     },
     {
@@ -1175,10 +1168,10 @@
       "event_model": "repository_release",
       "freshness_sla_days": 3,
       "status": "stale",
-      "article_count": 2,
-      "event_count": 2,
+      "article_count": 1,
+      "event_count": 1,
       "latest_event_at": "2026-09-28T07:00:00+00:00",
-      "age_days": 8.01,
+      "age_days": 9.0,
       "latest_title": "Terraform 1.16 completes Actions lifecycles and brings imports into child modules",
       "latest_url": "https://www.hashicorp.com/blog/terraform-116-completes-actions-lifecycles-and-brings-imports-into-child-modules",
       "latest_domain": [
@@ -1217,7 +1210,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 8,
+      "article_count": 11,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1364,28 +1357,26 @@
       "status": "fresh",
       "article_count": 2,
       "event_count": 2,
-      "latest_event_at": "2026-10-05T18:00:00+00:00",
-      "age_days": 0.55,
-      "latest_title": "Scaling Kubernetes Workloads with Node Swap",
-      "latest_url": "https://kubernetes.io/blog/2026/10/05/scaling-kubernetes-workloads-with-node-swap",
+      "latest_event_at": "2026-10-06T18:00:00+00:00",
+      "age_days": 0.54,
+      "latest_title": "The Shift to cgroup v2 in Kubernetes: What You Need to Know",
+      "latest_url": "https://kubernetes.io/blog/2026/10/06/kubernetes-cgroups-v2-shift",
       "latest_domain": [
-        "infrastructure",
-        "ai",
-        "security",
+        "platform",
         "kubernetes"
       ],
       "latest_language": [
-        "python"
+        "java"
       ],
       "latest_framework": [
         "kubernetes",
         "k8s",
-        "gcp"
+        "api"
       ],
       "latest_topic": [
-        "performance",
-        "testing",
-        "ci/cd"
+        "monitoring",
+        "architecture",
+        "migration"
       ],
       "latest_source_signal": [
         "authoritative_tech_source",
@@ -1397,7 +1388,7 @@
         "release_note",
         "repository_release"
       ],
-      "latest_canonical_key": "repository:github.com:kubernetes-sigs:agent-sandbox",
+      "latest_canonical_key": "repository:github.com:kubernetes:system-validators",
       "latest_required_field_gaps": [],
       "errors": []
     },
@@ -1450,7 +1441,7 @@
       "article_count": 2,
       "event_count": 2,
       "latest_event_at": "2026-10-02T00:00:00+00:00",
-      "age_days": 4.3,
+      "age_days": 5.29,
       "latest_title": "Arch-specific SIMD in Go",
       "latest_url": "https://go.dev/blog/archsimd",
       "latest_domain": [],
@@ -1494,7 +1485,7 @@
       "article_count": 2,
       "event_count": 2,
       "latest_event_at": "2026-10-02T00:00:00+00:00",
-      "age_days": 4.3,
+      "age_days": 5.29,
       "latest_title": "Demoting i686 Windows targets to std-only",
       "latest_url": "https://blog.rust-lang.org/2026/10/02/demoting-i686-windows-targets-to-std-only",
       "latest_domain": [],
@@ -1588,7 +1579,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 7,
+      "article_count": 11,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1616,7 +1607,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 14,
+      "article_count": 11,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1644,7 +1635,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 23,
+      "article_count": 24,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1728,7 +1719,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 6,
+      "article_count": 5,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1756,7 +1747,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 8,
+      "article_count": 7,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1847,10 +1838,10 @@
       "status": "fresh",
       "article_count": 30,
       "event_count": 30,
-      "latest_event_at": "2026-10-05T15:00:00+00:00",
-      "age_days": 0.68,
-      "latest_title": "Our approach to EU text provenance rules",
-      "latest_url": "https://openai.com/index/eu-text-provenance",
+      "latest_event_at": "2026-10-06T16:00:00+00:00",
+      "age_days": 0.62,
+      "latest_title": "Atlassian and OpenAI expand partnership to turn enterprise knowledge into action",
+      "latest_url": "https://openai.com/index/atlassian-partnership",
       "latest_domain": [],
       "latest_language": [],
       "latest_framework": [],
@@ -1885,7 +1876,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 3,
+      "article_count": 2,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1913,7 +1904,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 0,
+      "article_count": 1,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1969,7 +1960,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 11,
+      "article_count": 12,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -2025,7 +2016,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 8,
+      "article_count": 7,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -2379,6 +2370,503 @@
   ],
   "events": [
     {
+      "source": "GitHub Blog Engineering",
+      "source_type": "rss",
+      "trust_tier": "T1_authoritative",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
+      "title": "Building Git infrastructure for agent-scale development",
+      "url": "https://github.blog/engineering/architecture-optimization/building-git-infrastructure-for-agent-scale-development",
+      "source_url": "https://github.blog/engineering/architecture-optimization/building-git-infrastructure-for-agent-scale-development",
+      "event_at": "2026-10-06T20:57:56+00:00",
+      "event_key": "repository_release:github-blog-engineering:d12760993a97:2026-10-06",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "github",
+      "ecosystem": "vendor-platform",
+      "domain": [
+        "infrastructure"
+      ],
+      "language": [],
+      "framework": [],
+      "topic": [
+        "architecture",
+        "optimization"
+      ],
+      "source_signal": [
+        "changelog",
+        "developer_adoption",
+        "engineering_blog",
+        "platform_update",
+        "release",
+        "repository_release",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:vendor-platform:github",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "Kubernetes Blog",
+      "source_type": "rss",
+      "trust_tier": "T1_authoritative",
+      "producer_role": "open_source_maintainer",
+      "event_model": "repository_release",
+      "title": "The Shift to cgroup v2 in Kubernetes: What You Need to Know",
+      "url": "https://kubernetes.io/blog/2026/10/06/kubernetes-cgroups-v2-shift",
+      "source_url": "https://kubernetes.io/blog/2026/10/06/kubernetes-cgroups-v2-shift",
+      "event_at": "2026-10-06T18:00:00+00:00",
+      "event_key": "repository_release:kubernetes-blog:fb4b6e85afe4:2026-10-06",
+      "repository": "github.com/kubernetes/system-validators",
+      "repository_host": "github.com",
+      "repository_owner": "kubernetes",
+      "repository_name": "system-validators",
+      "release_tag": "v1.31",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "kubernetes",
+      "ecosystem": "cloud-native",
+      "domain": [
+        "platform",
+        "kubernetes"
+      ],
+      "language": [
+        "java"
+      ],
+      "framework": [
+        "kubernetes",
+        "k8s",
+        "api"
+      ],
+      "topic": [
+        "monitoring",
+        "architecture",
+        "migration"
+      ],
+      "source_signal": [
+        "authoritative_tech_source",
+        "changelog",
+        "deprecation",
+        "migration",
+        "open_source_maintainer",
+        "release",
+        "release_note",
+        "repository_release"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "repository:github.com:kubernetes:system-validators",
+      "canonical_key_status": "complete",
+      "required_field_gaps": []
+    },
+    {
+      "source": "Cloudflare Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
+      "title": "The keys to the Internet change on October 11. Are you ready?",
+      "url": "https://blog.cloudflare.com/root-ksk-2024-rollover",
+      "source_url": "https://blog.cloudflare.com/root-ksk-2024-rollover",
+      "event_at": "2026-10-06T17:50:11+00:00",
+      "event_key": "repository_release:cloudflare-blog:ddec0ece98fa:2026-10-06",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "cloudflare",
+      "ecosystem": "cloud",
+      "domain": [],
+      "language": [],
+      "framework": [],
+      "topic": [],
+      "source_signal": [
+        "authoritative_tech_source",
+        "deprecation",
+        "migration",
+        "platform_update",
+        "product_update",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:cloud:cloudflare",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "Vercel Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
+      "title": "AI Gateway adds confidence-based decision fallbacks",
+      "url": "https://vercel.com/changelog/confidence-based-decision-fallbacks",
+      "source_url": "https://vercel.com/changelog/confidence-based-decision-fallbacks",
+      "event_at": "2026-10-06T17:19:00+00:00",
+      "event_key": "repository_release:vercel-blog:61b4e138101a:2026-10-06",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "0.6",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "vercel",
+      "ecosystem": "javascript",
+      "domain": [
+        "ai"
+      ],
+      "language": [],
+      "framework": [],
+      "topic": [],
+      "source_signal": [
+        "framework_adoption",
+        "migration",
+        "product_update",
+        "release",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:javascript:vercel",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository"
+      ]
+    },
+    {
+      "source": "OpenAI News",
+      "source_type": "rss",
+      "trust_tier": "T1_authoritative",
+      "producer_role": "model_platform",
+      "event_model": "repository_release",
+      "title": "Atlassian and OpenAI expand partnership to turn enterprise knowledge into action",
+      "url": "https://openai.com/index/atlassian-partnership",
+      "source_url": "https://openai.com/index/atlassian-partnership",
+      "event_at": "2026-10-06T16:00:00+00:00",
+      "event_key": "repository_release:openai-news:60ef2af305e7:2026-10-06",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "openai",
+      "ecosystem": "ai",
+      "domain": [],
+      "language": [],
+      "framework": [],
+      "topic": [],
+      "source_signal": [
+        "api_update",
+        "authoritative_tech_source",
+        "developer_adoption",
+        "model_platform",
+        "model_release",
+        "release",
+        "repository_release",
+        "rollout"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:ai:openai",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "OpenAI News",
+      "source_type": "rss",
+      "trust_tier": "T1_authoritative",
+      "producer_role": "model_platform",
+      "event_model": "repository_release",
+      "title": "How Jump Trading is scaling quant research with ChatGPT",
+      "url": "https://openai.com/index/jump-trading",
+      "source_url": "https://openai.com/index/jump-trading",
+      "event_at": "2026-10-06T12:00:00+00:00",
+      "event_key": "repository_release:openai-news:342677ae7ead:2026-10-06",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "openai",
+      "ecosystem": "ai",
+      "domain": [
+        "ai"
+      ],
+      "language": [],
+      "framework": [],
+      "topic": [],
+      "source_signal": [
+        "api_update",
+        "authoritative_tech_source",
+        "developer_adoption",
+        "model_platform",
+        "model_release",
+        "release",
+        "repository_release",
+        "rollout"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:ai:openai",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "OpenAI News",
+      "source_type": "rss",
+      "trust_tier": "T1_authoritative",
+      "producer_role": "model_platform",
+      "event_model": "repository_release",
+      "title": "Sharing AI progress in mathematics",
+      "url": "https://openai.com/index/sharing-ai-progress-in-mathematics",
+      "source_url": "https://openai.com/index/sharing-ai-progress-in-mathematics",
+      "event_at": "2026-10-06T12:00:00+00:00",
+      "event_key": "repository_release:openai-news:47b9255d8fa0:2026-10-06",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "openai",
+      "ecosystem": "ai",
+      "domain": [
+        "ai"
+      ],
+      "language": [],
+      "framework": [],
+      "topic": [],
+      "source_signal": [
+        "api_update",
+        "authoritative_tech_source",
+        "developer_adoption",
+        "model_platform",
+        "model_release",
+        "release",
+        "repository_release",
+        "rollout"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:ai:openai",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "OpenAI News",
+      "source_type": "rss",
+      "trust_tier": "T1_authoritative",
+      "producer_role": "model_platform",
+      "event_model": "repository_release",
+      "title": "Advancing computer use with Ironclad",
+      "url": "https://openai.com/index/advancing-computer-use-with-ironclad",
+      "source_url": "https://openai.com/index/advancing-computer-use-with-ironclad",
+      "event_at": "2026-10-06T10:00:00+00:00",
+      "event_key": "repository_release:openai-news:9964af802e9c:2026-10-06",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "openai",
+      "ecosystem": "ai",
+      "domain": [
+        "ai"
+      ],
+      "language": [],
+      "framework": [],
+      "topic": [],
+      "source_signal": [
+        "api_update",
+        "authoritative_tech_source",
+        "developer_adoption",
+        "model_platform",
+        "model_release",
+        "release",
+        "repository_release",
+        "rollout"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:ai:openai",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "Vercel Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
+      "title": "Nano Banana 2.1 now available on AI Gateway",
+      "url": "https://vercel.com/changelog/nano-banana-2-1-now-available-on-ai-gateway",
+      "source_url": "https://vercel.com/changelog/nano-banana-2-1-now-available-on-ai-gateway",
+      "event_at": "2026-10-06T00:00:00+00:00",
+      "event_key": "repository_release:vercel-blog:8b62db9813a5:2026-10-06",
+      "repository": "github.com/vercel-labs/ai-cli",
+      "repository_host": "github.com",
+      "repository_owner": "vercel-labs",
+      "repository_name": "ai-cli",
+      "release_tag": "2.1",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "vercel",
+      "ecosystem": "javascript",
+      "domain": [
+        "platform",
+        "ai"
+      ],
+      "language": [],
+      "framework": [
+        "gemini",
+        "api"
+      ],
+      "topic": [
+        "performance"
+      ],
+      "source_signal": [
+        "framework_adoption",
+        "migration",
+        "product_update",
+        "release",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "repository:github.com:vercel-labs:ai-cli",
+      "canonical_key_status": "complete",
+      "required_field_gaps": []
+    },
+    {
+      "source": "Vercel Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
+      "title": "Mistral Large 4 now available on AI Gateway",
+      "url": "https://vercel.com/changelog/mistral-large-4-now-available-on-ai-gateway",
+      "source_url": "https://vercel.com/changelog/mistral-large-4-now-available-on-ai-gateway",
+      "event_at": "2026-10-06T00:00:00+00:00",
+      "event_key": "repository_release:vercel-blog:e262ace024c0:2026-10-06",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "vercel",
+      "ecosystem": "javascript",
+      "domain": [
+        "ai"
+      ],
+      "language": [],
+      "framework": [
+        "api"
+      ],
+      "topic": [],
+      "source_signal": [
+        "framework_adoption",
+        "migration",
+        "product_update",
+        "release",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:javascript:vercel",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
       "source": "Kubernetes Blog",
       "source_type": "rss",
       "trust_tier": "T1_authoritative",
@@ -2490,55 +2978,6 @@
       "trust_tier": "T2_institutional",
       "producer_role": "vendor_platform",
       "event_model": "repository_release",
-      "title": "One year later: the power of 1.1.1.1 interns",
-      "url": "https://blog.cloudflare.com/one-year-later-1111-interns",
-      "source_url": "https://blog.cloudflare.com/one-year-later-1111-interns",
-      "event_at": "2026-10-05T13:00:00+00:00",
-      "event_key": "repository_release:cloudflare-blog:917bc7059d97:2026-10-05",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "1.1.1",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "cloudflare",
-      "ecosystem": "cloud",
-      "domain": [
-        "ai",
-        "security"
-      ],
-      "language": [],
-      "framework": [],
-      "topic": [],
-      "source_signal": [
-        "authoritative_tech_source",
-        "deprecation",
-        "migration",
-        "platform_update",
-        "product_update",
-        "repository_release",
-        "rollout",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:cloud:cloudflare",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository"
-      ]
-    },
-    {
-      "source": "Cloudflare Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
       "title": "Everything we launched during Birthday Week 2026",
       "url": "https://blog.cloudflare.com/birthday-week-2026-wrap-up",
       "source_url": "https://blog.cloudflare.com/birthday-week-2026-wrap-up",
@@ -2584,6 +3023,55 @@
       "required_field_gaps": [
         "repository",
         "release_tag"
+      ]
+    },
+    {
+      "source": "Cloudflare Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
+      "title": "One year later: the power of 1.1.1.1 interns",
+      "url": "https://blog.cloudflare.com/one-year-later-1111-interns",
+      "source_url": "https://blog.cloudflare.com/one-year-later-1111-interns",
+      "event_at": "2026-10-05T13:00:00+00:00",
+      "event_key": "repository_release:cloudflare-blog:917bc7059d97:2026-10-05",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "1.1.1",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "cloudflare",
+      "ecosystem": "cloud",
+      "domain": [
+        "ai",
+        "security"
+      ],
+      "language": [],
+      "framework": [],
+      "topic": [],
+      "source_signal": [
+        "authoritative_tech_source",
+        "deprecation",
+        "migration",
+        "platform_update",
+        "product_update",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:cloud:cloudflare",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository"
       ]
     },
     {
@@ -2842,11 +3330,11 @@
       "trust_tier": "T2_institutional",
       "producer_role": "vendor_platform",
       "event_model": "repository_release",
-      "title": "2026 Birthday week: network performance update",
-      "url": "https://blog.cloudflare.com/network-performance-birthday-week-2026",
-      "source_url": "https://blog.cloudflare.com/network-performance-birthday-week-2026",
+      "title": "Building for good: How civil society organizations are automating on Cloudflare",
+      "url": "https://blog.cloudflare.com/civil-society-automation",
+      "source_url": "https://blog.cloudflare.com/civil-society-automation",
       "event_at": "2026-10-02T13:00:00+00:00",
-      "event_key": "repository_release:cloudflare-blog:c5769abc90da:2026-10-02",
+      "event_key": "repository_release:cloudflare-blog:19ec3340e630:2026-10-02",
       "repository": "",
       "repository_host": "",
       "repository_owner": "",
@@ -2864,9 +3352,7 @@
       "domain": [],
       "language": [],
       "framework": [],
-      "topic": [
-        "performance"
-      ],
+      "topic": [],
       "source_signal": [
         "authoritative_tech_source",
         "deprecation",
@@ -2938,53 +3424,6 @@
       "trust_tier": "T2_institutional",
       "producer_role": "vendor_platform",
       "event_model": "repository_release",
-      "title": "Building for good: How civil society organizations are automating on Cloudflare",
-      "url": "https://blog.cloudflare.com/civil-society-automation",
-      "source_url": "https://blog.cloudflare.com/civil-society-automation",
-      "event_at": "2026-10-02T13:00:00+00:00",
-      "event_key": "repository_release:cloudflare-blog:19ec3340e630:2026-10-02",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "cloudflare",
-      "ecosystem": "cloud",
-      "domain": [],
-      "language": [],
-      "framework": [],
-      "topic": [],
-      "source_signal": [
-        "authoritative_tech_source",
-        "deprecation",
-        "migration",
-        "platform_update",
-        "product_update",
-        "repository_release",
-        "rollout",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:cloud:cloudflare",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "Cloudflare Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
       "title": "Follow the thread: a new dashboard to investigate account abuse",
       "url": "https://blog.cloudflare.com/account-abuse-protection-dashboard",
       "source_url": "https://blog.cloudflare.com/account-abuse-protection-dashboard",
@@ -3007,55 +3446,6 @@
       "domain": [
         "ai",
         "security"
-      ],
-      "language": [],
-      "framework": [],
-      "topic": [],
-      "source_signal": [
-        "authoritative_tech_source",
-        "deprecation",
-        "migration",
-        "platform_update",
-        "product_update",
-        "repository_release",
-        "rollout",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:cloud:cloudflare",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "Cloudflare Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
-      "title": "Announcing Cloudflare OHTTP Gateway – expanding access to Cloudflare’s privacy-preserving infrastructure",
-      "url": "https://blog.cloudflare.com/announcing-cloudflare-ohttp-gateway",
-      "source_url": "https://blog.cloudflare.com/announcing-cloudflare-ohttp-gateway",
-      "event_at": "2026-10-02T13:00:00+00:00",
-      "event_key": "repository_release:cloudflare-blog:5e1d1c7f4599:2026-10-02",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "cloudflare",
-      "ecosystem": "cloud",
-      "domain": [
-        "infrastructure"
       ],
       "language": [],
       "framework": [],
@@ -3155,6 +3545,104 @@
       "ecosystem": "cloud",
       "domain": [
         "platform"
+      ],
+      "language": [],
+      "framework": [],
+      "topic": [],
+      "source_signal": [
+        "authoritative_tech_source",
+        "deprecation",
+        "migration",
+        "platform_update",
+        "product_update",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:cloud:cloudflare",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "Cloudflare Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
+      "title": "2026 Birthday week: network performance update",
+      "url": "https://blog.cloudflare.com/network-performance-birthday-week-2026",
+      "source_url": "https://blog.cloudflare.com/network-performance-birthday-week-2026",
+      "event_at": "2026-10-02T13:00:00+00:00",
+      "event_key": "repository_release:cloudflare-blog:c5769abc90da:2026-10-02",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "cloudflare",
+      "ecosystem": "cloud",
+      "domain": [],
+      "language": [],
+      "framework": [],
+      "topic": [
+        "performance"
+      ],
+      "source_signal": [
+        "authoritative_tech_source",
+        "deprecation",
+        "migration",
+        "platform_update",
+        "product_update",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:cloud:cloudflare",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "Cloudflare Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
+      "title": "Announcing Cloudflare OHTTP Gateway – expanding access to Cloudflare’s privacy-preserving infrastructure",
+      "url": "https://blog.cloudflare.com/announcing-cloudflare-ohttp-gateway",
+      "source_url": "https://blog.cloudflare.com/announcing-cloudflare-ohttp-gateway",
+      "event_at": "2026-10-02T13:00:00+00:00",
+      "event_key": "repository_release:cloudflare-blog:5e1d1c7f4599:2026-10-02",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "cloudflare",
+      "ecosystem": "cloud",
+      "domain": [
+        "infrastructure"
       ],
       "language": [],
       "framework": [],
@@ -3624,57 +4112,6 @@
       "trust_tier": "T2_institutional",
       "producer_role": "vendor_platform",
       "event_model": "repository_release",
-      "title": "Announcing Cloudflare K2: serverless event streams",
-      "url": "https://blog.cloudflare.com/cloudflare-k2-streams",
-      "source_url": "https://blog.cloudflare.com/cloudflare-k2-streams",
-      "event_at": "2026-10-01T13:00:00+00:00",
-      "event_key": "repository_release:cloudflare-blog:4f45a66ba9a4:2026-10-01",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "cloudflare",
-      "ecosystem": "cloud",
-      "domain": [
-        "serverless"
-      ],
-      "language": [],
-      "framework": [],
-      "topic": [
-        "streaming"
-      ],
-      "source_signal": [
-        "authoritative_tech_source",
-        "deprecation",
-        "migration",
-        "platform_update",
-        "product_update",
-        "repository_release",
-        "rollout",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:cloud:cloudflare",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "Cloudflare Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
       "title": "Cloudflare OS: your company’s agent workspace, managed for you",
       "url": "https://blog.cloudflare.com/managed-cloudflare-os",
       "source_url": "https://blog.cloudflare.com/managed-cloudflare-os",
@@ -3695,105 +4132,6 @@
       "technology": "cloudflare",
       "ecosystem": "cloud",
       "domain": [],
-      "language": [],
-      "framework": [],
-      "topic": [],
-      "source_signal": [
-        "authoritative_tech_source",
-        "deprecation",
-        "migration",
-        "platform_update",
-        "product_update",
-        "repository_release",
-        "rollout",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:cloud:cloudflare",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "Cloudflare Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
-      "title": "We want you to build the next Git platform on Cloudflare",
-      "url": "https://blog.cloudflare.com/next-git-platform-on-cloudflare",
-      "source_url": "https://blog.cloudflare.com/next-git-platform-on-cloudflare",
-      "event_at": "2026-10-01T13:00:00+00:00",
-      "event_key": "repository_release:cloudflare-blog:55a839bbc3fd:2026-10-01",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "cloudflare",
-      "ecosystem": "cloud",
-      "domain": [
-        "platform",
-        "ai"
-      ],
-      "language": [],
-      "framework": [],
-      "topic": [],
-      "source_signal": [
-        "authoritative_tech_source",
-        "deprecation",
-        "migration",
-        "platform_update",
-        "product_update",
-        "repository_release",
-        "rollout",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:cloud:cloudflare",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "Cloudflare Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
-      "title": "Support for modern cryptographic algorithms in Workers",
-      "url": "https://blog.cloudflare.com/workers-ml-kem-ml-dsa-support",
-      "source_url": "https://blog.cloudflare.com/workers-ml-kem-ml-dsa-support",
-      "event_at": "2026-10-01T13:00:00+00:00",
-      "event_key": "repository_release:cloudflare-blog:8581f2589f95:2026-10-01",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "cloudflare",
-      "ecosystem": "cloud",
-      "domain": [
-        "ml"
-      ],
       "language": [],
       "framework": [],
       "topic": [],
@@ -3845,6 +4183,107 @@
       "framework": [
         "api"
       ],
+      "topic": [],
+      "source_signal": [
+        "authoritative_tech_source",
+        "deprecation",
+        "migration",
+        "platform_update",
+        "product_update",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:cloud:cloudflare",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "Cloudflare Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
+      "title": "Announcing Cloudflare K2: serverless event streams",
+      "url": "https://blog.cloudflare.com/cloudflare-k2-streams",
+      "source_url": "https://blog.cloudflare.com/cloudflare-k2-streams",
+      "event_at": "2026-10-01T13:00:00+00:00",
+      "event_key": "repository_release:cloudflare-blog:4f45a66ba9a4:2026-10-01",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "cloudflare",
+      "ecosystem": "cloud",
+      "domain": [
+        "serverless"
+      ],
+      "language": [],
+      "framework": [],
+      "topic": [
+        "streaming"
+      ],
+      "source_signal": [
+        "authoritative_tech_source",
+        "deprecation",
+        "migration",
+        "platform_update",
+        "product_update",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:cloud:cloudflare",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "Cloudflare Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
+      "title": "We want you to build the next Git platform on Cloudflare",
+      "url": "https://blog.cloudflare.com/next-git-platform-on-cloudflare",
+      "source_url": "https://blog.cloudflare.com/next-git-platform-on-cloudflare",
+      "event_at": "2026-10-01T13:00:00+00:00",
+      "event_key": "repository_release:cloudflare-blog:55a839bbc3fd:2026-10-01",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "cloudflare",
+      "ecosystem": "cloud",
+      "domain": [
+        "platform",
+        "ai"
+      ],
+      "language": [],
+      "framework": [],
       "topic": [],
       "source_signal": [
         "authoritative_tech_source",
@@ -3960,56 +4399,6 @@
       ]
     },
     {
-      "source": "Vercel Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
-      "title": "Laya decision model now available on AI Gateway, free through October 31",
-      "url": "https://vercel.com/changelog/laya-decision-model-now-available-on-ai-gateway-free-through-october-31",
-      "source_url": "https://vercel.com/changelog/laya-decision-model-now-available-on-ai-gateway-free-through-october-31",
-      "event_at": "2026-10-01T00:00:00+00:00",
-      "event_key": "repository_release:vercel-blog:e15fec79f214:2026-10-01",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "vercel",
-      "ecosystem": "javascript",
-      "domain": [
-        "ai"
-      ],
-      "language": [],
-      "framework": [
-        "api"
-      ],
-      "topic": [],
-      "source_signal": [
-        "framework_adoption",
-        "migration",
-        "product_update",
-        "release",
-        "repository_release",
-        "rollout",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:javascript:vercel",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
       "source": "OpenAI News",
       "source_type": "rss",
       "trust_tier": "T1_authoritative",
@@ -4103,6 +4492,56 @@
       "canonical_key": "repository:github.com:rust-lang:rust",
       "canonical_key_status": "complete",
       "required_field_gaps": []
+    },
+    {
+      "source": "Vercel Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
+      "title": "Laya decision model now available on AI Gateway, free through October 31",
+      "url": "https://vercel.com/changelog/laya-decision-model-now-available-on-ai-gateway-free-through-october-31",
+      "source_url": "https://vercel.com/changelog/laya-decision-model-now-available-on-ai-gateway-free-through-october-31",
+      "event_at": "2026-10-01T00:00:00+00:00",
+      "event_key": "repository_release:vercel-blog:e15fec79f214:2026-10-01",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "vercel",
+      "ecosystem": "javascript",
+      "domain": [
+        "ai"
+      ],
+      "language": [],
+      "framework": [
+        "api"
+      ],
+      "topic": [],
+      "source_signal": [
+        "framework_adoption",
+        "migration",
+        "product_update",
+        "release",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:javascript:vercel",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
     },
     {
       "source": "Vercel Blog",
@@ -4399,21 +4838,21 @@
       ]
     },
     {
-      "source": "Vercel Blog",
+      "source": "HashiCorp Blog",
       "source_type": "rss",
       "trust_tier": "T2_institutional",
       "producer_role": "vendor_platform",
       "event_model": "repository_release",
-      "title": "Vercel Sandbox now supports Secure Compute",
-      "url": "https://vercel.com/changelog/vercel-sandbox-now-supports-secure-compute",
-      "source_url": "https://vercel.com/changelog/vercel-sandbox-now-supports-secure-compute",
-      "event_at": "2026-09-30T00:00:00+00:00",
-      "event_key": "repository_release:vercel-blog:130e86a31128:2026-09-30",
+      "title": "Terraform 1.16 completes Actions lifecycles and brings imports into child modules",
+      "url": "https://www.hashicorp.com/blog/terraform-116-completes-actions-lifecycles-and-brings-imports-into-child-modules",
+      "source_url": "https://www.hashicorp.com/blog/terraform-116-completes-actions-lifecycles-and-brings-imports-into-child-modules",
+      "event_at": "2026-09-28T07:00:00+00:00",
+      "event_key": "repository_release:hashicorp-blog:c04a29bf8fcc:2026-09-28",
       "repository": "",
       "repository_host": "",
       "repository_owner": "",
       "repository_name": "",
-      "release_tag": "",
+      "release_tag": "1.16",
       "package_name": "",
       "registry": "",
       "download_count": null,
@@ -4421,123 +4860,27 @@
       "forks": null,
       "skill": "",
       "employer": "",
-      "technology": "vercel",
-      "ecosystem": "javascript",
-      "domain": [],
-      "language": [],
-      "framework": [
-        "aws"
-      ],
-      "topic": [],
-      "source_signal": [
-        "framework_adoption",
-        "migration",
-        "product_update",
-        "release",
-        "repository_release",
-        "rollout",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:javascript:vercel",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "Vercel Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
-      "title": "Vercel CDN no longer caches responses with Vary: Cookie",
-      "url": "https://vercel.com/changelog/vary-cookie-responses-no-longer-cached",
-      "source_url": "https://vercel.com/changelog/vary-cookie-responses-no-longer-cached",
-      "event_at": "2026-09-30T00:00:00+00:00",
-      "event_key": "repository_release:vercel-blog:592ec2d894b5:2026-09-30",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "vercel",
-      "ecosystem": "javascript",
-      "domain": [],
-      "language": [],
-      "framework": [],
-      "topic": [
-        "caching"
-      ],
-      "source_signal": [
-        "framework_adoption",
-        "migration",
-        "product_update",
-        "release",
-        "repository_release",
-        "rollout",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:javascript:vercel",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "Vercel Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
-      "title": "Ling 3.1 Flash is now available on AI Gateway",
-      "url": "https://vercel.com/changelog/ling-3-1-flash-is-now-available-on-ai-gateway",
-      "source_url": "https://vercel.com/changelog/ling-3-1-flash-is-now-available-on-ai-gateway",
-      "event_at": "2026-09-30T00:00:00+00:00",
-      "event_key": "repository_release:vercel-blog:d24dd6cc12e3:2026-09-30",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "3.1",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "vercel",
-      "ecosystem": "javascript",
+      "technology": "terraform",
+      "ecosystem": "infrastructure",
       "domain": [
-        "ai"
+        "infrastructure"
       ],
       "language": [],
       "framework": [
-        "api"
+        "terraform"
       ],
       "topic": [],
       "source_signal": [
-        "framework_adoption",
+        "deprecation",
+        "enterprise_adoption",
         "migration",
         "product_update",
         "release",
         "repository_release",
-        "rollout",
         "vendor_platform"
       ],
       "signal_basis": "source_context_signal",
-      "canonical_key": "technology:javascript:vercel",
+      "canonical_key": "technology:infrastructure:terraform",
       "canonical_key_status": "technology_proxy",
       "required_field_gaps": [
         "repository"
@@ -4600,11 +4943,11 @@
       "trust_tier": "T2_institutional",
       "producer_role": "vendor_platform",
       "event_model": "repository_release",
-      "title": "Vercel Connect now accepts service submissions",
-      "url": "https://vercel.com/changelog/vercel-connect-service-submissions",
-      "source_url": "https://vercel.com/changelog/vercel-connect-service-submissions",
-      "event_at": "2026-09-29T22:00:00+00:00",
-      "event_key": "repository_release:vercel-blog:07e52187ff02:2026-09-29",
+      "title": "Vercel Sandbox now supports Secure Compute",
+      "url": "https://vercel.com/changelog/vercel-sandbox-now-supports-secure-compute",
+      "source_url": "https://vercel.com/changelog/vercel-sandbox-now-supports-secure-compute",
+      "event_at": "2026-09-30T00:00:00+00:00",
+      "event_key": "repository_release:vercel-blog:130e86a31128:2026-09-30",
       "repository": "",
       "repository_host": "",
       "repository_owner": "",
@@ -4622,7 +4965,7 @@
       "domain": [],
       "language": [],
       "framework": [
-        "api"
+        "aws"
       ],
       "topic": [],
       "source_signal": [
@@ -4640,252 +4983,6 @@
       "required_field_gaps": [
         "repository",
         "release_tag"
-      ]
-    },
-    {
-      "source": "Vercel Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
-      "title": "Search trace spans from the Vercel CLI",
-      "url": "https://vercel.com/changelog/search-trace-spans-from-the-vercel-cli",
-      "source_url": "https://vercel.com/changelog/search-trace-spans-from-the-vercel-cli",
-      "event_at": "2026-09-29T13:00:00+00:00",
-      "event_key": "repository_release:vercel-blog:14353aeb4a50:2026-09-29",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "vercel",
-      "ecosystem": "javascript",
-      "domain": [
-        "security"
-      ],
-      "language": [],
-      "framework": [],
-      "topic": [],
-      "source_signal": [
-        "framework_adoption",
-        "migration",
-        "product_update",
-        "release",
-        "repository_release",
-        "rollout",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:javascript:vercel",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "OpenAI News",
-      "source_type": "rss",
-      "trust_tier": "T1_authoritative",
-      "producer_role": "model_platform",
-      "event_model": "repository_release",
-      "title": "Introducing GPT-6.1 Sol",
-      "url": "https://openai.com/index/introducing-gpt-6-1-sol",
-      "source_url": "https://openai.com/index/introducing-gpt-6-1-sol",
-      "event_at": "2026-09-29T10:00:00+00:00",
-      "event_key": "repository_release:openai-news:dd66acaed2a0:2026-09-29",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "6.1",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "openai",
-      "ecosystem": "ai",
-      "domain": [],
-      "language": [],
-      "framework": [
-        "gpt",
-        "api"
-      ],
-      "topic": [],
-      "source_signal": [
-        "api_update",
-        "authoritative_tech_source",
-        "developer_adoption",
-        "model_platform",
-        "model_release",
-        "release",
-        "repository_release",
-        "rollout"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:ai:openai",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository"
-      ]
-    },
-    {
-      "source": "OpenAI News",
-      "source_type": "rss",
-      "trust_tier": "T1_authoritative",
-      "producer_role": "model_platform",
-      "event_model": "repository_release",
-      "title": "DevDay 2026 Recap",
-      "url": "https://openai.com/index/devday-2026-recap",
-      "source_url": "https://openai.com/index/devday-2026-recap",
-      "event_at": "2026-09-29T10:00:00+00:00",
-      "event_key": "repository_release:openai-news:19db7cc5ca5c:2026-09-29",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "openai",
-      "ecosystem": "ai",
-      "domain": [
-        "security"
-      ],
-      "language": [],
-      "framework": [
-        "gpt"
-      ],
-      "topic": [],
-      "source_signal": [
-        "api_update",
-        "authoritative_tech_source",
-        "developer_adoption",
-        "model_platform",
-        "model_release",
-        "release",
-        "repository_release",
-        "rollout"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:ai:openai",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "HashiCorp Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
-      "title": "Terraform provider for Google Cloud 8.0 now generally available",
-      "url": "https://www.hashicorp.com/blog/terraform-provider-for-google-cloud-80-now-generally-available",
-      "source_url": "https://www.hashicorp.com/blog/terraform-provider-for-google-cloud-80-now-generally-available",
-      "event_at": "2026-09-23T04:00:00+00:00",
-      "event_key": "repository_release:hashicorp-blog:eb596cec824e:2026-09-23",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "8.0",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "terraform",
-      "ecosystem": "infrastructure",
-      "domain": [
-        "infrastructure"
-      ],
-      "language": [],
-      "framework": [
-        "terraform"
-      ],
-      "topic": [],
-      "source_signal": [
-        "deprecation",
-        "enterprise_adoption",
-        "migration",
-        "product_update",
-        "release",
-        "repository_release",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:infrastructure:terraform",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository"
-      ]
-    },
-    {
-      "source": "HashiCorp Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
-      "title": "Terraform 1.16 completes Actions lifecycles and brings imports into child modules",
-      "url": "https://www.hashicorp.com/blog/terraform-116-completes-actions-lifecycles-and-brings-imports-into-child-modules",
-      "source_url": "https://www.hashicorp.com/blog/terraform-116-completes-actions-lifecycles-and-brings-imports-into-child-modules",
-      "event_at": "2026-09-28T07:00:00+00:00",
-      "event_key": "repository_release:hashicorp-blog:c04a29bf8fcc:2026-09-28",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "1.16",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "terraform",
-      "ecosystem": "infrastructure",
-      "domain": [
-        "infrastructure"
-      ],
-      "language": [],
-      "framework": [
-        "terraform"
-      ],
-      "topic": [],
-      "source_signal": [
-        "deprecation",
-        "enterprise_adoption",
-        "migration",
-        "product_update",
-        "release",
-        "repository_release",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:infrastructure:terraform",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository"
       ]
     },
     {
@@ -5040,6 +5137,54 @@
       "trust_tier": "T2_institutional",
       "producer_role": "vendor_platform",
       "event_model": "repository_release",
+      "title": "Vercel Connect now accepts service submissions",
+      "url": "https://vercel.com/changelog/vercel-connect-service-submissions",
+      "source_url": "https://vercel.com/changelog/vercel-connect-service-submissions",
+      "event_at": "2026-09-29T22:00:00+00:00",
+      "event_key": "repository_release:vercel-blog:07e52187ff02:2026-09-29",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "vercel",
+      "ecosystem": "javascript",
+      "domain": [],
+      "language": [],
+      "framework": [
+        "api"
+      ],
+      "topic": [],
+      "source_signal": [
+        "framework_adoption",
+        "migration",
+        "product_update",
+        "release",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:javascript:vercel",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "Vercel Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
       "title": "Push images to Vercel Container Registry from GitHub Actions",
       "url": "https://vercel.com/changelog/vcr-login-github-action",
       "source_url": "https://vercel.com/changelog/vcr-login-github-action",
@@ -5065,6 +5210,54 @@
         "docker"
       ],
       "topic": [],
+      "source_signal": [
+        "framework_adoption",
+        "migration",
+        "product_update",
+        "release",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:javascript:vercel",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "source": "Vercel Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
+      "title": "Vercel CDN no longer caches responses with Vary: Cookie",
+      "url": "https://vercel.com/changelog/vary-cookie-responses-no-longer-cached",
+      "source_url": "https://vercel.com/changelog/vary-cookie-responses-no-longer-cached",
+      "event_at": "2026-09-30T00:00:00+00:00",
+      "event_key": "repository_release:vercel-blog:592ec2d894b5:2026-09-30",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "vercel",
+      "ecosystem": "javascript",
+      "domain": [],
+      "language": [],
+      "framework": [],
+      "topic": [
+        "caching"
+      ],
       "source_signal": [
         "framework_adoption",
         "migration",
@@ -5130,6 +5323,54 @@
       "canonical_key_status": "technology_proxy",
       "required_field_gaps": [
         "repository"
+      ]
+    },
+    {
+      "source": "Vercel Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
+      "title": "Search trace spans from the Vercel CLI",
+      "url": "https://vercel.com/changelog/search-trace-spans-from-the-vercel-cli",
+      "source_url": "https://vercel.com/changelog/search-trace-spans-from-the-vercel-cli",
+      "event_at": "2026-09-29T13:00:00+00:00",
+      "event_key": "repository_release:vercel-blog:14353aeb4a50:2026-09-29",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "vercel",
+      "ecosystem": "javascript",
+      "domain": [
+        "security"
+      ],
+      "language": [],
+      "framework": [],
+      "topic": [],
+      "source_signal": [
+        "framework_adoption",
+        "migration",
+        "product_update",
+        "release",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:javascript:vercel",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
       ]
     },
     {
@@ -5245,6 +5486,55 @@
       "trust_tier": "T2_institutional",
       "producer_role": "vendor_platform",
       "event_model": "repository_release",
+      "title": "Ling 3.1 Flash is now available on AI Gateway",
+      "url": "https://vercel.com/changelog/ling-3-1-flash-is-now-available-on-ai-gateway",
+      "source_url": "https://vercel.com/changelog/ling-3-1-flash-is-now-available-on-ai-gateway",
+      "event_at": "2026-09-30T00:00:00+00:00",
+      "event_key": "repository_release:vercel-blog:d24dd6cc12e3:2026-09-30",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "3.1",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "vercel",
+      "ecosystem": "javascript",
+      "domain": [
+        "ai"
+      ],
+      "language": [],
+      "framework": [
+        "api"
+      ],
+      "topic": [],
+      "source_signal": [
+        "framework_adoption",
+        "migration",
+        "product_update",
+        "release",
+        "repository_release",
+        "rollout",
+        "vendor_platform"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:javascript:vercel",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository"
+      ]
+    },
+    {
+      "source": "Vercel Blog",
+      "source_type": "rss",
+      "trust_tier": "T2_institutional",
+      "producer_role": "vendor_platform",
+      "event_model": "repository_release",
       "title": "GPT-6.1 Sol now available on AI Gateway",
       "url": "https://vercel.com/changelog/gpt-6-1-sol-now-available-on-ai-gateway",
       "source_url": "https://vercel.com/changelog/gpt-6-1-sol-now-available-on-ai-gateway",
@@ -5271,55 +5561,6 @@
       "framework": [
         "gpt",
         "api"
-      ],
-      "topic": [],
-      "source_signal": [
-        "framework_adoption",
-        "migration",
-        "product_update",
-        "release",
-        "repository_release",
-        "rollout",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:javascript:vercel",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository"
-      ]
-    },
-    {
-      "source": "Vercel Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
-      "title": "Gemini 3.8 text-to-speech models now available on AI Gateway",
-      "url": "https://vercel.com/changelog/gemini-3-8-text-to-speech-models-now-available-on-ai-gateway",
-      "source_url": "https://vercel.com/changelog/gemini-3-8-text-to-speech-models-now-available-on-ai-gateway",
-      "event_at": "2026-09-23T00:00:00+00:00",
-      "event_key": "repository_release:vercel-blog:8326b405447e:2026-09-23",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "3.8",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "vercel",
-      "ecosystem": "javascript",
-      "domain": [
-        "ai"
-      ],
-      "language": [],
-      "framework": [
-        "gemini"
       ],
       "topic": [],
       "source_signal": [
@@ -5390,51 +5631,6 @@
       "required_field_gaps": [
         "repository",
         "release_tag"
-      ]
-    },
-    {
-      "source": "Vercel Blog",
-      "source_type": "rss",
-      "trust_tier": "T2_institutional",
-      "producer_role": "vendor_platform",
-      "event_model": "repository_release",
-      "title": "Drives for Vercel Sandbox are now in public beta",
-      "url": "https://vercel.com/changelog/drives-for-vercel-sandbox-are-now-in-public-beta",
-      "source_url": "https://vercel.com/changelog/drives-for-vercel-sandbox-are-now-in-public-beta",
-      "event_at": "2026-09-23T00:00:00+00:00",
-      "event_key": "repository_release:vercel-blog:88dfdf44a7d1:2026-09-23",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "0.05",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "vercel",
-      "ecosystem": "javascript",
-      "domain": [],
-      "language": [],
-      "framework": [],
-      "topic": [],
-      "source_signal": [
-        "framework_adoption",
-        "migration",
-        "product_update",
-        "release",
-        "repository_release",
-        "rollout",
-        "vendor_platform"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:javascript:vercel",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository"
       ]
     },
     {
@@ -6146,6 +6342,55 @@
       "trust_tier": "T1_authoritative",
       "producer_role": "model_platform",
       "event_model": "repository_release",
+      "title": "Introducing GPT-6.1 Sol",
+      "url": "https://openai.com/index/introducing-gpt-6-1-sol",
+      "source_url": "https://openai.com/index/introducing-gpt-6-1-sol",
+      "event_at": "2026-09-29T10:00:00+00:00",
+      "event_key": "repository_release:openai-news:dd66acaed2a0:2026-09-29",
+      "repository": "",
+      "repository_host": "",
+      "repository_owner": "",
+      "repository_name": "",
+      "release_tag": "6.1",
+      "package_name": "",
+      "registry": "",
+      "download_count": null,
+      "stars": null,
+      "forks": null,
+      "skill": "",
+      "employer": "",
+      "technology": "openai",
+      "ecosystem": "ai",
+      "domain": [],
+      "language": [],
+      "framework": [
+        "gpt",
+        "api"
+      ],
+      "topic": [],
+      "source_signal": [
+        "api_update",
+        "authoritative_tech_source",
+        "developer_adoption",
+        "model_platform",
+        "model_release",
+        "release",
+        "repository_release",
+        "rollout"
+      ],
+      "signal_basis": "source_context_signal",
+      "canonical_key": "technology:ai:openai",
+      "canonical_key_status": "technology_proxy",
+      "required_field_gaps": [
+        "repository"
+      ]
+    },
+    {
+      "source": "OpenAI News",
+      "source_type": "rss",
+      "trust_tier": "T1_authoritative",
+      "producer_role": "model_platform",
+      "event_model": "repository_release",
       "title": "Introducing dots",
       "url": "https://openai.com/index/introducing-dots",
       "source_url": "https://openai.com/index/introducing-dots",
@@ -6289,11 +6534,11 @@
       "trust_tier": "T1_authoritative",
       "producer_role": "model_platform",
       "event_model": "repository_release",
-      "title": "Grab and OpenAI bring practical AI skills to Southeast Asia",
-      "url": "https://openai.com/index/grab-openai-ai-skills-southeast-asia",
-      "source_url": "https://openai.com/index/grab-openai-ai-skills-southeast-asia",
-      "event_at": "2026-09-23T00:00:00+00:00",
-      "event_key": "repository_release:openai-news:09a0c6dbf1c6:2026-09-23",
+      "title": "DevDay 2026 Recap",
+      "url": "https://openai.com/index/devday-2026-recap",
+      "source_url": "https://openai.com/index/devday-2026-recap",
+      "event_at": "2026-09-29T10:00:00+00:00",
+      "event_key": "repository_release:openai-news:19db7cc5ca5c:2026-09-29",
       "repository": "",
       "repository_host": "",
       "repository_owner": "",
@@ -6309,111 +6554,13 @@
       "technology": "openai",
       "ecosystem": "ai",
       "domain": [
-        "ai"
+        "security"
       ],
-      "language": [
-        "go"
-      ],
-      "framework": [],
-      "topic": [],
-      "source_signal": [
-        "api_update",
-        "authoritative_tech_source",
-        "developer_adoption",
-        "model_platform",
-        "model_release",
-        "release",
-        "repository_release",
-        "rollout"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:ai:openai",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "OpenAI News",
-      "source_type": "rss",
-      "trust_tier": "T1_authoritative",
-      "producer_role": "model_platform",
-      "event_model": "repository_release",
-      "title": "ChatGPT Ads expands to Southeast Asia and Taiwan",
-      "url": "https://openai.com/index/chatgpt-ads-expands-southeast-asia-taiwan",
-      "source_url": "https://openai.com/index/chatgpt-ads-expands-southeast-asia-taiwan",
-      "event_at": "2026-09-23T02:00:00+00:00",
-      "event_key": "repository_release:openai-news:1dd9ce125c6e:2026-09-23",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "openai",
-      "ecosystem": "ai",
-      "domain": [],
-      "language": [],
-      "framework": [],
-      "topic": [],
-      "source_signal": [
-        "api_update",
-        "authoritative_tech_source",
-        "developer_adoption",
-        "model_platform",
-        "model_release",
-        "release",
-        "repository_release",
-        "rollout"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:ai:openai",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "OpenAI News",
-      "source_type": "rss",
-      "trust_tier": "T1_authoritative",
-      "producer_role": "model_platform",
-      "event_model": "repository_release",
-      "title": "Better prompt caching for GPT-6",
-      "url": "https://openai.com/index/better-prompt-caching-for-gpt-6",
-      "source_url": "https://openai.com/index/better-prompt-caching-for-gpt-6",
-      "event_at": "2026-09-22T21:00:00+00:00",
-      "event_key": "repository_release:openai-news:b6b1e4118cdb:2026-09-22",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "openai",
-      "ecosystem": "ai",
-      "domain": [],
       "language": [],
       "framework": [
         "gpt"
       ],
-      "topic": [
-        "caching"
-      ],
+      "topic": [],
       "source_signal": [
         "api_update",
         "authoritative_tech_source",
@@ -6486,55 +6633,6 @@
       "trust_tier": "T1_authoritative",
       "producer_role": "model_platform",
       "event_model": "repository_release",
-      "title": "Airbnb widens access to GPT-6 Astra and OpenAI frontier models",
-      "url": "https://openai.com/index/airbnb-gpt-6-astra",
-      "source_url": "https://openai.com/index/airbnb-gpt-6-astra",
-      "event_at": "2026-09-23T01:00:00+00:00",
-      "event_key": "repository_release:openai-news:73fafdf6f45f:2026-09-23",
-      "repository": "",
-      "repository_host": "",
-      "repository_owner": "",
-      "repository_name": "",
-      "release_tag": "",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "openai",
-      "ecosystem": "ai",
-      "domain": [],
-      "language": [],
-      "framework": [
-        "gpt"
-      ],
-      "topic": [],
-      "source_signal": [
-        "api_update",
-        "authoritative_tech_source",
-        "developer_adoption",
-        "model_platform",
-        "model_release",
-        "release",
-        "repository_release",
-        "rollout"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "technology:ai:openai",
-      "canonical_key_status": "technology_proxy",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "source": "OpenAI News",
-      "source_type": "rss",
-      "trust_tier": "T1_authoritative",
-      "producer_role": "model_platform",
-      "event_model": "repository_release",
       "title": "Are you a Codex Original?",
       "url": "https://openai.com/form/codex-originals",
       "source_url": "https://openai.com/form/codex-originals",
@@ -6575,71 +6673,6 @@
         "repository",
         "release_tag"
       ]
-    },
-    {
-      "source": "Kubernetes Blog",
-      "source_type": "rss",
-      "trust_tier": "T1_authoritative",
-      "producer_role": "open_source_maintainer",
-      "event_model": "repository_release",
-      "title": "Spotlight on SIG Apps",
-      "url": "https://kubernetes.io/blog/2026/09/22/sig-apps-spotlight",
-      "source_url": "https://kubernetes.io/blog/2026/09/22/sig-apps-spotlight",
-      "event_at": "2026-09-22T18:00:00+00:00",
-      "event_key": "repository_release:kubernetes-blog:093f0d0f2f3c:2026-09-22",
-      "repository": "github.com/kubernetes-sigs/agent-sandbox",
-      "repository_host": "github.com",
-      "repository_owner": "kubernetes-sigs",
-      "repository_name": "agent-sandbox",
-      "release_tag": "1.0",
-      "package_name": "",
-      "registry": "",
-      "download_count": null,
-      "stars": null,
-      "forks": null,
-      "skill": "",
-      "employer": "",
-      "technology": "kubernetes",
-      "ecosystem": "cloud-native",
-      "domain": [
-        "infrastructure",
-        "platform",
-        "ai",
-        "kubernetes"
-      ],
-      "language": [
-        "go"
-      ],
-      "framework": [
-        "react",
-        "llm",
-        "kubernetes",
-        "api"
-      ],
-      "topic": [
-        "performance",
-        "scalability",
-        "reliability",
-        "monitoring",
-        "logging",
-        "open source",
-        "api design",
-        "automation"
-      ],
-      "source_signal": [
-        "authoritative_tech_source",
-        "changelog",
-        "deprecation",
-        "migration",
-        "open_source_maintainer",
-        "release",
-        "release_note",
-        "repository_release"
-      ],
-      "signal_basis": "source_context_signal",
-      "canonical_key": "repository:github.com:kubernetes-sigs:agent-sandbox",
-      "canonical_key_status": "complete",
-      "required_field_gaps": []
     },
     {
       "source": "Go Blog",
@@ -6792,6 +6825,157 @@
     {
       "reason": "missing_required_fields",
       "event_model": "repository_release",
+      "source": "GitHub Blog Engineering",
+      "title": "Building Git infrastructure for agent-scale development",
+      "event_key": "repository_release:github-blog-engineering:d12760993a97:2026-10-06",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "GitHub Blog Engineering",
+      "title": "Building Git infrastructure for agent-scale development",
+      "event_key": "repository_release:github-blog-engineering:d12760993a97:2026-10-06",
+      "canonical_key": "technology:vendor-platform:github"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "Cloudflare Blog",
+      "title": "The keys to the Internet change on October 11. Are you ready?",
+      "event_key": "repository_release:cloudflare-blog:ddec0ece98fa:2026-10-06",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "Cloudflare Blog",
+      "title": "The keys to the Internet change on October 11. Are you ready?",
+      "event_key": "repository_release:cloudflare-blog:ddec0ece98fa:2026-10-06",
+      "canonical_key": "technology:cloud:cloudflare"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "Vercel Blog",
+      "title": "AI Gateway adds confidence-based decision fallbacks",
+      "event_key": "repository_release:vercel-blog:61b4e138101a:2026-10-06",
+      "required_field_gaps": [
+        "repository"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "Vercel Blog",
+      "title": "AI Gateway adds confidence-based decision fallbacks",
+      "event_key": "repository_release:vercel-blog:61b4e138101a:2026-10-06",
+      "canonical_key": "technology:javascript:vercel"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "Atlassian and OpenAI expand partnership to turn enterprise knowledge into action",
+      "event_key": "repository_release:openai-news:60ef2af305e7:2026-10-06",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "Atlassian and OpenAI expand partnership to turn enterprise knowledge into action",
+      "event_key": "repository_release:openai-news:60ef2af305e7:2026-10-06",
+      "canonical_key": "technology:ai:openai"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "How Jump Trading is scaling quant research with ChatGPT",
+      "event_key": "repository_release:openai-news:342677ae7ead:2026-10-06",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "How Jump Trading is scaling quant research with ChatGPT",
+      "event_key": "repository_release:openai-news:342677ae7ead:2026-10-06",
+      "canonical_key": "technology:ai:openai"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "Sharing AI progress in mathematics",
+      "event_key": "repository_release:openai-news:47b9255d8fa0:2026-10-06",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "Sharing AI progress in mathematics",
+      "event_key": "repository_release:openai-news:47b9255d8fa0:2026-10-06",
+      "canonical_key": "technology:ai:openai"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "Advancing computer use with Ironclad",
+      "event_key": "repository_release:openai-news:9964af802e9c:2026-10-06",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "OpenAI News",
+      "title": "Advancing computer use with Ironclad",
+      "event_key": "repository_release:openai-news:9964af802e9c:2026-10-06",
+      "canonical_key": "technology:ai:openai"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "Vercel Blog",
+      "title": "Mistral Large 4 now available on AI Gateway",
+      "event_key": "repository_release:vercel-blog:e262ace024c0:2026-10-06",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "Vercel Blog",
+      "title": "Mistral Large 4 now available on AI Gateway",
+      "event_key": "repository_release:vercel-blog:e262ace024c0:2026-10-06",
+      "canonical_key": "technology:javascript:vercel"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
       "source": "OpenAI News",
       "title": "Our approach to EU text provenance rules",
       "event_key": "repository_release:openai-news:78ad53815846:2026-10-05",
@@ -6807,6 +6991,25 @@
       "title": "Our approach to EU text provenance rules",
       "event_key": "repository_release:openai-news:78ad53815846:2026-10-05",
       "canonical_key": "technology:ai:openai"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "Cloudflare Blog",
+      "title": "Everything we launched during Birthday Week 2026",
+      "event_key": "repository_release:cloudflare-blog:d1602119935a:2026-10-05",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "Cloudflare Blog",
+      "title": "Everything we launched during Birthday Week 2026",
+      "event_key": "repository_release:cloudflare-blog:d1602119935a:2026-10-05",
+      "canonical_key": "technology:cloud:cloudflare"
     },
     {
       "reason": "missing_required_fields",
@@ -6829,25 +7032,6 @@
     {
       "reason": "missing_required_fields",
       "event_model": "repository_release",
-      "source": "Cloudflare Blog",
-      "title": "Everything we launched during Birthday Week 2026",
-      "event_key": "repository_release:cloudflare-blog:d1602119935a:2026-10-05",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "Cloudflare Blog",
-      "title": "Everything we launched during Birthday Week 2026",
-      "event_key": "repository_release:cloudflare-blog:d1602119935a:2026-10-05",
-      "canonical_key": "technology:cloud:cloudflare"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
       "source": "OpenAI News",
       "title": "Building advertising for the way people use AI",
       "event_key": "repository_release:openai-news:3cbec84de8bf:2026-10-05",
@@ -6944,8 +7128,8 @@
       "reason": "missing_required_fields",
       "event_model": "repository_release",
       "source": "Cloudflare Blog",
-      "title": "2026 Birthday week: network performance update",
-      "event_key": "repository_release:cloudflare-blog:c5769abc90da:2026-10-02",
+      "title": "Building for good: How civil society organizations are automating on Cloudflare",
+      "event_key": "repository_release:cloudflare-blog:19ec3340e630:2026-10-02",
       "required_field_gaps": [
         "repository",
         "release_tag"
@@ -6955,8 +7139,8 @@
       "reason": "technology_proxy_canonical_key",
       "event_model": "repository_release",
       "source": "Cloudflare Blog",
-      "title": "2026 Birthday week: network performance update",
-      "event_key": "repository_release:cloudflare-blog:c5769abc90da:2026-10-02",
+      "title": "Building for good: How civil society organizations are automating on Cloudflare",
+      "event_key": "repository_release:cloudflare-blog:19ec3340e630:2026-10-02",
       "canonical_key": "technology:cloud:cloudflare"
     },
     {
@@ -6982,25 +7166,6 @@
       "reason": "missing_required_fields",
       "event_model": "repository_release",
       "source": "Cloudflare Blog",
-      "title": "Building for good: How civil society organizations are automating on Cloudflare",
-      "event_key": "repository_release:cloudflare-blog:19ec3340e630:2026-10-02",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "Cloudflare Blog",
-      "title": "Building for good: How civil society organizations are automating on Cloudflare",
-      "event_key": "repository_release:cloudflare-blog:19ec3340e630:2026-10-02",
-      "canonical_key": "technology:cloud:cloudflare"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "Cloudflare Blog",
       "title": "Follow the thread: a new dashboard to investigate account abuse",
       "event_key": "repository_release:cloudflare-blog:3836babc9c5a:2026-10-02",
       "required_field_gaps": [
@@ -7014,25 +7179,6 @@
       "source": "Cloudflare Blog",
       "title": "Follow the thread: a new dashboard to investigate account abuse",
       "event_key": "repository_release:cloudflare-blog:3836babc9c5a:2026-10-02",
-      "canonical_key": "technology:cloud:cloudflare"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "Cloudflare Blog",
-      "title": "Announcing Cloudflare OHTTP Gateway – expanding access to Cloudflare’s privacy-preserving infrastructure",
-      "event_key": "repository_release:cloudflare-blog:5e1d1c7f4599:2026-10-02",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "Cloudflare Blog",
-      "title": "Announcing Cloudflare OHTTP Gateway – expanding access to Cloudflare’s privacy-preserving infrastructure",
-      "event_key": "repository_release:cloudflare-blog:5e1d1c7f4599:2026-10-02",
       "canonical_key": "technology:cloud:cloudflare"
     },
     {
@@ -7071,6 +7217,44 @@
       "source": "Cloudflare Blog",
       "title": "Updates on our pledge to make Cloudflare features accessible to everyone",
       "event_key": "repository_release:cloudflare-blog:72f49031912f:2026-10-02",
+      "canonical_key": "technology:cloud:cloudflare"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "Cloudflare Blog",
+      "title": "2026 Birthday week: network performance update",
+      "event_key": "repository_release:cloudflare-blog:c5769abc90da:2026-10-02",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "Cloudflare Blog",
+      "title": "2026 Birthday week: network performance update",
+      "event_key": "repository_release:cloudflare-blog:c5769abc90da:2026-10-02",
+      "canonical_key": "technology:cloud:cloudflare"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "repository_release",
+      "source": "Cloudflare Blog",
+      "title": "Announcing Cloudflare OHTTP Gateway – expanding access to Cloudflare’s privacy-preserving infrastructure",
+      "event_key": "repository_release:cloudflare-blog:5e1d1c7f4599:2026-10-02",
+      "required_field_gaps": [
+        "repository",
+        "release_tag"
+      ]
+    },
+    {
+      "reason": "technology_proxy_canonical_key",
+      "event_model": "repository_release",
+      "source": "Cloudflare Blog",
+      "title": "Announcing Cloudflare OHTTP Gateway – expanding access to Cloudflare’s privacy-preserving infrastructure",
+      "event_key": "repository_release:cloudflare-blog:5e1d1c7f4599:2026-10-02",
       "canonical_key": "technology:cloud:cloudflare"
     },
     {
@@ -7109,158 +7293,6 @@
       "title": "Chatham scales its capital markets expertise with OpenAI",
       "event_key": "repository_release:openai-news:a97398f76ee5:2026-10-02",
       "canonical_key": "technology:ai:openai"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "The eternal complement",
-      "event_key": "repository_release:openai-news:7e67b43cf9d0:2026-10-01",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "The eternal complement",
-      "event_key": "repository_release:openai-news:7e67b43cf9d0:2026-10-01",
-      "canonical_key": "technology:ai:openai"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "How Albertsons Companies is reimagining retail from the inside out",
-      "event_key": "repository_release:openai-news:a80484c2d584:2026-10-01",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "OpenAI News",
-      "title": "How Albertsons Companies is reimagining retail from the inside out",
-      "event_key": "repository_release:openai-news:a80484c2d584:2026-10-01",
-      "canonical_key": "technology:ai:openai"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "Cloudflare Blog",
-      "title": "Introducing Clef: our open-source decision models, and new RL fine-tuning platform",
-      "event_key": "repository_release:cloudflare-blog:317971da35b1:2026-10-01",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "Cloudflare Blog",
-      "title": "Introducing Clef: our open-source decision models, and new RL fine-tuning platform",
-      "event_key": "repository_release:cloudflare-blog:317971da35b1:2026-10-01",
-      "canonical_key": "technology:cloud:cloudflare"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "Cloudflare Blog",
-      "title": "One year later: Sovereign AI and the fight for choice",
-      "event_key": "repository_release:cloudflare-blog:cff0cfdac8b9:2026-10-01",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "Cloudflare Blog",
-      "title": "One year later: Sovereign AI and the fight for choice",
-      "event_key": "repository_release:cloudflare-blog:cff0cfdac8b9:2026-10-01",
-      "canonical_key": "technology:cloud:cloudflare"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "Cloudflare Blog",
-      "title": "Announcing Cloudflare K2: serverless event streams",
-      "event_key": "repository_release:cloudflare-blog:4f45a66ba9a4:2026-10-01",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "Cloudflare Blog",
-      "title": "Announcing Cloudflare K2: serverless event streams",
-      "event_key": "repository_release:cloudflare-blog:4f45a66ba9a4:2026-10-01",
-      "canonical_key": "technology:cloud:cloudflare"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "Cloudflare Blog",
-      "title": "Cloudflare OS: your company’s agent workspace, managed for you",
-      "event_key": "repository_release:cloudflare-blog:d3d13d9734fe:2026-10-01",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "Cloudflare Blog",
-      "title": "Cloudflare OS: your company’s agent workspace, managed for you",
-      "event_key": "repository_release:cloudflare-blog:d3d13d9734fe:2026-10-01",
-      "canonical_key": "technology:cloud:cloudflare"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "Cloudflare Blog",
-      "title": "We want you to build the next Git platform on Cloudflare",
-      "event_key": "repository_release:cloudflare-blog:55a839bbc3fd:2026-10-01",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "Cloudflare Blog",
-      "title": "We want you to build the next Git platform on Cloudflare",
-      "event_key": "repository_release:cloudflare-blog:55a839bbc3fd:2026-10-01",
-      "canonical_key": "technology:cloud:cloudflare"
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "repository_release",
-      "source": "Cloudflare Blog",
-      "title": "Support for modern cryptographic algorithms in Workers",
-      "event_key": "repository_release:cloudflare-blog:8581f2589f95:2026-10-01",
-      "required_field_gaps": [
-        "repository",
-        "release_tag"
-      ]
-    },
-    {
-      "reason": "technology_proxy_canonical_key",
-      "event_model": "repository_release",
-      "source": "Cloudflare Blog",
-      "title": "Support for modern cryptographic algorithms in Workers",
-      "event_key": "repository_release:cloudflare-blog:8581f2589f95:2026-10-01",
-      "canonical_key": "technology:cloud:cloudflare"
     }
   ],
   "source_backlog": {
