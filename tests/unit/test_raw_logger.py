@@ -5,6 +5,8 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import cast
 
+import pytest
+
 from blogradar.models import Article
 from blogradar.raw_logger import RawLogger
 
@@ -71,6 +73,27 @@ def test_log_writes_ontology_when_present(tmp_path: Path) -> None:
         "ontology_version": "0.1.0",
         "event_model_id": "blog_post_event",
     }
+
+
+def test_log_skip_stores_env_name_only(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setenv("BLOGRADAR_EXAMPLE_TOKEN", "super-secret-value")
+    logger = RawLogger(tmp_path)
+
+    output_path = logger.log_skip(source_name="Keyed API", required_env="BLOGRADAR_EXAMPLE_TOKEN")
+
+    text = output_path.read_text(encoding="utf-8")
+    payload = cast(dict[str, object], json.loads(text))
+    assert payload["status"] == "skipped_missing_env"
+    assert payload["required_env"] == "BLOGRADAR_EXAMPLE_TOKEN"
+    assert "super-secret-value" not in text
+    assert output_path.name == "Keyed API.skip.json"
+
+
+def test_log_skip_rejects_non_names(tmp_path: Path) -> None:
+    logger = RawLogger(tmp_path)
+    with pytest.raises(ValueError):
+        logger.log_skip(source_name="Keyed API", required_env="not a name")
+    assert list(tmp_path.rglob("*.skip.json")) == []
 
 
 def test_log_appends_when_called_multiple_times(tmp_path: Path) -> None:

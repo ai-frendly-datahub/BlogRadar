@@ -13,6 +13,10 @@ class CollectionError(RadarError):
     """Error during data collection from sources."""
 
 
+class EmptyCollectionError(CollectionError):
+    """Enabled sources produced no articles. An empty run is not success."""
+
+
 class SourceError(CollectionError):
     """Error specific to a single source."""
 

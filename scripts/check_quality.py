@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import sys
 from datetime import UTC, date, datetime
 from pathlib import Path
@@ -128,9 +129,14 @@ def generate_quality_artifacts(
 
     classified_articles = apply_source_context_entities(articles, category_cfg.sources)
     scoped_articles = filter_relevant_articles(classified_articles, category_cfg.sources)
+    raw_dir = _project_path(
+        project_root,
+        str(runtime_config.get("raw_data_dir", "data/raw")),
+    )
     report = build_quality_report(
         category=category_cfg,
         articles=scoped_articles or classified_articles,
+        errors=_load_collection_errors(raw_dir),
         quality_config=quality_cfg,
     )
     paths = write_quality_report(
@@ -139,6 +145,30 @@ def generate_quality_artifacts(
         category_name=category_cfg.category_name,
     )
     return paths, report
+
+
+def _load_collection_errors(raw_dir: Path) -> list[str]:
+    """Read the newest collector error file. Missing files mean no recorded errors."""
+    if not raw_dir.exists():
+        return []
+    candidates = [
+        child
+        for child in raw_dir.iterdir()
+        if child.is_dir() and (child / "collection_errors.json").is_file()
+    ]
+    if not candidates:
+        return []
+    path = max(candidates, key=lambda child: child.name) / "collection_errors.json"
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return []
+    if not isinstance(payload, dict):
+        return []
+    recorded = payload.get("errors")
+    if not isinstance(recorded, list):
+        return []
+    return [str(item) for item in recorded]
 
 
 def main() -> None:

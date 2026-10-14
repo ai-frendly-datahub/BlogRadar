@@ -9,10 +9,21 @@ from typing import Any, cast
 import pytest
 
 import main
+from blogradar.exceptions import EmptyCollectionError
 from blogradar.models import Article, Source
 from blogradar.notifier import NotificationPayload
 
 pytestmark = pytest.mark.unit
+
+
+def test_ensure_collection_not_empty_rejects_zero_articles() -> None:
+    with pytest.raises(EmptyCollectionError):
+        main.ensure_collection_not_empty(collected_count=0, enabled_source_count=4)
+
+
+def test_ensure_collection_not_empty_allows_items_or_no_enabled_sources() -> None:
+    main.ensure_collection_not_empty(collected_count=2, enabled_source_count=4)
+    main.ensure_collection_not_empty(collected_count=0, enabled_source_count=0)
 
 
 def test_parse_args_accepts_pipeline_options(monkeypatch: pytest.MonkeyPatch) -> None:

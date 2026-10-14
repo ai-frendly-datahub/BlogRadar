@@ -3,9 +3,10 @@ from __future__ import annotations
 import calendar
 import html
 import os
+import re
 import threading
 import time
-from collections.abc import Mapping
+from collections.abc import Mapping, Sequence
 from concurrent.futures import Future, ThreadPoolExecutor
 from datetime import UTC, datetime, timedelta
 from email.utils import parsedate_to_datetime
@@ -21,10 +22,17 @@ from urllib3.util.retry import Retry
 
 from .exceptions import NetworkError, ParseError, SourceError
 from .models import Article, Source
+from .raw_logger import RawLogger
 from .resilience import get_circuit_breaker_manager
 
+# Identifying client name. Some public feeds reject the default python-requests
+# agent. This is a fixed product name, not a browser impersonation list.
+BLOGRADAR_USER_AGENT = (
+    "BlogRadar/0.1 (+https://github.com/ai-frendly-datahub/BlogRadar; public-rss)"
+)
+_ENV_VAR_NAME = re.compile(r"[A-Za-z_][A-Za-z0-9_]*")
 _DEFAULT_HEADERS: dict[str, str] = {
-    "User-Agent": "Mozilla/5.0 (compatible; RadarTemplateBot/1.0; +https://github.com/zzragida/ai-frendly-datahub)",
+    "User-Agent": BLOGRADAR_USER_AGENT,
 }
 _DEFAULT_HEALTH_DB_PATH = "data/radar_data.duckdb"
 _COLLECTION_CONTROL_LOCK = threading.Lock()
@@ -126,9 +134,9 @@ def _fetch_url_with_retry(
 
         try:
             if session is not None:
-                response = session.get(url, timeout=timeout, headers=merged)
+                response = session.get(url, timeout=timeout, headers=merged, verify=True)
             else:
-                response = requests.get(url, timeout=timeout, headers=merged)
+                response = requests.get(url, timeout=timeout, headers=merged, verify=True)
             response.raise_for_status()
 
             if source_name is not None and throttler is not None:
@@ -180,6 +188,51 @@ def _source_bool(source: Source, key: str) -> bool:
     return False
 
 
+def _env_var_names(value: object) -> list[str]:
+    raw_names: list[str] = []
+    if isinstance(value, str):
+        raw_names = [value]
+    elif isinstance(value, Sequence) and not isinstance(value, (str, bytes)):
+        raw_names = [str(item) for item in value]
+    names: list[str] = []
+    for item in raw_names:
+        candidate = item.strip()
+        if not candidate:
+            continue
+        if _ENV_VAR_NAME.fullmatch(candidate) is None:
+            raise ValueError("required_env must be an environment variable name")
+        names.append(candidate)
+    return names
+
+
+def missing_required_env(source: Source) -> list[str]:
+    """Return required env var names that are unset. Values are never returned."""
+    configured = source.config.get("required_env", source.config.get("required_env_vars"))
+    missing: list[str] = []
+    for name in _env_var_names(configured):
+        if not os.environ.get(name, "").strip():
+            missing.append(name)
+    return missing
+
+
+def emit_missing_secret_warning(source_name: str, env_name: str) -> None:
+    """Warn that a source was skipped. Prints the env var name, never a value."""
+    if _ENV_VAR_NAME.fullmatch(env_name) is None:
+        raise ValueError("required_env must be an environment variable name")
+    message = f"{source_name} skipped; required env {env_name}"
+    print(f"::warning title=BlogRadar missing secret::{message}", flush=True)
+
+
+def _is_feed_url(url: str) -> bool:
+    path = urlparse(url).path.lower()
+    return path.endswith((".rss", ".xml", ".atom")) or path.rstrip("/").endswith("/feed")
+
+
+def _looks_like_feed(content: bytes) -> bool:
+    head = content.lstrip()[:800].lower()
+    return b"<rss" in head or b"<feed" in head or b"<rdf" in head
+
+
 def collect_sources(
     sources: list[Source],
     *,
@@ -190,6 +243,7 @@ def collect_sources(
     max_workers: int | None = None,
     health_db_path: str | None = None,
     max_age_days: int | None = None,
+    raw_logger: RawLogger | None = None,
 ) -> tuple[list[Article], list[str]]:
     """Fetch items from all configured sources, returning articles and errors."""
     articles: list[Article] = []
@@ -197,14 +251,39 @@ def collect_sources(
     manager = get_circuit_breaker_manager()
     workers = _resolve_max_workers(max_workers)
     enabled_sources = [source for source in sources if source.enabled]
+    runnable_sources: list[Source] = []
+    for source in enabled_sources:
+        try:
+            missing_env = missing_required_env(source)
+        except ValueError:
+            errors.append(f"{source.name}: required_env must be an environment variable name")
+            continue
+        if missing_env:
+            for env_name in missing_env:
+                emit_missing_secret_warning(source.name, env_name)
+            if raw_logger is not None:
+                raw_logger.log_skip(source_name=source.name, required_env=missing_env)
+            errors.append(f"{source.name}: skipped_missing_env {', '.join(missing_env)}")
+            continue
+        runnable_sources.append(source)
+
     _reddit_types = {"reddit"}
-    rss_sources = [source for source in enabled_sources if source.type.lower() == "rss"]
-    reddit_sources = [source for source in enabled_sources if source.type.lower() in _reddit_types]
+    feed_sources = [
+        source
+        for source in runnable_sources
+        if source.type.lower() == "rss"
+        or (source.type.lower() in _reddit_types and _is_feed_url(source.url))
+    ]
+    reddit_sources = [
+        source
+        for source in runnable_sources
+        if source.type.lower() in _reddit_types and source not in feed_sources
+    ]
     unsupported_sources = [
-        source for source in enabled_sources if source.type.lower() not in {"rss", *_reddit_types}
+        source for source in runnable_sources if source.type.lower() not in {"rss", *_reddit_types}
     ]
     source_hosts: dict[str, str] = {
-        source.name: (urlparse(source.url).netloc.lower() or source.name) for source in rss_sources
+        source.name: (urlparse(source.url).netloc.lower() or source.name) for source in feed_sources
     }
     rate_limiters: dict[str, RateLimiter] = {
         host: RateLimiter(min_interval=min_interval_per_host) for host in set(source_hosts.values())
@@ -249,14 +328,14 @@ def collect_sources(
 
     try:
         if workers == 1:
-            for source in rss_sources:
+            for source in feed_sources:
                 source_articles, source_errors = _collect_for_source(source)
                 articles.extend(source_articles)
                 errors.extend(source_errors)
         else:
             with ThreadPoolExecutor(max_workers=workers) as executor:
                 future_map: list[Future[tuple[list[Article], list[str]]]] = [
-                    executor.submit(_collect_for_source, source) for source in rss_sources
+                    executor.submit(_collect_for_source, source) for source in feed_sources
                 ]
 
                 for future in future_map:
@@ -315,7 +394,10 @@ def _collect_single(
     timeout: int,
     session: requests.Session | None = None,
 ) -> list[Article]:
-    if source.type.lower() != "rss":
+    feed_type = source.type.lower() in {"rss", "reddit"} and (
+        source.type.lower() == "rss" or _is_feed_url(source.url)
+    )
+    if not feed_type:
         raise SourceError(source.name, f"Unsupported source type '{source.type}'")
 
     try:
@@ -331,7 +413,12 @@ def _collect_single(
         raise SourceError(source.name, f"Request failed: {exc}", exc) from exc
 
     try:
-        feed = feedparser.parse(response.content)
+        body = response.content if isinstance(response.content, bytes) else bytes(response.content)
+        if not body.strip() or (not _looks_like_feed(body)):
+            raise ParseError(f"Feed from {source.name} was not RSS/Atom")
+        feed = feedparser.parse(body)
+        if not feed.entries:
+            raise ParseError(f"Feed from {source.name} contained no entries")
         items: list[Article] = []
 
         for entry in feed.entries[:limit]:
@@ -364,7 +451,11 @@ def _collect_single(
                 )
             )
 
+        if not items:
+            raise ParseError(f"Feed from {source.name} contained no usable entries")
         return items
+    except ParseError:
+        raise
     except Exception as exc:
         raise ParseError(f"Failed to parse feed from {source.name}: {exc}") from exc
 

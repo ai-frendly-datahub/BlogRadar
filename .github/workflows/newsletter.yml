@@ -81,6 +81,12 @@ jobs:
             echo "db_exists=false" >> $GITHUB_OUTPUT
           fi
 
+      - name: Require newsletter database
+        if: ${{ inputs.dry_run != 'true' && steps.check-db.outputs.db_exists != 'true' }}
+        run: |
+          echo "::error::Newsletter database is missing; refusing to succeed with empty output"
+          exit 1
+
       - name: Generate Newsletter (Dry Run)
         if: ${{ inputs.dry_run == 'true' && steps.check-db.outputs.db_exists == 'true' }}
         run: |
@@ -106,13 +112,21 @@ jobs:
       - name: Copy newsletter to reports
         if: ${{ inputs.dry_run != 'true' && steps.check-db.outputs.db_exists == 'true' }}
         run: |
-          if [ -d "newsletter/output" ]; then
-            # Copy latest newsletter to reports directory
-            cp newsletter/output/newsletter_*.html reports/ 2>/dev/null || true
-            cp newsletter/output/newsletter_*.md reports/ 2>/dev/null || true
-            echo "Newsletter files copied to reports/"
-            ls -la reports/newsletter_* 2>/dev/null || echo "No newsletter files found"
+          set -euo pipefail
+          shopt -s nullglob
+          found=0
+          for f in newsletter/output/newsletter_*.html newsletter/output/newsletter_*.md newsletter/output/newsletter_*.json; do
+            if [ -s "$f" ]; then found=1; fi
+          done
+          if [ "$found" -eq 0 ]; then
+            echo "::error::Newsletter output is empty"
+            exit 1
           fi
+          mkdir -p reports
+          cp newsletter/output/newsletter_*.html reports/
+          cp newsletter/output/newsletter_*.md reports/
+          echo "Newsletter files copied to reports/"
+          ls -la reports/newsletter_*
 
       - name: Auto-commit newsletter
         if: ${{ inputs.dry_run != 'true' && steps.check-db.outputs.db_exists == 'true' }}
@@ -150,10 +164,22 @@ jobs:
             ls -la newsletter/output/ >> $GITHUB_STEP_SUMMARY 2>/dev/null || echo "No output files" >> $GITHUB_STEP_SUMMARY
           fi
 
+      - name: Record missing notification secret
+        if: always()
+        env:
+          NOTIFICATION_WEBHOOK_URL: ${{ secrets.NOTIFICATION_WEBHOOK_URL }}
+        run: python scripts/record_missing_secrets.py NOTIFICATION_WEBHOOK_URL
+
       - name: Notify on failure
         if: failure()
+        env:
+          NOTIFICATION_WEBHOOK_URL: ${{ secrets.NOTIFICATION_WEBHOOK_URL }}
         run: |
-          curl -s -X POST "${{ secrets.NOTIFICATION_WEBHOOK_URL }}" \
+          if [ -z "${NOTIFICATION_WEBHOOK_URL:-}" ]; then
+            echo "failure notify skipped; required env NOTIFICATION_WEBHOOK_URL"
+            exit 0
+          fi
+          curl -s -X POST "${NOTIFICATION_WEBHOOK_URL}" \
             -H "Content-Type: application/json" \
             -d '{
               "repo": "${{ github.repository }}",
