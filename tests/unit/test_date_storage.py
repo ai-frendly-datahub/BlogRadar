@@ -4,6 +4,7 @@ from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 
 import duckdb
+import pytest
 
 
 def _init_articles_db(db_path: Path, *, rows: int) -> None:
@@ -223,6 +224,67 @@ def test_cleanup_dated_reports_missing_dir(tmp_path: Path) -> None:
     missing = tmp_path / "nonexistent"
     removed = cleanup_dated_reports(missing, keep_days=7)
     assert removed == 0
+
+
+def test_apply_date_storage_policy_compacts_before_snapshot(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from blogradar import date_storage
+
+    db_file = tmp_path / "radar_data.duckdb"
+    db_file.write_text("original-db")
+
+    def _compact(path: Path) -> dict[str, object]:
+        assert path == db_file
+        path.write_text("compacted-db")
+        return {
+            "compacted": True,
+            "reason": "rewritten",
+            "bytes": 13,
+            "bytes_before": 12,
+            "rows_deleted": 4,
+        }
+
+    monkeypatch.setattr(date_storage, "_load_compactor", lambda: _compact)
+    result = date_storage.apply_date_storage_policy(
+        database_path=db_file,
+        raw_data_dir=tmp_path / "raw",
+        report_dir=tmp_path / "reports",
+        keep_raw_days=30,
+        keep_report_days=30,
+        snapshot_db=True,
+    )
+
+    snapshot = Path(str(result["snapshot_path"]))
+    assert snapshot.read_text() == "compacted-db"
+    assert result["db_compacted"] is True
+    assert result["db_rows_deleted"] == 4
+
+
+def test_apply_date_storage_policy_keeps_file_when_compact_fails(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from blogradar import date_storage
+
+    db_file = tmp_path / "radar_data.duckdb"
+    db_file.write_text("original-db")
+
+    def _boom(_path: Path) -> dict[str, object]:
+        raise RuntimeError("compact failed")
+
+    monkeypatch.setattr(date_storage, "_load_compactor", lambda: _boom)
+    result = date_storage.apply_date_storage_policy(
+        database_path=db_file,
+        raw_data_dir=tmp_path / "raw",
+        report_dir=tmp_path / "reports",
+        keep_raw_days=30,
+        keep_report_days=30,
+        snapshot_db=True,
+    )
+
+    assert db_file.read_text() == "original-db"
+    assert Path(str(result["snapshot_path"])).read_text() == "original-db"
+    assert result["db_reason"] == "failed"
 
 
 def test_storage_create_daily_snapshot(tmp_path: Path) -> None:

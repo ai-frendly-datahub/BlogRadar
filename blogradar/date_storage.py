@@ -1,10 +1,14 @@
 from __future__ import annotations
 
+import logging
 import shutil
+from collections.abc import Callable
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 
 import duckdb
+
+logger = logging.getLogger(__name__)
 
 
 def snapshot_database(
@@ -131,6 +135,53 @@ def cleanup_dated_reports(report_dir: Path, *, keep_days: int, today: date | Non
     return removed
 
 
+def _load_compactor() -> Callable[..., dict[str, object]]:
+    """Return radar-core's DuckDB compactor.
+
+    BlogRadar copies ``database_path`` in ``snapshot_database`` before git add.
+    ``compact_duckdb_file`` has to run on that path first. ``RADAR_DUCKDB_MAX_BYTES``
+    and ``RADAR_DUCKDB_COMPACT`` are read inside radar-core (default budget 90 MiB).
+    """
+    from radar_core.db_compact import compact_duckdb_file
+
+    return compact_duckdb_file
+
+
+def _compact_database(database_path: Path) -> dict[str, object]:
+    """Shrink ``database_path`` before it is copied or committed.
+
+    Compaction failure must not block the report or the snapshot. The file
+    already on disk is left in place.
+    """
+    bytes_now = database_path.stat().st_size if database_path.exists() else 0
+    fallback: dict[str, object] = {
+        "compacted": False,
+        "reason": "missing" if not database_path.exists() else "skipped",
+        "bytes": bytes_now,
+        "bytes_before": bytes_now,
+        "rows_deleted": 0,
+    }
+    if not database_path.exists():
+        return fallback
+    try:
+        compact_duckdb_file = _load_compactor()
+    except ImportError as exc:
+        logger.warning("duckdb_compact_unavailable path=%s error=%s", database_path, exc)
+        fallback["reason"] = "unavailable"
+        return fallback
+    try:
+        result = compact_duckdb_file(database_path)
+    except Exception as exc:
+        logger.warning("duckdb_compact_failed path=%s error=%s", database_path, exc)
+        fallback["reason"] = "failed"
+        fallback["bytes"] = database_path.stat().st_size if database_path.exists() else 0
+        return fallback
+    if isinstance(result, dict):
+        return result
+    fallback["reason"] = "invalid_result"
+    return fallback
+
+
 def apply_date_storage_policy(
     *,
     database_path: Path,
@@ -140,7 +191,17 @@ def apply_date_storage_policy(
     keep_report_days: int,
     snapshot_db: bool,
 ) -> dict[str, object]:
-    """Apply date-based storage policy: snapshot, cleanup raw data, cleanup reports."""
+    """Apply date-based storage policy: compact, snapshot, cleanup raw data and reports."""
+    # Compact first so the snapshot is a copy of the file that will be committed.
+    compact = _compact_database(database_path)
+    logger.info(
+        "duckdb_compact path=%s reason=%s bytes_before=%s bytes=%s rows_deleted=%s",
+        database_path,
+        compact.get("reason"),
+        compact.get("bytes_before"),
+        compact.get("bytes"),
+        compact.get("rows_deleted"),
+    )
     snapshot_path = snapshot_database(database_path) if snapshot_db else None
     raw_removed = cleanup_date_directories(raw_data_dir, keep_days=keep_raw_days)
     report_removed = cleanup_dated_reports(report_dir, keep_days=keep_report_days)
@@ -148,4 +209,9 @@ def apply_date_storage_policy(
         "snapshot_path": str(snapshot_path) if snapshot_path is not None else None,
         "raw_removed": raw_removed,
         "report_removed": report_removed,
+        "db_bytes": compact.get("bytes"),
+        "db_bytes_before": compact.get("bytes_before"),
+        "db_compacted": compact.get("compacted"),
+        "db_rows_deleted": compact.get("rows_deleted"),
+        "db_reason": compact.get("reason"),
     }
