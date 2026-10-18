@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="ko" data-visual-system="radar-unified-v2" data-visual-surface="extension" data-visual-page="newsletter-template">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Blog Radar Weekly</title>
+  <style>
+        :root { --vs-font-sans: "Pretendard Variable", "Pretendard", "Segoe UI", Arial, sans-serif; }
+
+/* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--vs-font-sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif);
+      line-height: 1.6;
+      color: #1e293b;
+      background-color: #f0f4f8;
+    }
+
+    /* Email container */
+    .email-container {
+      max-width: 680px;
+      margin: 0 auto;
+      background-color: #f8fafc;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+      color: white;
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .header .subtitle {
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    .header .date {
+      font-size: 14px;
+      opacity: 0.8;
+      margin-top: 12px;
+    }
+
+    /* Content area */
+    .content {
+      padding: 24px;
+    }
+
+    /* Section styles */
+    .section {
+      margin-bottom: 32px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #2563eb;
+    }
+
+    .section-icon {
+      font-size: 24px;
+      margin-right: 12px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #2563eb;
+    }
+
+    .section-description {
+      font-size: 14px;
+      color: #64748b;
+      margin-bottom: 16px;
+    }
+
+    /* Article card */
+    .article-card {
+      background: white;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.2s;
+    }
+
+    .article-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .article-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .article-title a {
+      color: #1e293b;
+      text-decoration: none;
+    }
+
+    .article-title a:hover {
+      color: #3b82f6;
+    }
+
+    .article-meta {
+      font-size: 13px;
+      color: #64748b;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .article-source {
+      font-weight: 500;
+      color: #2563eb;
+    }
+
+    .article-summary {
+      font-size: 14px;
+      color: #475569;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    .article-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e2e8f0;
+      color: #475569;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 12px;
+    }
+
+    .tag.domain {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    .tag.language {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .tag.framework {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    /* Group section */
+    .group-container {
+      margin-bottom: 20px;
+    }
+
+    .group-header {
+      font-size: 16px;
+      font-weight: 600;
+      color: #334155;
+      padding: 8px 12px;
+      background: #f1f5f9;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+
+    /* Stats section */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .stat-card {
+      background: white;
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .stat-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: #2563eb;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    /* Footer */
+    .footer {
+      background: #1e293b;
+      color: #94a3b8;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .footer p {
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .footer a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    .footer .unsubscribe {
+      font-size: 12px;
+      margin-top: 16px;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .header h1 {
+        font-size: 24px;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .article-meta {
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <!-- Header -->
+    <div class="header">
+      <h1>Tech Blog Radar Weekly</h1>
+      <p class="subtitle">Weekly digest of trending tech blog articles</p>
+      <p class="date">2026-05-24 ~ 2026-05-31</p>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">500</div>
+          <div class="stat-label">Total Articles</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">33</div>
+          <div class="stat-label">Sources</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">AI/ML</div>
+          <div class="stat-label">Top Domain</div>
+        </div>
+      </div>
+
+      <!-- Top Articles Section -->
+      
+      <div class="section">
+        <div class="section-header">
+          <span class="section-icon">&#x1F31F;</span>
+          <span class="section-title">Top Articles This Week</span>
+        </div>
+        <p class="section-description">Most relevant articles from tech blogs</p>
+
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/speeding-up-ai-bringing-google-colossus-to-pytorch-via-gcsfs-and-rapid-bucket" target="_blank">Speeding Up AI: Bringing Google Colossus to PyTorch via GCSFS and Rapid Bucket</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-05-30</span>
+          </div>
+          
+          <p class="article-summary">Google Cloud has introduced a high-performance integration that connects Rapid Storage directly to PyTorch via the fsspec interface to eliminate AI training bottlenecks. By utilizing Google’s...</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag domain">ai</span>
+            
+            <span class="tag framework">pytorch</span>
+            
+            <span class="tag framework">grpc</span>
+            
+          </div>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/adk-kotlin-android-building-ai-agents" target="_blank">Announcing ADK for Kotlin and ADK for Android 0.1.0: Building AI Agents on Android and Beyond</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-05-30</span>
+          </div>
+          
+          <p class="article-summary">ADK for Kotlin brings agentic workflows to your backend projects, while ADK for Android provides spe...</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag domain">backend</span>
+            
+            <span class="tag domain">ai</span>
+            
+            <span class="tag domain">android</span>
+            
+            <span class="tag language">kotlin</span>
+            
+          </div>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/all-the-news-from-the-google-io-2026-developer-keynote" target="_blank">All the news from the Google I/O 2026 Developer keynote</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-05-30</span>
+          </div>
+          
+          <p class="article-summary">Google announced the transition from assistive AI to independent agents, highlighting the launch of the Gemini 3.5 series and major updates to its Antigravity agent-first development platform. For...</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag domain">platform</span>
+            
+            <span class="tag domain">ai</span>
+            
+            <span class="tag domain">mobile</span>
+            
+            <span class="tag language">kotlin</span>
+            
+            <span class="tag framework">gemini</span>
+            
+            <span class="tag framework">api</span>
+            
+          </div>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/building-real-world-on-device-ai-with-litert-and-npu" target="_blank">Building real-world on-device AI with LiteRT and NPU</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-05-30</span>
+          </div>
+          
+          <p class="article-summary">LiteRT is a production-ready framework designed to help mobile developers unlock the power of Neural Processing Units (NPUs), overcoming the performance and battery limitations of traditional CPU or...</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag domain">platform</span>
+            
+            <span class="tag domain">ai</span>
+            
+            <span class="tag domain">mobile</span>
+            
+            <span class="tag framework">api</span>
+            
+          </div>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/how-the-community-trained-gemma-to-think-with-tunix-and-tpus" target="_blank">How the community trained Gemma to &#34;Think&#34; with Tunix and TPUs</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-05-30</span>
+          </div>
+          
+          <p class="article-summary">The Google Tunix Hackathon on Kaggle challenged developers to transform small, non-reasoning base models into general reasoning engines using Kaggle TPUs and a limited compute budget. The winning...</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag domain">ai</span>
+            
+          </div>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/announcing-genkit-middleware-intercept-extend-and-harden-your-agentic-apps" target="_blank">Announcing Genkit Middleware: Intercept, extend, and harden your agentic apps</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-05-30</span>
+          </div>
+          
+          <p class="article-summary">Genkit is an open-source framework designed to help developers build production-ready, agentic AI applications using TypeScript, Go, Dart, and Python. The framework utilizes a powerful middleware...</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag domain">ai</span>
+            
+            <span class="tag language">python</span>
+            
+            <span class="tag language">go</span>
+            
+            <span class="tag language">typescript</span>
+            
+          </div>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/enhancing-android-checkout-with-dynamic-callbacks-in-google-pay" target="_blank">Enhancing Android Checkout with Dynamic Callbacks in Google Pay</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-05-30</span>
+          </div>
+          
+          <p class="article-summary">We are excited to bring Express checkout with Google Pay for Android native apps enabling developers...</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag domain">android</span>
+            
+            <span class="tag framework">express</span>
+            
+          </div>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/building-with-gemini-embedding-2" target="_blank">Building with Gemini Embedding 2: Agentic multimodal RAG and beyond</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-05-30</span>
+          </div>
+          
+          <p class="article-summary">Google has announced the general availability of Gemini Embedding 2, a unified model that maps text, images, video, audio, and documents into a single semantic space. This model allows developers to...</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag domain">ai</span>
+            
+            <span class="tag framework">rag</span>
+            
+            <span class="tag framework">embedding</span>
+            
+            <span class="tag framework">gemini</span>
+            
+          </div>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/accelerating-on-device-ai-a-look-at-arm-and-google-ai-edge-optimization" target="_blank">Accelerating on-device AI: A look at Arm and Google AI Edge optimization</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-05-30</span>
+          </div>
+          
+          <p class="article-summary">Integration of Arm Scalable Matrix Extension 2 (SME2) and the Google AI Edge software stack enables high-performance, on-device generative AI by turning the CPU into a powerful matrix-compute...</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag domain">ai</span>
+            
+            <span class="tag domain">mobile</span>
+            
+          </div>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/supercharge-your-integration-workflow-with-the-google-pay-wallet-developer-mcp-server" target="_blank">Supercharge your integration workflow with the Google Pay &amp; Wallet Developer MCP server</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-05-30</span>
+          </div>
+          
+          <p class="article-summary">Google has announced the new Google Pay &amp; Wallet Developer MCP server, an open-standard tool designed to securely connect AI development assistants and IDEs with real-time API and account context....</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag domain">ai</span>
+            
+            <span class="tag framework">api</span>
+            
+          </div>
+          
+        </div>
+        
+      </div>
+      
+
+      <!-- By Domain Section -->
+      
+      <div class="section">
+        <div class="section-header">
+          <span class="section-icon">&#x1F4CA;</span>
+          <span class="section-title">Trends by Domain</span>
+        </div>
+        <p class="section-description">Articles grouped by tech domain</p>
+
+        
+        
+        <div class="group-container">
+          <div class="group-header">AI/ML (5)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/speeding-up-ai-bringing-google-colossus-to-pytorch-via-gcsfs-and-rapid-bucket" target="_blank">Speeding Up AI: Bringing Google Colossus to PyTorch via GCSFS and Rapid Bucket</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/adk-kotlin-android-building-ai-agents" target="_blank">Announcing ADK for Kotlin and ADK for Android 0.1.0: Building AI Agents on Android and Beyond</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/all-the-news-from-the-google-io-2026-developer-keynote" target="_blank">All the news from the Google I/O 2026 Developer keynote</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/building-real-world-on-device-ai-with-litert-and-npu" target="_blank">Building real-world on-device AI with LiteRT and NPU</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/how-the-community-trained-gemma-to-think-with-tunix-and-tpus" target="_blank">How the community trained Gemma to &#34;Think&#34; with Tunix and TPUs</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+        
+        <div class="group-container">
+          <div class="group-header">Backend (5)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/adk-kotlin-android-building-ai-agents" target="_blank">Announcing ADK for Kotlin and ADK for Android 0.1.0: Building AI Agents on Android and Beyond</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/enhancing-android-checkout-with-dynamic-callbacks-in-google-pay" target="_blank">Enhancing Android Checkout with Dynamic Callbacks in Google Pay</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/the-latest-updates-to-google-pay" target="_blank">The latest updates to Google Pay</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/nave0009/205-best-nephew-quotes-from-aunt-and-uncle-filled-with-love-2lkf" target="_blank">205 Best Nephew Quotes From Aunt and Uncle Filled With Love 💙</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - DevOps</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/wernerk_au/tracking-five-upstreams-fuzzing-the-parsers-and-a-front-door-what-changed-in-llm-cli-gateway-3hik" target="_blank">Tracking Five Upstreams, Fuzzing the Parsers, and a Front Door: What Changed in llm-cli-gateway</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - Open Source</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+        
+        <div class="group-container">
+          <div class="group-header">Frontend (5)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/announcing-genkit-middleware-intercept-extend-and-harden-your-agentic-apps" target="_blank">Announcing Genkit Middleware: Intercept, extend, and harden your agentic apps</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/blazing-fast-on-device-genai-with-litert-lm" target="_blank">Blazing fast on-device GenAI with LiteRT-LM</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/wernerk_au/tracking-five-upstreams-fuzzing-the-parsers-and-a-front-door-what-changed-in-llm-cli-gateway-3hik" target="_blank">Tracking Five Upstreams, Fuzzing the Parsers, and a Front Door: What Changed in llm-cli-gateway</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - Open Source</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/zeroknowledge0x/the-complete-guide-to-github-bounty-hunting-with-ai-agents-in-2026-real-earnings-real-code-real-4fjo" target="_blank">The Complete Guide to GitHub Bounty Hunting with AI Agents in 2026 (Real Earnings, Real Code, Real Lessons)</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - Open Source</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/developersuniverse1/the-problem-we-solved-agentic-outreach-engine-in-production-56kc" target="_blank">I Built an AI That Writes Cold Emails — Here&#39;s Why They Have a 34% Reply Rate</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - Open Source</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+        
+        <div class="group-container">
+          <div class="group-header">DevOps (5)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/agents-cli-in-agent-platform-create-to-production-in-one-cli" target="_blank">Agents CLI in Agent Platform:  create to production in one CLI</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/one-year-of-innovation-celebrating-100k-members-in-the-google-cloud-x-nvidia-developer-community" target="_blank">One Year of Innovation: Celebrating 100k Members in the Google Cloud x NVIDIA Developer Community</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/blazing-fast-on-device-genai-with-litert-lm" target="_blank">Blazing fast on-device GenAI with LiteRT-LM</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/nilofer_tweets/fine-tuning-qwen25-05b-to-write-sre-post-mortem-summaries-2jem" target="_blank">Fine-Tuning Qwen2.5-0.5B to Write SRE Post-Mortem Summaries</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - Python</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/zeroknowledge0x/the-real-economics-of-ai-agent-bounty-hunting-a-30-day-transparent-ledger-384b" target="_blank">The Real Economics of AI Agent Bounty Hunting: A 30-Day Transparent Ledger</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - Open Source</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+        
+        <div class="group-container">
+          <div class="group-header">Security (5)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/the-latest-updates-to-google-pay" target="_blank">The latest updates to Google Pay</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/zeroknowledge0x/the-real-economics-of-ai-agent-bounty-hunting-a-30-day-transparent-ledger-384b" target="_blank">The Real Economics of AI Agent Bounty Hunting: A 30-Day Transparent Ledger</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - Open Source</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/wernerk_au/tracking-five-upstreams-fuzzing-the-parsers-and-a-front-door-what-changed-in-llm-cli-gateway-3hik" target="_blank">Tracking Five Upstreams, Fuzzing the Parsers, and a Front Door: What Changed in llm-cli-gateway</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - Open Source</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/cloudsecops/automate-kubernetes-image-vulnerability-scanning-3efb" target="_blank">Automate Kubernetes Image Vulnerability Scanning</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - DevOps</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/zeroknowledge0x/the-complete-guide-to-github-bounty-hunting-with-ai-agents-in-2026-real-earnings-real-code-real-4fjo" target="_blank">The Complete Guide to GitHub Bounty Hunting with AI Agents in 2026 (Real Earnings, Real Code, Real Lessons)</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - Open Source</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+      </div>
+      
+
+      <!-- By Language Section -->
+      
+      <div class="section">
+        <div class="section-header">
+          <span class="section-icon">&#x1F4BB;</span>
+          <span class="section-title">Language & Framework Highlights</span>
+        </div>
+        <p class="section-description">Top articles by programming language/framework</p>
+
+        
+        
+        <div class="group-container">
+          <div class="group-header">Python (3)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/speeding-up-ai-bringing-google-colossus-to-pytorch-via-gcsfs-and-rapid-bucket" target="_blank">Speeding Up AI: Bringing Google Colossus to PyTorch via GCSFS and Rapid Bucket</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/announcing-genkit-middleware-intercept-extend-and-harden-your-agentic-apps" target="_blank">Announcing Genkit Middleware: Intercept, extend, and harden your agentic apps</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/google-tensor-sdk-beta-with-litert" target="_blank">Google Tensor SDK Beta with LiteRT</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+        
+        <div class="group-container">
+          <div class="group-header">Go (3)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/speeding-up-ai-bringing-google-colossus-to-pytorch-via-gcsfs-and-rapid-bucket" target="_blank">Speeding Up AI: Bringing Google Colossus to PyTorch via GCSFS and Rapid Bucket</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/all-the-news-from-the-google-io-2026-developer-keynote" target="_blank">All the news from the Google I/O 2026 Developer keynote</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/building-real-world-on-device-ai-with-litert-and-npu" target="_blank">Building real-world on-device AI with LiteRT and NPU</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+        
+        <div class="group-container">
+          <div class="group-header">TypeScript (3)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/announcing-genkit-middleware-intercept-extend-and-harden-your-agentic-apps" target="_blank">Announcing Genkit Middleware: Intercept, extend, and harden your agentic apps</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/blazing-fast-on-device-genai-with-litert-lm" target="_blank">Blazing fast on-device GenAI with LiteRT-LM</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/zeroknowledge0x/the-real-economics-of-ai-agent-bounty-hunting-a-30-day-transparent-ledger-384b" target="_blank">The Real Economics of AI Agent Bounty Hunting: A 30-Day Transparent Ledger</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - Open Source</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+        
+        <div class="group-container">
+          <div class="group-header">Rust (3)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/wernerk_au/tracking-five-upstreams-fuzzing-the-parsers-and-a-front-door-what-changed-in-llm-cli-gateway-3hik" target="_blank">Tracking Five Upstreams, Fuzzing the Parsers, and a Front Door: What Changed in llm-cli-gateway</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - Open Source</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/zeroknowledge0x/the-complete-guide-to-github-bounty-hunting-with-ai-agents-in-2026-real-earnings-real-code-real-4fjo" target="_blank">The Complete Guide to GitHub Bounty Hunting with AI Agents in 2026 (Real Earnings, Real Code, Real Lessons)</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - Open Source</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/glendel/building-ai-workflows-is-easy-making-them-reliable-is-systems-engineering-19h6" target="_blank">Building AI Workflows Is Easy. Making Them Reliable Is Systems Engineering</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - Open Source</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+        
+        <div class="group-container">
+          <div class="group-header">Kubernetes (3)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/cloudsecops/automate-kubernetes-image-vulnerability-scanning-3efb" target="_blank">Automate Kubernetes Image Vulnerability Scanning</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - DevOps</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/zeroknowledge0x/the-complete-guide-to-github-bounty-hunting-with-ai-agents-in-2026-real-earnings-real-code-real-4fjo" target="_blank">The Complete Guide to GitHub Bounty Hunting with AI Agents in 2026 (Real Earnings, Real Code, Real Lessons)</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - Open Source</span>
+              <span>2026-05-30</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://thenewstack.io/kubernetes-rightsizing-trust-gap" target="_blank">The fix for soaring AI cloud bills exists — so why won’t we trust it?</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">The New Stack</span>
+              <span>2026-05-29</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+      </div>
+      
+
+      <!-- Korean Companies Section -->
+      
+
+      <!-- Global Companies Section -->
+      
+      <div class="section">
+        <div class="section-header">
+          <span class="section-icon">&#x1F30D;</span>
+          <span class="section-title">Global Tech Updates</span>
+        </div>
+        <p class="section-description">Latest from global tech giants</p>
+
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/speeding-up-ai-bringing-google-colossus-to-pytorch-via-gcsfs-and-rapid-bucket" target="_blank">Speeding Up AI: Bringing Google Colossus to PyTorch via GCSFS and Rapid Bucket</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-05-30</span>
+          </div>
+          
+          <p class="article-summary">Google Cloud has introduced a high-performance integration that connects Rapid Storage directly to PyTorch via the fsspec interface to eliminate AI training bottlenecks. By utilizing Google’s...</p>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/adk-kotlin-android-building-ai-agents" target="_blank">Announcing ADK for Kotlin and ADK for Android 0.1.0: Building AI Agents on Android and Beyond</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-05-30</span>
+          </div>
+          
+          <p class="article-summary">ADK for Kotlin brings agentic workflows to your backend projects, while ADK for Android provides spe...</p>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/all-the-news-from-the-google-io-2026-developer-keynote" target="_blank">All the news from the Google I/O 2026 Developer keynote</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-05-30</span>
+          </div>
+          
+          <p class="article-summary">Google announced the transition from assistive AI to independent agents, highlighting the launch of the Gemini 3.5 series and major updates to its Antigravity agent-first development platform. For...</p>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/building-real-world-on-device-ai-with-litert-and-npu" target="_blank">Building real-world on-device AI with LiteRT and NPU</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-05-30</span>
+          </div>
+          
+          <p class="article-summary">LiteRT is a production-ready framework designed to help mobile developers unlock the power of Neural Processing Units (NPUs), overcoming the performance and battery limitations of traditional CPU or...</p>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/how-the-community-trained-gemma-to-think-with-tunix-and-tpus" target="_blank">How the community trained Gemma to &#34;Think&#34; with Tunix and TPUs</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-05-30</span>
+          </div>
+          
+          <p class="article-summary">The Google Tunix Hackathon on Kaggle challenged developers to transform small, non-reasoning base models into general reasoning engines using Kaggle TPUs and a limited compute budget. The winning...</p>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/announcing-genkit-middleware-intercept-extend-and-harden-your-agentic-apps" target="_blank">Announcing Genkit Middleware: Intercept, extend, and harden your agentic apps</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-05-30</span>
+          </div>
+          
+          <p class="article-summary">Genkit is an open-source framework designed to help developers build production-ready, agentic AI applications using TypeScript, Go, Dart, and Python. The framework utilizes a powerful middleware...</p>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/enhancing-android-checkout-with-dynamic-callbacks-in-google-pay" target="_blank">Enhancing Android Checkout with Dynamic Callbacks in Google Pay</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-05-30</span>
+          </div>
+          
+          <p class="article-summary">We are excited to bring Express checkout with Google Pay for Android native apps enabling developers...</p>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/building-with-gemini-embedding-2" target="_blank">Building with Gemini Embedding 2: Agentic multimodal RAG and beyond</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-05-30</span>
+          </div>
+          
+          <p class="article-summary">Google has announced the general availability of Gemini Embedding 2, a unified model that maps text, images, video, audio, and documents into a single semantic space. This model allows developers to...</p>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/accelerating-on-device-ai-a-look-at-arm-and-google-ai-edge-optimization" target="_blank">Accelerating on-device AI: A look at Arm and Google AI Edge optimization</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-05-30</span>
+          </div>
+          
+          <p class="article-summary">Integration of Arm Scalable Matrix Extension 2 (SME2) and the Google AI Edge software stack enables high-performance, on-device generative AI by turning the CPU into a powerful matrix-compute...</p>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/supercharge-your-integration-workflow-with-the-google-pay-wallet-developer-mcp-server" target="_blank">Supercharge your integration workflow with the Google Pay &amp; Wallet Developer MCP server</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-05-30</span>
+          </div>
+          
+          <p class="article-summary">Google has announced the new Google Pay &amp; Wallet Developer MCP server, an open-standard tool designed to securely connect AI development assistants and IDEs with real-time API and account context....</p>
+          
+        </div>
+        
+      </div>
+      
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>Generated by <a href="https://github.com/ai-frendly-datahub/BlogRadar">BlogRadar</a></p>
+      <p>Tracking 33 tech blog sources</p>
+      <p class="unsubscribe">
+        <a href="#">Unsubscribe</a> |
+        <a href="#">View in browser</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
