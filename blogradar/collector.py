@@ -223,9 +223,19 @@ def emit_missing_secret_warning(source_name: str, env_name: str) -> None:
     print(f"::warning title=BlogRadar missing secret::{message}", flush=True)
 
 
-def _is_feed_url(url: str) -> bool:
-    path = urlparse(url).path.lower()
-    return path.endswith((".rss", ".xml", ".atom")) or path.rstrip("/").endswith("/feed")
+def emit_reddit_public_rss_fallback(source_name: str, env_name: str) -> None:
+    """Reddit has no API key, so collection stays on the public RSS path."""
+    if _ENV_VAR_NAME.fullmatch(env_name) is None:
+        raise ValueError("required_env must be an environment variable name")
+    message = f"{source_name} reddit api env {env_name} unset; using public rss"
+    print(f"::warning title=BlogRadar reddit rss fallback::{message}", flush=True)
+
+
+def _is_reddit_source(source: Source) -> bool:
+    if source.type.lower() == "reddit":
+        return True
+    host = (urlparse(source.url).hostname or "").lower().rstrip(".")
+    return host == "reddit.com" or host.endswith(".reddit.com")
 
 
 def _looks_like_feed(content: bytes) -> bool:
@@ -259,6 +269,11 @@ def collect_sources(
             errors.append(f"{source.name}: required_env must be an environment variable name")
             continue
         if missing_env:
+            if _is_reddit_source(source):
+                for env_name in missing_env:
+                    emit_reddit_public_rss_fallback(source.name, env_name)
+                runnable_sources.append(source)
+                continue
             for env_name in missing_env:
                 emit_missing_secret_warning(source.name, env_name)
             if raw_logger is not None:
@@ -267,20 +282,17 @@ def collect_sources(
             continue
         runnable_sources.append(source)
 
-    _reddit_types = {"reddit"}
+    reddit_sources = [source for source in runnable_sources if _is_reddit_source(source)]
+    reddit_names = {source.name for source in reddit_sources}
     feed_sources = [
         source
         for source in runnable_sources
-        if source.type.lower() == "rss"
-        or (source.type.lower() in _reddit_types and _is_feed_url(source.url))
-    ]
-    reddit_sources = [
-        source
-        for source in runnable_sources
-        if source.type.lower() in _reddit_types and source not in feed_sources
+        if source.type.lower() == "rss" and source.name not in reddit_names
     ]
     unsupported_sources = [
-        source for source in runnable_sources if source.type.lower() not in {"rss", *_reddit_types}
+        source
+        for source in runnable_sources
+        if source.name not in reddit_names and source.type.lower() != "rss"
     ]
     source_hosts: dict[str, str] = {
         source.name: (urlparse(source.url).netloc.lower() or source.name) for source in feed_sources
@@ -344,24 +356,17 @@ def collect_sources(
                     errors.extend(source_errors)
 
         if reddit_sources:
-            try:
-                from radar_core import collect_reddit_sources
+            from blogradar.reddit_feed import collect_reddit_public
 
-                reddit_articles, reddit_errors = collect_reddit_sources(
-                    reddit_sources,
-                    category=category,
-                    limit=limit_per_source,
-                    timeout=timeout,
-                    health_db_path=health_db_path
-                    or os.environ.get("RADAR_CRAWL_HEALTH_DB_PATH", _DEFAULT_HEALTH_DB_PATH),
-                )
-                articles.extend(reddit_articles)
-                errors.extend(reddit_errors)
-            except ImportError:
-                errors.append(
-                    f"Reddit collection unavailable for {len(reddit_sources)} source(s). "
-                    "Ensure radar-core reddit support is installed."
-                )
+            reddit_articles, reddit_errors = collect_reddit_public(
+                reddit_sources,
+                category=category,
+                limit=limit_per_source,
+                timeout=timeout,
+                health_store=health_store,
+            )
+            articles.extend(reddit_articles)
+            errors.extend(reddit_errors)
 
         for source in unsupported_sources:
             errors.append(
@@ -394,10 +399,9 @@ def _collect_single(
     timeout: int,
     session: requests.Session | None = None,
 ) -> list[Article]:
-    feed_type = source.type.lower() in {"rss", "reddit"} and (
-        source.type.lower() == "rss" or _is_feed_url(source.url)
-    )
-    if not feed_type:
+    if _is_reddit_source(source):
+        raise SourceError(source.name, "Reddit sources use the public RSS collector")
+    if source.type.lower() != "rss":
         raise SourceError(source.name, f"Unsupported source type '{source.type}'")
 
     try:

@@ -17,7 +17,7 @@
 - **Community**: Reddit 개발자 커뮤니티
 - **Operational**: release, changelog, migration, deprecation, platform rollout 성격이 강한 공식 블로그
 
-현재 collector는 `rss`와 `reddit` 소스를 모두 처리합니다.
+현재 collector는 `rss`와 `reddit` 소스를 모두 처리합니다. Reddit은 공개 RSS만 요청하고, `robots.txt`가 경로를 금지하면 가져오지 않습니다. HTTP 429는 소스를 `rate_limited`로 남긴 뒤 쿨다운이 끝난 다음에만 다시 시도합니다.
 
 ## 실행
 

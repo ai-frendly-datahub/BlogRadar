@@ -149,27 +149,42 @@ def test_reddit_rss_url_is_parsed_as_a_feed() -> None:
         name="r/programming",
         type="reddit",
         url="https://www.reddit.com/r/programming/.rss",
-        config={"bypass_crawl_health": True},
     )
-    response = Mock()
-    response.content = b"""<?xml version="1.0"?>
-    <feed xmlns="http://www.w3.org/2005/Atom">
-      <entry>
-        <title>Public atom item</title>
-        <link href="https://example.com/item"/>
-        <updated>2026-10-14T00:00:00Z</updated>
-      </entry>
-    </feed>
-    """
-    response.raise_for_status.return_value = None
+    calls: list[str] = []
+
+    def _get(_self: object, url: str, **_kwargs: object) -> Mock:
+        calls.append(url)
+        response = Mock()
+        response.encoding = "utf-8"
+        response.url = url
+        response.reason = "OK"
+        response.headers = {}
+        if url.endswith("/robots.txt"):
+            response.status_code = 200
+            response.content = b"User-agent: *\nAllow: /r/\n"
+            return response
+        response.status_code = 200
+        response.content = b"""<?xml version="1.0"?>
+        <feed xmlns="http://www.w3.org/2005/Atom">
+          <entry>
+            <title>Public atom item</title>
+            <link href="https://www.reddit.com/r/programming/comments/abc/public_atom_item/"/>
+            <updated>2026-10-14T00:00:00Z</updated>
+          </entry>
+        </feed>
+        """
+        return response
+
     with (
-        patch("blogradar.collector._fetch_url_with_retry", return_value=response),
+        patch("blogradar.reddit_feed.requests.Session.get", _get),
         patch("radar_core.collect_reddit_sources", side_effect=AssertionError("json api")),
     ):
-        articles, errors = collect_sources([source], category="techblog", max_workers=1)
+        articles, errors = collect_sources([source], category="techblog", max_workers=5)
     assert errors == []
     assert len(articles) == 1
     assert articles[0].title == "Public atom item"
+    assert all(".json" not in url and "old.reddit.com" not in url for url in calls)
+    assert any(url.endswith("/programming/.rss") for url in calls)
 
 
 @pytest.mark.unit
