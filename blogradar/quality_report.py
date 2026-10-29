@@ -153,6 +153,8 @@ def build_quality_report(
         "unknown_event_date_sources": status_counts.get("unknown_event_date", 0),
         "not_tracked_sources": status_counts.get("not_tracked", 0),
         "skipped_disabled_sources": status_counts.get("skipped_disabled", 0),
+        "rate_limited_sources": status_counts.get("rate_limited", 0),
+        "robots_disallowed_sources": status_counts.get("robots_disallowed", 0),
         "collection_error_count": len(errors_list),
     }
     for event_model in TRACKED_EVENT_MODEL_ORDER:
@@ -278,7 +280,8 @@ def _build_source_row(
     generated_at: datetime,
 ) -> dict[str, Any]:
     source_articles = [article for article in articles if article.source == source.name]
-    source_errors = [error for error in errors if error.startswith(f"{source.name}:")]
+    source_errors = _errors_for_source(errors, source.name)
+    collection_status = _explicit_collection_status(source_errors)
     event_model = _source_event_model(source)
     source_event_rows = [
         row
@@ -300,6 +303,7 @@ def _build_source_row(
         latest_event_at=latest_event_at,
         sla_days=sla_days,
         age_days=age_days,
+        collection_status=collection_status,
     )
 
     return {
@@ -315,7 +319,9 @@ def _build_source_row(
         "event_model": event_model,
         "freshness_sla_days": sla_days,
         "status": status,
+        "collection_status": collection_status or "ok",
         "article_count": len(source_articles),
+        "window_residual_count": len(source_articles) if collection_status else 0,
         "event_count": len(source_event_rows),
         "latest_event_at": latest_event_at.isoformat() if latest_event_at else None,
         "age_days": round(age_days, 2) if age_days is not None else None,
@@ -486,6 +492,19 @@ def _source_backlog_items(quality_config: Mapping[str, object]) -> list[Mapping[
     return [item for item in candidates if isinstance(item, Mapping)]
 
 
+def _errors_for_source(errors: list[str], source_name: str) -> list[str]:
+    prefixes = (f"{source_name}:", f"[{source_name}]")
+    return [error for error in errors if error.startswith(prefixes)]
+
+
+def _explicit_collection_status(source_errors: list[str]) -> str | None:
+    if any("rate_limited" in error for error in source_errors):
+        return "rate_limited"
+    if any("robots_disallowed" in error for error in source_errors):
+        return "robots_disallowed"
+    return None
+
+
 def _source_status(
     *,
     source: Source,
@@ -496,9 +515,12 @@ def _source_status(
     latest_event_at: datetime | None,
     sla_days: int | None,
     age_days: float | None,
+    collection_status: str | None = None,
 ) -> str:
     if not source.enabled:
         return "skipped_disabled"
+    if collection_status:
+        return collection_status
     if event_model not in tracked_event_models:
         return "not_tracked"
     if article_count == 0:

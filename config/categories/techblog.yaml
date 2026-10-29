@@ -545,59 +545,52 @@ sources:
 - name: r/programming
   type: reddit
   url: https://www.reddit.com/r/programming/.rss
-  notes: Public Atom feed. The JSON listing was crawl-health disabled after HTTP
-    failures. This keyless feed returned entries on 2026-10-14.
+  notes: Public RSS. Subreddits share one paced request when robots.txt allows
+    the feed. HTTP 429 is recorded as rate_limited and retried after the
+    crawl-health cooldown. No API key.
   config:
-    bypass_crawl_health: true
     event_model: blog_post
 - name: r/coding
   type: reddit
   url: https://www.reddit.com/r/coding/.rss
-  notes: Public Atom feed. See r/programming.
+  notes: Public RSS. See r/programming.
   config:
-    bypass_crawl_health: true
     event_model: blog_post
 - name: r/ExperiencedDevs
   type: reddit
   url: https://www.reddit.com/r/ExperiencedDevs/.rss
-  notes: Public Atom feed. See r/programming.
+  notes: Public RSS. See r/programming.
   config:
-    bypass_crawl_health: true
     event_model: blog_post
 - name: r/devops
   type: reddit
   url: https://www.reddit.com/r/devops/.rss
-  notes: Public Atom feed. See r/programming.
+  notes: Public RSS. See r/programming.
   config:
-    bypass_crawl_health: true
     event_model: blog_post
 - name: r/MachineLearning
   type: reddit
   url: https://www.reddit.com/r/MachineLearning/.rss
-  notes: Public Atom feed. See r/programming.
+  notes: Public RSS. See r/programming.
   config:
-    bypass_crawl_health: true
     event_model: blog_post
 - name: r/rust
   type: reddit
   url: https://www.reddit.com/r/rust/.rss
-  notes: Public Atom feed. See r/programming.
+  notes: Public RSS. See r/programming.
   config:
-    bypass_crawl_health: true
     event_model: blog_post
 - name: r/golang
   type: reddit
   url: https://www.reddit.com/r/golang/.rss
-  notes: Public Atom feed. See r/programming.
+  notes: Public RSS. See r/programming.
   config:
-    bypass_crawl_health: true
     event_model: blog_post
 - name: r/Python
   type: reddit
   url: https://www.reddit.com/r/Python/.rss
-  notes: Public Atom feed. See r/programming.
+  notes: Public RSS. See r/programming.
   config:
-    bypass_crawl_health: true
     event_model: blog_post
 - name: Syntax.fm
   type: rss

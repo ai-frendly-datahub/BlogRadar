@@ -212,6 +212,8 @@ def main() -> None:
     print(f"stale_sources={report['summary']['stale_sources']}")
     print(f"missing_sources={report['summary']['missing_sources']}")
     print(f"not_tracked_sources={report['summary']['not_tracked_sources']}")
+    print(f"rate_limited_sources={report['summary']['rate_limited_sources']}")
+    print(f"robots_disallowed_sources={report['summary']['robots_disallowed_sources']}")
     print(
         f"operational_adoption_event_count={report['summary']['operational_adoption_event_count']}"
     )
