@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="ko" data-visual-system="radar-unified-v2" data-visual-surface="extension" data-visual-page="newsletter-template">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Blog Radar Weekly</title>
+  <style>
+        :root { --vs-font-sans: "Pretendard Variable", "Pretendard", "Segoe UI", Arial, sans-serif; }
+
+/* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--vs-font-sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif);
+      line-height: 1.6;
+      color: #1e293b;
+      background-color: #f0f4f8;
+    }
+
+    /* Email container */
+    .email-container {
+      max-width: 680px;
+      margin: 0 auto;
+      background-color: #f8fafc;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+      color: white;
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .header .subtitle {
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    .header .date {
+      font-size: 14px;
+      opacity: 0.8;
+      margin-top: 12px;
+    }
+
+    /* Content area */
+    .content {
+      padding: 24px;
+    }
+
+    /* Section styles */
+    .section {
+      margin-bottom: 32px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #2563eb;
+    }
+
+    .section-icon {
+      font-size: 24px;
+      margin-right: 12px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #2563eb;
+    }
+
+    .section-description {
+      font-size: 14px;
+      color: #64748b;
+      margin-bottom: 16px;
+    }
+
+    /* Article card */
+    .article-card {
+      background: white;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.2s;
+    }
+
+    .article-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .article-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .article-title a {
+      color: #1e293b;
+      text-decoration: none;
+    }
+
+    .article-title a:hover {
+      color: #3b82f6;
+    }
+
+    .article-meta {
+      font-size: 13px;
+      color: #64748b;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .article-source {
+      font-weight: 500;
+      color: #2563eb;
+    }
+
+    .article-summary {
+      font-size: 14px;
+      color: #475569;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    .article-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e2e8f0;
+      color: #475569;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 12px;
+    }
+
+    .tag.domain {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    .tag.language {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .tag.framework {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    /* Group section */
+    .group-container {
+      margin-bottom: 20px;
+    }
+
+    .group-header {
+      font-size: 16px;
+      font-weight: 600;
+      color: #334155;
+      padding: 8px 12px;
+      background: #f1f5f9;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+
+    /* Stats section */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .stat-card {
+      background: white;
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .stat-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: #2563eb;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    /* Footer */
+    .footer {
+      background: #1e293b;
+      color: #94a3b8;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .footer p {
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .footer a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    .footer .unsubscribe {
+      font-size: 12px;
+      margin-top: 16px;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .header h1 {
+        font-size: 24px;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .article-meta {
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <!-- Header -->
+    <div class="header">
+      <h1>Tech Blog Radar Weekly</h1>
+      <p class="subtitle">Weekly digest of trending tech blog articles</p>
+      <p class="date">2026-10-25 ~ 2026-11-01</p>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">500</div>
+          <div class="stat-label">Total Articles</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">40</div>
+          <div class="stat-label">Sources</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">AI/ML</div>
+          <div class="stat-label">Top Domain</div>
+        </div>
+      </div>
+
+      <!-- Top Articles Section -->
+      
+      <div class="section">
+        <div class="section-header">
+          <span class="section-icon">&#x1F31F;</span>
+          <span class="section-title">Top Articles This Week</span>
+        </div>
+        <p class="section-description">Most relevant articles from tech blogs</p>
+
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/devfest-is-back" target="_blank">DevFest is back!</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-10-31</span>
+          </div>
+          
+          <p class="article-summary">DevFest 2026 runs from October 1 to December 31, bringing together nearly a million developers across more than 800 global events centered on the agentic AI era. Under the theme &#34;Build, Secure,...</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag domain">infrastructure</span>
+            
+            <span class="tag domain">ai</span>
+            
+            <span class="tag framework">gemini</span>
+            
+          </div>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/hill-climbing-agent-quality-with-agents-cli-evaluation" target="_blank">Hill-Climbing Agent Quality with Agents CLI Evaluation</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-10-31</span>
+          </div>
+          
+          <p class="article-summary">This post walks through the Agents CLI evaluation loop for systematically improving agent performance through continuous testing and grading. It demonstrates how to catch prompt regressions, evaluate...</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag domain">backend</span>
+            
+          </div>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/streaming-comes-to-api-gateway-real-time-and-ai-ready-apis-without-changing-your-spec" target="_blank">Streaming comes to API Gateway: real-time and AI-ready APIs, without changing your spec</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-10-31</span>
+          </div>
+          
+          <p class="article-summary">API Gateway now supports real-time streaming—including Server-Sent Events, WebSockets, gRPC, and chunked transfer encoding—in Public Preview without requiring changes to your existing API...</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag domain">infrastructure</span>
+            
+            <span class="tag domain">ai</span>
+            
+            <span class="tag framework">grpc</span>
+            
+            <span class="tag framework">api</span>
+            
+          </div>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/step-by-step-guide-build-a-voice-agent-that-never-goes-silent-using-adk" target="_blank">Step by Step guide: Build a Voice Agent That Never Goes Silent using ADK</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-10-31</span>
+          </div>
+          
+          <p class="article-summary">The open-source Agent Development Kit (ADK) and gemini-3.8-live enable developers to build responsive voice agents by implementing non-blocking tools in Python. Developers can use streaming tools to...</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag domain">backend</span>
+            
+            <span class="tag language">python</span>
+            
+            <span class="tag framework">gemini</span>
+            
+          </div>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/architecting-governed-self-evolving-ai-agents-on-gemini-agent-platform" target="_blank">Architecting Governed, Self-Evolving AI Agents on Google Cloud</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-10-31</span>
+          </div>
+          
+          <p class="article-summary">Learn how Project Chrysalis combines Google Cloud&#39;s Gemini Enterprise Agent Platform, Agent Development Kit (ADK), BigQuery, and a four-gate defense-in-depth security stack (Model Armor, Cloud KMS,...</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag domain">platform</span>
+            
+            <span class="tag domain">ai</span>
+            
+            <span class="tag domain">security</span>
+            
+            <span class="tag framework">gemini</span>
+            
+          </div>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/announcing-dpop-support-for-google-oauth-securing-refresh-tokens" target="_blank">Announcing DPoP Support for Google OAuth: Securing Refresh Tokens</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-10-31</span>
+          </div>
+          
+          <p class="article-summary">Google OAuth Platform now supports DPoP (Demonstrating Proof-of-Possession) to sender-constrain refresh tokens, neutralizing Infostealer malware and adversary-in-the-middle attacks. By...</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag domain">platform</span>
+            
+            <span class="tag domain">security</span>
+            
+            <span class="tag framework">api</span>
+            
+          </div>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/building-conversational-commerce-with-multi-agent-swarms-on-gcp-a-working-prototype" target="_blank">Building Conversational Commerce with Multi-Agent Swarms on GCP: A Working Prototype</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-10-31</span>
+          </div>
+          
+          <p class="article-summary">This document provides a publication template and metadata structure for a technical blog post focused on building Conversational User Interfaces (CUIs) using AI. It outlines key developer focus...</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag domain">ai</span>
+            
+            <span class="tag framework">gcp</span>
+            
+          </div>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/powering-the-agent-development-lifecycle-with-any-framework-from-adk-to-langchain-and-beyond" target="_blank">Powering the Agent Development Lifecycle with any framework, from ADK to LangChain and beyond</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-10-31</span>
+          </div>
+          
+          <p class="article-summary">The Agents CLI Extension System enables developers to use frameworks like LangChain, LangGraph, or custom enterprise stacks while retaining a unified deployment and evaluation workflow. It details a...</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag domain">platform</span>
+            
+            <span class="tag framework">langchain</span>
+            
+          </div>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/native-model-authoring-for-edge-with-litert-tensor-api" target="_blank">Native Model Authoring for Edge with LiteRT Tensor API</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-10-31</span>
+          </div>
+          
+          <p class="article-summary">Meet the LiteRT Tensor API: giving developers native C++ control over the model graph to unify end-to-end ML computations on heterogeneous edge hardware.</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag domain">ml</span>
+            
+            <span class="tag framework">api</span>
+            
+          </div>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/announcing-new-vllm-and-sglang-inference-engines-on-tpu" target="_blank">Announcing New vLLM and SGLang Inference Engines on TPU</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-10-31</span>
+          </div>
+          
+          <p class="article-summary">This post announces native PyTorch backends for vLLM and SGLang powered by TorchTPU, enabling developers to run and optimize serving workloads using familiar PyTorch tools. Built in collaboration...</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag framework">pytorch</span>
+            
+          </div>
+          
+        </div>
+        
+      </div>
+      
+
+      <!-- By Domain Section -->
+      
+      <div class="section">
+        <div class="section-header">
+          <span class="section-icon">&#x1F4CA;</span>
+          <span class="section-title">Trends by Domain</span>
+        </div>
+        <p class="section-description">Articles grouped by tech domain</p>
+
+        
+        
+        <div class="group-container">
+          <div class="group-header">AI/ML (5)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/devfest-is-back" target="_blank">DevFest is back!</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/streaming-comes-to-api-gateway-real-time-and-ai-ready-apis-without-changing-your-spec" target="_blank">Streaming comes to API Gateway: real-time and AI-ready APIs, without changing your spec</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/architecting-governed-self-evolving-ai-agents-on-gemini-agent-platform" target="_blank">Architecting Governed, Self-Evolving AI Agents on Google Cloud</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/announcing-dpop-support-for-google-oauth-securing-refresh-tokens" target="_blank">Announcing DPoP Support for Google OAuth: Securing Refresh Tokens</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/building-conversational-commerce-with-multi-agent-swarms-on-gcp-a-working-prototype" target="_blank">Building Conversational Commerce with Multi-Agent Swarms on GCP: A Working Prototype</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+        
+        <div class="group-container">
+          <div class="group-header">DevOps (5)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/devfest-is-back" target="_blank">DevFest is back!</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/streaming-comes-to-api-gateway-real-time-and-ai-ready-apis-without-changing-your-spec" target="_blank">Streaming comes to API Gateway: real-time and AI-ready APIs, without changing your spec</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/integrating-torchtpu-into-torchtitan-and-optimizing-models-for-tpu" target="_blank">Integrating TorchTPU into TorchTitan and Optimizing Models for TPU</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/announcing-mcp-support-in-apigee-hybrid-agentic-tools-that-run-in-your-own-cluster" target="_blank">Announcing MCP support in Apigee hybrid: agentic tools that run in your own cluster</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/three-layers-one-repo-a-tour-of-googleadk-recipes" target="_blank">Three layers, one repo: a tour of google/adk-recipes</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+        
+        <div class="group-container">
+          <div class="group-header">Backend (5)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/hill-climbing-agent-quality-with-agents-cli-evaluation" target="_blank">Hill-Climbing Agent Quality with Agents CLI Evaluation</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/step-by-step-guide-build-a-voice-agent-that-never-goes-silent-using-adk" target="_blank">Step by Step guide: Build a Voice Agent That Never Goes Silent using ADK</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/announcing-new-vllm-and-sglang-inference-engines-on-tpu" target="_blank">Announcing New vLLM and SGLang Inference Engines on TPU</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/integrating-torchtpu-into-torchtitan-and-optimizing-models-for-tpu" target="_blank">Integrating TorchTPU into TorchTitan and Optimizing Models for TPU</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/fast-reliable-a2ui" target="_blank">Fast, reliable A2UI, with swappable inference formats</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+        
+        <div class="group-container">
+          <div class="group-header">Security (5)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/streaming-comes-to-api-gateway-real-time-and-ai-ready-apis-without-changing-your-spec" target="_blank">Streaming comes to API Gateway: real-time and AI-ready APIs, without changing your spec</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/architecting-governed-self-evolving-ai-agents-on-gemini-agent-platform" target="_blank">Architecting Governed, Self-Evolving AI Agents on Google Cloud</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/announcing-dpop-support-for-google-oauth-securing-refresh-tokens" target="_blank">Announcing DPoP Support for Google OAuth: Securing Refresh Tokens</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/announcing-mcp-support-in-apigee-hybrid-agentic-tools-that-run-in-your-own-cluster" target="_blank">Announcing MCP support in Apigee hybrid: agentic tools that run in your own cluster</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/recallrundev/rag-chunking-measured-heading-aware-chunks-doubled-hit1-on-the-fastapi-docs-5hh7" target="_blank">RAG chunking, measured: heading-aware chunks doubled hit@1 on the FastAPI docs</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - Python</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+        
+        <div class="group-container">
+          <div class="group-header">Frontend (5)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/fast-reliable-a2ui" target="_blank">Fast, reliable A2UI, with swappable inference formats</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/tungnguyen84/5-production-ready-web-scraping-ai-data-extraction-rest-apis-on-rapidapi-hub-python-nodejs--37h9" target="_blank">5 Production-Ready Web Scraping &amp; AI Data Extraction REST APIs on RapidAPI Hub (Python, Node.js &amp; cURL)</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - Python</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/vedhanth_m_af7e05748d9ce9/lokantra-ai-powered-multi-agent-simulation-swarm-intelligence-platform-44k6" target="_blank">LOKĀNTRA: AI-Powered Multi-Agent Simulation &amp; Swarm Intelligence Platform</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - Open Source</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/p44code/graveyard-a-funeral-for-dead-code-with-a-checker-that-keeps-the-ai-honest-2go6" target="_blank">Graveyard: a funeral for dead code, with a checker that keeps the AI honest</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - Open Source</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/alexisromtz7/addendum-r2-la-tasa-que-faltaba-medida-sobre-las-dos-clases-que-faltaban-5f6h" target="_blank">Addendum R2: La tasa que faltaba, medida sobre las dos clases que faltaban</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - DevOps</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+      </div>
+      
+
+      <!-- By Language Section -->
+      
+      <div class="section">
+        <div class="section-header">
+          <span class="section-icon">&#x1F4BB;</span>
+          <span class="section-title">Language & Framework Highlights</span>
+        </div>
+        <p class="section-description">Top articles by programming language/framework</p>
+
+        
+        
+        <div class="group-container">
+          <div class="group-header">Go (3)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/devfest-is-back" target="_blank">DevFest is back!</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/step-by-step-guide-build-a-voice-agent-that-never-goes-silent-using-adk" target="_blank">Step by Step guide: Build a Voice Agent That Never Goes Silent using ADK</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/architecting-governed-self-evolving-ai-agents-on-gemini-agent-platform" target="_blank">Architecting Governed, Self-Evolving AI Agents on Google Cloud</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+        
+        <div class="group-container">
+          <div class="group-header">Python (3)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/step-by-step-guide-build-a-voice-agent-that-never-goes-silent-using-adk" target="_blank">Step by Step guide: Build a Voice Agent That Never Goes Silent using ADK</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/announcing-new-vllm-and-sglang-inference-engines-on-tpu" target="_blank">Announcing New vLLM and SGLang Inference Engines on TPU</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/integrating-torchtpu-into-torchtitan-and-optimizing-models-for-tpu" target="_blank">Integrating TorchTPU into TorchTitan and Optimizing Models for TPU</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+        
+        <div class="group-container">
+          <div class="group-header">Kubernetes (3)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/announcing-mcp-support-in-apigee-hybrid-agentic-tools-that-run-in-your-own-cluster" target="_blank">Announcing MCP support in Apigee hybrid: agentic tools that run in your own cluster</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/mhasif0786/building-a-kubernetes-gitops-lab-with-argo-cd-installation-dns-troubleshooting-and-nginx-2b51" target="_blank">Building a Kubernetes GitOps Lab with Argo CD: Installation, DNS Troubleshooting and Nginx Deployment</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - DevOps</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/toolpilotpro/kimi-k31-pro-weights-drop-nov-4-licence-size-how-to-run-3ckk" target="_blank">Kimi K3.1 Pro Weights Drop Nov 4: Licence, Size, How to Run</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - Open Source</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+        
+        <div class="group-container">
+          <div class="group-header">TypeScript (3)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/fast-reliable-a2ui" target="_blank">Fast, reliable A2UI, with swappable inference formats</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/tungnguyen84/5-production-ready-web-scraping-ai-data-extraction-rest-apis-on-rapidapi-hub-python-nodejs--37h9" target="_blank">5 Production-Ready Web Scraping &amp; AI Data Extraction REST APIs on RapidAPI Hub (Python, Node.js &amp; cURL)</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - Python</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/vedhanth_m_af7e05748d9ce9/lokantra-ai-powered-multi-agent-simulation-swarm-intelligence-platform-44k6" target="_blank">LOKĀNTRA: AI-Powered Multi-Agent Simulation &amp; Swarm Intelligence Platform</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - Open Source</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+        
+        <div class="group-container">
+          <div class="group-header">Rust (3)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/recallrundev/hybrid-search-in-python-bm25-vectors-with-reciprocal-rank-fusion-alpha-swept-0-to-1-4oj7" target="_blank">Hybrid search in Python: BM25 + vectors with Reciprocal Rank Fusion, alpha swept 0 to 1</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - Python</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/p44code/graveyard-a-funeral-for-dead-code-with-a-checker-that-keeps-the-ai-honest-2go6" target="_blank">Graveyard: a funeral for dead code, with a checker that keeps the AI honest</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - Open Source</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/alexisromtz7/addendum-r2-la-tasa-que-faltaba-medida-sobre-las-dos-clases-que-faltaban-5f6h" target="_blank">Addendum R2: La tasa que faltaba, medida sobre las dos clases que faltaban</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - DevOps</span>
+              <span>2026-10-31</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+      </div>
+      
+
+      <!-- Korean Companies Section -->
+      
+
+      <!-- Global Companies Section -->
+      
+      <div class="section">
+        <div class="section-header">
+          <span class="section-icon">&#x1F30D;</span>
+          <span class="section-title">Global Tech Updates</span>
+        </div>
+        <p class="section-description">Latest from global tech giants</p>
+
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/devfest-is-back" target="_blank">DevFest is back!</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-10-31</span>
+          </div>
+          
+          <p class="article-summary">DevFest 2026 runs from October 1 to December 31, bringing together nearly a million developers across more than 800 global events centered on the agentic AI era. Under the theme &#34;Build, Secure,...</p>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/hill-climbing-agent-quality-with-agents-cli-evaluation" target="_blank">Hill-Climbing Agent Quality with Agents CLI Evaluation</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-10-31</span>
+          </div>
+          
+          <p class="article-summary">This post walks through the Agents CLI evaluation loop for systematically improving agent performance through continuous testing and grading. It demonstrates how to catch prompt regressions, evaluate...</p>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/streaming-comes-to-api-gateway-real-time-and-ai-ready-apis-without-changing-your-spec" target="_blank">Streaming comes to API Gateway: real-time and AI-ready APIs, without changing your spec</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-10-31</span>
+          </div>
+          
+          <p class="article-summary">API Gateway now supports real-time streaming—including Server-Sent Events, WebSockets, gRPC, and chunked transfer encoding—in Public Preview without requiring changes to your existing API...</p>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/step-by-step-guide-build-a-voice-agent-that-never-goes-silent-using-adk" target="_blank">Step by Step guide: Build a Voice Agent That Never Goes Silent using ADK</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-10-31</span>
+          </div>
+          
+          <p class="article-summary">The open-source Agent Development Kit (ADK) and gemini-3.8-live enable developers to build responsive voice agents by implementing non-blocking tools in Python. Developers can use streaming tools to...</p>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/architecting-governed-self-evolving-ai-agents-on-gemini-agent-platform" target="_blank">Architecting Governed, Self-Evolving AI Agents on Google Cloud</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-10-31</span>
+          </div>
+          
+          <p class="article-summary">Learn how Project Chrysalis combines Google Cloud&#39;s Gemini Enterprise Agent Platform, Agent Development Kit (ADK), BigQuery, and a four-gate defense-in-depth security stack (Model Armor, Cloud KMS,...</p>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/announcing-dpop-support-for-google-oauth-securing-refresh-tokens" target="_blank">Announcing DPoP Support for Google OAuth: Securing Refresh Tokens</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-10-31</span>
+          </div>
+          
+          <p class="article-summary">Google OAuth Platform now supports DPoP (Demonstrating Proof-of-Possession) to sender-constrain refresh tokens, neutralizing Infostealer malware and adversary-in-the-middle attacks. By...</p>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/building-conversational-commerce-with-multi-agent-swarms-on-gcp-a-working-prototype" target="_blank">Building Conversational Commerce with Multi-Agent Swarms on GCP: A Working Prototype</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-10-31</span>
+          </div>
+          
+          <p class="article-summary">This document provides a publication template and metadata structure for a technical blog post focused on building Conversational User Interfaces (CUIs) using AI. It outlines key developer focus...</p>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/powering-the-agent-development-lifecycle-with-any-framework-from-adk-to-langchain-and-beyond" target="_blank">Powering the Agent Development Lifecycle with any framework, from ADK to LangChain and beyond</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-10-31</span>
+          </div>
+          
+          <p class="article-summary">The Agents CLI Extension System enables developers to use frameworks like LangChain, LangGraph, or custom enterprise stacks while retaining a unified deployment and evaluation workflow. It details a...</p>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/native-model-authoring-for-edge-with-litert-tensor-api" target="_blank">Native Model Authoring for Edge with LiteRT Tensor API</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-10-31</span>
+          </div>
+          
+          <p class="article-summary">Meet the LiteRT Tensor API: giving developers native C++ control over the model graph to unify end-to-end ML computations on heterogeneous edge hardware.</p>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/announcing-new-vllm-and-sglang-inference-engines-on-tpu" target="_blank">Announcing New vLLM and SGLang Inference Engines on TPU</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-10-31</span>
+          </div>
+          
+          <p class="article-summary">This post announces native PyTorch backends for vLLM and SGLang powered by TorchTPU, enabling developers to run and optimize serving workloads using familiar PyTorch tools. Built in collaboration...</p>
+          
+        </div>
+        
+      </div>
+      
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>Generated by <a href="https://github.com/ai-frendly-datahub/BlogRadar">BlogRadar</a></p>
+      <p>Tracking 40 tech blog sources</p>
+      <p class="unsubscribe">
+        <a href="#">Unsubscribe</a> |
+        <a href="#">View in browser</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
