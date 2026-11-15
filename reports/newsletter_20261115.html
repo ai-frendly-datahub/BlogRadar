@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="ko" data-visual-system="radar-unified-v2" data-visual-surface="extension" data-visual-page="newsletter-template">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Blog Radar Weekly</title>
+  <style>
+        :root { --vs-font-sans: "Pretendard Variable", "Pretendard", "Segoe UI", Arial, sans-serif; }
+
+/* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--vs-font-sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif);
+      line-height: 1.6;
+      color: #1e293b;
+      background-color: #f0f4f8;
+    }
+
+    /* Email container */
+    .email-container {
+      max-width: 680px;
+      margin: 0 auto;
+      background-color: #f8fafc;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+      color: white;
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .header .subtitle {
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    .header .date {
+      font-size: 14px;
+      opacity: 0.8;
+      margin-top: 12px;
+    }
+
+    /* Content area */
+    .content {
+      padding: 24px;
+    }
+
+    /* Section styles */
+    .section {
+      margin-bottom: 32px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #2563eb;
+    }
+
+    .section-icon {
+      font-size: 24px;
+      margin-right: 12px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #2563eb;
+    }
+
+    .section-description {
+      font-size: 14px;
+      color: #64748b;
+      margin-bottom: 16px;
+    }
+
+    /* Article card */
+    .article-card {
+      background: white;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.2s;
+    }
+
+    .article-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .article-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .article-title a {
+      color: #1e293b;
+      text-decoration: none;
+    }
+
+    .article-title a:hover {
+      color: #3b82f6;
+    }
+
+    .article-meta {
+      font-size: 13px;
+      color: #64748b;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .article-source {
+      font-weight: 500;
+      color: #2563eb;
+    }
+
+    .article-summary {
+      font-size: 14px;
+      color: #475569;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    .article-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e2e8f0;
+      color: #475569;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 12px;
+    }
+
+    .tag.domain {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    .tag.language {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .tag.framework {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    /* Group section */
+    .group-container {
+      margin-bottom: 20px;
+    }
+
+    .group-header {
+      font-size: 16px;
+      font-weight: 600;
+      color: #334155;
+      padding: 8px 12px;
+      background: #f1f5f9;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+
+    /* Stats section */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .stat-card {
+      background: white;
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .stat-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: #2563eb;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    /* Footer */
+    .footer {
+      background: #1e293b;
+      color: #94a3b8;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .footer p {
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .footer a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    .footer .unsubscribe {
+      font-size: 12px;
+      margin-top: 16px;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .header h1 {
+        font-size: 24px;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .article-meta {
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <!-- Header -->
+    <div class="header">
+      <h1>Tech Blog Radar Weekly</h1>
+      <p class="subtitle">Weekly digest of trending tech blog articles</p>
+      <p class="date">2026-11-08 ~ 2026-11-15</p>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">500</div>
+          <div class="stat-label">Total Articles</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">41</div>
+          <div class="stat-label">Sources</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">AI/ML</div>
+          <div class="stat-label">Top Domain</div>
+        </div>
+      </div>
+
+      <!-- Top Articles Section -->
+      
+      <div class="section">
+        <div class="section-header">
+          <span class="section-icon">&#x1F31F;</span>
+          <span class="section-title">Top Articles This Week</span>
+        </div>
+        <p class="section-description">Most relevant articles from tech blogs</p>
+
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/fast-reliable-a2ui" target="_blank">Fast, reliable A2UI, with swappable inference formats</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-11-14</span>
+          </div>
+          
+          <p class="article-summary">A2UI now supports swappable inference formats, introducing A2UI Express which uses up to 3x fewer tokens and cuts latency by compiling compact Python-style syntax into standard A2UI JSON via Agent...</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag domain">frontend</span>
+            
+            <span class="tag language">python</span>
+            
+            <span class="tag language">typescript</span>
+            
+            <span class="tag framework">express</span>
+            
+          </div>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/catch-go-bugs-that-fuzzing-misses-with-gemini-and-a-constraint-solver" target="_blank">Catch Go bugs that fuzzing misses with Gemini and a constraint solver</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-11-14</span>
+          </div>
+          
+          <p class="article-summary">How pairing Go&#39;s surviving compiler bounds-check traps with Gemini 4 Argon and the Z3 constraint solver catches latent out-of-bounds panics in Go code and uncovers a slice-capacity blind spot in go...</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag language">go</span>
+            
+            <span class="tag framework">gemini</span>
+            
+          </div>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/on-device-speech-recognition-and-text-to-speech-in-google-ai-edge-gallery" target="_blank">On-Device Speech Recognition and Text-to-Speech in Google AI Edge Gallery</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-11-14</span>
+          </div>
+          
+          <p class="article-summary">Google AI Edge Gallery now supports on-device, offline Automatic Speech Recognition (ASR) and Text-to-Speech (TTS) capabilities for building developer-friendly voice applications. Developers can...</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag domain">platform</span>
+            
+            <span class="tag domain">ml</span>
+            
+            <span class="tag domain">ai</span>
+            
+            <span class="tag framework">gemini</span>
+            
+          </div>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/integrating-torchtpu-into-torchtitan-and-optimizing-models-for-tpu" target="_blank">Integrating TorchTPU into TorchTitan and Optimizing Models for TPU</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-11-14</span>
+          </div>
+          
+          <p class="article-summary">TorchTPU integrates a native torch.device(&#34;tpu&#34;) backend directly into PyTorch, allowing developers to train large-scale models on Google Cloud TPUs without rewriting code in JAX. The TorchTitan TPU...</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag domain">backend</span>
+            
+            <span class="tag domain">infrastructure</span>
+            
+            <span class="tag framework">pytorch</span>
+            
+          </div>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/cost-per-task-using-cheap-classifiers-to-route-across-gemini-models-and-thinking-levels" target="_blank">Cost per task: Using cheap classifiers to route across Gemini models and thinking levels</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-11-14</span>
+          </div>
+          
+          <p class="article-summary">Per-token API prices keep falling, yet engineering bills for autonomous coding agents keep climbing....</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag framework">gemini</span>
+            
+            <span class="tag framework">api</span>
+            
+          </div>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/preview-edit-and-collaborate-on-markdown-md-files-natively-in-google-docs-and-drive" target="_blank">Preview, edit, and collaborate on markdown (.md) files natively in Google Docs and Drive</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-11-14</span>
+          </div>
+          
+          <p class="article-summary">Google Workspace now offers native support for Markdown (.md) files, allowing developers and AI agents to seamlessly collaborate on documentation directly in Google Docs without manual file...</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag domain">ai</span>
+            
+          </div>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/from-prompt-to-app-build-with-google-maps-in-ai-studio" target="_blank">From prompt to app: Build with Google Maps in AI Studio</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-11-14</span>
+          </div>
+          
+          <p class="article-summary">Developers can now build applications powered by Google Maps Platform directly within Google AI Studio by prompting Gemini with real-world geospatial concepts. The integration eliminates traditional...</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag domain">platform</span>
+            
+            <span class="tag domain">ai</span>
+            
+            <span class="tag framework">gemini</span>
+            
+          </div>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/build-generative-ui-apps-with-a2ui-copilotkit-agents" target="_blank">Build Generative UI Apps with A2UI &amp; CopilotKit Agents</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-11-14</span>
+          </div>
+          
+          <p class="article-summary">See Google A2Ui in action! Learn how to natively render agentic UIs across Langchain, AWS Strands, Microsoft agents, and Google ADK using CopilotKit SDKs for A2UI.</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag framework">langchain</span>
+            
+            <span class="tag framework">aws</span>
+            
+          </div>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/powering-the-agent-development-lifecycle-with-any-framework-from-adk-to-langchain-and-beyond" target="_blank">Powering the Agent Development Lifecycle with any framework, from ADK to LangChain and beyond</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-11-14</span>
+          </div>
+          
+          <p class="article-summary">The Agents CLI Extension System enables developers to use frameworks like LangChain, LangGraph, or custom enterprise stacks while retaining a unified deployment and evaluation workflow. It details a...</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag domain">platform</span>
+            
+            <span class="tag framework">langchain</span>
+            
+          </div>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/devfest-is-back" target="_blank">DevFest is back!</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-11-14</span>
+          </div>
+          
+          <p class="article-summary">DevFest 2026 runs from October 1 to December 31, bringing together nearly a million developers across more than 800 global events centered on the agentic AI era. Under the theme &#34;Build, Secure,...</p>
+          
+          
+          <div class="article-tags">
+            
+            <span class="tag domain">infrastructure</span>
+            
+            <span class="tag domain">ai</span>
+            
+            <span class="tag framework">gemini</span>
+            
+          </div>
+          
+        </div>
+        
+      </div>
+      
+
+      <!-- By Domain Section -->
+      
+      <div class="section">
+        <div class="section-header">
+          <span class="section-icon">&#x1F4CA;</span>
+          <span class="section-title">Trends by Domain</span>
+        </div>
+        <p class="section-description">Articles grouped by tech domain</p>
+
+        
+        
+        <div class="group-container">
+          <div class="group-header">Backend (5)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/fast-reliable-a2ui" target="_blank">Fast, reliable A2UI, with swappable inference formats</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/integrating-torchtpu-into-torchtitan-and-optimizing-models-for-tpu" target="_blank">Integrating TorchTPU into TorchTitan and Optimizing Models for TPU</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/hill-climbing-agent-quality-with-agents-cli-evaluation" target="_blank">Hill-Climbing Agent Quality with Agents CLI Evaluation</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/foysal365/termssh-ssh-files-monitoring-and-databases-in-one-browser-workspace-1mm6" target="_blank">TermSSH: SSH, Files, Monitoring, and Databases in One Browser Workspace</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - DevOps</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/yashksaini/devcon-8-mumbai-four-days-at-ethereums-biggest-builder-gathering-3jn" target="_blank">Devcon 8 Mumbai: Four Days at Ethereum&#39;s Biggest Builder Gathering</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - Open Source</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+        
+        <div class="group-container">
+          <div class="group-header">Frontend (5)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/fast-reliable-a2ui" target="_blank">Fast, reliable A2UI, with swappable inference formats</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/a2ui-10-build-delightful-fast-reliable-agentic-experiences" target="_blank">A2UI 1.0: Build delightful, fast, reliable, agentic experiences</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/yashksaini/devcon-8-mumbai-four-days-at-ethereums-biggest-builder-gathering-3jn" target="_blank">Devcon 8 Mumbai: Four Days at Ethereum&#39;s Biggest Builder Gathering</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - Open Source</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/veenkes/how-to-scrape-google-news-headlines-and-real-article-urls-aa3" target="_blank">How to Scrape Google News Headlines and Real Article URLs</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - Python</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/happyendpoint/scrape-property-finder-data-with-python-what-furniture-adds-to-a-dubai-rent-33m6" target="_blank">Scrape Property Finder Data with Python: What Furniture Adds to a Dubai Rent</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - Python</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+        
+        <div class="group-container">
+          <div class="group-header">AI/ML (5)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/catch-go-bugs-that-fuzzing-misses-with-gemini-and-a-constraint-solver" target="_blank">Catch Go bugs that fuzzing misses with Gemini and a constraint solver</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/on-device-speech-recognition-and-text-to-speech-in-google-ai-edge-gallery" target="_blank">On-Device Speech Recognition and Text-to-Speech in Google AI Edge Gallery</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/integrating-torchtpu-into-torchtitan-and-optimizing-models-for-tpu" target="_blank">Integrating TorchTPU into TorchTitan and Optimizing Models for TPU</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/preview-edit-and-collaborate-on-markdown-md-files-natively-in-google-docs-and-drive" target="_blank">Preview, edit, and collaborate on markdown (.md) files natively in Google Docs and Drive</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/from-prompt-to-app-build-with-google-maps-in-ai-studio" target="_blank">From prompt to app: Build with Google Maps in AI Studio</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+        
+        <div class="group-container">
+          <div class="group-header">DevOps (5)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/integrating-torchtpu-into-torchtitan-and-optimizing-models-for-tpu" target="_blank">Integrating TorchTPU into TorchTitan and Optimizing Models for TPU</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/devfest-is-back" target="_blank">DevFest is back!</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/streaming-comes-to-api-gateway-real-time-and-ai-ready-apis-without-changing-your-spec" target="_blank">Streaming comes to API Gateway: real-time and AI-ready APIs, without changing your spec</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/realestate26/mastering-cicd-with-github-actions-a-developers-guide-idc" target="_blank">Mastering CI/CD with GitHub Actions: A Developer&#39;s Guide</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - DevOps</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/realestate26/unlocking-cloud-native-a-deep-dive-into-kubernetes-microservices-28p4" target="_blank">Unlocking Cloud Native: A Deep Dive into Kubernetes &amp; Microservices</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - DevOps</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+        
+        <div class="group-container">
+          <div class="group-header">Security (5)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/streaming-comes-to-api-gateway-real-time-and-ai-ready-apis-without-changing-your-spec" target="_blank">Streaming comes to API Gateway: real-time and AI-ready APIs, without changing your spec</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/how-agent-anomaly-detection-scores-on-benchmarks-we-didnt-write" target="_blank">How Agent Anomaly Detection scores on benchmarks we didn&#39;t write</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/architecting-governed-self-evolving-ai-agents-on-gemini-agent-platform" target="_blank">Architecting Governed, Self-Evolving AI Agents on Google Cloud</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/realestate26/unlocking-cloud-native-a-deep-dive-into-kubernetes-microservices-28p4" target="_blank">Unlocking Cloud Native: A Deep Dive into Kubernetes &amp; Microservices</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - DevOps</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/vmohost_blogs/trivy-setup-guide-installing-the-ultimate-open-source-security-scanner-5d8h" target="_blank">Trivy Setup Guide: Installing the Ultimate Open-Source Security Scanner</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - DevOps</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+      </div>
+      
+
+      <!-- By Language Section -->
+      
+      <div class="section">
+        <div class="section-header">
+          <span class="section-icon">&#x1F4BB;</span>
+          <span class="section-title">Language & Framework Highlights</span>
+        </div>
+        <p class="section-description">Top articles by programming language/framework</p>
+
+        
+        
+        <div class="group-container">
+          <div class="group-header">Python (3)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/fast-reliable-a2ui" target="_blank">Fast, reliable A2UI, with swappable inference formats</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/integrating-torchtpu-into-torchtitan-and-optimizing-models-for-tpu" target="_blank">Integrating TorchTPU into TorchTitan and Optimizing Models for TPU</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/a2ui-10-build-delightful-fast-reliable-agentic-experiences" target="_blank">A2UI 1.0: Build delightful, fast, reliable, agentic experiences</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+        
+        <div class="group-container">
+          <div class="group-header">TypeScript (3)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/fast-reliable-a2ui" target="_blank">Fast, reliable A2UI, with swappable inference formats</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/a2ui-10-build-delightful-fast-reliable-agentic-experiences" target="_blank">A2UI 1.0: Build delightful, fast, reliable, agentic experiences</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/realestate26/mastering-cicd-with-github-actions-a-developers-guide-idc" target="_blank">Mastering CI/CD with GitHub Actions: A Developer&#39;s Guide</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - DevOps</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+        
+        <div class="group-container">
+          <div class="group-header">Go (3)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/catch-go-bugs-that-fuzzing-misses-with-gemini-and-a-constraint-solver" target="_blank">Catch Go bugs that fuzzing misses with Gemini and a constraint solver</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/on-device-speech-recognition-and-text-to-speech-in-google-ai-edge-gallery" target="_blank">On-Device Speech Recognition and Text-to-Speech in Google AI Edge Gallery</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://developers.googleblog.com/integrating-torchtpu-into-torchtitan-and-optimizing-models-for-tpu" target="_blank">Integrating TorchTPU into TorchTitan and Optimizing Models for TPU</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Google Developers Blog</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+        
+        <div class="group-container">
+          <div class="group-header">Kubernetes (3)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/realestate26/unlocking-cloud-native-a-deep-dive-into-kubernetes-microservices-28p4" target="_blank">Unlocking Cloud Native: A Deep Dive into Kubernetes &amp; Microservices</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - DevOps</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/kanishga_subramani_49ad73/fix-oom-kills-and-memorylimitexceeded-on-clickhouser-servers-5i4" target="_blank">Fix OOM Kills and MEMORY_LIMIT_EXCEEDED on ClickHouse® Servers</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - DevOps</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://www.mongodb.com/company/blog/innovation/how-model-insurance-policy-without-joining-dozens-tables" target="_blank">How to Model an Insurance Policy Without Joining Dozens of Tables</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">MongoDB Engineering</span>
+              <span>2026-11-13</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+        
+        <div class="group-container">
+          <div class="group-header">Rust (3)</div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/foysal365/termssh-ssh-files-monitoring-and-databases-in-one-browser-workspace-1mm6" target="_blank">TermSSH: SSH, Files, Monitoring, and Databases in One Browser Workspace</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - DevOps</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/yashksaini/devcon-8-mumbai-four-days-at-ethereums-biggest-builder-gathering-3jn" target="_blank">Devcon 8 Mumbai: Four Days at Ethereum&#39;s Biggest Builder Gathering</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - Open Source</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <h3 class="article-title">
+              <a href="https://dev.to/abdeldjalilchougui/cryptowalletcore-a-small-bitcoin-and-ethereum-wallet-core-in-pure-dart-91h" target="_blank">crypto_wallet_core: a small Bitcoin and Ethereum wallet core in pure Dart</a>
+            </h3>
+            <div class="article-meta">
+              <span class="article-source">Dev.to - Open Source</span>
+              <span>2026-11-14</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+      </div>
+      
+
+      <!-- Korean Companies Section -->
+      
+
+      <!-- Global Companies Section -->
+      
+      <div class="section">
+        <div class="section-header">
+          <span class="section-icon">&#x1F30D;</span>
+          <span class="section-title">Global Tech Updates</span>
+        </div>
+        <p class="section-description">Latest from global tech giants</p>
+
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/fast-reliable-a2ui" target="_blank">Fast, reliable A2UI, with swappable inference formats</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-11-14</span>
+          </div>
+          
+          <p class="article-summary">A2UI now supports swappable inference formats, introducing A2UI Express which uses up to 3x fewer tokens and cuts latency by compiling compact Python-style syntax into standard A2UI JSON via Agent...</p>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/catch-go-bugs-that-fuzzing-misses-with-gemini-and-a-constraint-solver" target="_blank">Catch Go bugs that fuzzing misses with Gemini and a constraint solver</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-11-14</span>
+          </div>
+          
+          <p class="article-summary">How pairing Go&#39;s surviving compiler bounds-check traps with Gemini 4 Argon and the Z3 constraint solver catches latent out-of-bounds panics in Go code and uncovers a slice-capacity blind spot in go...</p>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/on-device-speech-recognition-and-text-to-speech-in-google-ai-edge-gallery" target="_blank">On-Device Speech Recognition and Text-to-Speech in Google AI Edge Gallery</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-11-14</span>
+          </div>
+          
+          <p class="article-summary">Google AI Edge Gallery now supports on-device, offline Automatic Speech Recognition (ASR) and Text-to-Speech (TTS) capabilities for building developer-friendly voice applications. Developers can...</p>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/integrating-torchtpu-into-torchtitan-and-optimizing-models-for-tpu" target="_blank">Integrating TorchTPU into TorchTitan and Optimizing Models for TPU</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-11-14</span>
+          </div>
+          
+          <p class="article-summary">TorchTPU integrates a native torch.device(&#34;tpu&#34;) backend directly into PyTorch, allowing developers to train large-scale models on Google Cloud TPUs without rewriting code in JAX. The TorchTitan TPU...</p>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/cost-per-task-using-cheap-classifiers-to-route-across-gemini-models-and-thinking-levels" target="_blank">Cost per task: Using cheap classifiers to route across Gemini models and thinking levels</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-11-14</span>
+          </div>
+          
+          <p class="article-summary">Per-token API prices keep falling, yet engineering bills for autonomous coding agents keep climbing....</p>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/preview-edit-and-collaborate-on-markdown-md-files-natively-in-google-docs-and-drive" target="_blank">Preview, edit, and collaborate on markdown (.md) files natively in Google Docs and Drive</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-11-14</span>
+          </div>
+          
+          <p class="article-summary">Google Workspace now offers native support for Markdown (.md) files, allowing developers and AI agents to seamlessly collaborate on documentation directly in Google Docs without manual file...</p>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/from-prompt-to-app-build-with-google-maps-in-ai-studio" target="_blank">From prompt to app: Build with Google Maps in AI Studio</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-11-14</span>
+          </div>
+          
+          <p class="article-summary">Developers can now build applications powered by Google Maps Platform directly within Google AI Studio by prompting Gemini with real-world geospatial concepts. The integration eliminates traditional...</p>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/build-generative-ui-apps-with-a2ui-copilotkit-agents" target="_blank">Build Generative UI Apps with A2UI &amp; CopilotKit Agents</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-11-14</span>
+          </div>
+          
+          <p class="article-summary">See Google A2Ui in action! Learn how to natively render agentic UIs across Langchain, AWS Strands, Microsoft agents, and Google ADK using CopilotKit SDKs for A2UI.</p>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/powering-the-agent-development-lifecycle-with-any-framework-from-adk-to-langchain-and-beyond" target="_blank">Powering the Agent Development Lifecycle with any framework, from ADK to LangChain and beyond</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-11-14</span>
+          </div>
+          
+          <p class="article-summary">The Agents CLI Extension System enables developers to use frameworks like LangChain, LangGraph, or custom enterprise stacks while retaining a unified deployment and evaluation workflow. It details a...</p>
+          
+        </div>
+        
+        <div class="article-card">
+          <h3 class="article-title">
+            <a href="https://developers.googleblog.com/devfest-is-back" target="_blank">DevFest is back!</a>
+          </h3>
+          <div class="article-meta">
+            <span class="article-source">Google Developers Blog</span>
+            <span>2026-11-14</span>
+          </div>
+          
+          <p class="article-summary">DevFest 2026 runs from October 1 to December 31, bringing together nearly a million developers across more than 800 global events centered on the agentic AI era. Under the theme &#34;Build, Secure,...</p>
+          
+        </div>
+        
+      </div>
+      
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>Generated by <a href="https://github.com/ai-frendly-datahub/BlogRadar">BlogRadar</a></p>
+      <p>Tracking 41 tech blog sources</p>
+      <p class="unsubscribe">
+        <a href="#">Unsubscribe</a> |
+        <a href="#">View in browser</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
